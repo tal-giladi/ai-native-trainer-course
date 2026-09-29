@@ -97,3 +97,4 @@ Units total: 22 modules + foundations + 6 simulations + templates + projects + c
 - isolation fixed for real (--settings with claudeMdExcludes + autoMemoryEnabled off, all labs); M09 lessons/README made honest about model resisting injection ($0.28). Remaining open: topology.md stale line (Tal).
 - topology.md line 13 fixed by me (Tal authorized). Verifying M11 with one run.
 - M11 re-run passes ($0.20); run-headless.sh jq dependency removed. All known issues fixed.
+- 2026-09-29: published https://github.com/tal-giladi/ai-native-trainer-course → https://tal-giladi.github.io/ai-native-trainer-course/ (ai-native-trainer-path.html gitignored: third-party workshop teardown).
