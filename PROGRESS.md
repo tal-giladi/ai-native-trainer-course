@@ -1,0 +1,188 @@
+# My progress
+
+A paper checklist you can tick in your own fork. The site also tracks progress in your browser.
+
+Legend: tick a lesson when its lab and knowledge check are done; tick the module when its artifact exists.
+
+
+## Stage A — Becoming an AI-native engineering practitioner
+
+- [ ] **Module 1 — The AI-Native Trainer Role & Picking Your Wedge** · artifact shipped
+  - [ ] [01.1 · The roles and the flywheel](lessons/module-01/lesson-01.md)
+  - [ ] [01.2 · Engineering pain vs AI hype](lessons/module-01/lesson-02.md)
+  - [ ] [01.3 · Finding your wedge](lessons/module-01/lesson-03.md)
+  - [ ] [01.4 · Customer discovery interviews](lessons/module-01/lesson-04.md)
+  - [ ] [Module 1 quiz](assessments/module-01-quiz.md) ≥ 70%
+
+## Stage B — Understand the technology
+
+- [ ] **Module 2 — LLM and Agent Fundamentals** · artifact shipped
+  - [ ] [02.1 · From text to next token](lessons/module-02/lesson-01.md)
+  - [ ] [02.2 · Sampling and (non-)determinism](lessons/module-02/lesson-02.md)
+  - [ ] [02.3 · The instruction hierarchy](lessons/module-02/lesson-03.md)
+  - [ ] [02.4 · Tool calling and the agent loop](lessons/module-02/lesson-04.md)
+  - [ ] [02.5 · Failure taxonomy and model selection](lessons/module-02/lesson-05.md)
+  - [ ] [Module 2 quiz](assessments/module-02-quiz.md) ≥ 70%
+- [ ] **Module 3 — Anatomy of an AI-Native Codebase: The AI Layer** · artifact shipped
+  - [ ] [03.1 · The fourth citizen: AI behavior as an engineering artifact](lessons/module-03/lesson-01.md)
+  - [ ] [03.2 · Component map and portability](lessons/module-03/lesson-02.md)
+  - [ ] [03.3 · The brownfield audit](lessons/module-03/lesson-03.md)
+  - [ ] [03.4 · Writing a grounded rules file](lessons/module-03/lesson-04.md)
+  - [ ] [Module 3 quiz](assessments/module-03-quiz.md) ≥ 70%
+
+## Stage C — Context engineering
+
+- [ ] **Module 4 — Context Engineering** · artifact shipped
+  - [ ] [04.1 · What context is and what it costs](lessons/module-04/lesson-01.md)
+  - [ ] [04.2 · Layering context](lessons/module-04/lesson-02.md)
+  - [ ] [04.3 · Context pathologies](lessons/module-04/lesson-03.md)
+  - [ ] [04.4 · Compression and compaction](lessons/module-04/lesson-04.md)
+  - [ ] [04.5 · The context audit](lessons/module-04/lesson-05.md)
+  - [ ] [Module 4 quiz](assessments/module-04-quiz.md) ≥ 70%
+
+## Stage D — Reliable agentic software development
+
+- [ ] **Module 5 — Research → Plan → Implement → Validate** · artifact shipped
+  - [ ] [05.1 · Research discipline](lessons/module-05/lesson-01.md)
+  - [ ] [05.2 · Plans worth reviewing](lessons/module-05/lesson-02.md)
+  - [ ] [05.3 · Validation gates and reset decisions](lessons/module-05/lesson-03.md)
+  - [ ] [05.4 · Failure diagnosis across the loop](lessons/module-05/lesson-04.md)
+  - [ ] [Module 5 quiz](assessments/module-05-quiz.md) ≥ 70%
+- [ ] **Module 6 — Skills, Sub-Agents and Workflow Automation** · artifact shipped
+  - [ ] [06.1 · Skill anatomy](lessons/module-06/lesson-01.md)
+  - [ ] [06.2 · The five core skills](lessons/module-06/lesson-02.md)
+  - [ ] [06.3 · Sub-agents, and when not to build one](lessons/module-06/lesson-03.md)
+  - [ ] [06.4 · Testing, versioning and failure analysis for skills](lessons/module-06/lesson-04.md)
+  - [ ] [Module 6 quiz](assessments/module-06-quiz.md) ≥ 70%
+- [ ] **Module 7 — Agent Evaluation** · artifact shipped
+  - [ ] [07.1 · Why evaluate agents](lessons/module-07/lesson-01.md)
+  - [ ] [07.2 · Task datasets](lessons/module-07/lesson-02.md)
+  - [ ] [07.3 · Graders: deterministic checks, rubrics, humans and LLM judges](lessons/module-07/lesson-03.md)
+  - [ ] [07.4 · Statistics for stochastic systems](lessons/module-07/lesson-04.md)
+  - [ ] [07.5 · Comparisons and paired designs](lessons/module-07/lesson-05.md)
+  - [ ] [07.6 · Evals in the loop](lessons/module-07/lesson-06.md)
+  - [ ] [Module 7 quiz](assessments/module-07-quiz.md) ≥ 70%
+
+## Stage E — Tools, integration and security
+
+- [ ] **Module 8 — MCP, APIs and Hooks** · artifact shipped
+  - [ ] [08.1 · MCP architecture, authentication and authorization](lessons/module-08/lesson-01.md)
+  - [ ] [08.2 · A real integration on your wedge stack](lessons/module-08/lesson-02.md)
+  - [ ] [08.3 · Building a custom MCP server in C#](lessons/module-08/lesson-03.md)
+  - [ ] [08.4 · Hooks: enforcement and audit](lessons/module-08/lesson-04.md)
+  - [ ] [Module 8 quiz](assessments/module-08-quiz.md) ≥ 70%
+- [ ] **Module 9 — Agent Security** · artifact shipped
+  - [ ] [09.1 · Threat modeling agents](lessons/module-09/lesson-01.md)
+  - [ ] [09.2 · Prompt injection, direct and indirect](lessons/module-09/lesson-02.md)
+  - [ ] [09.3 · Tool poisoning and the supply chain](lessons/module-09/lesson-03.md)
+  - [ ] [09.4 · Excessive agency and exfiltration](lessons/module-09/lesson-04.md)
+  - [ ] [09.5 · Layered defenses](lessons/module-09/lesson-05.md)
+  - [ ] [09.6 · Red-team your own layer](lessons/module-09/lesson-06.md)
+  - [ ] [Module 9 quiz](assessments/module-09-quiz.md) ≥ 70%
+- [ ] **Module 10 — Multi-Agent Systems** · artifact shipped
+  - [ ] [10.1 · Multi-agent topologies](lessons/module-10/lesson-01.md)
+  - [ ] [10.2 · Coordination: handoffs, shared state and conflicts](lessons/module-10/lesson-02.md)
+  - [ ] [10.3 · Cost, latency and failure propagation](lessons/module-10/lesson-03.md)
+  - [ ] [10.4 · When multi-agent is worse](lessons/module-10/lesson-04.md)
+  - [ ] [Module 10 quiz](assessments/module-10-quiz.md) ≥ 70%
+- [ ] **Module 11 — Agents in CI and Production** · artifact shipped
+  - [ ] [11.1 · Headless agents](lessons/module-11/lesson-01.md)
+  - [ ] [11.2 · CI review: signal vs noise](lessons/module-11/lesson-02.md)
+  - [ ] [11.3 · Recurring automation](lessons/module-11/lesson-03.md)
+  - [ ] [11.4 · Operating agents: approval, rollback, observability and cost](lessons/module-11/lesson-04.md)
+  - [ ] [11.5 · Governance of the AI layer](lessons/module-11/lesson-05.md)
+  - [ ] [Module 11 quiz](assessments/module-11-quiz.md) ≥ 70%
+
+## Stage F — Enterprise AI architecture
+
+- [ ] **Module 12 — Enterprise AI-Agent Architecture** · artifact shipped
+  - [ ] [12.1 · Hosting options](lessons/module-12/lesson-01.md)
+  - [ ] [12.2 · Model gateways and routing](lessons/module-12/lesson-02.md)
+  - [ ] [12.3 · Identity, secrets, networking and audit](lessons/module-12/lesson-03.md)
+  - [ ] [12.4 · Data, residency and compliance](lessons/module-12/lesson-04.md)
+  - [ ] [12.5 · ADRs and the reference architecture](lessons/module-12/lesson-05.md)
+  - [ ] [Module 12 quiz](assessments/module-12-quiz.md) ≥ 70%
+
+## Stage G — Measurement and evidence
+
+- [ ] **Module 13 — Measuring AI Engineering Impact** · artifact shipped
+  - [ ] [13.1 · Delivery metrics](lessons/module-13/lesson-01.md)
+  - [ ] [13.2 · The evidence base on AI productivity](lessons/module-13/lesson-02.md)
+  - [ ] [13.3 · Experiment design](lessons/module-13/lesson-03.md)
+  - [ ] [13.4 · Threats to validity](lessons/module-13/lesson-04.md)
+  - [ ] [13.5 · Statistics for engineering comparisons](lessons/module-13/lesson-05.md)
+  - [ ] [13.6 · Running and reporting the comparison](lessons/module-13/lesson-06.md)
+  - [ ] [Module 13 quiz](assessments/module-13-quiz.md) ≥ 70%
+
+## Stage H — Methodology
+
+- [ ] **Module 14 — Naming Your Method** · artifact shipped
+  - [ ] [14.1 · Why vocabulary is the IP](lessons/module-14/lesson-01.md)
+  - [ ] [14.2 · Incident to principle to name](lessons/module-14/lesson-02.md)
+  - [ ] [14.3 · Diagrams, versioning and the evolution policy](lessons/module-14/lesson-03.md)
+  - [ ] [14.4 · Originality, attribution and intellectual property](lessons/module-14/lesson-04.md)
+  - [ ] [Module 14 quiz](assessments/module-14-quiz.md) ≥ 70%
+
+## Stage I — Teaching
+
+- [ ] **Module 15 — The Demo Repo and Live Demo Craft** · artifact shipped
+  - [ ] [15.1 · Designing a credible brownfield demo](lessons/module-15/lesson-01.md)
+  - [ ] [15.2 · Company scaffolding and the before state](lessons/module-15/lesson-02.md)
+  - [ ] [15.3 · The unedited recording and the stranger test](lessons/module-15/lesson-03.md)
+  - [ ] [15.4 · When the demo breaks](lessons/module-15/lesson-04.md)
+  - [ ] [Module 15 quiz](assessments/module-15-quiz.md) ≥ 70%
+- [ ] **Module 16 — Instructional Design for Engineers** · artifact shipped
+  - [ ] [16.1 · How adults and engineers learn](lessons/module-16/lesson-01.md)
+  - [ ] [16.2 · Objectives, alignment and cognitive load](lessons/module-16/lesson-02.md)
+  - [ ] [16.3 · Show, do, reflect](lessons/module-16/lesson-03.md)
+  - [ ] [16.4 · Managing the room](lessons/module-16/lesson-04.md)
+  - [ ] [16.5 · Measuring learning](lessons/module-16/lesson-05.md)
+  - [ ] [Module 16 quiz](assessments/module-16-quiz.md) ≥ 70%
+- [ ] **Module 17 — Workshop Design and Delivery** · artifact shipped
+  - [ ] [17.1 · The workshop agenda](lessons/module-17/lesson-01.md)
+  - [ ] [17.2 · Workshop materials](lessons/module-17/lesson-02.md)
+  - [ ] [17.3 · The hard-questions bank](lessons/module-17/lesson-03.md)
+  - [ ] [17.4 · Rehearsal protocol](lessons/module-17/lesson-04.md)
+  - [ ] [Module 17 quiz](assessments/module-17-quiz.md) ≥ 70%
+- [ ] **Module 18 — Teaching in Public** · artifact shipped
+  - [ ] [18.1 · Content as a funnel](lessons/module-18/lesson-01.md)
+  - [ ] [18.2 · Evidence-based technical writing](lessons/module-18/lesson-02.md)
+  - [ ] [18.3 · Content formats](lessons/module-18/lesson-03.md)
+  - [ ] [18.4 · Lunch-and-learn, free pilot, and questions into content](lessons/module-18/lesson-04.md)
+  - [ ] [Module 18 quiz](assessments/module-18-quiz.md) ≥ 70%
+
+## Stage J — Organizational adoption
+
+- [ ] **Module 19 — AI Adoption and Change Management** · artifact shipped
+  - [ ] [19.1 · Why rollouts fail](lessons/module-19/lesson-01.md)
+  - [ ] [19.2 · Champions and tool fragmentation](lessons/module-19/lesson-02.md)
+  - [ ] [19.3 · Enablement mechanics](lessons/module-19/lesson-03.md)
+  - [ ] [19.4 · Measuring adoption and preventing regression](lessons/module-19/lesson-04.md)
+  - [ ] [Module 19 quiz](assessments/module-19-quiz.md) ≥ 70%
+
+## Stage K — Consulting and business
+
+- [ ] **Module 20 — Offers, Pricing, Selling and Consulting** · artifact shipped
+  - [ ] [20.1 · Positioning and the offer ladder](lessons/module-20/lesson-01.md)
+  - [ ] [20.2 · Pricing with uncertainty](lessons/module-20/lesson-02.md)
+  - [ ] [20.3 · Qualification and discovery calls](lessons/module-20/lesson-03.md)
+  - [ ] [20.4 · Proposals, SOWs and scope control](lessons/module-20/lesson-04.md)
+  - [ ] [20.5 · Legal, admin and difficult clients](lessons/module-20/lesson-05.md)
+  - [ ] [Module 20 quiz](assessments/module-20-quiz.md) ≥ 70%
+- [ ] **Module 21 — Delivering Engagements** · artifact shipped
+  - [ ] [21.1 · Discovery, kickoff and stakeholder mapping](lessons/module-21/lesson-01.md)
+  - [ ] [21.2 · Technical audit and baseline](lessons/module-21/lesson-02.md)
+  - [ ] [21.3 · Architecture and build with the team](lessons/module-21/lesson-03.md)
+  - [ ] [21.4 · Enable, measure, hand over, follow up](lessons/module-21/lesson-04.md)
+  - [ ] [21.5 · Writing the anonymized case study](lessons/module-21/lesson-05.md)
+  - [ ] [Module 21 quiz](assessments/module-21-quiz.md) ≥ 70%
+- [ ] **Module 22 — Productization and Scaling** · artifact shipped
+  - [ ] [22.1 · From hours to repeatable service](lessons/module-22/lesson-01.md)
+  - [ ] [22.2 · Workshop to course to community](lessons/module-22/lesson-02.md)
+  - [ ] [22.3 · Templates, kits and assessments as products](lessons/module-22/lesson-03.md)
+  - [ ] [22.4 · Capacity-limited consulting and the productization plan](lessons/module-22/lesson-04.md)
+  - [ ] [Module 22 quiz](assessments/module-22-quiz.md) ≥ 70%
+
+## Capstone
+
+- [ ] [Capstone](assessments/capstone.md) submitted and self-scored against the [rubric](assessments/capstone-rubric.md)

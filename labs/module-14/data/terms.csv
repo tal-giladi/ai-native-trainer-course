@@ -1,0 +1,21 @@
+# Terms from public frameworks and from this course, for `MethodCheck borrowed` (lesson 14.4).
+# term variants are separated by |. Checked against the sources on 2026-09-29; add the frameworks your audience knows.
+term,framework,source,url,note
+research -> plan -> implement,HumanLayer,Advanced Context Engineering for Coding Agents (Dex Horthy 2025),https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md,three-phase loop with compaction between phases
+frequent intentional compaction|intentional compaction,HumanLayer,Advanced Context Engineering for Coding Agents (Dex Horthy 2025),https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md,coined term
+explore -> plan -> implement -> commit|explore -> plan -> code -> commit,Anthropic,Claude Code best practices,https://code.claude.com/docs/en/best-practices,vendor workflow
+context engineering,Anthropic,Effective context engineering for AI agents,https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents,widely used industry term
+spec-driven development|spec driven development,GitHub Spec Kit,Spec Kit,https://github.com/github/spec-kit,MIT-licensed toolkit and method
+constitution,GitHub Spec Kit,Spec Kit,https://github.com/github/spec-kit,project principles file
+specify -> plan -> tasks -> implement,GitHub Spec Kit,Spec Kit,https://github.com/github/spec-kit,command sequence
+mob elaboration,AWS AI-DLC,AI-Driven Development Life Cycle (AWS DevOps blog 2025),https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/,coined term
+mob construction,AWS AI-DLC,AI-Driven Development Life Cycle (AWS DevOps blog 2025),https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/,coined term
+bolt|bolts,AWS AI-DLC,AI-Driven Development Life Cycle (AWS DevOps blog 2025),https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/,replaces sprint
+inception -> construction -> operations,AWS AI-DLC,AI-Driven Development Life Cycle (AWS DevOps blog 2025),https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/,three phases
+research -> plan -> implement -> validate,AI-Native Trainer course,course working names (lesson 05.1),lessons/module-05/lesson-01.md,working names you were told to replace
+ai layer,AI-Native Trainer course,course working names (lesson 03.1),lessons/module-03/lesson-01.md,from the career path the course grew from
+system evolution,AI-Native Trainer course,course working names (lesson 11.5),lessons/module-11/lesson-05.md,from the career path the course grew from
+productivity mirage,AI-Native Trainer course,career path source material,ai-native-trainer-path.html,from the career path the course grew from
+claims ladder,AI-Native Trainer course,course working names (lesson 13.6),lessons/module-13/lesson-06.md,course name
+paste-and-go,AI-Native Trainer course,course working names (lesson 05.1),lessons/module-05/lesson-01.md,course name
+evidence ladder,AI-Native Trainer course,course working names (lesson 03.3),lessons/module-03/lesson-03.md,course name

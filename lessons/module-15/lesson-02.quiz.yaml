@@ -1,0 +1,84 @@
+- id: q1
+  question: >-
+    While committing the AI layer, a trainer also corrects the stale docs/ARCHITECTURE.md in the same
+    commit. The before run now looks better than it used to. What went wrong?
+  options:
+    - >-
+      Nothing, because a correct architecture page is part of a good AI layer anyway.
+    - >-
+      The after now differs by the layer and the doc, so the demo cannot say which one helped.
+    - >-
+      The doc fix should have been in a separate commit, but inside the same pair of tags.
+    - >-
+      The before run improved only because the model was updated, not because of the doc.
+  correct: 1
+  explanation: >-
+    Only AI-layer paths may change between the tags. The doc fix is a second treatment, and it removes
+    the stale page the before agent was following, so the comparison is confounded.
+- id: q2
+  question: >-
+    DemoCheck before reports "Still open FAIL: MonthlyRevenueReport.cs no longer contains
+    SqlHelper.ExecuteDataSet" at both tags. What does the audience risk seeing?
+  options:
+    - >-
+      An agent that fails because the ticket's acceptance criteria are no longer reachable.
+    - >-
+      A before run that crashes, since SqlHelper has already been deleted from the code.
+    - >-
+      An agent "solving" a ticket whose solution is already in the tree from a rehearsal.
+    - >-
+      A slower after run, since the agent has to read the rehearsal commit before it starts.
+  correct: 2
+  explanation: >-
+    A rehearsal committed before the before tag puts the answer in both worktrees. Rehearse in
+    worktrees you reset, or on branches that never merge into main.
+- id: q3
+  question: >-
+    Live, the before run fails and the after run passes. An attendee writes down "the AI layer makes
+    tickets succeed". Which statement should you make next to the comparison?
+  options:
+    - >-
+      "Measured on this repository: 0 of 5 without the layer, 9 of 10 with it, not on your code."
+    - >-
+      "This shows the layer makes tickets succeed, as you can see from this run and the last one."
+    - >-
+      "One run proves nothing, so please ignore the result and focus on the process instead."
+    - >-
+      "Teams that adopt this layer see their ticket success rate roughly double within weeks."
+  correct: 0
+  explanation: >-
+    One live run is an observation of how the two differ. The rate comes from your measured runs,
+    stated with the population it applies to, so the claim stays on the right rung of the ladder.
+- id: q4
+  question: >-
+    A trainer runs the before and after demos in two worktrees of the same repository. The before run
+    unexpectedly follows ADR 0007. Besides a user-level CLAUDE.md, what is a likely cause?
+  options:
+    - >-
+      Git worktrees share their working files, so the after's AGENTS.md is visible to both.
+    - >-
+      The model has memorized Contoso Billing from the course material published online.
+    - >-
+      The before tag was created after the layer commits, so it already contains the layer.
+    - >-
+      Auto memory is shared across worktrees, so notes from an after run reached the before.
+  correct: 3
+  explanation: >-
+    Claude Code keeps auto memory per repository and shares it across worktrees. Disable it for demo
+    sessions and check user-level memory files before a before run.
+- id: q5
+  question: >-
+    Which of these belongs in the company scaffold because it gives the demo real stakes?
+  options:
+    - >-
+      A detailed class diagram of the current architecture, generated from the code.
+    - >-
+      A Finance constraint that the monthly revenue number must not change silently.
+    - >-
+      A list of every NuGet package in the solution, with its version and its license.
+    - >-
+      A roadmap slide that promises the AI layer will be rolled out to every team.
+  correct: 1
+  explanation: >-
+    Stakes come from someone outside engineering who will notice a mistake. The Finance constraint
+    is what makes the agent's handling of the revenue filter worth watching.

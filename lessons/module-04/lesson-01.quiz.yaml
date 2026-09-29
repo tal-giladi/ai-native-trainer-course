@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    A request has W = 200,000, S = 4,000, R = 6,000, T = 2,000, O = 20,000 and, at turn 25,
+    H = 110,000. How many tokens are left for the code and tool results this turn needs?
+  options:
+    - >-
+      168,000 tokens, because history is cached and does not count toward the window.
+    - >-
+      58,000 tokens, because every term including history is subtracted from the window.
+    - >-
+      78,000 tokens, because the output reserve only applies to the first request.
+    - >-
+      52,000 tokens, because rules are counted twice when the history is long.
+  correct: 1
+  explanation: >-
+    B = 200,000 − 4,000 − 6,000 − 2,000 − 110,000 − 20,000 = 58,000. Cached tokens are cheaper
+    but still occupy the window, and the output reserve applies to every request.
+- id: q2
+  question: >-
+    A rules layer of 5,000 tokens is re-sent on 10 requests per session. With a warm cache
+    (write 1.25x once, reads 0.1x), roughly how many input-token equivalents does it cost per session?
+  options:
+    - >-
+      About 5,000, because the cache means the rules are only ever paid for once.
+    - >-
+      About 50,000, because caching changes latency but not the price of input tokens.
+    - >-
+      About 10,750, which is 1.25 × 5,000 for the write plus 9 reads at 0.1 × 5,000.
+    - >-
+      About 62,500, because every request pays the 1.25x cache-write premium again.
+  correct: 2
+  explanation: >-
+    One write at 1.25 × R (6,250) plus nine reads at 0.1 × R (4,500) is 10,750, against 50,000
+    uncached. That is why caching makes the money cost of R modest while R still takes window space.
+- id: q3
+  question: >-
+    Your CLAUDE.md is 60 lines but contains three `@docs/...` imports of 150 lines each. What does
+    Claude Code load at the start of every session?
+  options:
+    - >-
+      About 510 lines, because imported files are expanded and loaded at launch.
+    - >-
+      About 60 lines, because imports are fetched only when the agent follows them.
+    - >-
+      About 60 lines, plus whichever import matches the file you open first.
+    - >-
+      About 210 lines, because only the first import is expanded automatically.
+  correct: 0
+  explanation: >-
+    Imports are expanded at launch alongside the file that references them, so they cost the same
+    as pasting the content in. For content that should load only when needed, use a path-scoped rule,
+    a skill or a plain path reference.
+- id: q4
+  question: >-
+    A manager says: "Our rules are 7,000 tokens and the model has a 1M-token window, so bloat
+    is irrelevant." What is the strongest reply?
+  options:
+    - >-
+      They are right about quality, but the monthly bill for 7,000 tokens is too high to accept.
+    - >-
+      They are right; with 1M tokens the model attends to the whole file equally well.
+    - >-
+      They are wrong, because a 1M window forces the harness to compact the rules every turn.
+    - >-
+      Window share isn't the issue; irrelevant tokens compete for attention and hide key facts.
+  correct: 3
+  explanation: >-
+    Effective context is smaller than nominal: recall degrades with length and distractors, and facts
+    in the middle are used less reliably. With caching the dollar cost is modest; the attention cost is not.

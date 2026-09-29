@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A design keeps the primary model route in an EU region. Which additional path most directly breaks an
+    "all prompt data stays in the EU" requirement if left unchanged?
+  options:
+    - >-
+      Developers in Israel connecting to the EU-hosted gateway over the corporate VPN.
+    - >-
+      A fallback route that uses a provider's default global routing during outages.
+    - >-
+      Audit metadata with content hashes stored in an EU write-once bucket.
+    - >-
+      Local client transcripts kept on EU-issued developer laptops for fourteen days.
+  correct: 1
+  explanation: >-
+    Residency is a property of every path. A fallback that routes globally sends prompts out of the EU
+    on the first outage, even though the primary route is compliant.
+- id: q2
+  question: >-
+    Why does Fabrikam's data inventory count a documentation-search MCP server as a residency concern,
+    even though it never calls a model?
+  options:
+    - >-
+      MCP servers always forward their tool results to the model provider's own long-term storage.
+    - >-
+      Any server that uses OAuth stores the users' passwords, which are regulated as personal data.
+    - >-
+      Tool arguments and results are prompt data, so the data goes wherever the server runs.
+    - >-
+      The protocol requires servers to log every request for 30 days in their home region.
+  correct: 2
+  explanation: >-
+    The agent sends search terms drawn from code and tickets to the tool and receives results into its
+    context. The server's location and terms therefore govern a copy of prompt data.
+- id: q3
+  question: >-
+    Legal says "no code may leave the EU." As of 2026-09, what does this most likely cost Fabrikam in model
+    choice?
+  options:
+    - >-
+      Nothing: every provider offers the same newest models and features in EU regions at global prices.
+    - >-
+      Only a one-time migration cost, since EU and global endpoints are priced and featured identically.
+    - >-
+      It rules out cloud-hosted models, leaving self-hosted open weights as the only compliant option.
+    - >-
+      The vendor API drops out, EU routes cost about 10% more, and new models and features lag.
+  correct: 3
+  explanation: >-
+    The vendor API's inference geography offers global and US only, geography-scoped cloud endpoints carry
+    premiums of about 10% over global ones, and newest models and some features lag. Record both costs.
+- id: q4
+  question: >-
+    Under the company's commercial agreement, the provider does not train on prompts. Where is the
+    remaining training-use risk most likely to come from?
+  options:
+    - >-
+      Developers using personal consumer accounts on company code, which fall under different terms.
+    - >-
+      The gateway's redacted content log, which providers may read for model improvement.
+    - >-
+      Prompt caching, which stores prompts on the provider side for longer than the contract allows.
+    - >-
+      Cross-region routing inside the EU, which moves the data to a different legal entity.
+  correct: 0
+  explanation: >-
+    Commercial terms cover commercial accounts. A personal consumer login may allow training under its own
+    terms, so identity controls (forced organisation login, gateway-only routes) close that path.

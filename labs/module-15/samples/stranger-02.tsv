@@ -1,0 +1,14 @@
+# Illustrative second stranger, after the fixes in AI-LAYER-CHANGELOG (README quick start; prime prints the brief path first; plan-feature ends with "Reply approve, or edit plans/<id>.md").
+00:00	start	Lior picks BILL-151; fresh clone at ai-layer-v1.1
+01:50	prompt	ran the three setup commands from the README
+04:00	prompt	/prime BILL-151
+05:30	output	research/BILL-151.md, 1 open question
+06:30	stuck	[prime] open question: does "owed" include draft invoices? finds the answer in company/glossary.md
+08:00	prompt	/plan-feature BILL-151
+09:40	output	plans/BILL-151.md, ends with "Reply approve"
+10:00	prompt	approve
+17:30	output	CollectionsSummaryAsync + 3 tests
+19:20	stuck	[validate] reads the scope failure; commits research/ and plans/ as the message says
+22:10	green	dotnet test: 9 passed
+24:40	pr	PR opened
+25:00	end	

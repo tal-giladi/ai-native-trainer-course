@@ -1,0 +1,5 @@
+# Golden checks: plans/BILL-154.md (plan-feature).
+require | research/BILL-154\.md | | the plan was built from the brief
+require | OutstandingAsync | | the plan reuses the existing "issued" definition
+forbid | Status != InvoiceStatus\.Paid | | a second, different definition of "issued"
+forbid@Touch | Statements/ | | no parallel service for invoice logic

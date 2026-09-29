@@ -1,0 +1,30 @@
+/* Measurement simulator — page-specific styles. Shared look comes from ../common/sim.css. */
+.small { font-size: 0.8rem; }
+.stats { margin: 8px 0 12px; }
+.stats .stat { font-size: 1.15rem; }
+#view > button { margin: 4px 0 8px; }
+.legend { font-size: 0.8rem; }
+.sw { display: inline-block; width: 11px; height: 11px; border-radius: 50%; vertical-align: -1px; margin-left: 6px; }
+
+.sw.sz-S, svg .dot.sz-S { background: var(--c4); fill: var(--c4); }
+.sw.sz-M, svg .dot.sz-M { background: var(--c1); fill: var(--c1); }
+.sw.sz-L, svg .dot.sz-L { background: var(--c2); fill: var(--c2); }
+svg .dot { fill-opacity: 0.75; }
+svg .dot.out { stroke: var(--bad); stroke-width: 2; fill-opacity: 1; }
+svg .gmean { stroke: var(--ink); stroke-width: 2.5; }
+
+svg .ci { stroke-width: 3; stroke-linecap: round; }
+svg .ci.naive, svg .est.naive { stroke: var(--c5); fill: var(--c5); }
+svg .ci.primary, svg .est.primary { stroke: var(--c1); fill: var(--c1); }
+svg .truth { stroke: var(--good); stroke-width: 2; stroke-dasharray: 5 3; }
+svg .truth-t { fill: var(--good); }
+svg .dashed { stroke-dasharray: 4 3; }
+
+.sw.naive, svg .hbar.naive { background: var(--c5); fill: var(--c5); }
+.sw.primary, svg .hbar.primary { background: var(--c1); fill: var(--c1); }
+.sw.naive, .sw.primary { border-radius: 2px; }
+svg .hbar { fill-opacity: 0.7; }
+
+svg .team { fill: none; stroke: var(--c5); stroke-width: 1.5; }
+svg .team.pilot { stroke: var(--bad); stroke-width: 3; }
+svg .pilot-t { fill: var(--bad); font-weight: 700; }

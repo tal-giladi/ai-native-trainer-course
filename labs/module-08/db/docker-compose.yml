@@ -1,0 +1,35 @@
+# Module 8 lab database: Contoso Billing on SQL Server 2022 in Docker, local only.
+#   docker compose up -d                      # V001..V006 (the current schema)
+#   MIGRATE_TO=5 docker compose up -d         # stop at V005 (to make the stale snapshot yourself)
+#   docker compose down -v                    # delete the container and its data
+# The passwords below are lab-only defaults for a fictional database bound to 127.0.0.1.
+# Override them in a local .env file; never reuse them anywhere else.
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-CU27-ubuntu-22.04
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-Lab_only_Sa_2026!}
+      MSSQL_PID: Developer
+    ports:
+      - "127.0.0.1:14338:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$${MSSQL_SA_PASSWORD}\" -Q 'SELECT 1' -b -o /dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  migrate:
+    image: mcr.microsoft.com/mssql/server:2022-CU27-ubuntu-22.04
+    depends_on:
+      sql:
+        condition: service_healthy
+    environment:
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:-Lab_only_Sa_2026!}
+      SCHEMA_READER_PASSWORD: ${SCHEMA_READER_PASSWORD:-Lab_only_Reader_2026!}
+      MIGRATE_TO: ${MIGRATE_TO:-6}
+    volumes:
+      - ../../module-03/brownfield/db/migrations:/lab/migrations/base:ro
+      - ../overlay/db/migrations:/lab/migrations/overlay:ro
+      - ./init:/lab/init:ro
+    entrypoint: ["bash", "/lab/init/apply.sh"]
+    restart: "no"

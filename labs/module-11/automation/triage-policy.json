@@ -1,0 +1,10 @@
+{
+  "$comment": "Triage output contract (lesson 11.3). The agent PROPOSES; AgentOps triage validates against this policy; a deterministic step applies. Changing this file is a class C change (11.5).",
+  "fields": ["issue", "labels", "priority", "duplicate_of", "needs_human", "summary"],
+  "labels": ["bug", "feature", "question", "area:invoices", "area:payments", "area:reminders", "area:statements", "area:db", "area:docs"],
+  "reserved_labels": ["approved-for-release", "security-exception", "wontfix", "priority:p0"],
+  "priorities": ["p0", "p1", "p2", "p3"],
+  "priorities_need_human": ["p0", "p1"],
+  "max_labels": 3,
+  "max_summary_chars": 280
+}

@@ -1,0 +1,1 @@
+Kept only for the last legacy caller, MonthlyRevenueReport (BILL-97). New code: Dapper repository behind an interface, like InvoiceRepository.

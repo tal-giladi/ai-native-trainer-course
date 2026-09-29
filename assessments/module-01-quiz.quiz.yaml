@@ -1,0 +1,157 @@
+- id: q1
+  question: >-
+    A CTO writes "we need AI training". In separate conversations, three developers say the review
+    queue is their bottleneck. Who is the buyer, who are the users, and what should you propose to
+    work on?
+  options:
+    - >-
+      The developers are the buyers; propose the training the CTO asked for, tailored to them.
+    - >-
+      The CTO is the buyer and the user; propose an AI strategy session with the leadership team.
+    - >-
+      The CTO is the buyer, the developers are users; propose a measured review-queue problem.
+    - >-
+      The CTO is the buyer, the developers are users; propose a general agent-tools workshop.
+  correct: 2
+  explanation: >-
+    The CTO holds budget; the developers live the pain. "AI training" is a solution with no metric,
+    while the review queue is observable and can be measured before and after, which gives the
+    CTO something concrete to report.
+- id: q2
+  question: >-
+    An engineer with deep agent experience plans: website and pricing page in week 1, rebranded
+    copy of a known trainer's public starter pack in week 3, cold outreach to CTOs in week 5.
+    What is the most serious problem?
+  options:
+    - >-
+      The plan resells another person's method as one's own and has no evidence behind it.
+    - >-
+      The plan is too slow; outreach should start in week 1, in parallel with the website.
+    - >-
+      Cold outreach to CTOs has low reply rates, so the plan should target developers instead.
+    - >-
+      A pricing page should list three tiers, not one, so prospects can anchor on the middle.
+  correct: 0
+  explanation: >-
+    It starts at private engagements with no practitioner evidence, and the rebranded starter pack
+    is both unethical and fragile: the first question about why a rule exists exposes it.
+- id: q3
+  question: >-
+    A slide sizes a review-queue pain as "126 PRs a month × 26 h median wait = 3,276 engineer-hours
+    wasted" for a 14-developer team. What is the right correction?
+  options:
+    - >-
+      Use the p90 wait instead of the median, since the long waits drive the real cost.
+    - >-
+      Report wait as flow (median, p90) and size effort separately as a range under capacity.
+    - >-
+      Divide by the number of reviewers instead, since reviewers are the actual bottleneck.
+    - >-
+      Convert the hours into money, since CTOs respond to cost more than to hours.
+  correct: 1
+  explanation: >-
+    Calendar wait is not effort: the author works on other things meanwhile. The total exceeds the
+    team's whole capacity, which exposes the unit error; flow and effort are reported separately.
+- id: q4
+  question: >-
+    A VP says only 31 of 120 agent seats were used last month and asks you to "fix adoption". Which
+    first move best follows the pain-versus-hype tests?
+  options:
+    - >-
+      Run a mandatory workshop for all 120 seat holders, since low usage shows a skills gap.
+    - >-
+      Recommend cancelling most seats, since low usage proves the tool has no value here.
+    - >-
+      Size the problem as 89 unused seats times the licence cost and present that number.
+    - >-
+      Interview several of the 89 who stopped to find the pain behind the symptom.
+  correct: 3
+  explanation: >-
+    Low usage is a symptom: observable and owned, but the cause could be trust, onboarding, policy
+    or irrelevance. Each cause needs a different intervention, so find it before proposing one.
+- id: q5
+  question: >-
+    Your best candidate wedge is "Power-user training for one popular AI editor". It scores well on
+    reach. Which weakness should worry you most?
+  options:
+    - >-
+      Durability: content expires with the tool's next release, and the vendor teaches free.
+    - >-
+      Specificity: an editor is too narrow a focus for most engineering managers to care about.
+    - >-
+      Reach: editor users are spread across too many languages for you to contact them.
+    - >-
+      Advantage: you would need to be employed by the vendor to be credible on its product.
+  correct: 0
+  explanation: >-
+    A tool-first wedge rots quarterly and competes with free vendor material. Anchoring on a
+    durable stack and a pain keeps the wedge valid through the next several tool releases.
+- id: q6
+  question: >-
+    You estimate a wedge's size by multiplying survey shares for C#, SQL Server and Jira, getting
+    3.9% of developers. A colleague says the estimate is biased low. Why might they be right?
+  options:
+    - >-
+      Survey respondents are mostly students, so professional usage is always far higher.
+    - >-
+      The shares should be added, since each developer uses at least one of the three tools.
+    - >-
+      The three are positively correlated, so their joint share exceeds the product.
+    - >-
+      Surveys round shares down, so each factor should be increased by a few points.
+  correct: 2
+  explanation: >-
+    Multiplying marginals assumes independence. C# developers use SQL Server much more often than
+    average, so the product underestimates the combination; count it directly in your network.
+- id: q7
+  question: >-
+    In an interview a developer says: "Last sprint one PR sat four days waiting for the only person
+    who knows the claims engine." What is the best next question?
+  options:
+    - >-
+      "So would an AI reviewer that knows the claims engine help your team a lot?"
+    - >-
+      "What happened while it waited, and what happened once it was reviewed?"
+    - >-
+      "On a scale of 1 to 10, how much does that kind of wait bother you in general?"
+    - >-
+      "Do you usually have problems with knowledge being concentrated in a few people?"
+  correct: 1
+  explanation: >-
+    Follow the event. The others lead toward your solution, ask for a generic rating, or retreat
+    to "usually", each dropping a rung-4 event in favor of opinion.
+- id: q8
+  question: >-
+    Five interviews: all loved the idea, four would attend, pain averaged 7.4/10, no dated events,
+    no commitments. A friend says five of five is strong validation. What do you conclude?
+  options:
+    - >-
+      The wedge is validated; five positive interviews exceed the usual saturation point.
+    - >-
+      The wedge is refuted; if the pain were real someone would have described an incident.
+    - >-
+      The wedge is validated for attendance, but the pricing still needs a separate survey.
+    - >-
+      Nothing yet: all answers sit on the lowest rungs, so re-interview about past events.
+  correct: 3
+  explanation: >-
+    Compliments, promises and scale scores are produced by the questions, not by experience. The
+    interviews neither confirm nor refute the wedge; past-event questions and a commitment ask can.
+- id: q9
+  question: >-
+    Three of your five interviews describe agent-written migrations breaking staging, with dates,
+    costs and a workaround (a ban for juniors). Your hypothesized pain, "agents misread tickets",
+    came up once. What should the wedge verdict be?
+  options:
+    - >-
+      Keep the wedge as written, since one mention confirms the ticket pain exists too.
+    - >-
+      Change it: keep stack and audience, move the pain to safe schema changes.
+    - >-
+      Kill the wedge entirely, since the original hypothesis was not confirmed.
+    - >-
+      Keep it and report that 60% of .NET teams have unsafe agent-written migrations.
+  correct: 1
+  explanation: >-
+    A different pain heard as past events in two or more independent interviews, with workarounds,
+    is a reason to change the pain, not to kill the wedge. Three of five is never a market share.

@@ -1,0 +1,11 @@
+pr,week,author,author_side,reviewer,reviewer_side,area,mode,files
+1,W03,S,consultant,-,none,ai-layer,solo,AGENTS.md;CLAUDE.md;.claude/rules/data-access.md;docs/ai/context-map.md;context/context-audit.md;.github/CODEOWNERS
+2,W04,S,consultant,-,none,ai-layer,solo,tools/LoopGate;gates/architecture.rules;.github/workflows/loop-gates.yml;templates/research-brief.md;templates/implementation-plan.md
+3,W03,D5,client,Avi Ben-David,client,code,solo,src/Contoso.Billing/Invoices/InvoiceService.cs
+4,W05,S,consultant,Yossi Mizrahi,client,ai-layer,solo,.claude/skills/ground/SKILL.md;.claude/skills/prove/SKILL.md;.claude/skills/bound/SKILL.md;tools/SkillCheck;skill-tests
+5,W06,S,consultant,-,none,ai-layer,solo,evals/tasks-v1/tasks.json;tools/EvalHarness
+6,W07,S,consultant,-,none,ai-layer,solo,tools/ContosoSchema.Mcp;.claude/mcp/catalog-v006.json;tools/AgentHooks;.mcp.json;.claude/settings.json
+7,W05,Yossi Mizrahi,client,Dana Katz,client,code,solo,db/migrations/V007__invoice_currency.sql;db/migrations/U007__invoice_currency.sql
+8,W08,S,consultant,-,none,ai-layer,solo,.github/workflows/agent-review.yml;.github/workflows/ai-layer-governance.yml;.github/workflows/budget-guard.yml;tools/AgentOps;governance.md
+9,W08,S,consultant,Avi Ben-David,client,ai-layer,solo,AI-LAYER-CHANGELOG.md
+10,W06,D6,client,Avi Ben-David,client,code,solo,src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs

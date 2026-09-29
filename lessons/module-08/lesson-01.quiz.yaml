@@ -1,0 +1,89 @@
+- id: q1
+  question: >-
+    Claude Code starts a local `contoso-schema` server with `dotnet ContosoSchema.Mcp.dll` and connects a
+    remote GitHub server over HTTP. Where does the schema server get its database credential?
+  options:
+    - >-
+      From an OAuth 2.1 token that Claude Code requests for it during the first tool call.
+    - >-
+      From the environment it inherits when the host starts it, as the spec expects for stdio.
+    - >-
+      From the GitHub server, which passes its own token on to the other connected servers.
+    - >-
+      From the `initialize` handshake, where the client sends credentials to every server.
+  correct: 1
+  explanation: >-
+    The authorization part of the specification applies to HTTP transports; stdio servers should not use it
+    and instead read credentials from the environment, such as a variable the host passes to the
+    subprocess. Passing tokens between servers is exactly the token passthrough the spec forbids.
+- id: q2
+  question: >-
+    A server's `cleanup_invoices` tool is annotated `readOnlyHint: true`, and its description starts with
+    "Deletes test invoices older than N days". How should the host treat it?
+  options:
+    - >-
+      As read-only, because annotations are part of the protocol and describe the tool's behavior.
+    - >-
+      As read-only, but only after checking that the tool's input schema has no string parameters.
+    - >-
+      As a write tool, since annotations are untrusted hints and the description says it deletes.
+    - >-
+      As unusable, because the specification requires servers to omit annotations on write tools.
+  correct: 2
+  explanation: >-
+    The spec says clients must treat annotations as untrusted unless the server is trusted. A server can
+    label anything read-only; the name, the description and ideally the server's code decide how you
+    classify it, and a delete belongs behind a deny or ask rule.
+- id: q3
+  question: >-
+    A team denies `mcp__github__issue_write` in Claude Code's settings and considers the write risk closed.
+    The same classic `repo` token is also used by a nightly script and by a colleague's Cursor setup.
+    What is the main gap?
+  options:
+    - >-
+      Deny rules in Claude Code are advisory, so the model can still call the denied tool.
+    - >-
+      The token still carries write scope, and host rules only protect this one host.
+    - >-
+      Cursor reads Claude Code's settings file, so its deny rule is applied twice there.
+    - >-
+      The GitHub server ignores host rules unless its read-only mode is also switched on.
+  correct: 1
+  explanation: >-
+    Permission is the intersection of credential scope, server tool surface and host rules. A host deny
+    rule is enforced, but only inside that host; any other client holding the same token can still write.
+    Least privilege belongs at the credential layer first.
+- id: q4
+  question: >-
+    Fourteen GitHub tools cost about 2,900 tokens of definitions. A host that loads all tool definitions
+    up front runs a 30-request session. About how many input tokens do the definitions add?
+  options:
+    - >-
+      About 2,900, because tool definitions are sent once when the session starts.
+    - >-
+      About 40,600, because each of the 14 tools is sent once per request it is used in.
+    - >-
+      About 87,000, because the definitions are part of every request in the session.
+    - >-
+      About 5,800, because definitions are sent on the first request and after compaction.
+  correct: 2
+  explanation: >-
+    Definitions loaded up front are part of the context of every request, so the cost is $2{,}900 \times 30$.
+    Deferred loading (tool search) avoids most of it by paying only for tools actually fetched.
+- id: q5
+  question: >-
+    Your agent needs to number the next migration file the same way every time. Which option fits best?
+  options:
+    - >-
+      A script or skill step in code, since the step has exactly one right answer.
+    - >-
+      An MCP server with a `next_migration_number` tool that the model can call.
+    - >-
+      A remote HTTP MCP server, so every developer shares the same numbering logic.
+    - >-
+      A rules-file sentence explaining how to find the next number from the folder.
+  correct: 0
+  explanation: >-
+    MCP tools are model-controlled: the model decides whether to call them. A deterministic step belongs in
+    code your program or skill always runs, as in lesson 06.1. MCP fits capabilities that several hosts
+    need and that the model should reach for when relevant.

@@ -1,0 +1,50 @@
+# BREAK for lesson 11.4 — dep-fix after a well-meant change on 2026-09-14:
+# "Run it every hour until the build is green, and retry if the agent fails."
+# On 2026-09-15 a package bump broke the build in a way the agent could not fix in 40 turns.
+# See ops/runs.jsonl and run: AgentOps ledger ops/runs.jsonl
+name: dep-fix
+
+on:
+  schedule:
+    - cron: "5 * * * *"          # was "10 2 * * *" (nightly)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: dep-fix
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    if: vars.AGENTS_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      DISABLE_AUTOUPDATER: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dependabot/nuget/main   # the bot's branch with the failing bump
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Install the pinned agent version
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Fix the build (retry on failure)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          for attempt in 1 2 3; do
+            claude --bare -p "dotnet build fails after the dependency bump on this branch. Fix the code so it builds and tests pass." \
+              --append-system-prompt-file AGENTS.md \
+              --permission-mode dontAsk \
+              --allowedTools "Read,Grep,Glob,Edit(./src/**),Edit(./tests/**),Bash(dotnet build *),Bash(dotnet test *)" \
+              --max-turns 40 \
+              --output-format json > result.json && break
+            echo "attempt $attempt failed, retrying"
+          done

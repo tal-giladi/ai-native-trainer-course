@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent loop simulation</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="agent-loop.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Agent loop: request → reasoning → tool → result → … → validation</h1>
+  <div id="preset-note" class="preset-note" aria-live="polite"></div>
+
+  <div class="tabs" role="tablist" aria-label="Views">
+    <button type="button" role="tab" id="tab-loop" aria-controls="view-loop" aria-selected="true">Run the loop</button>
+    <button type="button" role="tab" id="tab-classify" aria-controls="view-classify" aria-selected="false">Classify failures</button>
+  </div>
+
+  <section id="view-loop" role="tabpanel" aria-labelledby="tab-loop">
+    <div class="grid side">
+      <div class="panel">
+        <h2>Setup</h2>
+        <div class="field">
+          <label for="mode">Fake-model mode (<code>AGENT_BREAK</code>)</label>
+          <select id="mode">
+            <option value="none">none — happy path</option>
+            <option value="malformed">malformed — sends {"file": …} instead of {"path": …}</option>
+            <option value="toolfail">toolfail — read_file throws on the .sql file</option>
+            <option value="loop">loop — repeats the same list_files call</option>
+            <option value="escape">escape — asks for ../secrets/appsettings.Production.json</option>
+          </select>
+        </div>
+        <fieldset class="fixes">
+          <legend>Harness fixes (off = the starter)</legend>
+          <label class="check"><input type="checkbox" id="fix-validate"> <span>1 · Validate arguments, return <code>is_error</code></span></label>
+          <label class="check"><input type="checkbox" id="fix-catch"> <span>2 · Turn tool exceptions into results</span></label>
+          <label class="check"><input type="checkbox" id="fix-bound"> <span>3 · Bound the loop (turn cap 12, repeat detector)</span></label>
+          <label class="check"><input type="checkbox" id="fix-confine"> <span>4 · Confine paths to the workspace</span></label>
+          <div class="controls">
+            <button type="button" id="fixes-all">All fixes on</button>
+            <button type="button" id="fixes-none">Starter (all off)</button>
+          </div>
+        </fieldset>
+        <div class="field">
+          <div class="row"><label for="b">Fixed prefix <i>b</i> (tokens)</label><output id="b-out" for="b"></output></div>
+          <input type="range" id="b" min="500" max="10000" step="100" value="3000">
+        </div>
+        <div class="field">
+          <div class="row"><label for="s">Added per turn <i>s</i> (tokens)</label><output id="s-out" for="s"></output></div>
+          <input type="range" id="s" min="200" max="5000" step="100" value="1500">
+        </div>
+        <p class="muted">Price: $4 per million input tokens (one current model, as of 2026-09). Seed <span id="seed" class="mono"></span>.</p>
+      </div>
+
+      <div>
+        <div class="panel">
+          <div class="controls">
+            <button type="button" class="primary" id="step">Step</button>
+            <button type="button" id="play" aria-pressed="false">Run</button>
+            <button type="button" id="finish">Jump to end</button>
+            <button type="button" id="reset">Reset</button>
+            <button type="button" id="rerun">Re-run (new seed)</button>
+          </div>
+          <ol class="pipeline" id="pipeline" aria-label="Loop stages"></ol>
+          <p class="muted" id="position" aria-live="polite"></p>
+        </div>
+        <div class="panel">
+          <h2>Trace</h2>
+          <p class="muted question">› Which stored procedure does OrderService use to load a customer's orders, and which columns does it return?</p>
+          <ol class="trace" id="trace" aria-live="polite"></ol>
+        </div>
+        <div class="panel" id="verdict-panel">
+          <h2>Validation</h2>
+          <div id="verdict"><p class="muted">Step through the run. The harness validates when the loop stops.</p></div>
+        </div>
+        <div class="panel">
+          <h2>Input tokens per turn</h2>
+          <p class="muted">Every turn resends the whole history. Turn <i>i</i> sends about <i>b</i> + <i>s</i>(<i>i</i>−1); an <i>n</i>-turn run sends <i>n·b</i> + <i>s·n</i>(<i>n</i>−1)/2.</p>
+          <div id="chart"></div>
+          <div class="stats" id="token-stats"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-classify" role="tabpanel" aria-labelledby="tab-classify" hidden>
+    <div class="grid side">
+      <div class="panel">
+        <h2>Failed runs</h2>
+        <p class="muted">Pick a run, read its trace, then classify it twice: primary cause and escape cause.</p>
+        <ol class="case-list" id="case-list"></ol>
+        <p id="score" class="muted" aria-live="polite"></p>
+      </div>
+      <div>
+        <div class="panel">
+          <h2 id="case-title"></h2>
+          <p class="muted" id="case-ask"></p>
+          <ol class="trace" id="case-trace"></ol>
+          <p id="case-outcome"></p>
+        </div>
+        <div class="panel">
+          <h2>Your classification</h2>
+          <div class="grid two">
+            <div class="field">
+              <label for="primary">Primary cause (earliest point a correct system would have diverged)</label>
+              <select id="primary"></select>
+            </div>
+            <div class="field">
+              <label for="escape">Escape cause (why nothing caught it)</label>
+              <select id="escape"></select>
+            </div>
+          </div>
+          <div class="controls">
+            <button type="button" class="primary" id="check">Check</button>
+            <button type="button" id="next-case">Next run</button>
+          </div>
+          <div id="feedback" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">Scripted fake model modelled on the lesson 02.4 lab. Real models fail in more varied and less repeatable ways. Token sizes vary with the seed to mimic variable tool-output sizes.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="agent-loop.js"></script>
+</body>
+</html>

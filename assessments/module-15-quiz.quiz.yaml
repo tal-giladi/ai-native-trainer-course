@@ -1,0 +1,171 @@
+- id: q1
+  question: >-
+    A trainer rebuilt "a simplified version" of a revenue export from a previous job for their public
+    demo. HEAD looks clean, but DemoCheck credibility reports a password, a work e-mail as commit
+    author and an internal host, all in history. What should happen first?
+  options:
+    - >-
+      Push the repository now and rewrite history later, since HEAD contains nothing sensitive.
+    - >-
+      Revoke or rotate the credential, then rebuild or rewrite the history before any push.
+    - >-
+      Add the leaked files to .gitignore, amend the last commit, and publish the repository.
+    - >-
+      Make the repository private for a month so that search engines forget its history.
+  correct: 1
+  explanation: >-
+    A public repository publishes every commit and its metadata. Rotate the secret first, since
+    copies may exist, then rebuild or rewrite, and port only the idea with fictional details.
+- id: q2
+  question: >-
+    Two candidate demo tickets. X: 10/10 with the layer, 4/5 without. Y: 9/10 with the layer (95%
+    interval 60% to 98%), 0/5 without, p90 of 18 minutes in a 20-minute slot. Which do you pick?
+  options:
+    - >-
+      Y, because it is repeatable enough and shows a clear before/after difference.
+    - >-
+      X, because a perfect record with the layer is the safest choice in front of people.
+    - >-
+      Neither, because ten runs cannot distinguish a 90% ticket from a 100% ticket.
+    - >-
+      X, because the smaller gap makes the demo look less staged to experienced engineers.
+  correct: 0
+  explanation: >-
+    X shows nothing: the before passes too. Y is repeatable, fits the slot and fails recognizably
+    without the layer, which is the argument the demo makes.
+- id: q3
+  question: >-
+    DemoCheck before reports "Layer-only FAIL: docs/ARCHITECTURE.md". The trainer says the page was
+    wrong and fixing it can only help the demo. What is the best reply?
+  options:
+    - >-
+      Agree, and move the fix into the first layer commit so it counts as part of the layer.
+    - >-
+      Agree, since a stale page would embarrass the trainer in front of the audience.
+    - >-
+      Disagree: the fix changes the before run too, so the gap stops measuring the layer.
+    - >-
+      Disagree: architecture pages are never read by agents, so the fix changes nothing.
+  correct: 2
+  explanation: >-
+    Only AI-layer paths may differ between the tags. The doc fix is a second treatment that removes
+    the very page the before agent follows; ship it later with its own ticket.
+- id: q4
+  question: >-
+    Live, the before run fails and the after run passes. Afterwards a manager tells their director
+    "the layer makes our tickets succeed". Which on-stage sentence would have prevented this?
+  options:
+    - >-
+      "This single run proves the layer works; your team can expect the same result."
+    - >-
+      "Please don't draw conclusions; demos are entertainment rather than engineering."
+    - >-
+      "Teams that adopt this approach typically double their success rate within a quarter."
+    - >-
+      "On this repo: 0 of 5 without, 9 of 10 with. Your code needs its own measurement."
+  correct: 3
+  explanation: >-
+    One live run shows how the two differ. The rate comes from measured runs, stated with the
+    population it applies to, keeping the claim on the right rung of the claims ladder.
+- id: q5
+  question: >-
+    Watching back an 18-minute recording, a trainer finds they typed "don't change the SQL filter"
+    mid-run, and the run succeeded. They plan to trim that moment before publishing. What do you advise?
+  options:
+    - >-
+      Trim it, since the audience only needs to see the layer working without interruptions.
+    - >-
+      Keep it and fix the layer so the constraint is carried without the presenter next time.
+    - >-
+      Keep it, but add a caption saying the presenter's input was not actually necessary.
+    - >-
+      Re-record until a take happens to succeed without the prompt, then publish that take.
+  correct: 1
+  explanation: >-
+    An off-script prompt shows where the presenter carried the run. Editing hides it from viewers
+    and cherry-picking a take hides it from you; the fix is a layer change, then one honest take.
+- id: q6
+  question: >-
+    Exit test: a stranger opens a PR with green tests at 26 minutes. At minute 5 the owner said "the
+    setup commands are in the README, second section". How is the exit test scored?
+  options:
+    - >-
+      Failed: the hint was help, so the test stopped counting at minute 5.
+    - >-
+      Passed: the PR with green tests arrived inside the 30-minute limit.
+    - >-
+      Passed with a warning, since the hint pointed at existing documentation.
+    - >-
+      Inconclusive, since the stranger should have read the README before starting.
+  correct: 0
+  explanation: >-
+    Any hint is help, and the exit test is unaided. The stuck point is real: the setup needs to be
+    where a newcomer looks, with a check that would catch it regressing.
+- id: q7
+  question: >-
+    Your first stranger passed without help. A colleague says the skills are now proven for new users.
+    If a real stuck point affects one person in four, how likely was one stranger to miss it?
+  options:
+    - >-
+      About 25%, since that is the share of people affected by the stuck point.
+    - >-
+      About 6%, since one in four squared gives the chance of missing it twice.
+    - >-
+      About 75%, so one pass says little; test again with a new person.
+    - >-
+      About 0%, since any real stuck point would show up for a careful stranger.
+  correct: 2
+  explanation: >-
+    The chance one tester sees it is L = 0.25, so missing it is 1 − L = 0.75. A pass is weak
+    evidence; a fail is strong evidence. Iterate with fresh strangers.
+- id: q8
+  question: >-
+    A run sheet has five live segments rehearsed 10 times each: 9, 10, 8, 10 and 9 clean. The slot
+    is 50 minutes with 42 planned. What should the trainer take from P(clean) of about 0.65?
+  options:
+    - >-
+      The demo is ready, since 65% is above the 50% line that the checker uses.
+    - >-
+      Every segment should be pre-recorded, since any risk of failure is unacceptable.
+    - >-
+      The number is meaningless, since segments are never independent in a real room.
+    - >-
+      About one talk in three needs a recovery, so rehearse the buffer and fallbacks.
+  correct: 3
+  explanation: >-
+    The product is a planning tool: it says a recovery is likely and where the risk sits (segment 5,
+    8/10). Plan the buffer and practise the recovery; correlated failures make it optimistic.
+- id: q9
+  question: >-
+    Mid-demo, the network drops during implementation. The segment's recover budget is two minutes.
+    After one minute of retries the session reports an error. What does the recovery pattern say?
+  options:
+    - >-
+      Retry the same prompt until it works, since the audience wants to see it succeed live.
+    - >-
+      Name it, retry once within the budget, then switch to the pre-baked branch and say so.
+    - >-
+      Stop the demo, apologize, and move straight to the questions to save the remaining time.
+    - >-
+      Switch silently to the recording so the audience does not notice anything went wrong.
+  correct: 1
+  explanation: >-
+    Decide by the clock, not by hope, and tell the room what they are seeing. The fallback keeps the
+    lesson moving, and explaining the failure connects it to how agents behave in CI.
+- id: q10
+  question: >-
+    A demo's MCP schema server worked in every rehearsal last week and refuses every answer on the
+    day of the talk. Nothing in the repository changed. What is the most likely class of failure?
+  options:
+    - >-
+      Environment: a dependency that ages, such as a snapshot past its maximum age.
+    - >-
+      Agent behaviour: the model chose to stop calling the server after an update.
+    - >-
+      Presenter: the wrong worktree was open, so the server could not find its files.
+    - >-
+      Model API: the provider rate-limited MCP traffic for the whole organization.
+  correct: 0
+  explanation: >-
+    Time-dependent pieces (snapshots, tokens, certificates) break a demo that nothing else touched.
+    The T−30 checklist refreshes them, and the demo config can downgrade staleness to a warning.

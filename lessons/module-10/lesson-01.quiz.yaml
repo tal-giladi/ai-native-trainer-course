@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    A proposed pipeline has an "architect" agent and a "developer" agent. Both use the same model, the
+    same tools and the same permissions, and the developer receives the architect's full output. Which
+    mechanism does the second agent buy?
+  options:
+    - >-
+      Specialization, because each agent has a different role description in its prompt.
+    - >-
+      An independent check, because the developer can question the architect's decisions.
+    - >-
+      Parallelism, because the two agents can work on different parts of the ticket.
+    - >-
+      Possibly isolation of the architect's exploration; the personas buy nothing.
+  correct: 3
+  explanation: >-
+    Only four things change mechanically: context isolation, parallelism, an independent check and
+    specialization of tools, permissions or model. A persona changes wording, not mechanism, and a
+    sequential handoff gives neither parallelism nor an independent check of the same work.
+- id: q2
+  question: >-
+    A coder and a tester work in parallel from the same plan on BILL-151. The build fails because the
+    tests use a record name the coder did not choose. What is the underlying failure?
+  options:
+    - >-
+      The tester's model is weaker at C# and should be replaced with the coder's model.
+    - >-
+      Each agent made the same implicit naming decision on its own, without seeing the other.
+    - >-
+      The orchestrator merged the two copies in the wrong order, so the tester's file won.
+    - >-
+      The reviewer step was missing, so nobody compared the tests with the code before merging.
+  correct: 1
+  explanation: >-
+    Code and its tests are coupled: they must agree on names and signatures. Split across agents that
+    cannot see each other, each decides them separately. Pin the interfaces in the plan or keep coupled
+    work in one worker.
+- id: q3
+  question: >-
+    For a C# change whose correctness is fully covered by existing and new unit tests, which design
+    usually gives the most reliability per dollar?
+  options:
+    - >-
+      One agent with the build and tests as a gate, or several attempts picked by the tests.
+    - >-
+      A worker plus a model reviewer, because a second opinion catches mistakes that tests miss.
+    - >-
+      Parallel specialists for code and tests, merged and then reviewed by a lead agent.
+    - >-
+      A hierarchical team with a lead that decides how many workers the change needs.
+  correct: 0
+  explanation: >-
+    When a deterministic check can decide correctness, it is a reviewer with perfect precision on what
+    it checks. A model reviewer earns its cost only on what tests cannot check.
+- id: q4
+  question: >-
+    A published study found centralized multi-agent coordination improved a decomposable task by about
+    80% but degraded sequential reasoning tasks by 39-70%. What should you take from it for a client's
+    .NET repository?
+  options:
+    - >-
+      Multi-agent designs are better on average, so recommend them for complex tickets.
+    - >-
+      Multi-agent designs are harmful, so recommend a single agent for every workflow.
+    - >-
+      Topology must fit the task's structure, and only a comparison on their tasks can tell.
+    - >-
+      Use a centralized orchestrator, because it limits error amplification in every case.
+  correct: 2
+  explanation: >-
+    The same mechanism helps decomposable work and hurts sequential, coupled work. The study shows that
+    structure matters; it does not measure the client's tickets. Lesson 10.4 runs that comparison.

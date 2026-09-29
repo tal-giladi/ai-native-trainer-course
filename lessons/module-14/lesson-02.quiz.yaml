@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    Four incidents: an agent wrote its own overdue check, redefined "issued", duplicated a balance
+    stored procedure in C#, and re-implemented VAT rounding. How should they be clustered?
+  options:
+    - >-
+      As four separate concepts, since each one affects a different business area.
+    - >-
+      As one pattern, since in each the existing rule was missing from the agent's context.
+    - >-
+      As hallucinations, since the agent asserted rules that the business never defined.
+    - >-
+      As one pattern about rounding, since three of the four involve numeric calculations.
+  correct: 1
+  explanation: >-
+    Cluster by mechanism, not symptom. Origin phase, failure class and what was missing are the
+    same in all four: something correct existed and was not in context, so the agent wrote its own.
+- id: q2
+  question: >-
+    A concept card says "A research brief makes tickets 3x faster", supported by one ticket where
+    the comparison run had two resets. What status and wording does the lesson support?
+  options:
+    - >-
+      Supported, since the ticket was timed with a timer and not estimated from memory.
+    - >-
+      Supported, but rounded down to "2x faster" to allow for the resets in the other run.
+    - >-
+      Hypothesis at most, with no number unless an experiment gives it an interval.
+    - >-
+      Retired, since any concept that has once been overstated cannot be taught again.
+  correct: 2
+  explanation: >-
+    One incident is a hypothesis. A number in a claim needs an interval from an experiment; here
+    the only experiment measured about 16% for the whole way of working, and INC-14 cuts against it.
+- id: q3
+  question: >-
+    A failure occurred in 4 of 7 eligible runs (57%, 95% Wilson interval 25% to 84%) and in 0 of 5
+    runs with the intervention (0% to 43%). What may the concept card claim?
+  options:
+    - >-
+      That the failure is common enough to name, while the prevention is suggestive only.
+    - >-
+      That the intervention prevents the failure, since its observed rate was exactly zero.
+    - >-
+      Nothing yet, since intervals this wide mean the data carries no information at all.
+    - >-
+      That the failure happens in 57% of runs, since that is the best available estimate.
+  correct: 0
+  explanation: >-
+    The first interval says the failure happens in at least about one in four eligible runs. The
+    intervals overlap, so the prevention half is not shown; the counter-evidence line says what to test.
+- id: q4
+  question: >-
+    Your best concept's plain-words line keeps failing the paraphrase test: the PM repeats it as
+    "the AI needs better prompts". What should you do?
+  options:
+    - >-
+      Add a longer technical definition so that the PM has all the necessary details.
+    - >-
+      Retest with an engineer instead, since the concept is aimed at developers anyway.
+    - >-
+      Keep the wording, since the PM's version is close enough to be useful as a summary.
+    - >-
+      Rewrite the plain words or rename it, then retest with a different non-engineer.
+  correct: 3
+  explanation: >-
+    A wrong paraphrase means the page failed, not the reader. Fix the words or the name and test
+    with someone new, since the first reader has now heard your explanation.
+- id: q5
+  question: >-
+    You chose a great name, "Context Starvation", in March and have since logged three incidents
+    that fit it, all dated April. Why does MethodCheck trace fail the card?
+  options:
+    - >-
+      Because three incidents are never enough evidence for a supported concept.
+    - >-
+      Because the name came before any evidence and may have shaped what you noticed.
+    - >-
+      Because concept names must be picked on the same day as the first incident occurs.
+    - >-
+      Because the incidents all come from one month, so they count as a single incident.
+  correct: 1
+  explanation: >-
+    A name chosen first becomes a lens: incidents that fit get logged, others get missed. The name
+    should follow at least one piece of evidence; three incidents on two or more dates is enough.

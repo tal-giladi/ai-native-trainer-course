@@ -1,0 +1,73 @@
+- id: q1
+  question: >-
+    A `planner` sub-agent is told to "resolve every open question so the implementer is never
+    blocked". Its BILL-153 plan backfills existing invoices with "N/A", which nobody approved.
+    What is the mechanism?
+  options:
+    - >-
+      The planner's model hallucinated a convention, because it had no project rules loaded.
+    - >-
+      Sub-agents cannot ask the user, so an open product question became a silent guess.
+    - >-
+      The research brief was too short, so the planner had to invent the missing value.
+    - >-
+      The planner had Write access, which let it skip the checkpoint in the plan template.
+  correct: 1
+  explanation: >-
+    A sub-agent has no way to put a question to a person mid-task, and its instructions told it to
+    resolve unknowns. Planning with an open product question fails the "can it finish from one brief
+    without asking" test, so it belongs in the main session with a named HUMAN checkpoint.
+- id: q2
+  question: >-
+    Which proposed agent passes the four questions (verbose output or different permissions, can
+    finish without asking, shares no decisions with work in flight)?
+  options:
+    - >-
+      A read-only agent that reads a 4,000-line test log and returns the failing tests only.
+    - >-
+      Two implementer agents that each add a method to InvoiceService.cs at the same time.
+    - >-
+      An "architect" agent with a persona prompt that answers design questions in chat.
+    - >-
+      A planner agent that writes the plan for a ticket whose backfill value is undecided.
+  correct: 0
+  explanation: >-
+    The log digester produces far more output than the caller needs, needs no questions answered,
+    and touches nothing shared. Parallel edits to one file share decisions, a persona is not
+    isolation, and an undecided product question needs a person.
+- id: q3
+  question: >-
+    Research for two tickets explores 26,000 and 31,000 tokens; the briefs are 750 and 900 tokens;
+    each sub-agent has about 5,000 tokens of start-up. Delegating both in parallel, what changes?
+  options:
+    - >-
+      Total tokens fall by about 55,000, because the main session no longer reads the files.
+    - >-
+      Nothing measurable changes, because the same files are read in either of the two setups.
+    - >-
+      The main session saves about 55,000 tokens of context; total tokens rise about 10,000.
+    - >-
+      The main session saves about 10,000 tokens, which is the sub-agents' start-up overhead.
+  correct: 2
+  explanation: >-
+    Context saved is explored minus returned: $57{,}000 - 1{,}650 \approx 55{,}000$. The exploration
+    still happens, inside the sub-agents, plus their start-up of about $2 \times 5{,}000$. Delegation
+    trades total tokens for a cleaner main context and shorter wall-clock time.
+- id: q4
+  question: >-
+    A `reviewer` agent's description says it "never edits files" and its tools are
+    `Read, Grep, Glob, Bash`. What is wrong?
+  options:
+    - >-
+      Nothing, because the description tells the model not to edit, which is sufficient.
+    - >-
+      Grep and Glob are redundant with Bash, so the tool list costs context for nothing.
+    - >-
+      A reviewer needs Write access to leave its findings, so the claim is too strict.
+    - >-
+      Bash can write files, so the tool allowlist does not enforce the read-only claim.
+  correct: 3
+  explanation: >-
+    A description is advisory; the tool allowlist is the enforcement. Shell commands can create and
+    change files, so a read-only agent gets Read, Grep and Glob, and whatever needs a shell happens in
+    a step of the calling skill instead.

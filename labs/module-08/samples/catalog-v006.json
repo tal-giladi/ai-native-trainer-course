@@ -1,0 +1,85 @@
+{
+  "source": "snapshot",
+  "capturedUtc": "2026-09-28T06:00:00+00:00",
+  "schemaVersion": 6,
+  "live": false,
+  "tables": [
+    {
+      "name": "dbo.Invoice",
+      "columns": [
+        {
+          "name": "InvoiceId",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "CustomerId",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Amount",
+          "type": "decimal(19,4)",
+          "nullable": false
+        },
+        {
+          "name": "IssuedUtc",
+          "type": "datetimeoffset(0)",
+          "nullable": false
+        },
+        {
+          "name": "DueUtc",
+          "type": "datetimeoffset(0)",
+          "nullable": false
+        },
+        {
+          "name": "Status",
+          "type": "tinyint",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "dbo.InvoiceNote",
+      "columns": [
+        {
+          "name": "InvoiceNoteId",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "InvoiceId",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "AuthorUpn",
+          "type": "nvarchar(256)",
+          "nullable": false
+        },
+        {
+          "name": "Body",
+          "type": "nvarchar(400)",
+          "nullable": false
+        },
+        {
+          "name": "CreatedUtc",
+          "type": "datetimeoffset(0)",
+          "nullable": false
+        }
+      ]
+    }
+  ],
+  "procedures": [
+    {
+      "name": "dbo.usp_InvoiceNote_LatestByCustomer",
+      "parameters": [
+        {
+          "name": "@customerId",
+          "type": "int",
+          "output": false
+        }
+      ]
+    }
+  ]
+}

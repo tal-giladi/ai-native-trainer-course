@@ -1,0 +1,6 @@
+# The first version of the form: it asked for everything and booked a call with everyone.
+id,full_name,phone,home_address,date_of_birth,salary,role,team_size,problem,sponsor,budget,timing_weeks,uses_agent
+B01,<name removed>,<phone removed>,<address removed>,1987-03-02,145000,Engineering manager,48,Agent PRs fail review,VP Engineering,process-known,8,yes
+B02,<name removed>,<phone removed>,<address removed>,1979-11-20,210000,CTO,3,Want AI,CTO,none,4,no
+B03,<name removed>,<phone removed>,<address removed>,1990-06-14,130000,Tech lead,12,Conventions,Director,approved,6,yes
+B04,<name removed>,<phone removed>,<address removed>,1984-01-09,120000,Operations director,30,Replace contractors,COO,approved,6,weekly

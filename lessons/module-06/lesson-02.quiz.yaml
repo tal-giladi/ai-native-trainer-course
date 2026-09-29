@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    After `/prime BILL-154` the engineer runs `/clear`, then `/plan-feature BILL-154`. The plan
+    defines statement lines as `Status != InvoiceStatus.Paid` and `plan-lint` passes. In version
+    0.9.0, `prime` showed its brief in the chat. What is the root cause?
+  options:
+    - >-
+      The model ignored the brief, which is an instruction failure inside plan-feature.
+    - >-
+      The brief lived only in the conversation, so the reset deleted the handoff.
+    - >-
+      The plan-lint gate is too weak, because it should have caught the wrong filter.
+    - >-
+      The engineer should not have cleared the session between research and planning.
+  correct: 1
+  explanation: >-
+    The skills ran, but the handoff between them was a chat message, and resets are part of the loop
+    (05.3). Skills in a chain must write and read files, and a downstream skill must stop when its
+    input file is missing.
+- id: q2
+  question: >-
+    Which of the five core skills is the best candidate for model invocation (the model may load it
+    on its own)?
+  options:
+    - >-
+      plan-feature, because the model knows best when a ticket is ready for a plan.
+    - >-
+      pr-review, because a review should run automatically on every change it sees.
+    - >-
+      spec, because turning a PRD into tickets is routine work with a known format.
+    - >-
+      validate, because it changes nothing and fits the moment before "I am done".
+  correct: 3
+  explanation: >-
+    Invocation follows side effects and human moments. validate is read-only and its natural trigger
+    is the model's own "done" claim. Plans need a person's approval, spec writes several files, and a
+    review is a deliberate step a person should choose.
+- id: q3
+  question: >-
+    Four chained skills each produce a correct artifact 90% of the time, independently. What does
+    this imply for where to put contract checks?
+  options:
+    - >-
+      At each handoff, since the chain is right only about 66% of the time end to end.
+    - >-
+      Only at the end, since one final review sees all four artifacts at the same time.
+    - >-
+      Nowhere, since 90% per skill is already above the team's usual review threshold.
+    - >-
+      Only after the first skill, since later skills inherit the errors of the first one.
+  correct: 0
+  explanation: >-
+    Reliability compounds: $0.9^4 \approx 0.66$. A check at each boundary catches an error at the step
+    that made it, where a retry is cheap, instead of after the whole chain has run on a wrong input.
+- id: q4
+  question: >-
+    `/spec` on the Q4 collections PRD produces one draft ticket and an index. Six requirements were
+    in the PRD. What makes this a good run rather than a weak one?
+  options:
+    - >-
+      Nothing; a spec skill that drafts one ticket from six requirements is under-performing.
+    - >-
+      The skill saved tokens by skipping requirements that were too long to turn into tickets.
+    - >-
+      Three requirements already had tickets, one was vague and became a question, one was "later".
+    - >-
+      The index lists every requirement again, so the PRD owner does not have to reread the PRD.
+  correct: 2
+  explanation: >-
+    The contract asks spec to find duplicates of existing tickets and to turn untestable requirements
+    into questions. Here that is most of the PRD, so one draft plus an honest index is the correct
+    output.

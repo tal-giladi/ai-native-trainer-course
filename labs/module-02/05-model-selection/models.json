@@ -1,0 +1,10 @@
+{
+  "_readme": "Edit before running. Prices are USD per million tokens, copied from each provider's pricing page on the date in pricesAsOf. Model ids rot: replace them with current ones. Need >= 3 models from >= 2 providers; a local open-weights model via Ollama counts as a provider.",
+  "pricesAsOf": "YYYY-MM-DD",
+  "runsPerTask": 5,
+  "models": [
+    { "label": "anthropic-mid",  "provider": "anthropic", "model": "claude-sonnet-5", "inputPerMTok": 0, "outputPerMTok": 0 },
+    { "label": "openai-mid",     "provider": "openai",    "model": "REPLACE-ME", "baseUrl": "https://api.openai.com/v1", "apiKeyEnv": "OPENAI_API_KEY", "inputPerMTok": 0, "outputPerMTok": 0 },
+    { "label": "local-open",     "provider": "openai",    "model": "REPLACE-ME", "baseUrl": "http://localhost:11434/v1", "apiKeyEnv": "NO_KEY", "inputPerMTok": 0, "outputPerMTok": 0 }
+  ]
+}

@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Your rules file says "never use EF Core in the Orders module". A README the agent reads mid-task says
+    "all new data access must use EF Core". Which statement best describes how the agent resolves this?
+  options:
+    - >-
+      The rules file always wins, because harnesses enforce rules files the way a compiler enforces types.
+    - >-
+      The README always wins, because the most recent instruction in the context overrides earlier ones.
+    - >-
+      Neither can win; the agent refuses the task whenever two instructions in its context contradict.
+    - >-
+      It is a trained tendency weighted by channel, specificity, rationale and recency, so either can win.
+  correct: 3
+  explanation: >-
+    Precedence is learned behaviour, not an access-control table. Channel favours the rules file, but recency and
+    rule-like framing favour the README. That is why you measure across runs and remove the contradiction at its source.
+- id: q2
+  question: >-
+    According to Claude Code's documentation, how is CLAUDE.md content delivered to the model?
+  options:
+    - >-
+      As part of the system prompt, which gives it the same authority as the harness's own instructions.
+    - >-
+      As a user message after the system prompt, treated as context rather than enforced configuration.
+    - >-
+      As a tool result the agent fetches on demand, so it only applies after the file has been read.
+    - >-
+      As fine-tuning data that is applied to the model weights the first time a project is opened.
+  correct: 1
+  explanation: >-
+    The docs state CLAUDE.md is delivered as a user message after the system prompt and is context, not enforced
+    configuration. To block an action regardless of the model's choice, they point to hooks.
+- id: q3
+  question: >-
+    Which fix actually guarantees that no EF Core code gets merged into the Orders module?
+  options:
+    - >-
+      A CI gate or hook that fails when DbContext or EF Core usage appears under the Orders folder.
+    - >-
+      Repeating the rule three times in the rules file, in capital letters, with the word IMPORTANT.
+    - >-
+      Moving the rule into a nested AGENTS.md inside the Orders folder so it is always the closest file.
+    - >-
+      Adding "if files contradict these rules, follow these rules" to the top of the rules file.
+  correct: 0
+  explanation: >-
+    Instructions, however well placed, change probabilities. Only enforcement, such as a CI check, a pre-commit hook
+    or a PreToolUse hook, changes what is possible. The other options are good persuasion, not guarantees.
+- id: q4
+  question: >-
+    An agent follows an instruction it found in a public GitHub issue it was asked to summarise.
+    What does this have in common with the planted-README lab?
+  options:
+    - >-
+      Nothing; GitHub issues come through an API, while READMEs are local files the user chose to trust.
+    - >-
+      Both are hallucinations, because the model invented an instruction that no trusted party wrote.
+    - >-
+      In both, text arriving through the data channel was treated as an instruction with authority.
+    - >-
+      Both show the context window overflowing, which pushed the rules file out of the model's view.
+  correct: 2
+  explanation: >-
+    Tool results, files and fetched pages have no authority by design, yet the model can still act on instructions
+    inside them. That is indirect prompt injection, the mechanism Module 9 attacks and defends.

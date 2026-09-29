@@ -1,0 +1,158 @@
+- id: q1
+  question: >-
+    Your CI review agent catches about 3 real bugs a month but posts about 60 comments, and developers
+    have started ignoring it. What do you change first, and how do you know it worked?
+  options:
+    - >-
+      Switch to a stronger model and count how many comments it posts next month compared to now.
+    - >-
+      Add a second reviewer agent to raise recall, then measure the total number of bugs flagged.
+    - >-
+      Report evidence-backed defects only, with a severity floor; score precision on held-out PRs.
+    - >-
+      Keep the prompt but move the comments into a single summary so the pull request looks less noisy.
+  correct: 2
+  explanation: >-
+    Precision is about 3/60 = 5%, near the base-rate ceiling for that volume, so volume and what the
+    agent is asked to report must change. Measure against known defects on PRs not used for tuning,
+    then track the acted-on rate in production.
+- id: q2
+  question: >-
+    A nightly agent job has been green for weeks. You open its JSON results and find subtype "success"
+    on every run, with permission_denials listing Edit calls in most of them. What is going on?
+  options:
+    - >-
+      Most runs did not do their task; the job treats a normally ended loop as a finished task.
+    - >-
+      The runs are fine, since denials are informational and the agent found another way each time.
+    - >-
+      The job hit its turn cap on most nights and the CLI reported that as a successful run.
+    - >-
+      The denials come from the sandbox, which blocks edits on shared runners by default.
+  correct: 0
+  explanation: >-
+    success only means the model stopped calling tools on its own. Denied edits mean the work was not
+    done, whatever the summary says. The job must fail on denials of needed tools and check the diff
+    and tests itself.
+- id: q3
+  question: >-
+    A maintainer proposes running the agent on pull_request_target so it can fix contributors' PRs with
+    the repository's API key. The workflow checks out the PR head. What is the strongest objection?
+  options:
+    - >-
+      pull_request_target does not support concurrency groups, so runs would pile up on busy days.
+    - >-
+      Untrusted PR code and text run in a job that holds secrets and a write token.
+    - >-
+      The API key would be billed to the contributor's account instead of the organization's key.
+    - >-
+      pull_request_target cannot post review comments, so the fixes could never reach the contributor.
+  correct: 1
+  explanation: >-
+    This is a pwn request: the base-repository context gives the job secrets and a write token, and the
+    checkout puts attacker-controlled files (including hooks the agent may load) into it. Keep untrusted
+    code on pull_request, where fork PRs get no secrets.
+- id: q4
+  question: >-
+    A docs-drift bot would make about 30 proposals a month. Each accepted one saves 12 minutes; each
+    proposal takes 4 minutes to review. Early data shows 25% acceptance. What should you conclude?
+  options:
+    - >-
+      It saves about 90 minutes a month, because 30 proposals at 12 minutes each outweigh the reviews.
+    - >-
+      It breaks even, because the review time and the saved time are both counted per proposal.
+    - >-
+      It is worth building only if acceptance is above 75%, since three quarters must be accepted.
+    - >-
+      It loses about 30 minutes a month; acceptance must exceed one third before it pays off.
+  correct: 3
+  explanation: >-
+    Net = n(as - r) = 30(0.25 x 12 - 4) = -30 minutes. Break-even acceptance is r/s = 4/12, about 33%.
+    Raise acceptance (narrower scope, better validation) or do not automate it yet.
+- id: q5
+  question: >-
+    A triage agent reads issues from outside users and returns JSON constrained by a schema with a
+    fixed label list. An injected issue still gets priority p0. Which control makes that harmless?
+  options:
+    - >-
+      A deterministic validator that routes p0 and p1 to a human before anything is applied.
+    - >-
+      A stricter schema that removes p0 from the list of priorities the agent may choose.
+    - >-
+      A prompt line telling the agent that issue text is data and not instructions to follow.
+    - >-
+      A lower --max-turns value so the agent has less room to follow injected instructions.
+  correct: 0
+  explanation: >-
+    The schema narrows the vocabulary but not the choice among allowed values. A validator enforcing
+    policy outside the model (p0 needs a human) turns the remaining wrong choice into a review task.
+    Removing p0 would break real outages; the prompt line only lowers the odds.
+- id: q6
+  question: >-
+    The run ledger shows one day at $137 against a normal $2. All runs stayed under the $2 per-run cap.
+    The dep-fix job ran hourly with up to 3 attempts, and most attempts ended in error_max_turns. What
+    is the most important policy change?
+  options:
+    - >-
+      Lower the per-run cap to $1, so each of the failing attempts costs half as much.
+    - >-
+      Raise --max-turns so the agent can finish the fix instead of hitting the cap.
+    - >-
+      Retry only transient failures, and add a day-level ceiling that stops the job.
+    - >-
+      Move the schedule off the start of the hour, when GitHub runs are most delayed.
+  correct: 2
+  explanation: >-
+    A capped run fails the same way on retry (q near 1), so three attempts per hour multiply waste.
+    Retries by failure class stop the multiplication; a day-level breaker bounds what per-run caps cannot see.
+- id: q7
+  question: >-
+    You want to try a new review prompt on a team that has finally started trusting the current one.
+    Which rollout gives evidence without risking that trust?
+  options:
+    - >-
+      Switch the prompt for everyone and roll back if developers complain within a week.
+    - >-
+      Shadow the new prompt on the same PRs, save its comments, and compare acted-on outcomes.
+    - >-
+      Test the new prompt on five recent PRs by hand and switch if its comments look better.
+    - >-
+      Post both prompts' comments on every PR for a month and let developers vote on each one.
+  correct: 1
+  explanation: >-
+    A shadow run is a canary with zero exposure: same inputs, output kept as an artifact, scored against
+    the same outcomes as production. Posting both doubles the noise; five hand-picked PRs are anecdotes.
+- id: q8
+  question: >-
+    A hotfix rule was added to CLAUDE.md after an incident, without a regression task. A later tidy-up
+    removed it, every gate passed, and the incident recurred. Where did the process fail?
+  options:
+    - >-
+      At the tidy-up, because removing lines from CLAUDE.md should always require a security review.
+    - >-
+      At the gate, because the aggregate threshold was too loose to notice a single removed rule.
+    - >-
+      At the recurrence, because the reviewer should have remembered the earlier incident in the PR.
+    - >-
+      At the hotfix, because a rule without a failing-then-passing task has no gate protecting it.
+  correct: 3
+  explanation: >-
+    The tidy-up was a legitimate change that passed its gate. The defect was upstream: without a task
+    from the incident's wording, nothing tied the rule to a test, so any edit could delete it silently.
+- id: q9
+  question: >-
+    A single PR changes a skill's wording and adds a GitHub MCP server with write scope. How should
+    your governance policy treat it?
+  options:
+    - >-
+      As a wording change, reviewed by one owner, since the skill edit is most of the diff.
+    - >-
+      As a capability change, with security review, a threat-model update and the attack suite gate.
+    - >-
+      As a platform change, with a full A/B evaluation and a refreshed baseline before merging.
+    - >-
+      As a behavior change, reviewed by one owner with the smoke gate and a changelog entry.
+  correct: 1
+  explanation: >-
+    A new tool with write scope changes what the agent can do: class C. Mixed PRs take the highest class,
+    so a capability change cannot ride in on a small wording change's lighter review.

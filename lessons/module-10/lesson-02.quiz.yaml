@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    Three parallel workers each edit InvoiceService.cs in their own copy. The orchestrator copies each
+    result back as it finishes. Every worker reported "tests passed" and CI on the merged branch is
+    green. What can you conclude?
+  options:
+    - >-
+      All three changes are in, because each worker ran the tests and CI agrees.
+    - >-
+      Only the last change is likely intact; green CI cannot show what the merge discarded.
+    - >-
+      The merge is safe as long as the three workers used the same model and layer.
+    - >-
+      Two changes were probably lost, but CI would have turned red if that mattered.
+  correct: 1
+  explanation: >-
+    Last-writer-wins keeps only the final copy of each shared file, including the test file, so the lost
+    changes take their own tests with them. Only checks derived from each ticket, run after the merge,
+    reveal the loss.
+- id: q2
+  question: >-
+    Your plans declare Touch lists, and most tasks in a batch touch the same service class. Which merge
+    policy fits best?
+  options:
+    - >-
+      Detect, because reporting conflicts is always better than preventing them.
+    - >-
+      Rerun, because redoing the losing workers on top of the merged state is always complete.
+    - >-
+      Serialize by lease, because the overlap is predictable from the declared scope.
+    - >-
+      A textual three-way merge, because git resolves non-overlapping line changes.
+  correct: 2
+  explanation: >-
+    When overlap is visible in the plans, leases schedule overlapping tasks one after another at no extra
+    cost. Rerun pays for the losers twice; a clean textual merge does not prove the decisions agree.
+- id: q3
+  question: >-
+    A reviewer agent asks for strict time comparisons; the planner's plan follows the ticket, which says
+    an invoice is overdue from its due instant onward. How should the pipeline settle it?
+  options:
+    - >-
+      By precedence: the ticket's acceptance criterion outranks the reviewer's preference.
+    - >-
+      By adding a third agent as arbiter, since two agents cannot settle a disagreement alone.
+    - >-
+      By running the reviewer three times and following the majority of its verdicts.
+    - >-
+      By letting the last agent to speak win, since it has seen all the earlier arguments.
+  correct: 0
+  explanation: >-
+    Precedence with citations settles requirement disagreements: task criteria, then project rules, then
+    role preferences. Votes and arbiters add calls without adding authority; what precedence cannot settle
+    goes to a person.
+- id: q4
+  question: >-
+    Why should a planner-to-worker handoff carry file paths and symbols rather than pasted file contents?
+  options:
+    - >-
+      Pasted contents use more tokens, and token cost is the main reason to keep handoffs short.
+    - >-
+      Paths let the orchestrator's contract check verify that the plan names real files.
+    - >-
+      Models read file paths more reliably than long code blocks inside a prompt.
+    - >-
+      Pasted contents go stale as soon as another agent edits the file; paths are read fresh.
+  correct: 3
+  explanation: >-
+    In a multi-agent system files change between handoffs. A pasted copy freezes one version and invites
+    the next agent to act on it; a pointer makes it read the current file.

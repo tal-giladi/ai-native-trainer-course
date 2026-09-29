@@ -1,0 +1,41 @@
+select { width: 100%; max-width: 100%; }
+select.inline { width: auto; }
+input[type="number"] { width: 100%; }
+fieldset.files { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; padding: 6px 10px; min-width: 0; }
+fieldset.files legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+fieldset.files[disabled] { opacity: 0.5; }
+fieldset.files .check span small { display: block; }
+details summary { cursor: pointer; margin: 8px 0; color: var(--muted); }
+
+.stack { display: flex; height: 34px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--bg); }
+.stack span { display: block; height: 100%; min-width: 0; }
+.legend { list-style: none; padding: 0; margin: 8px 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.82rem; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend i.sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.t-S { background: var(--c5); }
+.t-T { background: var(--c4); }
+.t-Rrel { background: var(--c1); }
+.t-Rirr { background: var(--c2); }
+.t-D { background: var(--c3); }
+.t-H { background: repeating-linear-gradient(45deg, var(--muted), var(--muted) 3px, var(--line) 3px, var(--line) 6px); }
+.t-O { background: var(--warn); }
+.t-B { background: var(--good-bg); }
+.equation { overflow-wrap: anywhere; font-size: 0.85rem; }
+
+.fact { border-top: 1px solid var(--line); padding: 8px 0; }
+.fact:first-child { border-top: 0; }
+.fact .row { flex-wrap: wrap; }
+.fact .src { font-size: 0.8rem; color: var(--muted); }
+.meter { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin: 4px 0; }
+.meter span { display: block; height: 100%; background: var(--c1); }
+.dots { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dots i.hit { background: var(--good); }
+.dots i.miss { background: var(--bad); }
+.dots i.off { background: var(--warn); }
+
+#chart svg polyline { fill: none; stroke-width: 2.5; }
+#chart svg .l1 { stroke: var(--c1); }
+#chart svg .l2 { stroke: var(--c2); }
+#chart svg .l3 { stroke: var(--c3); }
+#chart svg circle.now { fill: var(--ink); }

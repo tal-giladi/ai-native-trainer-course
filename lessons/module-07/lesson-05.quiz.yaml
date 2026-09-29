@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    You compare rules v1 (run last Tuesday) with rules v2 (run today). The harness warns that the
+    agent version differs between arms. The paired interval is +12 to +30 points. What can you conclude?
+  options:
+    - >-
+      v2 is better, because the paired interval excludes zero by a comfortable margin.
+    - >-
+      Nothing about v2 yet: the agent update and the rules change are mixed together.
+    - >-
+      v2 is better by about 9 points, after subtracting a typical agent-update effect.
+    - >-
+      The result holds for the newer agent version only, so it should be reported that way.
+  correct: 1
+  explanation: >-
+    When two things change, the difference belongs to both and no statistic can split it. Pin the
+    agent version and rerun both arms interleaved; the agent update is a separate comparison.
+- id: q2
+  question: >-
+    Why does pairing by task usually give a narrower interval than comparing the two arms' overall
+    pass rates?
+  options:
+    - >-
+      Pairing doubles the number of trials, because every task is counted in both arms.
+    - >-
+      Pairing removes the tasks that both arms pass, which have no variance to add.
+    - >-
+      Task difficulty affects both arms alike, so it cancels in each per-task difference.
+    - >-
+      Pairing uses the t distribution, which gives narrower intervals than the normal one.
+  correct: 2
+  explanation: >-
+    Var(A - B) = Var(A) + Var(B) - 2 Cov(A, B). Hard tasks are hard in both arms, so the covariance
+    is large and is subtracted when you compare each task with itself.
+- id: q3
+  question: >-
+    Before your first A/B comparison on a new harness setup, you run the same configuration twice.
+    The paired interval is +9 to +21 points. What does this tell you?
+  options:
+    - >-
+      Something besides the configuration moves results between runs; find it before A/B.
+    - >-
+      The second run benefited from a warm cache, which is normal and can be ignored in A/B.
+    - >-
+      The task set is too small; add tasks until the A/A interval is narrower than 10 points.
+    - >-
+      The harness works, because the interval is narrow enough to detect a 10-point effect.
+  correct: 0
+  explanation: >-
+    An A/A comparison should include zero. An interval that excludes it means drift, caching, a
+    flaky grader or run order is producing differences on its own, and A/B results would inherit it.
+- id: q4
+  question: >-
+    Three code tasks keep timing out in arm B, so a teammate removes them from both arms "to keep
+    the comparison fair". What is wrong with that?
+  options:
+    - >-
+      Nothing, because the paired analysis requires the same set of tasks in both arms anyway.
+    - >-
+      The tasks should be removed from arm B only, since arm A completed them normally.
+    - >-
+      The timeouts should be rerun until they succeed, so every task has a passing result.
+    - >-
+      A timeout is a failure of that configuration, and dropping hard tasks inflates the result.
+  correct: 3
+  explanation: >-
+    Timeouts are outcomes of the configuration under test. Dropping them removes exactly the tasks
+    where B struggles, so the comparison covers easier work and overstates B.

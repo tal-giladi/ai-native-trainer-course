@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    A colleague's "method" has ten steps such as "turn on plan mode", "run /clear after two failed
+    corrections" and "use the larger model for planning". It has no problem statement and no
+    boundaries. What is it, by this lesson's seven parts?
+  options:
+    - >-
+      A copied framework, because every step has been published by someone else already.
+    - >-
+      A complete method, because each step is concrete enough for anyone to follow today.
+    - >-
+      A tips list, because its steps are independent pieces of advice without any order.
+    - >-
+      A tool tutorial, because its loop outputs are keystrokes and it has no boundaries.
+  correct: 3
+  explanation: >-
+    It has an order, but each step's output is an action in one tool, and it lacks a problem,
+    concepts, evidence and boundaries. It will expire with the next release of the tool.
+- id: q2
+  question: >-
+    Your method page scores 45% on the tool-change test. What is the right fix?
+  options:
+    - >-
+      Move the tool-specific instructions into a separate, dated implementation file.
+    - >-
+      Delete every mention of a tool, so the method never refers to any specific agent.
+    - >-
+      Add the same instructions for two more agents, so no single tool dominates the page.
+    - >-
+      Raise the threshold to 50%, since practical methods are always tied to some tool.
+  correct: 0
+  explanation: >-
+    The method states what each step must produce and why; the implementation file maps steps to
+    today's tools and changes quarterly. Deleting the mapping makes the method hard to start, and
+    adding more tools makes the page more tool-dependent, not less.
+- id: q3
+  question: >-
+    Why does this lesson say a concept needs a boundary, with reference to semantic diffusion?
+  options:
+    - >-
+      A boundary makes the name eligible for copyright, which stops others diluting it.
+    - >-
+      A claim that applies everywhere cannot be misapplied or checked, so its name drifts.
+    - >-
+      Boundaries shorten the definition, and shorter definitions spread faster and further.
+    - >-
+      A boundary shows that the concept was borrowed, which is required for attribution.
+  correct: 1
+  explanation: >-
+    Semantic diffusion weakens terms as they spread to people who never read the definition. A
+    precise, bounded claim gives you something to restate and lets others see when it is misused.
+    Names and short phrases are not protected by copyright.
+- id: q4
+  question: >-
+    In your vocabulary inventory, "research, plan, implement, validate" is your most-used term and
+    you have 14 incidents about it. What does the lesson suggest?
+  options:
+    - >-
+      Keep it as your method's name, since your 14 incidents make it yours now.
+    - >-
+      Drop the loop entirely, since a loop that others have described cannot be taught.
+    - >-
+      Credit the shape to its sources and name your loop from what your evidence adds.
+    - >-
+      Keep the words but change their order, so the loop is no longer the same one.
+  correct: 2
+  explanation: >-
+    The shape is common and was the course's working name. Evidence makes your version of it
+    worth teaching, but it does not make the borrowed words yours: credit the shape, and name
+    your own contribution.

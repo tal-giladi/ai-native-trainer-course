@@ -1,0 +1,157 @@
+- id: q1
+  question: >-
+    A team keeps its agent instructions on a wiki page, not in the repository. Engineers paste parts
+    of it into chat when they remember. Which set of failures does this cause?
+  options:
+    - >-
+      Higher token cost per session, slower agent responses, and vendor lock-in to one wiki tool.
+    - >-
+      Agents miss the rules by default, rules drift from the code, and changes skip code review.
+    - >-
+      Agents over-follow the wiki, ignore the system prompt, and refuse to edit legacy files.
+    - >-
+      Merge conflicts in the wiki, broken links in the README, and duplicated onboarding docs.
+  correct: 1
+  explanation: >-
+    Agents load instructions from the file system, so wiki rules are absent unless pasted. They
+    cannot change in the same commit as the code, and wiki edits bypass PR review. Migrate them into
+    AGENTS.md via a reviewed PR, deleting what the audit cannot confirm.
+- id: q2
+  question: >-
+    You are migrating that wiki page into the repository. Which migration plan is sound?
+  options:
+    - >-
+      Paste the whole page into CLAUDE.md now, then prune it over time as the agent makes mistakes.
+    - >-
+      Paste it into both CLAUDE.md and AGENTS.md so every tool sees the same complete text.
+    - >-
+      Audit it against the code, keep confirmed non-inferable lines with evidence, merge via owner
+      review.
+    - >-
+      Convert every wiki rule into a hook, since instructions from a wiki are too unreliable to keep.
+  correct: 2
+  explanation: >-
+    Wiki content sits low on the evidence ladder. Each line must be confirmed against stronger
+    sources and filtered by whether the agent would get it wrong, then merged through the normal
+    ownership and changelog process. Pasting everything imports stale rules.
+- id: q3
+  question: >-
+    A CODEOWNERS file ends with `* @org/all-devs`. Earlier lines assign `/AGENTS.md` and `/.claude/`
+    to `@org/platform`. Branch protection requires code-owner review. What is the effect?
+  options:
+    - >-
+      Any all-devs member can approve AI-layer changes, because the last matching pattern wins.
+    - >-
+      Platform must approve AI-layer changes, because the more specific pattern takes priority.
+    - >-
+      Both teams must approve AI-layer changes, because every matching owner line applies.
+    - >-
+      Nobody can merge AI-layer changes, because conflicting owner lines block the pull request.
+  correct: 0
+  explanation: >-
+    GitHub uses the last matching pattern. The catch-all at the bottom overrides the AI-layer lines,
+    so the protection silently stops meaning what the team intended. Put `*` first.
+- id: q4
+  question: >-
+    Security wants to guarantee agents never run `dotnet ef database update` against any
+    environment. Where should this live in the AI layer?
+  options:
+    - >-
+      In the root AGENTS.md, as the first line and marked IMPORTANT, so every tool loads it.
+    - >-
+      In a skill describing the approved database-release procedure, loaded when relevant.
+    - >-
+      In a path-scoped rule for the migrations folder, since that is where database work happens.
+    - >-
+      In a permission deny rule or a pre-tool-use hook, backed by CI checks on the pipeline.
+  correct: 3
+  explanation: >-
+    "Never" is a guarantee. Rules, skills and path-scoped rules are advisory context the model
+    weighs; permissions and hooks act on execution deterministically. A rule may still explain why.
+- id: q5
+  question: >-
+    The backend team uses Claude Code with an old CLAUDE.md; the front-end team added AGENTS.md with
+    newer conventions. Claude and Cursor now write different data-access code for the same ticket.
+    What is the fix with the least ongoing risk?
+  options:
+    - >-
+      Tell each team to use only one tool, so each file has a single reader and cannot conflict.
+    - >-
+      Keep both files but copy every change from one to the other during code review.
+    - >-
+      Rename CLAUDE.md so Claude Code falls back to its built-in defaults for data access.
+    - >-
+      Make AGENTS.md canonical, have CLAUDE.md import it, and delete the duplicate stale rules.
+  correct: 3
+  explanation: >-
+    By default Claude Code reads CLAUDE.md and skips AGENTS.md when both exist (as of 2026-09). One
+    canonical file imported by the other removes the drift; manual copying guarantees it returns.
+- id: q6
+  question: >-
+    During an audit, a fresh agent with no rules file answers "which data-access pattern should new
+    code use?" correctly in 3 of 3 runs. A colleague concludes the rule is unnecessary. What is the
+    best response?
+  options:
+    - >-
+      Run more fresh probes: at 80% accuracy, 3/3 happens about half the time by chance.
+    - >-
+      Agree, since three consistent runs show the model has fully learned the convention.
+    - >-
+      Disagree, since any convention that has a test must also be written in the rules file.
+    - >-
+      Disagree, since agents cannot infer conventions from code without explicit instructions.
+  correct: 0
+  explanation: >-
+    Runs multiply: $0.8^3 \approx 0.51$. A small probe often misses an unreliable finding, so use
+    more runs (5 cuts it to about a third) and treat the result as triage, not proof.
+- id: q7
+  question: >-
+    In Contoso Billing, 2 of 4 migration scripts have no undo script because the convention began at
+    V003. Why is "every V### needs a U###" a strong rules-file candidate?
+  options:
+    - >-
+      Because SQL Server rejects any migration that is deployed without an undo script.
+    - >-
+      Because migration conventions are procedures, and procedures belong in the rules file.
+    - >-
+      Because the agent imitates the folder, and half of its examples show the old habit.
+    - >-
+      Because ADRs are the strongest evidence, and this convention is recorded in an ADR.
+  correct: 2
+  explanation: >-
+    The convention is newer than half the evidence, so imitation gets it wrong, and the cost of a
+    missing rollback is high. It is also enforceable, so a CI check should back the rule.
+- id: q8
+  question: >-
+    A reviewer approves a one-line PR that restores "use `SqlHelper.ExecuteDataSet` for all data
+    access" to AGENTS.md. What would most reliably have stopped this before any agent used it?
+  options:
+    - >-
+      A second human reviewer, since two approvals halve the chance of missing a stale line.
+    - >-
+      A CI lint that checks rule tokens against the repo and flags recommending an [Obsolete] type.
+    - >-
+      A longer rules file that explains the full data-access history in more detail.
+    - >-
+      A stronger model, since newer models recognize obsolete APIs and ignore bad rules.
+  correct: 1
+  explanation: >-
+    The line was plausible, so review passed it. A grounding lint checks every claim against the
+    code on every PR and fails on an obsolete symbol, which does not depend on reviewer vigilance.
+- id: q9
+  question: >-
+    After rewriting the rules, lint is clean, probes pass 12/12 and BILL-142 goes green. What can
+    you honestly tell the team?
+  options:
+    - >-
+      The rules are now proven correct and the agent will follow them in every future session.
+    - >-
+      The rules match the repo and aren't obviously broken; how well they work needs an evaluation.
+    - >-
+      The rules are optimal, because every line passed lint and every probe passed on the first try.
+    - >-
+      The agent no longer needs convention tests, because the rules now prevent these mistakes.
+  correct: 1
+  explanation: >-
+    Lint shows consistency, probes are small samples, and one ticket is one data point. That is a
+    good smoke check, not a measurement; Module 7 adds repeated trials and intervals. Tests stay.

@@ -1,0 +1,160 @@
+- id: q1
+  question: >-
+    You must deliver your full 2-hour workshop from your outline with notes checked at most twice. Your
+    only rehearsals so far are two solo run-throughs in which you glanced at the notes 11 and 8 times.
+    What is the best next step?
+  options:
+    - >-
+      Rewrite the notes as one short cue card per step, then run a friendly and dress rehearsal.
+    - >-
+      Memorize the full script word for word, so that you no longer need the notes in the room.
+    - >-
+      Run the two solo rehearsals again until the count of glances at the notes falls below three.
+    - >-
+      Drop the notes on the day and trust the slides, since slides already show the running order.
+  correct: 0
+  explanation: >-
+    Notes you cannot glance at get checked often; cue cards fix that. The exit test is about the full
+    workshop in front of people, which only friendly and dress rehearsals with observers can show.
+- id: q2
+  question: >-
+    A colleague's 2-hour agenda has a 65-minute live demo that builds the AI layer and runs a ticket
+    end to end, then 5 minutes of hands-on and a 15-minute close. They argue that "the demo is what
+    people pay for". What is the strongest response?
+  options:
+    - >-
+      Agree, but record the demo in advance so that none of it can fail in front of the audience.
+    - >-
+      Agree, and add a 10-minute Q&A inside the demo so that the audience stays engaged throughout.
+    - >-
+      Cut it into short live segments, each followed by the room doing the step on a sibling ticket.
+    - >-
+      Replace the demo with slides of its results, since slides take less time than a live agent run.
+  correct: 2
+  explanation: >-
+    People pay to be able to do the work on Monday; the demo is the worked example. Short segments
+    followed by the same step as hands-on keep the demo and add the practice that makes it stick.
+- id: q3
+  question: >-
+    An agenda's steps add up to 118 minutes in a 120-minute slot, with no buffer row. Every step is
+    exactly as long as it took in the dress rehearsal. What is the risk?
+  options:
+    - >-
+      None; two unplanned minutes at the end are enough for any overrun on a rehearsed agenda.
+    - >-
+      The first unplanned failure comes out of the hands-on steps or the post-test.
+    - >-
+      The agenda is too tight to add a break, so learners will lose focus in the second hour.
+    - >-
+      Rehearsed timings are always too long, so the real workshop will end about ten minutes early.
+  correct: 1
+  explanation: >-
+    Without a named buffer, a failed live segment or a slow laptop eats teaching or evidence. A buffer
+    of at least 5% of the slot, used for Q&A if unused, protects the parts that must not be cut.
+- id: q4
+  question: >-
+    At a friendly run, 5 of 14 laptops fail in the first exercise: an old SDK, a proxy blocking
+    restore, CRLF line endings and two agents not enabled. What change prevents most of this?
+  options:
+    - >-
+      Start the first exercise ten minutes earlier so that there is time to fix laptops in the room.
+    - >-
+      Ask the host's IT department to prepare identical laptops for every learner on the day.
+    - >-
+      Skip the hands-on steps for anyone whose laptop fails and let them watch the projector.
+    - >-
+      A setup check run two days before, plus an offline feed and a pairing or paper path.
+  correct: 3
+  explanation: >-
+    Known failures should surface before the day, when fixing them costs an e-mail. The offline feed
+    and the no-agent paths absorb what the check cannot see without costing anyone the exercise.
+- id: q5
+  question: >-
+    Twelve learners will start an agent together in Hands-on 2, each first call sending about 50,000
+    uncached input tokens. The host's organization is limited to 400,000 input tokens per minute for
+    that model. What should the plan say?
+  options:
+    - >-
+      Nothing; limits apply per user, so each learner has their own allowance for the exercise.
+    - >-
+      Stagger starts, since 600,000 tokens exceeds the limit and half the room would get errors.
+    - >-
+      Switch every learner to a smaller model, since its limits are always higher than the default.
+    - >-
+      Replace Hands-on 2 with a recorded run, since the demand cannot fit under the limit.
+  correct: 1
+  explanation: >-
+    D = 12 × 50,000 = 600,000 in one minute exceeds 400,000. Two one-minute groups bring the peak to
+    about 300,000; a room is one customer to the provider, and staggering costs almost nothing.
+- id: q6
+  question: >-
+    A security lead asks whether a malicious ticket could make the agent leak secrets. Your bank's
+    card says the model "is trained to refuse harmful instructions, so it is completely safe". What
+    is wrong with the card?
+  options:
+    - >-
+      It trusts the model and claims safety; answer with controls outside the model and your lab.
+    - >-
+      It is too technical for a workshop; answer that security is covered in a separate engagement.
+    - >-
+      It is correct but too short; add the model provider's safety announcements as extra evidence.
+    - >-
+      It should be parked for the Q&A block, since security questions are always too long to answer.
+  correct: 0
+  explanation: >-
+    Prompt injection is not reliably stopped by the model, and "completely safe" is a claim no
+    workshop can support. Permissions, hooks, human approval and your tested attack are the evidence.
+- id: q7
+  question: >-
+    In the Q&A, a manager asks whether their team will see your measured 16% improvement. Your
+    experiment had one team, 96 tickets, an interval of 5% to 25% and a failed defect guardrail. On
+    the claims ladder, what is the problem with saying "yes, roughly"?
+  options:
+    - >-
+      It stays on rung 2 but forgets to mention the interval, which the manager did not ask about.
+    - >-
+      It is fine on rung 3, since your team and theirs both work on legacy .NET code bases.
+    - >-
+      It is rung 5, money, because the manager will turn the percentage into a budget line.
+    - >-
+      It claims rung 4, an effect elsewhere, from rung 2, one study; offer to measure their team.
+  correct: 3
+  explanation: >-
+    An effect on another team needs replication there. The honest answer states the one-study result
+    with its interval and the failed guardrail, then offers the same comparison on their tickets.
+- id: q8
+  question: >-
+    Your dress rehearsal's two observers agree within one point on all eight criteria. Both are
+    colleagues who helped you build the kit, and the audience was your own team. What does the
+    agreement tell you?
+  options:
+    - >-
+      That the workshop is ready, since independent observers reached nearly the same scores.
+    - >-
+      That the rubric anchors are clear, so no further calibration is needed before a paid room.
+    - >-
+      Little about a paid room: the observers may share a bias and the audience built the material.
+    - >-
+      That the scores are wrong, since agreement within one point is too high to be believable.
+  correct: 2
+  explanation: >-
+    Agreement is not validity. Observers who like you, and an audience who knows the kit, can agree
+    on scores a stranger's room would not earn; the dress rehearsal needs outsiders and one critic.
+- id: q9
+  question: >-
+    Rehearsal logs show: solo run, drift +6; friendly run, drift +1; dress rehearsal with six
+    outsiders and two observers, drift −2, notes checked twice, lowest score 3, one failure recovered
+    in 50 seconds at the friendly run. What is your verdict?
+  options:
+    - >-
+      Not ready, because the solo run overran by six minutes and that is the most realistic timing.
+    - >-
+      Ready for a paid room: every gate of the exit standard passes on the dress rehearsal.
+    - >-
+      Not ready, because the failure was recovered at the friendly run rather than the dress rehearsal.
+    - >-
+      Ready only after a fourth solo run confirms that the drift stays under five minutes.
+  correct: 1
+  explanation: >-
+    The standard is judged on the last run, a dress rehearsal before outsiders with two observers,
+    plus a failure recovered in front of people at some rehearsal. All of those hold here.

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "sql-risk",
+    "promptFile": "sql-risk.md",
+    "_check": "crude substring grader, good enough for module 02; module 07 replaces it with real graders",
+    "mustContain": ["NOLOCK"],
+    "mustNotContain": []
+  },
+  {
+    "id": "csharp-deadlock",
+    "promptFile": "csharp-deadlock.md",
+    "mustContain": ["await", "async"],
+    "mustNotContain": [".Result", ".Wait()"]
+  },
+  {
+    "id": "hebrew-triage",
+    "promptFile": "hebrew-triage.md",
+    "mustContain": ["\"Orders\""],
+    "mustNotContain": ["\"Billing\"", "\"Auth\""]
+  }
+]

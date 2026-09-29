@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    In your assessment's item analysis, item q4 has difficulty p = 0.50 and discrimination D = -0.50 with
+    27% upper and lower groups. What is the most likely explanation and response?
+  options:
+    - >-
+      The item is too hard for this audience; move it to the end of the test and keep it unchanged.
+    - >-
+      The item works well, since half the learners answer it correctly, which is ideal difficulty.
+    - >-
+      The item is miskeyed or ambiguous; check the key and wording, then fix or remove it and log it.
+    - >-
+      The item discriminates strongly in reverse, so flip the key to make its D positive and keep it.
+  correct: 2
+  explanation: >-
+    Negative D means stronger learners chose a wrong option more often than weaker ones, usually because a
+    distractor is right under a reading you did not intend. Flipping the key without finding the cause guesses.
+- id: q2
+  question: >-
+    Nine of ten strangers set up your starter pack alone. How does the lesson want you to report that in the
+    kit manifest?
+  options:
+    - >-
+      As 90% success, since a single percentage is the clearest figure for buyers to compare.
+    - >-
+      As 9/10 with a Wilson 95% interval of about 60% to 98%, plus the date the test was run.
+    - >-
+      As "tested and working", since nine of ten is well above any reasonable release threshold.
+    - >-
+      As 9/10 with a normal-approximation interval of 71% to 100%, which suits small samples best.
+  correct: 1
+  explanation: >-
+    Small n hides a lot; the Wilson interval shows how wide the uncertainty is. The date matters because agent
+    tools and SDKs change, so an old test says little about today.
+- id: q3
+  question: >-
+    You change the sections of the Ground brief template so that briefs filled with the old version no
+    longer match the Bound plan. Which version change fits?
+  options:
+    - >-
+      A MAJOR version, because what buyers already filled in stops matching the kit.
+    - >-
+      A MINOR version, because the template gained new sections that make it more useful.
+    - >-
+      A PATCH version, because only one template changed and the rest of the kit did not.
+    - >-
+      No version change, because templates are documents and versioning is for code only.
+  correct: 0
+  explanation: >-
+    For a kit, the public API is what buyers have filled in or checked out. An incompatible change to it is
+    MAJOR under Semantic Versioning, and the changelog must say what changed.
+- id: q4
+  question: >-
+    Your course ends with a 10-item quiz after a 2-hour workshop. A buyer wants to advertise that passing it
+    makes someone a "certified AI-native engineer". What does the lesson recommend?
+  options:
+    - >-
+      Allow it, as long as the pass mark is set high enough, for example 9 of 10 correct answers.
+    - >-
+      Allow it only for learners who also score above the class median on the pre-test and post-test.
+    - >-
+      Allow it if the item analysis shows every item has discrimination of at least 0.30 or better.
+    - >-
+      Offer a certificate of completion and state what a score means and does not mean instead.
+  correct: 3
+  explanation: >-
+    A credential claims job competence and needs validity evidence, a defended cut score, security and appeals.
+    The quiz supports a narrow claim about the day; a certificate of completion says what actually happened.

@@ -1,0 +1,197 @@
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "issue_read",
+        "description": "Get information about a specific issue in a GitHub repository (details, comments, labels).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "Repository owner"
+            },
+            "repo": {
+              "type": "string",
+              "description": "Repository name"
+            },
+            "issue_number": {
+              "type": "number",
+              "description": "Issue number"
+            },
+            "method": {
+              "type": "string",
+              "description": "get | get_comments | get_labels"
+            }
+          },
+          "required": [
+            "owner"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "list_issues",
+        "description": "List issues in a GitHub repository, with filters for state, labels and date.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "Repository owner"
+            },
+            "repo": {
+              "type": "string",
+              "description": "Repository name"
+            },
+            "state": {
+              "type": "string",
+              "description": "OPEN | CLOSED"
+            },
+            "labels": {
+              "type": "array",
+              "description": "Label names"
+            }
+          },
+          "required": [
+            "owner"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "search_issues",
+        "description": "Search for issues across GitHub repositories using GitHub issue search syntax.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query using GitHub issue search syntax"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "pull_request_read",
+        "description": "Get information on a specific pull request (details, diff, files, reviews, status).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "Repository owner"
+            },
+            "repo": {
+              "type": "string",
+              "description": "Repository name"
+            },
+            "pullNumber": {
+              "type": "number",
+              "description": "Pull request number"
+            },
+            "method": {
+              "type": "string",
+              "description": "get | get_diff | get_files | get_reviews"
+            }
+          },
+          "required": [
+            "owner"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "list_pull_requests",
+        "description": "List pull requests in a GitHub repository.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "Repository owner"
+            },
+            "repo": {
+              "type": "string",
+              "description": "Repository name"
+            },
+            "state": {
+              "type": "string",
+              "description": "open | closed | all"
+            }
+          },
+          "required": [
+            "owner"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "get_file_contents",
+        "description": "Get the contents of a file or directory from a GitHub repository.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "owner": {
+              "type": "string",
+              "description": "Repository owner"
+            },
+            "repo": {
+              "type": "string",
+              "description": "Repository name"
+            },
+            "path": {
+              "type": "string",
+              "description": "Path to file or directory"
+            },
+            "ref": {
+              "type": "string",
+              "description": "Git ref"
+            }
+          },
+          "required": [
+            "owner"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "search_code",
+        "description": "Search code across all GitHub repositories using GitHub code search syntax.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query"
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      }
+    ]
+  }
+}

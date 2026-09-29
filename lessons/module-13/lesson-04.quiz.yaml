@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    The team with the worst Q2 cycle time in the organization gets the agent pilot in Q3. Its cycle
+    time drops 48%. Before crediting the agent, what is the first thing you check?
+  options:
+    - >-
+      Whether the drop is statistically significant with a permutation test on its tickets.
+    - >-
+      Whether the other teams also got faster in Q3, which would suggest a common cause.
+    - >-
+      The team's cycle time before Q2, since Q2 was selected for being extreme.
+    - >-
+      Whether developers on the team report feeling faster, to confirm the measured drop.
+  correct: 2
+  explanation: >-
+    A unit chosen for an extreme value tends to move back toward its usual level without any
+    treatment. Comparing with earlier quarters, not the one that caused the selection, tests that.
+- id: q2
+  question: >-
+    With organization mean 26 h, a quarter-to-quarter correlation of 0.45 and a selected team at
+    45 h, what cycle time would you expect next quarter with no intervention?
+  options:
+    - >-
+      About 45 h, since nothing has changed and the team should stay at its current level.
+    - >-
+      About 34.5 h, because the team is expected to keep 45% of its distance from the mean.
+    - >-
+      About 26 h, because every team returns fully to the organization mean in one quarter.
+    - >-
+      About 36.5 h, because the team is expected to lose 45% of its gap to the mean.
+  correct: 1
+  explanation: >-
+    E[x2] = mu + r(x1 - mu) = 26 + 0.45 x 19, about 34.5 h: an expected 23% "improvement" from
+    regression to the mean alone. The team keeps r of its deviation, not 1 - r.
+- id: q3
+  question: >-
+    In a randomized experiment, three tickets assigned to the manual arm were done with the agent
+    anyway. Which analysis should be primary?
+  options:
+    - >-
+      By assigned arm, because it keeps the comparison the randomization created.
+    - >-
+      By actual use, because those tickets really did use the agent and belong with that arm.
+    - >-
+      Drop the three tickets, because contaminated tickets belong to neither arm cleanly.
+    - >-
+      Restart the experiment, because any contamination invalidates the randomization.
+  correct: 0
+  explanation: >-
+    Intention to treat compares the arms the coin created, so it keeps randomization's protection;
+    contamination makes it slightly conservative. Per-protocol or dropping tickets lets people's
+    choices back into the comparison; report them as sensitivity checks.
+- id: q4
+  question: >-
+    A difference-in-differences shows the pilot team improved 54% more than 11 comparison teams,
+    and no placebo team was as extreme. The pilot was chosen for its worst quarter, used as the
+    pre-period. Why is the result still unreliable?
+  options:
+    - >-
+      Because 11 comparison teams are too few for any difference-in-differences to be valid.
+    - >-
+      Because the placebo p-value of 0.08 is above 0.05, so the result is not significant.
+    - >-
+      Because DiD needs randomized treatment, and the pilot team was not chosen at random.
+    - >-
+      Because the pre-period was a shock specific to that team, so parallel trends fails.
+  correct: 3
+  explanation: >-
+    DiD removes changes common to all teams, assuming the treated team would otherwise have moved
+    like them. A team selected for a bad quarter would not: it was due to bounce back.

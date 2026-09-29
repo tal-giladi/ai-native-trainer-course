@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    The build started on 2026-10-19. Your record's cycle-time baseline was captured on 2026-10-30
+    from the team's last two weeks. What is the main problem?
+  options:
+    - >-
+      Two weeks is enough data, but the median should have been reported as a mean instead.
+    - >-
+      It was captured after the build started, so it partly measures the intervention itself.
+    - >-
+      The capture date is irrelevant as long as the same team is measured before and after.
+    - >-
+      Baselines should always be prospective, so capturing it during the engagement is correct.
+  correct: 1
+  explanation: >-
+    Once the team works with the new layer, the before is gone. Take the baseline from 12 weeks of
+    history, captured before the build starts; two weeks is also far too short.
+- id: q2
+  question: >-
+    Your audit says "data access goes through SqlHelper", citing only the 2021 architecture page.
+    The ConventionTests forbid SqlHelper outside Legacy/. How should the finding be recorded?
+  options:
+    - >-
+      Confirmed, because the architecture page is the team's official documentation.
+    - >-
+      Confirmed, but marked low severity since the tests will catch any violation anyway.
+    - >-
+      As a hypothesis only, to be tested later by asking the tech lead about it.
+    - >-
+      As wrong: the tests (rung 1) and ADR (rung 3) contradict a rung-5 doc from 2021.
+  correct: 3
+  explanation: >-
+    Stronger evidence wins. The finding is that the doc is stale, confirmed by the scan and the ADR;
+    writing the old convention into the rules would teach the agent the retired pattern.
+- id: q3
+  question: >-
+    Baseline sd(log) within size is 0.44 and the pilot will have about 13 tickets per arm. Roughly
+    what cycle-time change can it reliably detect (alpha 0.05, power 0.8)?
+  options:
+    - >-
+      About 38%, as delta = 2.80 times 0.44 times the square root of 2/13.5.
+    - >-
+      About 15%, since that is a typical effect reported for coding assistants.
+    - >-
+      About 5%, since randomization removes most of the noise between tickets.
+    - >-
+      Any change at all, since a randomized design has no minimum effect size.
+  correct: 0
+  explanation: >-
+    $\delta = 2.80 \times 0.44 \times \sqrt{2/13.5} \approx 0.47$ log hours, so $1 - e^{-0.47} \approx 38\%$.
+    Smaller real effects will usually read as inconclusive; say so before the pilot starts.
+- id: q4
+  question: >-
+    Which baseline table fits the lesson's rules?
+  options:
+    - >-
+      Mean PR review hours per developer over the last sprint, ranked for coaching.
+    - >-
+      Lines of code accepted from the agent per week, as the single outcome metric.
+    - >-
+      Cycle time and escaped defects per ticket over 12 weeks with spread, plus an eval baseline.
+    - >-
+      A satisfaction survey of the team taken at kickoff, as the only before measure.
+  correct: 2
+  explanation: >-
+    Defined delivery metrics with a spread and a quality guardrail, by ticket and team, from enough
+    history, plus the eval baseline on the before state. Per-person and volume metrics do not qualify.

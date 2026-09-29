@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    After `/compact` in Claude Code, which of these is re-injected from disk rather than left to
+    the summary?
+  options:
+    - >-
+      A path-scoped rule under `.claude/rules/` that loaded when a migration file was read.
+    - >-
+      The project-root CLAUDE.md, together with the rules that have no `paths:` field.
+    - >-
+      A constraint the user typed in the chat earlier, provided it was written in capitals.
+    - >-
+      Every file the agent read during the session, regardless of how large it is.
+  correct: 1
+  explanation: >-
+    Root instructions and unscoped rules are re-read from disk. Path-scoped rules reload only when a
+    matching file is read again, chat-only constraints are summarized, and at most five recent files are re-read.
+- id: q2
+  question: >-
+    A task-specific constraint ("use V010 for this ticket") keeps getting lost after compaction.
+    Where should it live?
+  options:
+    - >-
+      In the root AGENTS.md, so that every session in the repository always loads it.
+    - >-
+      In a path-scoped rule for `db/migrations/**`, so that it loads with migrations.
+    - >-
+      In the task's handoff note or plan file, re-injected after compaction by a hook.
+    - >-
+      In the chat again after every compaction, since the summary cannot be controlled.
+  correct: 2
+  explanation: >-
+    It is a task fact, so repository rules are the wrong place: they would mislead every other task.
+    A task artifact that is re-injected (plan file, handoff note via a `SessionStart` compact hook) survives.
+- id: q3
+  question: >-
+    A session is full of failed attempts and a 30,000-token build log, and the next step is the same
+    task. What is the best move?
+  options:
+    - >-
+      Ask the agent to write a short handoff note, then `/clear` and start from the note.
+    - >-
+      Run `/compact` without a focus, so the summarizer can decide what is still useful.
+    - >-
+      Keep going, because a larger window means the residue no longer affects answers.
+    - >-
+      Copy the whole transcript into a new session, so that nothing from the task is lost.
+  correct: 0
+  explanation: >-
+    A summary written from polluted history inherits the pollution. A handoff note you can review,
+    followed by `/clear`, keeps the state and drops the residue; `/clear` itself costs nothing.
+- id: q4
+  question: >-
+    Which statement about the cost of `/compact` in Claude Code is accurate?
+  options:
+    - >-
+      It is free, because the summary is produced from the prompt cache without a model call.
+    - >-
+      It is cheaper than `/clear`, because `/clear` re-sends the whole history once more.
+    - >-
+      It costs the same as one normal turn, because only the last message is summarized.
+    - >-
+      It is itself a large request, because it reads the whole conversation it summarizes.
+  correct: 3
+  explanation: >-
+    Compaction reads what it summarizes, so on a large history it is a large request. It pays off by
+    shrinking later requests; when you want a fresh start rather than continuity, `/clear` costs nothing.

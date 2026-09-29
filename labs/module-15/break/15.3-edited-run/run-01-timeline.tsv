@@ -1,0 +1,30 @@
+# The student's first "unedited" run, as they logged it while watching back. Run with --file-duration 14:05.
+00:00	start	recording starts
+00:10	say	intro
+01:30	prompt	/prime BILL-97
+01:35	wait	researching
+02:45	output	research/BILL-97.md
+03:00	say	open questions
+03:30	prompt	/plan-feature BILL-97
+03:35	wait	planning
+05:10	output	plans/BILL-97.md
+05:20	prompt	[off-script] no, use Dapper like InvoiceRepository, not SqlHelper
+05:25	wait	replanning
+06:30	output	plan v2
+06:40	prompt	implement
+06:45	error	API overloaded; retries
+06:50	cut	paused the recording until it came back (about 3 minutes)
+07:00	wait	implementing
+08:00	output	code written
+08:10	prompt	[off-script] don't touch the SQL, Finance needs the same numbers
+08:15	wait	reverting the filter change
+09:20	output	filter restored
+09:30	prompt	/validate BILL-97
+09:35	wait	checks
+10:40	green	9 passed
+11:00	prompt	/pr-review
+11:05	wait	review
+12:00	output	review
+12:20	pr	draft PR
+12:30	say	wrap-up
+13:10	end	recording stops

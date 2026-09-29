@@ -1,0 +1,71 @@
+- id: q1
+  question: >-
+    Over 20 PRs with 14 known defects, a CI reviewer posts 64 comments. Before looking at any comment,
+    what is the highest precision it could possibly have?
+  options:
+    - >-
+      64%, because recall and precision are equal when the reviewer sees every defect.
+    - >-
+      22%, because at most 14 of the 64 comments can match a known defect.
+    - >-
+      100%, because a perfect model could make every one of the 64 comments correct.
+    - >-
+      70%, because the defect rate is 0.7 per PR and precision cannot exceed it.
+  correct: 1
+  explanation: >-
+    True positives cannot exceed the number of defects, so precision is at most D/C = 14/64. At this
+    volume most comments must be noise, whatever model writes them; volume is the lever.
+- id: q2
+  question: >-
+    Your v1 reviewer floods. You add a severity threshold and drop style, naming and docs comments,
+    but precision only rises from 13% to 25% on dev. What does this most likely show?
+  options:
+    - >-
+      The dev split is too small; the same filters will reach 80% on the holdout PRs.
+    - >-
+      The thresholds are too strict and are removing mostly true positives from the output.
+    - >-
+      The noise is labelled as serious categories, so only changing the prompt will separate it.
+    - >-
+      The ground truth is wrong, because a reviewer with 64% recall must be mostly correct.
+  correct: 2
+  explanation: >-
+    A flooding prompt labels speculative warnings as medium correctness or architecture issues, so
+    severity and category filters cannot tell signal from noise. Asking for evidence-backed defects
+    only (the v2 prompt) is what moved dev precision to 54%, and to 88% with the threshold.
+- id: q3
+  question: >-
+    The agent flags DateTime.Now in a PR where no human commented and no bug has been reported yet. A
+    lead confirms it is a real defect. How should the scoring change?
+  options:
+    - >-
+      Add it to the known defects, which raises true positives and the recall denominator.
+    - >-
+      Keep it as a false positive, since ground truth must come only from human review.
+    - >-
+      Count it as a true positive but leave the defect count unchanged to keep recall stable.
+    - >-
+      Drop the comment from the data set, because adjudicated items bias the comparison.
+  correct: 0
+  explanation: >-
+    Adjudication turns a confirmed agent finding into ground truth. It becomes a known defect, so it
+    counts as a true positive and also enters the recall denominator; otherwise the agent is penalized
+    for finding a bug the humans missed.
+- id: q4
+  question: >-
+    After tuning on 12 dev PRs, precision is 7/8. On the 8 holdout PRs it is 4/6, with a 95% Wilson
+    interval of 30% to 90%. What is the most defensible next step?
+  options:
+    - >-
+      Report 88% as the precision, since it came from the larger of the two splits.
+    - >-
+      Re-tune the thresholds on the holdout until it matches the 88% seen on dev.
+    - >-
+      Reject the reviewer, because an interval reaching down to 30% proves it is noise.
+    - >-
+      Ship with the measured policy and track the acted-on rate on the next PRs.
+  correct: 3
+  explanation: >-
+    The holdout is the honest estimate and its interval is wide because 8 PRs is small. It meets the
+    team's point target, so ship with the policy and keep measuring in production. Tuning on the holdout
+    would destroy it as a test.

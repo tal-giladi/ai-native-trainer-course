@@ -1,0 +1,17 @@
+{
+  "demoTicket": "BILL-97",
+  "beforeTag": "before-ai-layer",
+  "afterTag": "ai-layer-v1",
+  "ticketsDir": "tickets",
+  "layerPaths": [
+    "AGENTS.md", "CLAUDE.md", "AI-LAYER-CHANGELOG.md", "governance.md", ".mcp.json",
+    ".claude/", ".github/", "gates/", "tools/", "evals/", "skill-tests/", "templates/",
+    "docs/ai/", "context/", "research/", "plans/"
+  ],
+  "placeholders": [".claude/.gitkeep"],
+  "openCheck": {
+    "path": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+    "contains": "SqlHelper.ExecuteDataSet"
+  },
+  "allowedEmailDomains": ["contoso.example", "users.noreply.github.com"]
+}

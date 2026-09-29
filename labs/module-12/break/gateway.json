@@ -1,0 +1,100 @@
+{
+  "_comment": "Fabrikam peak hour, BEFORE: one gateway key shared by every team and every CI job. Loads are illustrative. uncached input tokens only (what counts toward ITPM).",
+  "seed": 12,
+  "seconds": 3600,
+  "org": {
+    "tpm": 7000000
+  },
+  "keys": [
+    {
+      "id": "shared",
+      "tpm": 7000000,
+      "burst": 7000000
+    }
+  ],
+  "load": [
+    {
+      "id": "billing-devs",
+      "team": "billing",
+      "key": "shared",
+      "users": 48,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "payments-devs",
+      "team": "payments",
+      "key": "shared",
+      "users": 64,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "identity-devs",
+      "team": "identity",
+      "key": "shared",
+      "users": 36,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "lending-devs",
+      "team": "lending",
+      "key": "shared",
+      "users": 72,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "mobile-devs",
+      "team": "mobile",
+      "key": "shared",
+      "users": 56,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "data-devs",
+      "team": "data",
+      "key": "shared",
+      "users": 40,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "platform-devs",
+      "team": "platform",
+      "key": "shared",
+      "users": 34,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "web-devs",
+      "team": "web",
+      "key": "shared",
+      "users": 50,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "payments-ci-fix-loop",
+      "team": "payments",
+      "key": "shared",
+      "users": 40,
+      "activeShare": 1,
+      "reqPerMin": 6,
+      "tokensMean": 25000,
+      "from": 900,
+      "to": 2700
+    }
+  ]
+}

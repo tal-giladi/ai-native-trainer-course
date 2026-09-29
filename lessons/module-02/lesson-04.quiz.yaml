@@ -1,0 +1,84 @@
+- id: q1
+  question: >-
+    Your agent's read_file tool is called with {"path": "../secrets/appsettings.Production.json"} and the
+    harness returns the file. Where should this have been stopped?
+  options:
+    - >-
+      In the model, by adding "never read secret files" to the system prompt so it refuses the call.
+    - >-
+      In the JSON Schema, by enabling strict mode so the invalid path fails schema validation.
+    - >-
+      In the harness, by resolving the full path and refusing anything outside the workspace root.
+    - >-
+      At the provider, whose content filters are expected to redact secrets found in tool results.
+  correct: 2
+  explanation: >-
+    The model only emits JSON; your process executes it with your permissions, so authorization is harness code.
+    Strict mode guarantees shape, and this path is schema-valid. A prompt instruction is persuasion, not a boundary.
+- id: q2
+  question: >-
+    The model calls read_file with {"file": "src/OrderService.cs"} but the schema requires "path".
+    What is the best harness behaviour?
+  options:
+    - >-
+      Return an is_error tool_result that names the missing field and shows a correct call, then continue.
+    - >-
+      Throw and end the run, because a model that violates the schema cannot be trusted for the rest of the task.
+    - >-
+      Silently map "file" to "path" and run the tool, so the user never sees the model's mistake.
+    - >-
+      Retry the whole request from the beginning with a higher temperature to get a different call.
+  correct: 0
+  explanation: >-
+    An instructive is_error result lets the model correct itself, which it typically does. Crashing wastes the run;
+    silent remapping hides a defect in your tool description; restarting discards all progress.
+- id: q3
+  question: >-
+    An agent run has a 3,000-token fixed prefix and each turn adds 1,500 tokens. About how many input
+    tokens do 10 turns send in total?
+  options:
+    - >-
+      About 16,500, because only the final context is billed once the run finishes.
+    - >-
+      About 45,000, because each of the ten turns sends the prefix plus one turn's new tokens.
+    - >-
+      About 150,000, because every turn resends the full ten-turn history from the start.
+    - >-
+      About 97,500, because each turn resends the prefix plus everything added so far.
+  correct: 3
+  explanation: >-
+    Turn i sends b + s(i-1). Summed over 10 turns that is 10 x 3,000 + 1,500 x 45 = 97,500. Cost grows with the
+    square of the number of turns, which is why loops need caps and small tool outputs.
+- id: q4
+  question: >-
+    A teammate enables strict mode on all tool definitions and says malformed tool calls are now
+    "impossible". What remains true?
+  options:
+    - >-
+      Nothing remains; strict mode validates both argument shape and whether the values make sense.
+    - >-
+      Arguments will match the schema, but values can still be wrong, unsafe or point at missing files.
+    - >-
+      Strict mode only applies to the first call in a run, so later turns still need manual validation.
+    - >-
+      Strict mode disables parallel tool calls, so the agent will become slower but no less reliable.
+  correct: 1
+  explanation: >-
+    Strict mode constrains generation to the schema's shape. A schema-valid path can still escape the workspace or
+    name a file that does not exist, so semantic validation and authorization stay in the harness.
+- id: q5
+  question: >-
+    Which task is a better fit for a fixed workflow than for an agent loop?
+  options:
+    - >-
+      Finding every caller of a stored procedure in an unfamiliar legacy solution you have never opened.
+    - >-
+      Diagnosing why an integration test fails only on the CI server and never on developer machines.
+    - >-
+      Summarising each merged PR's diff into a changelog line and labelling it feature, fix or chore.
+    - >-
+      Answering a new engineer's open-ended questions about how the billing module handles refunds.
+  correct: 2
+  explanation: >-
+    When the steps are known in advance (summarise, then label), a predefined code path is cheaper and more
+    predictable. Agent loops earn their cost when the next step depends on what was just discovered.

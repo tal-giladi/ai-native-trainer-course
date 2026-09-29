@@ -1,0 +1,8 @@
+# Illustrative answers to the student's application form (application-form.md). Fictional organizations; no personal data collected.
+id,role,team_size,problem,last_incident,sponsor,budget,timing_weeks,uses_agent,expectation,conflict
+A01,Engineering manager,48,"Agent PRs duplicate billing rules that already exist in stored procedures","Last sprint two PRs re-implemented the credit-hold rule in C#; review caught one, the other shipped and caused a refund",VP Engineering,process-known,8,yes,"VP wants a guaranteed 30% productivity improvement before approving anything",no
+A02,CTO,3,"Want to start using AI for coding","n/a",CTO,none,4,no,"Learn what tools exist",no
+A03,Tech lead,12,"Agent ignores our data-access conventions","In July the agent wrote inline SQL in three services and a DBA reverted them",Director of Engineering,approved,6,yes,"Team follows one convention without me policing it",yes - they are a current customer of my employer
+A04,Staff engineer,20,"Reviewers don't trust tests the agent writes","Two weeks ago an agent-written test passed while asserting the bug; found in UAT",Head of Platform,process-known,20,yes,"Reviewers can tell which checks count as proof",no
+A05,Operations director,30,"Replace five contractors with AI","n/a",COO,approved,6,weekly,"Cut headcount by five developers",no
+A06,Independent consultant,1,"Want to resell your workshop to my clients","none",unknown,unknown,2,n/a,"White-label licence",no

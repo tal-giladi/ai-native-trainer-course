@@ -1,0 +1,5 @@
+bin/
+obj/
+out/
+mcp-talk.log
+.claude/audit/

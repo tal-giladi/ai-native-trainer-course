@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A CI credential is shared by all 8 teams and lives 365 days. It leaks at a random moment and nobody
+    notices. Compared with a per-team OIDC credential that lives one hour, what changes?
+  options:
+    - >-
+      Nothing important, as long as the CI runners sit on a private network with no internet access.
+    - >-
+      Only attribution changes; the exposure time is the same because both are revoked on detection.
+    - >-
+      Reach falls from all teams to one, and expected exposure from about half a year to 30 minutes.
+    - >-
+      Reach stays the same, because OIDC tokens are issued to the organisation rather than to a team.
+  correct: 2
+  explanation: >-
+    Reach is k/T: 8/8 versus 1/8. Undetected, the expected remaining validity is about L/2: roughly 182
+    days versus 30 minutes. Both improvements hold without anyone detecting the leak.
+- id: q2
+  question: >-
+    Security asks for a complete record of agent activity. The platform team proposes logging every prompt
+    and response in full for a year. What is the best alternative?
+  options:
+    - >-
+      Keep the full log but restrict it to the platform team, who already administer the gateway.
+    - >-
+      Log nothing, since any record of prompts may contain secrets and personal data.
+    - >-
+      Log full prompts on developer laptops only, so the sensitive data never reaches any central server.
+    - >-
+      Redact before writing a short-lived content log; keep metadata and hashes in write-once storage.
+  correct: 3
+  explanation: >-
+    A full prompt log becomes a store of every secret developers paste, editable by the people it should
+    audit. Redact-before-write plus an append-only metadata trail answers "who did what" without it.
+- id: q3
+  question: >-
+    Fabrikam places the gateway and providers on a private network. A reviewer says per-team keys are now
+    unnecessary because only internal machines can reach the gateway. Why is this wrong?
+  options:
+    - >-
+      Network location grants no trust; without per-team identities you cannot limit reach or attribute calls.
+    - >-
+      Private networks add latency, so per-team keys are needed to keep each team's latency within its quota.
+    - >-
+      Per-team keys are required by the model provider's terms of service whenever a private endpoint is used.
+    - >-
+      Internal machines always run the agent in bypass mode, which ignores network restrictions.
+  correct: 0
+  explanation: >-
+    Zero trust treats each session as needing its own authentication and authorisation. The network is a
+    second boundary; identity is what gives you reach limits, revocation and attribution.
+- id: q4
+  question: >-
+    You find five real-looking credentials in the gateway's prompt log. You enable redaction so new lines
+    are clean. What must you still do?
+  options:
+    - >-
+      Nothing further: redacting future lines removes the risk because the old log will expire eventually.
+    - >-
+      Rotate the five credentials, because redaction does not undo the fact that they were exposed.
+    - >-
+      Re-run the redaction on the old log and keep it, since the credentials are then masked everywhere.
+    - >-
+      Ask the model provider to delete the prompts, which makes the credentials safe to keep using.
+  correct: 1
+  explanation: >-
+    The credentials were already sent to the provider and stored in your log with its readers. Treat them
+    as leaked: rotate them. Redaction protects what you store from now on.

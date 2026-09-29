@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    `docs/ARCHITECTURE.md` (edited 2021) says to use `SqlHelper`. ADR 0007 (2024) says Dapper
+    repositories, and a convention test fails if new code calls `SqlHelper`. What does the audit record?
+  options:
+    - >-
+      A conflict to escalate to the team, since documentation and code carry equal weight.
+    - >-
+      Both conventions, so the agent can choose whichever matches the file it is editing.
+    - >-
+      The SqlHelper rule, since the architecture doc describes the overall system design.
+    - >-
+      The Dapper convention, backed by test and ADR, and a finding that the doc is stale.
+  correct: 3
+  explanation: >-
+    Executable evidence and decision records outrank an old repository doc on the evidence ladder.
+    The stale doc is itself a finding, because agents that read it will be misled.
+- id: q2
+  question: >-
+    A fresh agent with no rules file answers a finding correctly in 3 of 3 runs. If its true
+    per-run accuracy were 0.8, how likely was a 3/3 result anyway?
+  options:
+    - >-
+      About 51%, because $0.8^3 = 0.512$.
+    - >-
+      About 80%, because each run is correct 80% of the time.
+    - >-
+      About 24%, because $3 \times 0.08 = 0.24$.
+    - >-
+      About 99%, because three runs are enough to rule out chance.
+  correct: 0
+  explanation: >-
+    Independent runs multiply, so $p^k = 0.8^3 \approx 0.51$. A 3/3 probe misses a one-in-five
+    failure rate about half the time, which is why probes are triage and Module 7 adds statistics.
+- id: q3
+  question: >-
+    Your audit confirms, with strong evidence, that money is stored as `decimal(19,4)`. A fresh
+    agent without rules gets it right in 5 of 5 runs. What should you do with the finding?
+  options:
+    - >-
+      Put it at the top of the rules file, because money handling has a high cost of error.
+    - >-
+      Leave it out of the rules file, since the agent already infers it from the code.
+    - >-
+      Put it in a skill, because type conventions are procedures used only sometimes.
+    - >-
+      Record it as a hypothesis, because 5 runs are not enough to confirm anything.
+  correct: 1
+  explanation: >-
+    The filter is "would the agent get it wrong without being told?". A confirmed finding the agent
+    infers reliably only adds cost and noise to every session; a test or analyzer can still guard it.
+- id: q4
+  question: >-
+    In a legacy repo, 200 files use an old data-access helper and 12 use the new repository
+    pattern. Why is this the classic brownfield trap for agents?
+  options:
+    - >-
+      The agent cannot read 200 files, so it only ever sees the newest code.
+    - >-
+      The old helper is usually faster, so the agent picks it for performance reasons.
+    - >-
+      The agent imitates the patterns it reads, and here the majority pattern is the abandoned one.
+    - >-
+      The agent refuses to modify legacy code unless the rules file explicitly allows it.
+  correct: 2
+  explanation: >-
+    Without being told which pattern is current, imitation favors what is most common, and in
+    brownfield code the most common pattern is often the one the team has moved away from.

@@ -1,0 +1,155 @@
+- id: q1
+  question: >-
+    Legal says "no code may leave the EU." Your draft uses the vendor's own API as primary and a cloud
+    provider's global endpoint as fallback. Which response best captures what changes and what it costs?
+  options:
+    - >-
+      Keep the design and add a contract clause, since residency is a legal matter the architecture cannot address.
+    - >-
+      Move only the primary route to an EU region; the fallback is used so rarely that it does not count.
+    - >-
+      Move every route, tool and content store to EU options; expect about 10% higher prices and later new models.
+    - >-
+      Switch to self-hosted open weights, because no cloud or vendor offering can keep all processing inside the EU.
+  correct: 2
+  explanation: >-
+    Residency applies to every path: routes including fallback, MCP servers, content logs and telemetry.
+    As of 2026-09 the vendor API offers no EU inference geography, and EU-scoped cloud endpoints cost about
+    10% more and receive new models later. Both costs belong in the ADR.
+- id: q2
+  question: >-
+    A procurement spreadsheet ranks hosting options by price per attempt and picks a self-hosted model at
+    $0.42 per attempt. On your task set it passes 46% (95% CI 33-60%) against a 60% floor. What should happen?
+  options:
+    - >-
+      Eliminate it on the pass-rate constraint first, then compare the survivors on cost per success.
+    - >-
+      Accept it, because its interval reaches 60% and the price advantage outweighs the risk.
+    - >-
+      Accept it and add a human reviewer to every single task, which turns its low pass rate into a non-issue.
+    - >-
+      Run it for a month in production and decide afterwards based on developer satisfaction.
+  correct: 0
+  explanation: >-
+    Constraints eliminate before anything is weighed. At 46%, review of failures alone costs about $17.61
+    per success with $15 reviews, far above the chosen option's total of about $6.11.
+- id: q3
+  question: >-
+    Every morning five teams see 429 errors. One gateway key is shared by all teams and CI, and a payments
+    CI job is retrying in a loop. Finance also reports that a third of spend has no owning team. What
+    single change addresses both?
+  options:
+    - >-
+      Request a higher organisation rate limit so the shared key has room for the CI job.
+    - >-
+      Enable prompt caching everywhere, which lowers the tokens counted against the limit.
+    - >-
+      Add a second provider as fallback so throttled requests are retried elsewhere.
+    - >-
+      Issue per-team keys with their own quotas and budgets, and give CI separate per-team keys.
+  correct: 3
+  explanation: >-
+    Both symptoms come from a caller identity coarser than the unit being managed. Per-team keys contain
+    runaway load where it starts and make every dollar attributable.
+- id: q4
+  question: >-
+    Your two model routes have availability 0.995 and 0.99 and are independent. The gateway in front of
+    them has availability 0.999. Where should the next reliability investment go first?
+  options:
+    - >-
+      A third provider route, since three parallel routes would push the availability above five nines.
+    - >-
+      The gateway (zone replicas, a break-glass path), because it is in series and sets the ceiling.
+    - >-
+      Longer client retry timeouts, so developers wait out provider incidents instead of failing.
+    - >-
+      Nowhere, because the combined availability of the routes already exceeds 0.9999.
+  correct: 1
+  explanation: >-
+    The routes in parallel reach about 0.99995, but everything passes through the gateway, so the total is
+    about 0.999 x 0.99995, roughly 0.99895. The series component bounds the system.
+- id: q5
+  question: >-
+    Security review finds agent tokens shared across teams and prompts logged with secrets. The platform
+    lead proposes restricting log access to the platform team and adding IP allowlisting. What is missing?
+  options:
+    - >-
+      Nothing; restricting who can read the log and which networks can connect addresses both findings.
+    - >-
+      A longer log retention period, so that investigations can reach further back when incidents surface.
+    - >-
+      Per-team short-lived keys, redaction before logging, append-only audit, rotating exposed secrets.
+    - >-
+      Encrypting the log at rest with a managed key, which removes the need for redaction or rotation.
+  correct: 2
+  explanation: >-
+    Access limits and IP rules do not restore attribution or shrink reach, and the platform team would still
+    hold every pasted secret. The fix is identity, redact-before-write, append-only audit, and rotation.
+- id: q6
+  question: >-
+    A developer uses a personal consumer login for the coding agent on company code "because it was faster
+    to set up." The company's commercial contract excludes training on its data. What is the main issue?
+  options:
+    - >-
+      Personal logins run older models, so the code quality will be lower than on the company plan.
+    - >-
+      Consumer terms may allow training and longer retention on the code; force organisation login.
+    - >-
+      Consumer logins bypass the model provider's rate limits, which harms other customers of the service.
+    - >-
+      There is no issue, because the commercial contract covers every use of the vendor's service by employees.
+  correct: 1
+  explanation: >-
+    Commercial terms apply to commercial accounts. A consumer account carries its own training and retention
+    terms; managed settings that force organisation login and gateway-only routes close the path.
+- id: q7
+  question: >-
+    The data inventory for your agent platform lists the primary route, the gateway logs and the provider.
+    Which item is most likely to be missing?
+  options:
+    - >-
+      The source repository, since code must be stored before an agent can read it.
+    - >-
+      The identity provider, which receives every prompt so it can check the user's permissions first.
+    - >-
+      The CI build cache, which stores all prompts sent by headless agents for reuse.
+    - >-
+      MCP servers and client-side copies: local transcripts, telemetry and feedback reports.
+  correct: 3
+  explanation: >-
+    Tool arguments and results are prompt data, and clients keep transcripts and may send telemetry or
+    feedback. These rows are the ones drafts forget, and each needs a location, retention and readers.
+- id: q8
+  question: >-
+    The ADR log contains two accepted records on the topic "model-gateway": ADR-0002 (teams call providers
+    directly) and ADR-0007 (central gateway). What should you do?
+  options:
+    - >-
+      Mark ADR-0002 "Superseded by ADR-0007" and add "Supersedes: ADR-0002" to ADR-0007.
+    - >-
+      Delete ADR-0002, because it no longer reflects the architecture and confuses readers.
+    - >-
+      Edit ADR-0002 to describe the gateway and delete ADR-0007 to avoid duplication.
+    - >-
+      Leave both, since each was accepted by the right people at the time it was written.
+  correct: 0
+  explanation: >-
+    One question should have one accepted answer. Supersession keeps the history and makes the current
+    decision unambiguous; deleting or editing accepted records loses the reasoning.
+- id: q9
+  question: >-
+    Your security-review draft answers "Can clients bypass the gateway?" with "No." and no evidence. What
+    would make this answer acceptable to a reviewer?
+  options:
+    - >-
+      Expanding it to a full paragraph describing how the gateway was designed and who approved it.
+    - >-
+      Adding the platform lead's name so the reviewer knows who to hold accountable for the claim.
+    - >-
+      Citing the ADR that decided it and checkable evidence, such as the lint run or egress report.
+    - >-
+      Marking it as out of scope, since network questions belong to a separate infrastructure review.
+  correct: 2
+  explanation: >-
+    Reviewers can check evidence, not assertions. Linking the decision and a runnable check also exposes
+    answers that describe the intended design rather than the real one.

@@ -1,0 +1,28 @@
+# Words that tie a sentence to one tool or one release (as of 2026-09).
+# A method sentence that needs one of these will break when the tool changes.
+# Add the names of the tools your own team uses.
+Claude Code
+Cursor
+Copilot
+Codex
+plan mode
+Shift+Tab
+/clear
+/compact
+/context
+/init
+CLAUDE.md
+.cursor/rules
+copilot-instructions.md
+.claude/
+SKILL.md
+settings.json
+Explore subagent
+Plan subagent
+subagent
+slash command
+Opus
+Sonnet
+Haiku
+GPT
+Gemini

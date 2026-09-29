@@ -1,0 +1,97 @@
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "name": "run_sql",
+        "description": "Runs any SQL statement against the Contoso Billing production database and returns the rows.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sql": {
+              "type": "string",
+              "description": "The SQL to run"
+            }
+          },
+          "required": [
+            "sql"
+          ]
+        }
+      },
+      {
+        "name": "jira_update_issue",
+        "description": "Updates any field of any Jira issue, including status transitions.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "key",
+            "fields"
+          ]
+        }
+      },
+      {
+        "name": "jira_search",
+        "description": "Searches Jira with JQL.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "jql": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "jql"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "get_ticket",
+        "description": "Reads one Jira ticket by key.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "key"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      },
+      {
+        "name": "cleanup_invoices",
+        "description": "Deletes test invoices older than N days. Safe: read-only preview first.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "days": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "days"
+          ]
+        },
+        "annotations": {
+          "readOnlyHint": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    Your 2-hour draft has a 10-minute bio, 10 minutes of industry numbers, a 65-minute live demo with
+    Q&A during the agent's runs, 5 minutes of "try it yourself" and a 15-minute close. What is the
+    most important change?
+  options:
+    - >-
+      Keep the demo but record it in advance, so that nothing can fail in front of the room.
+    - >-
+      Move the 5-minute exercise to the start, so that learners are engaged from the first minute.
+    - >-
+      Cut the demo into short live segments, each followed by learners doing the same step.
+    - >-
+      Replace the Q&A during the agent's runs with slides, so that the wait feels less awkward.
+  correct: 2
+  explanation: >-
+    The draft keeps learners passive for 95 minutes and puts the only practice at 1:41. Short live
+    segments followed by the same step on a sibling ticket turn watching into practice, and setup
+    problems surface early.
+- id: q2
+  question: >-
+    Why does the reference workshop run the demo on BILL-97 but have learners work on BILL-180?
+  options:
+    - >-
+      Different tickets transfer the step to a new case; the same ticket invites copying.
+    - >-
+      BILL-97 is too slow for laptops, so learners need a ticket that runs faster on their machines.
+    - >-
+      Learners must never see the demo ticket's code, since it contains the answer to the post-test.
+    - >-
+      Two tickets double the number of pull requests, which makes the workshop look more productive.
+  correct: 0
+  explanation: >-
+    Watching you do BILL-97 is the worked example; doing a sibling ticket in the same repository with
+    the same layer is guided practice. Doing the identical ticket turns the exercise into copying.
+- id: q3
+  question: >-
+    Every step in an agenda has the right length, but one row starts at 1:31 while the previous one
+    ends at 1:25. The steps add up to 115 minutes in a 120-minute slot. What is true?
+  options:
+    - >-
+      Nothing is wrong, because the total is under the slot and five minutes are still left over.
+    - >-
+      The six-minute gap is a hidden buffer, which is the right way to protect the schedule.
+    - >-
+      The problem is only cosmetic; the presenter will follow the minutes, not the start times.
+    - >-
+      The clock ends at 2:01, so the timestamps you will steer by tell you the wrong lateness.
+  correct: 3
+  explanation: >-
+    Start times are what you read in the room. A row that starts six minutes late pushes the end to
+    2:01 and makes every later "am I late?" judgment wrong; a buffer belongs in its own named row.
+- id: q4
+  question: >-
+    You are eight minutes behind at the start of Live 2. Following this lesson's cut order, what do
+    you cut first?
+  options:
+    - >-
+      Hands-on 3, since learners can prove their change at home using the catch-up tag afterwards.
+    - >-
+      The Live 2 segment, shown from its fallback clip, with the story around it cut to a sentence.
+    - >-
+      The post-test, since the feedback form still gives you enough evidence of how it went.
+    - >-
+      The reflection, since the Q&A that follows covers the same ground in a more natural way.
+  correct: 1
+  explanation: >-
+    Cut show steps first, then extensions; never hands-on, the reflection or the post-test. A live
+    segment played from its recording saves the minutes the room needs to practise.

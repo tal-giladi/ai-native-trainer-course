@@ -1,0 +1,14 @@
+Excerpt of `git log --date=short --format="%ad %an %s"` for this repo (newest first).
+The lab folder is not a git repository, so the history is provided as text.
+
+2026-08-30 dana      BILL-131 add ListByCustomerAsync to IInvoiceRepository
+2026-06-12 yossi     BILL-120 InvoiceService.IsOverdue uses IClock
+2025-02-03 dana      BILL-88 V004 due date not null (+U004)
+2024-11-19 avi       BILL-79 convention tests: SqlHelper only in Legacy/, no DateTime.Now
+2024-06-02 avi       BILL-66 migrate invoice reads from SqlHelper to InvoiceRepository (Dapper)
+2024-05-14 dana      BILL-61 V003 datetimeoffset + Status (+U003); rollback scripts from now on
+2024-04-22 avi       ADR 0007 Dapper repositories replace SqlHelper
+2023-01-09 moshe     rename Billing.sln -> Contoso.Billing.sln, Billing.UnitTests -> Contoso.Billing.Tests
+2021-06-10 moshe     docs: copy architecture page from wiki
+2019-11-18 moshe     V002 add due date
+2016-03-02 moshe     initial import

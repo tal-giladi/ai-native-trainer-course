@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    A test-generation bot makes 20 proposals a month. Each accepted test saves 20 minutes; reviewing
+    any proposal properly takes 10 minutes. Below what acceptance rate does it cost more time than it saves?
+  options:
+    - >-
+      25%, because a quarter of accepted tests covers the cost of reviewing the rest.
+    - >-
+      10%, because review time only counts for proposals that end up being accepted.
+    - >-
+      50%, since break-even is review minutes divided by minutes saved per acceptance.
+    - >-
+      80%, because generated tests need to pass most of the time to be worth any review.
+  correct: 2
+  explanation: >-
+    Net value is n(as - r), so break-even is a* = r/s = 10/20 = 0.5. Review time is paid on every
+    proposal, accepted or not; at 30% acceptance this bot loses 80 minutes a month.
+- id: q2
+  question: >-
+    A triage bot reads issues filed by outside users and runs "gh issue edit" itself to apply labels
+    and close duplicates. Which redesign removes the core risk?
+  options:
+    - >-
+      Add a line to the prompt telling the agent that issue text is data, not instructions.
+    - >-
+      The agent only proposes JSON; a separate deterministic job validates it and applies it.
+    - >-
+      Keep the design but lower --max-turns so the agent has fewer chances to misbehave.
+    - >-
+      Run the bot only on a nightly schedule so a human can review the issues each morning.
+  correct: 1
+  explanation: >-
+    The risk is that the same session reads attacker text and holds the tool that acts. Splitting it
+    into a proposing agent with no write tools and a deterministic apply step that checks a policy
+    removes that path; a prompt line only lowers the odds.
+- id: q3
+  question: >-
+    With a JSON schema whose label enum excludes "approved-for-release", the injected ticket no longer
+    gets that label, but the agent still sets priority p0. What does this show?
+  options:
+    - >-
+      A schema limits what the agent can say, not which allowed value it chooses.
+    - >-
+      The schema is broken, because a valid schema would have blocked every injection.
+    - >-
+      Priority fields cannot be constrained by JSON Schema, so they must be removed.
+    - >-
+      The injection failed completely, so the validator step is no longer needed.
+  correct: 0
+  explanation: >-
+    The enum removed the forbidden label from the vocabulary, but p0 is an allowed value the agent can
+    be talked into. The validator's policy (p0 and p1 go to a human) is what makes that wrong choice harmless.
+- id: q4
+  question: >-
+    A weekly changelog job occasionally runs twice (a late schedule plus a manual dispatch) and opens
+    two draft PRs. What is the best fix?
+  options:
+    - >-
+      Move the schedule to the start of the hour, when GitHub runs are most punctual.
+    - >-
+      Add a retry step so the second run can close the duplicate PR automatically.
+    - >-
+      Remove workflow_dispatch so the job can only ever start from the schedule.
+    - >-
+      Derive a key like the ISO week and exit before spending if it already exists.
+  correct: 3
+  explanation: >-
+    Scheduled runs can be delayed or duplicated, so the job itself must be idempotent: check the week's
+    branch or PR first and exit cheaply. The start of the hour is the busiest time, not the most punctual.

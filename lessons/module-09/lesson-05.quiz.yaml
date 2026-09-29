@@ -1,0 +1,82 @@
+- id: q1
+  question: >-
+    A config denies Bash(curl*). Why is this not a reliable network boundary on its own?
+  options:
+    - >-
+      Deny rules are evaluated after allow rules, so an allow can override them.
+    - >-
+      Bash rules match the command text, so /usr/bin/curl or sh -c 'curl ...' slips past.
+    - >-
+      curl is classed as a read-only command, so Claude Code never checks it against deny rules.
+    - >-
+      The rule only applies to the WebFetch tool, not to Bash commands.
+  correct: 1
+  explanation: >-
+    A Bash rule matches the invocation Claude usually writes, not the program. A different spelling
+    or a wrapper bypasses it. OS-level enforcement (the sandbox) is the actual network boundary.
+- id: q2
+  question: >-
+    A PreToolUse guard hook cannot find jq and, written naively, prints an error and exits 0. What
+    has the control become?
+  options:
+    - >-
+      A fail-closed control that safely denies the call it could not check.
+    - >-
+      A fail-open control that permits the calls it was meant to block.
+    - >-
+      An audit control that logs the call without blocking it.
+    - >-
+      Unchanged, because exit 0 still blocks the tool on PreToolUse.
+  correct: 1
+  explanation: >-
+    Exit 0 lets the call proceed. A guard that exits 0 when its own dependency is missing waves
+    through the very calls it should block. A guard must exit 2 (deny) on any error.
+- id: q3
+  question: >-
+    In Claude Code, how are permission rules resolved when a call matches both an allow and a deny rule?
+  options:
+    - >-
+      The most specific rule wins, so a narrow allow overrides a broad deny for that call.
+    - >-
+      Allow wins, because allow rules are meant to grant exceptions.
+    - >-
+      Deny wins: deny is checked first, and an allow cannot carve an exception out of it.
+    - >-
+      Whichever rule appears later in the settings file wins.
+  correct: 2
+  explanation: >-
+    Rules are evaluated deny, then ask, then allow, first match wins. A broad deny blocks matching
+    calls even when a narrower allow also matches; allow cannot override deny.
+- id: q4
+  question: >-
+    Why should a PostToolUse audit hook always exit 0, even when writing to its log fails?
+  options:
+    - >-
+      Because PostToolUse hooks cannot block a call anyway, so the exit code is ignored.
+    - >-
+      Because a logging failure should abort the session to force someone to investigate.
+    - >-
+      Because blocking on a logging error turns observability into an outage.
+    - >-
+      Because exit 0 queues the failed log entry so it is retried automatically later.
+  correct: 2
+  explanation: >-
+    The audit hook's job is to record, not to gate. If logging fails it must still let the session
+    continue; otherwise a broken log becomes a broken agent.
+- id: q5
+  question: >-
+    After hardening, an engineer finds a legitimate `dotnet test` run is now blocked. What is the
+    correct fix?
+  options:
+    - >-
+      Re-add Bash(*) to the allow list so nothing is ever blocked again.
+    - >-
+      Disable the sandbox, since it is what blocked the test.
+    - >-
+      Move the test command into a deny rule so it is handled explicitly.
+    - >-
+      Add the specific command, Bash(dotnet test*), to the allow list.
+  correct: 3
+  explanation: >-
+    Least privilege means allowing the specific commands the task needs, not reopening everything.
+    Bash(dotnet test*) restores the legitimate command without re-adding the exfiltration channel.

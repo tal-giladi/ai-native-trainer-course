@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Your third solo rehearsal ran 4 minutes over a 2-hour plan. The talk and live steps ran 17 minutes
+    over; the hands-on steps, which you timed by guessing, came in 13 minutes under. What should you
+    expect on the day?
+  options:
+    - >-
+      About 4 minutes over, which the 7-minute buffer absorbs with a few minutes still to spare.
+    - >-
+      About 13 minutes early, because real learners work faster than the time you assumed for them.
+    - >-
+      About 17 minutes over, since with real people the hands-on steps take their planned time.
+    - >-
+      On time, because the drift from one rehearsal to the next shrinks as you get more practised.
+  correct: 2
+  explanation: >-
+    Positive and negative errors cancelled in the total. Solo runs measure the steps you control, not
+    the hands-on steps; with real people those take their planned minutes, leaving the +17 overrun.
+- id: q2
+  question: >-
+    Two observers scored a dress rehearsal on eight criteria. They agree exactly on five and within
+    one point on seven; on "wait-time" one gave a 2 and the other a 4. What do you do?
+  options:
+    - >-
+      Average the two scores to a 3, which meets the standard, and move on to the next criterion.
+    - >-
+      Watch the wait-time stretches of the recording together and agree what a 2 and a 4 look like.
+    - >-
+      Drop the lower score, since one observer probably missed the moments that went well.
+    - >-
+      Compute a formal agreement coefficient over all eight criteria before discussing anything.
+  correct: 1
+  explanation: >-
+    A two-point difference means the observers read the anchor differently. Watching the stretch
+    together and clarifying the anchor fixes the measurement; averaging hides the disagreement.
+- id: q3
+  question: >-
+    Which rehearsal is the right place to run a drilled failure, told only to the observer?
+  options:
+    - >-
+      The friendly run, where real laptops are in the room and one observer can judge the recovery.
+    - >-
+      The solo technical run, since nobody is watching and the failure costs nothing if it goes wrong.
+    - >-
+      The dress rehearsal, since the stakes are closest to the paid room and outsiders are present.
+    - >-
+      None of them; drilled failures teach you to expect failure and make the delivery more nervous.
+  correct: 0
+  explanation: >-
+    The solo run switches each fallback deliberately; recovering in front of people is a different
+    skill that the friendly run can practise with feedback, leaving the dress rehearsal as a full run.
+- id: q4
+  question: >-
+    Three rehearsals are logged: all solo, each criterion self-scored 4 of 4, notes checked 12, 10 and
+    9 times, total drift within 5 minutes. Does the workshop meet the exit standard?
+  options:
+    - >-
+      Yes, since there were three rehearsals and the timing gate passed within five minutes.
+    - >-
+      Yes, if the self-scores are confirmed by watching the recordings back the same evening.
+    - >-
+      No, but only because the notes were checked more than twice on the last rehearsal.
+    - >-
+      No: no dress run before outsiders, no observers, notes checked 9 times, no recovery.
+  correct: 3
+  explanation: >-
+    The standard needs a dress rehearsal before people who did not build it, two observers, notes
+    checked at most twice and a failure recovered in front of people. Self-scores are not observations.

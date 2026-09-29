@@ -1,0 +1,157 @@
+- id: q1
+  question: >-
+    Skill v2 scores 14/20 on the test tickets and v1 scores 12/20, one run each. The author wants to
+    ship v2 today. What should you do first?
+  options:
+    - >-
+      Ship v2, because it won on 20 tickets and more tickets would only confirm the direction.
+    - >-
+      Keep v1, because a two-ticket difference proves the new version is no improvement.
+    - >-
+      Run both on the same tickets for 3 to 5 trials each and compare with a paired interval.
+    - >-
+      Ask an LLM judge to rate both versions' plans, since it can read more carefully than a regex.
+  correct: 2
+  explanation: >-
+    One run each gives Wilson intervals of roughly 48-85% and 39-78%; identical versions differ by
+    two or more tickets about 60% of the time. Repeated, paired trials on the same tickets are the
+    cheapest evidence that can separate the versions.
+- id: q2
+  question: >-
+    After a month of tuning, the rules file lifts the dev split from 62% to 93%, while the holdout
+    split stays at 71%. `EvalHarness leak` reports nothing. What is the most likely explanation?
+  options:
+    - >-
+      The layer was fitted to dev tasks, maybe via paraphrased answers the check can't see.
+    - >-
+      The holdout tasks are simply harder, so a gap of about twenty points is expected.
+    - >-
+      The leak check proves there is no contamination, so the improvement is real on both.
+    - >-
+      The model provider updated the model, which improved dev tasks more than holdout ones.
+  correct: 0
+  explanation: >-
+    A widening dev-holdout gap is the signature of tuning to the test. The leak check only sees
+    copied text; a paraphrased answer key defeats it, while the holdout does not care how it was written.
+- id: q3
+  question: >-
+    A new code task's golden tests pass on the unmodified repository and also pass with the
+    reference fix. What does `validate --repo` tell you, and why does it matter?
+  options:
+    - >-
+      The task is well designed, since the golden tests pass in both the before and after states.
+    - >-
+      The reference fix is incomplete, so the golden tests should be loosened to accept it.
+    - >-
+      The task should be tagged golden, because behavior that never fails must never regress.
+    - >-
+      An agent that changes nothing would pass, so the task cannot tell a fix from no fix.
+  correct: 3
+  explanation: >-
+    Golden tests must fail before and pass after the fix. Tests that already pass only pin existing
+    behavior, so the task awards a pass to any change, including none.
+- id: q4
+  question: >-
+    An LLM judge grades an onboarding-answer task. On 24 human-labelled answers it passes 13: 7
+    correct and 6 incorrect. Humans labelled 12 correct. What should you conclude?
+  options:
+    - >-
+      The judge is usable, because its 54% pass rate is close to the humans' 50%.
+    - >-
+      Precision is about 0.54 and recall 0.58; the judge is near random and must not gate.
+    - >-
+      Recall is fine but precision is low, so the judge can gate if you lower the threshold.
+    - >-
+      The judge needs more calibration answers before any conclusion about it can be drawn.
+  correct: 1
+  explanation: >-
+    7 of 13 passes are right (precision 0.54) and it passes 7 of 12 good answers (recall 0.58),
+    with an FPR of 0.5. TPR minus FPR is under 0.1, so the judge carries almost no information
+    even though its average matches the humans'.
+- id: q5
+  question: >-
+    A nightly unattended agent must succeed every night. On a task it passed 4 of 5 trials. A
+    colleague reports "pass@3 = 100%". Which figure should you report instead, and about what is it?
+  options:
+    - >-
+      pass@1 of 0.8, since each night is one fresh attempt at the task.
+    - >-
+      The Wilson upper bound, about 0.96, since reliability planning uses the best case.
+    - >-
+      pass^3 of about 0.4: the chance that three nights in a row all succeed.
+    - >-
+      pass@5 of 1.0, since five trials cover a working week of nightly runs.
+  correct: 2
+  explanation: >-
+    Unattended runs have no verifier to pick a good attempt, so reliability is pass^k.
+    C(4,3)/C(5,3) = 0.4. pass@3 answers "does at least one of three succeed", a different question.
+- id: q6
+  question: >-
+    A PR claims "92% on 100 trials, 95% CI 85-96%". The 100 trials are 4 tasks × 25 trials. What is
+    the main problem with the claim?
+  options:
+    - >-
+      Trials of one task are not independent; the task-level interval is far wider, and 4 tasks are too few.
+    - >-
+      The Wilson interval is wrong for 100 trials; the Wald interval should be used above n = 30.
+    - >-
+      25 trials per task is too many; the extra trials add noise and lower the pass rate.
+    - >-
+      Nothing is wrong: 100 trials is well above the sample size needed for a 10-point interval.
+  correct: 0
+  explanation: >-
+    This is pseudo-replication. Clustered by task, the interval is about 71-100%, and four tasks say
+    little about the codebase. More distinct tasks, not more repeats, narrow the right interval.
+- id: q7
+  question: >-
+    You compare a bloated and a reduced rules layer. Arm A ran on Monday, arm B on Thursday; the
+    native installer updated the agent on Wednesday. Pass rates are 64% and 86%. What do you do?
+  options:
+    - >-
+      Report +22 points, noting the agent update as a limitation in the report's last section.
+    - >-
+      Subtract a typical update effect of about 5 points and report the rest as the layer's effect.
+    - >-
+      Report only the holdout split, which is not affected by changes to the agent version.
+    - >-
+      Pin one agent version, rerun both arms interleaved; the current number is uninterpretable.
+  correct: 3
+  explanation: >-
+    Two things changed, so the difference belongs to both. Pin the version (install a specific one,
+    turn off auto-update), interleave the arms and pair by task; compare warnings must be empty.
+- id: q8
+  question: >-
+    Pairing by task narrowed a skill comparison's interval from about ±19 to about ±10 points on the
+    same data. Why?
+  options:
+    - >-
+      Pairing counts each trial twice, once in each arm, which doubles the effective sample size.
+    - >-
+      Task difficulty is shared across arms, so it cancels when each task is compared to itself.
+    - >-
+      Pairing discards the tasks that both versions always pass, which removes their variance.
+    - >-
+      Paired intervals use the normal distribution, which is narrower than the t distribution.
+  correct: 1
+  explanation: >-
+    Var(A - B) = Var(A) + Var(B) - 2 Cov(A, B). Hard tasks are hard for both versions, so the
+    covariance is large and positive and is subtracted in the per-task differences.
+- id: q9
+  question: >-
+    The eval gate passes a rules change: the mean rose 7.5 points and the paired lower bound is -3.8
+    points. The merged-migration golden task went from 5/5 to 0/5. The gate was set to aggregate only
+    because golden checks were "flaky". What change fixes the gate without the flakiness?
+  options:
+    - >-
+      Tighten the aggregate margin from -5 to -2 points so that smaller losses are caught.
+    - >-
+      Require 100% on every golden task, so any failed trial blocks the merge.
+    - >-
+      Restore per-task golden floors that allow one missed trial, and measure false alarms with A/A runs.
+    - >-
+      Move the golden tasks to the nightly run so that they no longer block pull requests.
+  correct: 2
+  explanation: >-
+    One task collapsing moves the mean by 1/24 and hides inside the aggregate interval, so only a
+    per-task floor sees it. A floor that tolerates one miss, checked with A/A runs, removes the
+    noise without removing the signal.

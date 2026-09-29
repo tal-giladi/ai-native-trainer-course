@@ -1,0 +1,9 @@
+# Example deny list for the 22.3 kit check. Your real list lives OUTSIDE the kit
+# (for example ~/private/deny-terms.txt): employer and client names, product code names,
+# internal host and share names, colleagues' names. One term per line, case-insensitive.
+Northwind
+northwindpayments
+Fabrikam
+Wide World Importers
+Adventure Works
+Rachel Cohen

@@ -1,0 +1,160 @@
+- id: q1
+  question: >-
+    Your "4-phase loop" turns out to be identical to a popular trainer's: same four steps, and you
+    had been using their step names. Your concepts come from your own incidents. What do you keep,
+    what do you change, and how do you credit?
+  options:
+    - >-
+      Keep everything, since methods and loops cannot be protected, and add a general thank-you.
+    - >-
+      Add a fifth step to make the loop different, then present the result as your own design.
+    - >-
+      Keep the shape and credit it, rename steps from your evidence, and state your contribution.
+    - >-
+      Drop your own concepts and license the trainer's material, since theirs was published first.
+  correct: 2
+  explanation: >-
+    The shape is common and cannot be your contribution, so credit it by name. Their step names are
+    their vocabulary: replace them with names from your evidence, and say in one sentence what your
+    concepts and evidence add. Changing the step count to look different is still a copy.
+- id: q2
+  question: >-
+    A colleague shares their method: twelve bullet points such as "use plan mode", "keep CLAUDE.md
+    under 200 lines" and "use the bigger model to plan". The tool-change test scores 80%. What is
+    the most useful feedback?
+  options:
+    - >-
+      Say what each step must produce and why, and move the tool steps to a dated mapping file.
+    - >-
+      Add equivalent bullets for Cursor and Copilot so that the method covers every major tool.
+    - >-
+      Remove the tool names but keep each bullet otherwise, so the sentences pass the test.
+    - >-
+      Nothing major, because concrete tool advice is exactly what workshop attendees ask for.
+  correct: 0
+  explanation: >-
+    A tool tutorial expires with the next release. The method states outputs and reasons; the
+    mapping to today's tools lives in its own file. Deleting tool names without rewriting leaves
+    sentences like "press it twice", and adding tools makes the page more tool-dependent.
+- id: q3
+  question: >-
+    Your failure log has five incidents: wrong rounding, a wrong date comparison, a duplicated
+    balance procedure, a redefined status word and a flaky test. You find no cluster larger than
+    one. What is the most likely problem?
+  options:
+    - >-
+      The log is too short; five incidents can never contain a recurring pattern.
+    - >-
+      You are clustering by symptom instead of by what was missing from the context.
+    - >-
+      The incidents are too varied to belong to the same codebase, so the log is unreliable.
+    - >-
+      You need an LLM to cluster the incidents, because manual clustering is too subjective.
+  correct: 1
+  explanation: >-
+    Cluster by mechanism: origin phase, failure class, what was missing and the fix that worked.
+    Three of these look different but may share one mechanism, an existing rule the agent could
+    not see.
+- id: q4
+  question: >-
+    A card claims "Research briefs cut rework by 60%", status supported, citing two tickets from the
+    same afternoon. Which change makes the card honest?
+  options:
+    - >-
+      Keep "supported" but change 60% to "more than half", since that avoids a precise number.
+    - >-
+      Keep the claim and add a third ticket from next week, so it has three incidents.
+    - >-
+      Keep the number but mark it "preliminary", since readers understand early data is noisy.
+    - >-
+      Demote it to hypothesis and remove the number until an experiment gives an interval.
+  correct: 3
+  explanation: >-
+    Two incidents on one date support a hypothesis. A number in a claim needs an interval from an
+    experiment; "more than half" and "preliminary" are the same unsupported claim in softer words.
+- id: q5
+  question: >-
+    You logged 3 shadow rules in 10 eligible runs (30%, 95% Wilson interval 11% to 60%). A
+    workshop slide says "Agents create shadow rules 30% of the time." What should it say?
+  options:
+    - >-
+      "About a third of the time", since the point estimate is the best single summary.
+    - >-
+      "Up to 60% of the time", since the upper bound shows how serious the risk can be.
+    - >-
+      "In 3 of 10 runs on one codebase; plausibly 11% to 60% of such runs."
+    - >-
+      Nothing numeric, since intervals this wide mean the rate is completely unknown.
+  correct: 2
+  explanation: >-
+    State the count, the setting and the interval. The point estimate alone overstates precision,
+    the upper bound alone is alarmism, and the data does rule out rates below about 11%.
+- id: q6
+  question: >-
+    You add a fifth loop step, rename a concept without keeping the old name, and label the
+    release 1.3.1 as a "wording update". Who is harmed, and how?
+  options:
+    - >-
+      Nobody, since the new version is more accurate and people can read the latest page.
+    - >-
+      Only you, since version numbers matter for software and not for teaching material.
+    - >-
+      Only new readers, since they may find the old name in search results and get confused.
+    - >-
+      Everyone who learned or taught 1.x, whose material broke without any signal it did.
+  correct: 3
+  explanation: >-
+    A method's public interface is what people learned: loop steps and concept names. Both changes
+    are breaking and need a MAJOR bump, a changelog listing the affected material, and an alias or
+    retirement so old posts still resolve.
+- id: q7
+  question: >-
+    A concept you retired last year described rules deleted in tidy-ups. You now want the same name
+    for a new idea about rules the agent ignores in long files. What do you do?
+  options:
+    - >-
+      Reuse the name, since the old concept is retired and nobody teaches it any more.
+    - >-
+      Choose a new name, since a retired name must never gain a different meaning.
+    - >-
+      Reuse the name with a version suffix, such as "Unguarded rule v2", to show it changed.
+    - >-
+      Un-retire the old concept and widen its claim so that it covers both kinds of rule.
+  correct: 1
+  explanation: >-
+    Posts and notes that used the old meaning still exist. Reusing the name gives one term two
+    meanings; widening an old claim to absorb a new idea hides the evidence behind each.
+- id: q8
+  question: >-
+    Your before/after diagram for a sales page shows "cycle time -16%". The report also says
+    escaped defects may have risen (interval 0 to +25 points). What should the diagram show?
+  options:
+    - >-
+      Both results, with the defect result stated as not yet shown to be lower.
+    - >-
+      Only the speed result, since the defect change was not statistically significant.
+    - >-
+      Only the speed result, with a footnote linking to the full report for details.
+    - >-
+      Neither result, since diagrams should show structure and never include numbers.
+  correct: 0
+  explanation: >-
+    A before/after that shows only the good number is an advertisement. The guardrail result
+    belongs next to the speed result, and "not significant" is not evidence of no harm.
+- id: q9
+  question: >-
+    Your method uses "spec-driven development", but your team writes no specs as a source of truth;
+    you liked the phrase. In the attribution audit, which decision fits?
+  options:
+    - >-
+      Attribute, since crediting GitHub Spec Kit makes any use of the term acceptable.
+    - >-
+      Justify, since the phrase is widely used and therefore belongs to no one in particular.
+    - >-
+      Replace, since the term misdescribes your practice as well as being borrowed.
+    - >-
+      Keep it without a decision, since a single phrase is too short to be protected.
+  correct: 2
+  explanation: >-
+    Attribution fixes credit, not accuracy. A borrowed term that also misdescribes what you do
+    should be replaced with a word tied to your own evidence.

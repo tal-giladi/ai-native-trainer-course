@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    `prime` 1.0.0 ran as a forked Explore agent and searched `src/` and `tests/` only. Its BILL-153
+    brief has no migration constraint, and the plan built from it passes `plan-lint`. Which pair is
+    the origin and the escape?
+  options:
+    - >-
+      Origin: trigger, since the skill loaded late. Escape: the model's reasoning.
+    - >-
+      Origin: the model's reasoning. Escape: the reviewer who approved the plan.
+    - >-
+      Origin: context, since the rules and migrations never loaded. Escape: a weak contract.
+    - >-
+      Origin: the ticket, since it omitted the backfill. Escape: the ticket test set.
+  correct: 2
+  explanation: >-
+    Both skills were typed by name, so the trigger is ruled out. The fact that every V### needs a
+    U### never entered the research context (Explore skips CLAUDE.md, and no migration file was read),
+    and the 1.0.0 contracts checked only form, so the wrong plan passed.
+- id: q2
+  question: >-
+    A new description loads the skill on 14 of 15 should-load runs. What can you honestly conclude
+    about its true recall?
+  options:
+    - >-
+      Probably well above 0.7, but a true 0.75 still gives 14 of 15 about 8% of the time.
+    - >-
+      It is 0.93, since 15 runs across 5 different queries is enough data for a point estimate.
+    - >-
+      It is 1.0, since the single miss was noise that a fourth run of that query would remove.
+    - >-
+      Nothing at all, since trigger behavior cannot be measured when the model is stochastic.
+  correct: 0
+  explanation: >-
+    Small samples give wide uncertainty: $\binom{15}{14}0.75^{14}0.25 + 0.75^{15} \approx 0.08$. The
+    result supports "good", not a precise rate. Module 7 turns this into a confidence interval.
+- id: q3
+  question: >-
+    `prime` 1.1.0 adds a required `Schema change: yes|no` line to the brief. `plan-feature` keeps
+    reading the brief exactly as before. Old briefs fail the new contract. Which version bump fits?
+  options:
+    - >-
+      Patch, because the skill's steps did not change, only the rules file next to it.
+    - >-
+      Major, because old briefs no longer pass, which breaks every earlier artifact.
+    - >-
+      No bump at all, because the contract rules file is not part of the skill itself.
+    - >-
+      Minor, because a rule was added and no caller that reads briefs breaks.
+  correct: 3
+  explanation: >-
+    Major is reserved for changes that break a caller or a check relying on the old output, such as
+    renaming a section plan-feature reads. Adding a required line is new behavior with no broken
+    caller; old briefs are regenerated.
+- id: q4
+  question: >-
+    `prime` and `plan-feature` 1.0.0 passed five tickets from one sprint, then failed on the first
+    schema ticket. What was wrong with the test set?
+  options:
+    - >-
+      It was too small; ten tickets from the same sprint would have found the schema problem.
+    - >-
+      It covered one sprint's categories, and none of them touched the database schema.
+    - >-
+      It used real tickets, when synthetic tickets would have covered more of the edge cases.
+    - >-
+      It ran each ticket once, when three runs per ticket would have exposed the failure.
+  correct: 1
+  explanation: >-
+    Representativeness is about categories, not count. More tickets of the same kinds, or more runs
+    of them, would still never exercise a migration. Add a category when it first appears, with golden
+    checks.

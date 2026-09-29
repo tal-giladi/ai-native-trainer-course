@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    Raw mean cycle time is 20.2 h without the agent and 15.0 h with it, t-test p = 0.24. One
+    manual ticket took 170 h, blocked on another team. What should the report say?
+  options:
+    - >-
+      The agent cut cycle time 26%, since the means show it clearly despite the p-value.
+    - >-
+      The agent has no measurable effect, because p = 0.24 is well above the 0.05 threshold.
+    - >-
+      Use the pre-registered log-scale stratified analysis, outlier as a sensitivity check.
+    - >-
+      Delete the 170-hour ticket and rerun the t-test, since blocked tickets are not real work.
+  correct: 2
+  explanation: >-
+    One ticket inflates the manual mean and the variance, so both the 26% and the p = 0.24 are
+    artifacts. The log-scale stratified analysis gives -16% [-25%, -5%]; excluding the outlier
+    is reported alongside it, never silently.
+- id: q2
+  question: >-
+    Two tickets per arm: manual 10 h and 12 h, agent 6 h and 7 h. What is the exact two-sided
+    permutation p-value for the difference in means?
+  options:
+    - >-
+      About 0.05, because the agent tickets are both faster than both manual tickets.
+    - >-
+      0.33, because 2 of the 6 possible labellings are at least as extreme as observed.
+    - >-
+      0.17, because only 1 of the 6 possible labellings is as extreme as the observed one.
+    - >-
+      It cannot be computed, since permutation tests need at least 20 tickets per arm.
+  correct: 1
+  explanation: >-
+    There are C(4,2) = 6 labellings; differences of -4.5 and +4.5 are both at least as extreme in
+    absolute value, so p = 2/6. With two per arm, no result can go below 0.33.
+- id: q3
+  question: >-
+    The same randomized data gives a stratified interval of -25% to -5% and an unstratified
+    interval of -40% to +19%, both centred on -16%. Why?
+  options:
+    - >-
+      Stratifying removes between-size variation from the noise, as the blocked design intended.
+    - >-
+      The stratified analysis is biased toward the agent, because it drops tickets from the tails.
+    - >-
+      The unstratified analysis is more honest, since it makes fewer modelling assumptions.
+    - >-
+      The bootstrap is unstable, and the two intervals differ only by Monte Carlo error.
+  correct: 0
+  explanation: >-
+    Randomization makes both estimates unbiased; stratifying by the blocks removes the large
+    size-to-size variation from the error, so the interval narrows. No tickets are dropped.
+- id: q4
+  question: >-
+    Escaped defects: 4/48 tickets without the agent, 10/48 with it; difference +12.5 points, 95%
+    CI 0 to +25, p = 0.13. The guardrail says "no increase above 10 points". What is the verdict?
+  options:
+    - >-
+      Guardrail passes, because the difference is not statistically significant at 0.05.
+    - >-
+      Guardrail passes, because the point estimate is close to the 10-point limit.
+    - >-
+      Nothing can be said about defects, because 48 tickets per arm is too few for rates.
+    - >-
+      Guardrail fails, because the interval does not rule out an increase above 10 points.
+  correct: 3
+  explanation: >-
+    A guardrail asks whether harm is ruled out. The interval reaches +25 points, so it is not.
+    "Not significant" means the data cannot tell, which for a safety check is a failure to pass.

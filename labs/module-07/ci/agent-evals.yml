@@ -1,0 +1,86 @@
+# Copy to .github/workflows/agent-evals.yml in ai-layer-lab (lesson 07.6).
+# Assumes the repository holds the harness under evals/:
+#   evals/tools/EvalHarness/   evals/tasks-v1/   evals/baseline/results.csv (config name "baseline")
+# PR that touches the AI layer -> smoke: golden + regression tasks x 3 trials, gated against the baseline.
+# Nightly and on demand        -> full suite x 5 trials, same gate, results kept as an artifact.
+name: agent-evals
+
+on:
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - ".claude/**"
+      - "docs/ai/**"
+      - ".mcp.json"
+      - "evals/**"
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-evals-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash   # explicit bash = -eo pipefail, so "gate | tee" still fails the job when the gate fails
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      DISABLE_AUTOUPDATER: "1"            # the agent version is part of the experiment: never let it drift mid-run
+      TRIALS: ${{ github.event_name == 'pull_request' && '3' || '5' }}
+      TAGS: ${{ github.event_name == 'pull_request' && 'golden,regression' || '' }}
+      H: dotnet run --project evals/tools/EvalHarness --
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Install the pinned agent version
+        # Set the repository variable CLAUDE_CODE_VERSION (for example 2.1.260). Bumping it is an
+        # AI-layer change: refresh evals/baseline/results.csv in the same pull request.
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Validate the task set
+        run: $H validate evals/tasks-v1/tasks.json
+
+      - name: Run trials
+        run: |
+          ARGS="--trials $TRIALS --seed ${{ github.run_number }}"
+          if [ -n "$TAGS" ]; then ARGS="$ARGS --tags $TAGS"; fi
+          $H run evals/tasks-v1/tasks.json --repo . --out runs/candidate $ARGS
+
+      - name: Judge rubric tasks
+        run: |
+          $H judge evals/tasks-v1/graders/rubric-T21.md runs/candidate --only T21 --out runs/verdicts.csv
+          $H judge evals/tasks-v1/graders/rubric-T22.md runs/candidate --only T22 --out runs/verdicts.csv
+
+      - name: Grade and summarize
+        run: |
+          cp evals/baseline/results.csv results.csv
+          $H grade evals/tasks-v1/tasks.json runs/candidate --config candidate --out results.csv --verdicts runs/verdicts.csv
+          $H stats results.csv --config candidate | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Regression gate
+        run: $H gate results.csv --baseline baseline --candidate candidate --subset true | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-evals-${{ github.run_number }}
+          path: |
+            runs/
+            results.csv
+          retention-days: 30

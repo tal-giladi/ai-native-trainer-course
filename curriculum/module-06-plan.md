@@ -1,0 +1,18 @@
+# Module 06 plan — Skills, Sub-Agents and Workflow Automation
+
+4 lessons · ~60 min instruction · ~5 h practice · depends on Module 5 (the loop, research briefs, plans, `LoopGate`), Module 4 (layers, on-demand loading, compaction) and Module 3 (component map, Contoso Billing).
+
+Shared lab material: `labs/module-06/` on top of `labs/module-03/brownfield` (Contoso Billing) and `labs/module-05` (tickets BILL-150–152, `LoopGate`, `gates/architecture.rules`, templates). New: tickets BILL-153 (add a NOT NULL column to an existing table — the edge case), BILL-154, BILL-155; a small PRD for the spec skill; `tools/SkillCheck` (`lint`, `inventory`, `contract`, `triggers`); `layer/.claude/` with six skills (new-migration + the five core skills) and two sub-agents (researcher, reviewer), each skill with `CHANGELOG.md` and contract rules; trigger and ticket test sets; `scripts/run-triggers.{sh,ps1}`; four break folders (one per lesson); illustrative trigger samples.
+
+| Lesson | Objectives (short) | Prereqs | Lab | Break | Artifact |
+|---|---|---|---|---|---|
+| 06.1 Skill anatomy | Name the four parts (trigger, inputs, output contract, steps); split deterministic steps (scripts) from model steps; write a description that states what + when + not-when; estimate a skill's context cost | 05.3, 04.2, 03.2 | Build `new-migration` (script numbers the pair, model writes SQL, `LoopGate arch` checks); `SkillCheck lint`; 10-query trigger test | Vague v0 ("Helps with database stuff", numbering as a model step): loads on 3 of 15 should-load runs (illustrative), creates V005 without U005 | `.claude/skills/new-migration/` |
+| 06.2 The five core skills | Build prime, spec, plan-feature, validate, pr-review with explicit contracts; chain them through files, not chat; choose model- vs user-invocation per side effects | 06.1, 05.1–05.3 | Install the five skills; run BILL-154 end to end; spec the PRD into tickets | prime v0 returns the brief only in chat; after `/clear` plan-feature plans without research → duplicate | five skills in `ai-layer-lab`, one full run in NOTES.md |
+| 06.3 Sub-agents, and when not to build one | Decide sub-agent vs main thread vs skill with the four questions; write a delegation prompt (objective, output, tools, boundaries); compute context saved vs token multiplier | 06.2, 05.1, 02.4 | researcher + reviewer agents; parallel research on BILL-154/155; reviewer on a diff | `planner` sub-agent plans BILL-153 and silently answers the open question (sub-agents cannot ask the user) | `.claude/agents/`, delegation log |
+| 06.4 Testing, versioning and failure analysis | Test a skill at four levels (lint, trigger, contract, golden ticket) with precision/recall of triggers; version skills with SemVer + changelog; diagnose trigger vs context vs contract | 06.1–06.3, 05.4 | Test set of 7 tickets (5 from 1.0.0 + 2 schema); trigger runs; version bump; colleague cold-use test | outline break: prime + plan-feature v1.0.0 work on 5 tickets, fail on BILL-153 (migration): Explore fork skipped AGENTS.md, search scope `src/` only; contract had no schema rule | test tickets, CHANGELOGs, failure analysis, cold-use notes |
+
+Breaks per §6: "A skill fails on an edge-case ticket" (06.4, the module lab break), plus one per lesson.
+Math (light, not in §10 for M6): context cost of skills (always-loaded descriptions vs invoked bodies, reuses 04.1); trigger precision/recall with repeated runs (bridges to M7 grader precision/recall and intervals); sub-agent token multiplier vs context saved (bridges to M10).
+Templates created: `templates/skill-design.md`, `templates/sub-agent-design.md`.
+No simulation in this module.
+Links to Module 4 use manifest paths `lessons/module-04/lesson-0N.md`.

@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    A manager asks: "You measured 16% faster cycle time. Will we get 16%?" Your one experiment had
+    96 tickets on one team, a 95% interval of 5% to 25%, and a failed defect guardrail. Which answer
+    fits this lesson?
+  options:
+    - >-
+      "Probably more, because we ran it before the full method was in place on that team."
+    - >-
+      "Yes, roughly, since your stack and team size are very close to the team I measured."
+    - >-
+      "No promise: one team, a 5–25% interval, defects possibly up. We can measure it on yours."
+    - >-
+      "It depends on many factors, so let's take that offline after the workshop is over."
+  correct: 2
+  explanation: >-
+    The question asks you to climb from an effect in one study to an effect on their team, which the
+    evidence cannot support. The honest answer stays on the rung you have and offers the measurement.
+- id: q2
+  question: >-
+    A card says "Teams see about 55% faster delivery" and cites EXP-01 as its evidence. KitCheck
+    reports no error for it. What is the problem?
+  options:
+    - >-
+      None; the checker found a source for the number, so the card is ready to use in a paid room.
+    - >-
+      The number comes from a different study; EXP-01 measured 16%, so the citation is misleading.
+    - >-
+      The answer is too short to be persuasive and needs the full story of the experiment added.
+    - >-
+      Percentages should be avoided in Q&A, so the card should only describe the experiment's design.
+  correct: 1
+  explanation: >-
+    A checker can see that a number has a source, not whether the source says it. The 55.8% figure is
+    Peng et al.'s lab task with code completion, a different task, tool and metric.
+- id: q3
+  question: >-
+    A security lead asks whether a malicious ticket could make the agent exfiltrate data. Which
+    answer follows the card shape?
+  options:
+    - >-
+      "Modern models are trained to refuse harmful instructions, so in practice it is not a concern."
+    - >-
+      "Security is out of scope for today; your security team should review the tool separately."
+    - >-
+      "It has never happened to me in two years of daily use, so I would not worry about it much."
+    - >-
+      "The model can't be relied on; permissions, hooks and plan approval stopped my lab's attack."
+  correct: 3
+  explanation: >-
+    Concede that the model itself is not a reliable defence (OWASP ranks prompt injection first),
+    then give mechanisms outside the model and your own tested evidence, and name residual risk.
+- id: q4
+  question: >-
+    During a two-minute agent run, a participant asks a long, pointed question about whether the
+    whole method is just rebranded DRY. What should you do with the wait-time?
+  options:
+    - >-
+      Park it by name for the Q&A block at 1:33, and use the wait for the prediction question.
+    - >-
+      Answer it fully now, since a challenge left unanswered makes the rest of the room doubt you.
+    - >-
+      Ignore it until the end, since engaging a skeptic during a demo only encourages more of them.
+    - >-
+      Ask the room to vote on whether they agree, so that the majority settles it for everyone.
+  correct: 0
+  explanation: >-
+    Wait-time suits short, on-topic questions. A long challenge deserves the Q&A block; parking it by
+    name, and then keeping the promise, shows respect without giving up the prediction question.

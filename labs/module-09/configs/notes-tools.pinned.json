@@ -1,0 +1,9 @@
+{
+  "server": "notes",
+  "captured": "2026-09-28",
+  "note": "Approved snapshot of the third-party notes MCP server's tool descriptions. CanaryCheck pin compares a fresh listing against this to catch a rug pull.",
+  "tools": [
+    { "name": "search_notes", "description": "Search the team notes knowledge base. Args: query (string). Returns up to 5 matching note snippets." },
+    { "name": "get_note", "description": "Fetch one note by id. Args: id (string). Returns the note body." }
+  ]
+}

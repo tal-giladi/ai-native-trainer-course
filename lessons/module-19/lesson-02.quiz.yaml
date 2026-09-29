@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A 30-person volunteer pilot reports high satisfaction and weekly use of 80%. The sponsor wants to
+    plan the 400-developer rollout on the same numbers. What is the main problem?
+  options:
+    - >-
+      Thirty people is too few for any estimate, so the pilot numbers carry no information at all.
+    - >-
+      Volunteers are mostly innovators and early adopters, so they overstate what the majority does.
+    - >-
+      Satisfaction surveys are biased upwards, so only the weekly-use figure can be carried over.
+    - >-
+      Pilot teams had direct provider keys, so their usage cannot be compared with gateway telemetry.
+  correct: 1
+  explanation: >-
+    People who volunteer for a pilot are the ones who wanted the tool. The early and late majority
+    need peer proof, lower risk and help close by, so pilot usage is an upper bound, not a forecast.
+- id: q2
+  question: >-
+    Which person is the strongest champion candidate for the lending team?
+  options:
+    - >-
+      The developer who posts most often in the agents channel and used every tool in the pilot.
+    - >-
+      The external consultant, who knows the tool best and can cover several teams at once.
+    - >-
+      A newly hired developer who has free time because they are not yet assigned to a squad.
+    - >-
+      A senior developer peers ask for help, whose earlier objection was taken seriously.
+  correct: 3
+  explanation: >-
+    Champions work through opinion leadership: competence, accessibility and similarity to peers. A
+    trusted senior who was a skeptic carries more weight with the majority than an enthusiast, and the
+    consultant leaves.
+- id: q3
+  question: >-
+    Developers are split across tools as 50%, 30% and 20%. What are the concentration $H$ and the
+    effective number of tools?
+  options:
+    - >-
+      $H = 0.38$ and about 2.6 effective tools, from the sum of the squared shares.
+    - >-
+      $H = 0.50$ and 2.0 effective tools, because the largest share is one half.
+    - >-
+      $H = 1.00$ and 3.0 effective tools, because the three shares add up to one.
+    - >-
+      $H = 0.33$ and 3.0 effective tools, because there are three tools in use.
+  correct: 0
+  explanation: >-
+    $H = 0.5^2 + 0.3^2 + 0.2^2 = 0.25 + 0.09 + 0.04 = 0.38$ and $1/H \approx 2.6$. Three unequal tools
+    cost you about 2.6 tools' worth of reviews, routes, rules formats and training paths.
+- id: q4
+  question: >-
+    The mobile team has a real need for a second tool for native UI work. What does the tool strategy
+    from this lesson require?
+  options:
+    - >-
+      Refuse it, because any second tool doubles the security, platform and training overhead.
+    - >-
+      Allow it informally for mobile only, since a formal decision would slow the team down.
+    - >-
+      Allow it through an ADR: gateway route, same telemetry, security review, shared AGENTS.md core.
+    - >-
+      Allow it if the vendor bundles it for free, because licence cost is the main fragmentation cost.
+  correct: 2
+  explanation: >-
+    A documented exception is cheaper than a shadow tool. The ADR makes the tool visible to the
+    gateway, telemetry and security, and the portable rules core keeps conventions shared.

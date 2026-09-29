@@ -1,0 +1,25 @@
+file,verdict,reason
+C01.txt,pass,C1-C4 yes
+C02.txt,fail,a criterion failed
+C03.txt,pass,C1-C4 yes
+C04.txt,fail,a criterion failed
+C05.txt,fail,a criterion failed
+C06.txt,pass,C1-C4 yes
+C07.txt,pass,C1-C4 yes
+C08.txt,pass,C1-C4 yes
+C09.txt,pass,C1-C4 yes
+C10.txt,fail,a criterion failed
+C11.txt,fail,a criterion failed
+C12.txt,pass,C1-C4 yes
+C13.txt,fail,a criterion failed
+C14.txt,pass,C1-C4 yes
+C15.txt,fail,a criterion failed
+C16.txt,fail,a criterion failed
+C17.txt,fail,a criterion failed
+C18.txt,pass,C1-C4 yes
+C19.txt,fail,a criterion failed
+C20.txt,pass,C1-C4 yes
+C21.txt,fail,a criterion failed
+C22.txt,pass,C1-C4 yes
+C23.txt,fail,a criterion failed
+C24.txt,pass,C1-C4 yes

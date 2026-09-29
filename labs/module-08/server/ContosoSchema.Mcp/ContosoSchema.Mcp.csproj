@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Runs on a newer runtime if .NET 8 is not installed. -->
+    <RollForward>Major</RollForward>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Pinned (as of 2026-09). The official C# SDK; 2.x speaks both the 2025-11-25 and 2026-07-28 protocol revisions. -->
+    <PackageReference Include="ModelContextProtocol" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+</Project>

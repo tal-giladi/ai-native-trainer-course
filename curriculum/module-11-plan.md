@@ -1,0 +1,21 @@
+# Module 11 plan — Agents in CI and Production
+
+5 lessons · ~75 min instruction · ~5 h practice · depends on Module 6 (skills, `pr-review`, `reviewer` subagent), Module 7 (EvalHarness, gate, 07.3 precision/recall, 07.4 Wilson), Module 9 (hardened config, trifecta, fail-closed hooks). Module 5's `loop-gates.yml` and Module 7's `agent-evals.yml` are the CI baseline this module extends. Module 10 (written in parallel) is linked by manifest path for pipeline cost and "multi-agent review".
+
+The module's thesis: an agent in CI is an unattended actor with credentials. Treat every run as a job with a contract (inputs, allowed tools, budget, output schema, exit status), measure its signal against humans, and put an owner, a kill switch and an evolution policy around it.
+
+Shared lab: `labs/module-11/` on top of `labs/module-03/brownfield` (Contoso Billing), `labs/module-07` (tasks-v1, EvalHarness, `agent-evals.yml`) and `labs/module-09/configs/hardened`. New: `tools/AgentOps` (dependency-free C#: `result`, `wflint`, `review`, `triage`, `ledger`, `evolution`), four workflows, a 20-PR CI-review dataset with human-found defects and two illustrative agent comment sets, a triage policy and schema with an injected ticket, 30 days of illustrative run telemetry, and a governance example with a broken changelog.
+
+| Lesson | Objectives (short) | Prereqs | Lab | Break | Artifact |
+|---|---|---|---|---|---|
+| 11.1 Headless agents | Invoke `claude -p` with a run contract (bare, pinned, allowed tools, dontAsk, max turns, budget, JSON out); read the result subtype and permission denials; keep secrets away from untrusted code (`pull_request` vs `pull_request_target`) | 07.6, 09.5, 02.4 | `run-headless.sh`, `AgentOps result` on four sample results, `wflint` on the workflows | Job exits 0 and reports "fixed", but every Edit was denied; a second workflow uses `pull_request_target` + PR head checkout | `run-headless.sh` + a linted workflow |
+| 11.2 CI review: signal vs noise | Compute precision, recall, comments/PR and the base-rate ceiling on precision; measure against human reviews with adjudication; tune on dev, confirm on holdout | 11.1, 07.3, 07.4, 06.2 | `AgentOps review` on 20 PRs: v1 flood, thresholds, v2 prompt, holdout | v1 posts 64 comments on 20 PRs, precision 14% | `.github/workflows/agent-review.yml`, CI-review report ([template](../templates/ci-review-report.md)) |
+| 11.3 Recurring automation | Pick automation candidates (frequency × toil × verifiability); build the propose-validate-apply pattern with structured output, allowlists and idempotency; schedule safely | 11.1, 09.2, 06.1 | triage with `--json-schema` + `AgentOps triage`; weekly changelog draft PR | Triage agent with `gh issue edit` applies an injected label and closes issues; nightly re-run duplicates | `agent-triage.yml`, one automation card ([template](../templates/automation-card.md)) |
+| 11.4 Operating agents | Approval (environments, draft PRs), rollback (pinned layer + agent version, kill switch), observability (ledger, OTel), cost ceilings, retry policy by failure class; cost per successful run | 11.2, 11.3, 07.6 | `AgentOps ledger` on 30 days of runs; add kill switch and budgets to the workflows | Retry-on-any-failure turns a max-turns loop into a $140 day | ops section in the automation cards, ceilings in workflows |
+| 11.5 Governance of the AI layer | Owners and change classes; the system-evolution policy (mistake → regression task → fix → gate → changelog); review cadence, overrides, deactivation | 11.4, 03.1, 07.6, 09.6 | `AgentOps evolution` on the changelog; write `governance.md` | "Hotfix" rules change without a regression task; the incident recurs after a tidy-up | `governance.md` ([template](../templates/governance-policy.md)) |
+
+Math (§10): CI-review precision/recall, comments per PR, noise per PR $c(1-p)$, the base-rate ceiling $p \le d/c$, false alarms per real finding $(1-p)/p$, Wilson intervals on precision (11.2, reusing 07.3/07.4); cost per successful run $C/S$ and expected cost under retries (11.4).
+
+Simulation: none for this module (§11).
+
+Templates created: `templates/ci-review-report.md`, `templates/automation-card.md`, `templates/governance-policy.md`.

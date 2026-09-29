@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    A company asks you to "make sure our 40 developers actually use the agent platform well, and
+    keep the rules and skills current as the codebase changes". There is no fixed end date. Which
+    role is this, and how is success measured?
+  options:
+    - >-
+      Trainer: success is a high satisfaction score on the workshop feedback form.
+    - >-
+      Consultant: success is one before/after number measured during a six-week engagement.
+    - >-
+      Enablement engineer: success is sustained, trusted use and fewer incidents over time.
+    - >-
+      Consultant: success is the number of skills and rules files delivered to the repository.
+  correct: 2
+  explanation: >-
+    Ongoing ownership of the internal platform, with no end date, is enablement work. It is judged
+    by sustained, trusted adoption, not by files delivered or a one-off workshop score.
+- id: q2
+  question: >-
+    A student plans to launch a pricing page and message 40 CTOs next month. They have used agents
+    daily for a year but have no repo, talk or measured result anyone else can check. What does
+    the flywheel predict?
+  options:
+    - >-
+      The outreach works if the pricing is low enough to remove the risk for the buyer.
+    - >-
+      The first reply asks for proof the plan cannot yet produce, and the lead stalls.
+    - >-
+      The outreach works because daily agent use is already rarer than most CTOs think.
+    - >-
+      The plan only fails if the student chose the wrong stack for the target companies.
+  correct: 1
+  explanation: >-
+    Starting at private engagements skips the stages that produce checkable proof. The first
+    serious prospect asks what happened on a codebase like theirs, and there is no artifact to show.
+- id: q3
+  question: >-
+    You want to tell prospects "the agent will not leak your customer data". Using the proof chain,
+    what must exist before you may say it?
+  options:
+    - >-
+      A threat model, executed attacks against your own setup, and the retest results.
+    - >-
+      A vendor's security whitepaper stating that the model does not train on customer data.
+    - >-
+      A signed statement from a past employer that no incident happened while you were there.
+    - >-
+      A rules file line telling the agent never to read or send customer data anywhere.
+  correct: 0
+  explanation: >-
+    A client-facing sentence needs an artifact that makes it checkable. For data leakage that is
+    your own threat model, attacks and retests (Module 9); a rules line is a request, not a control.
+- id: q4
+  question: >-
+    A trainer's case study says "attendees rated the workshop 4.8 out of 5". A CTO asks what
+    changed in the team. Which gap in the flywheel does this reveal?
+  options:
+    - >-
+      The workshop was too short; a two-day version would have produced measurable change.
+    - >-
+      The trainer skipped public teaching, so the attendees were not warmed up in advance.
+    - >-
+      The rating scale was too coarse; a 1 to 10 scale would have shown real differences.
+    - >-
+      No baseline was taken, so the work produced a testimonial rather than evidence.
+  correct: 3
+  explanation: >-
+    Satisfaction is not an outcome. Without a before number on the same metric, the engagement
+    cannot feed evidence back into the next stage; Module 13 and the free pilot gate exist for this.

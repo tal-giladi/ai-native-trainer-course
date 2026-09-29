@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measurement simulator</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="measurement.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Measurement simulator: watch the apparent improvement swing</h1>
+  <p class="muted">Simulated Contoso tickets whose true effect you set. Change the sample size, the size mix, who chooses the
+    agent, and add a blocked ticket — then compare what a naive analysis reports with the pre-registered one from 13.5
+    (log hours, stratified by size, bootstrap interval, permutation test).</p>
+
+  <div class="tabs" id="presets" role="group" aria-label="Presets"></div>
+  <div id="note" class="preset-note" aria-live="polite"></div>
+
+  <div class="grid side">
+    <section class="panel" aria-labelledby="p-h">
+      <h2 id="p-h">Parameters</h2>
+      <div id="params"></div>
+      <div class="controls">
+        <button type="button" id="rerun" class="primary">Re-run (new seed)</button>
+        <span class="muted mono" id="seed"></span>
+      </div>
+    </section>
+    <section class="panel" id="view" aria-live="polite"></section>
+  </div>
+
+  <p class="foot">Ticket hours are drawn from a log-normal model: geometric means of 5, 16 and 47 hours for S, M and L
+    tickets, a within-size spread you set, and a true agent effect you set. Intervals use 1,000 bootstrap resamples and
+    1,000 permutations (the lab tool uses 10,000), so they wobble slightly between runs. Real teams have more structure
+    — developers, learning, versions — than this model.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="measurement.js"></script>
+</body>
+</html>

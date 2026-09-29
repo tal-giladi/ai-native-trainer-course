@@ -1,0 +1,167 @@
+- id: q1
+  question: >-
+    A team runs one MCP setup for 12 developers: a shared admin token with write access to production
+    Jira and a classic GitHub token with `repo` scope, both in the committed `.mcp.json`. Which redesign
+    addresses the largest risk first?
+  options:
+    - >-
+      Add deny rules for the Jira and GitHub write tools to the shared Claude Code settings file.
+    - >-
+      Add an audit hook so every write through either server is logged with the developer's name.
+    - >-
+      Tell the agent in the rules file to ask the developer before any write to Jira or GitHub.
+    - >-
+      Move to per-developer, read-only credentials outside the repo, then add writes narrowly.
+  correct: 3
+  explanation: >-
+    The shared, broad, committed credentials are the root problem: they work from any client, cannot be
+    attributed and cannot be revoked per person. Fix the credential layer first (per person, read-only,
+    from the environment or OAuth), then add host rules, audit and a few narrow writes behind `ask`.
+    Rules-file text is advisory and host rules protect only one host.
+- id: q2
+  question: >-
+    A developer says "our Atlassian MCP connection is safe, it uses OAuth 2.1". She is a Jira project
+    administrator. What is the most accurate response?
+  options:
+    - >-
+      OAuth scopes limit the agent to reading issues unless write scopes are requested separately.
+    - >-
+      OAuth identifies her, and the server acts with her permissions, including administration.
+    - >-
+      OAuth tokens expire hourly, so a misfiring agent cannot do lasting damage in the project.
+    - >-
+      OAuth binds the token to the MCP server, so Jira only accepts read requests through it.
+  correct: 1
+  explanation: >-
+    Atlassian's server acts with the user's existing permissions and grants nothing beyond them, which
+    also means nothing less. OAuth answers who the agent acts as; limiting what it may do needs host rules
+    or a lower-privilege identity.
+- id: q3
+  question: >-
+    You connect the GitHub MCP server for an interactive agent that should only read issues and pull
+    requests in one repository. Which combination makes a write fail even if one layer is misconfigured?
+  options:
+    - >-
+      A fine-grained read-only token on one repo, server read-only mode and a read-tool allowlist.
+    - >-
+      A classic token with `repo` scope, server read-only mode, and a denylist of the write tools.
+    - >-
+      A fine-grained token with write access, default toolsets, and every GitHub tool set to `ask`.
+    - >-
+      A classic token with `public_repo` scope, all toolsets, and a rules-file line against writes.
+  correct: 0
+  explanation: >-
+    Each layer stops the write on its own: the token cannot write, the server does not offer write tools,
+    and the host allows only named read tools. Denylists miss renamed tools, `ask` relies on attention, and
+    rules-file text is advisory.
+- id: q4
+  question: >-
+    The schema server reads a cached snapshot. Every answer starts with
+    `status=UNKNOWN` because no migrations folder is configured, and the agent still codes against a
+    column dropped two weeks ago. What is the most effective server change?
+  options:
+    - >-
+      Print the warning in capital letters at the top of every answer so the model notices it.
+    - >-
+      Refresh the snapshot every hour, so the cache is never much older than the database.
+    - >-
+      Compare the source with the repo's migrations and refuse stale data as a tool error.
+    - >-
+      Remove the header line entirely, because models do not read metadata in tool results.
+  correct: 2
+  explanation: >-
+    Models skim metadata; a tool error with `isError: true` that names the missing migration is a result
+    they must handle. Age alone is a weak signal (an hour-old snapshot can predate this morning's merge);
+    the version comparison with a reference is the strong one.
+- id: q5
+  question: >-
+    BILL-161 passes code review and all unit tests, then fails in production with "Invalid column name
+    'Notes'". The agent used the schema MCP server during research. Which phase of the loop failed, and
+    which gate was missing?
+  options:
+    - >-
+      Planning failed, and a plan-lint rule would have caught a plan without a Touch list.
+    - >-
+      Implementation failed, and more unit tests with fake repositories would have caught it.
+    - >-
+      Research failed on stale tool data, and there was no check of SQL against a fresh schema.
+    - >-
+      Validation failed, and running the unit tests three times would have exposed the flakiness.
+  correct: 2
+  explanation: >-
+    The wrong fact entered during research, from a stale tool result, and the agent never looked at
+    `db/migrations`. Unit tests with a fake repository never execute SQL, so validation had no oracle
+    for it; a SQL check against a fresh source at edit time (and an integration test) supplies one.
+- id: q6
+  question: >-
+    Your team's first enforcement hook works in the demo, where the agent edited a file. A week later
+    the agent creates a new `BillingDbContext.cs` with `Write` and nothing stops it. The hook log shows
+    exit code 1. What is the root cause?
+  options:
+    - >-
+      The hook's matcher did not include `Write`, so Claude Code never started the hook.
+    - >-
+      The hook could not handle the `Write` input shape, and exit 1 lets the call proceed.
+    - >-
+      The permission rules allowed `Write`, and allow rules take precedence over hooks.
+    - >-
+      The hook timed out on the larger file, and timeouts always count as an allow decision.
+  correct: 1
+  explanation: >-
+    The hook did run (it exited 1). `Write` sends `content`, not `new_string`; the script failed on the
+    missing field, and any exit code other than 0 or 2 is a non-blocking error. Enforcement hooks must
+    handle every input shape and turn their own errors into a deny.
+- id: q7
+  question: >-
+    Which check belongs in a PreToolUse hook rather than in the Stop hook or CI?
+  options:
+    - >-
+      Rejecting an edit that adds `DbContext` under `src/`, checked from the proposed text.
+    - >-
+      Running the full test suite and failing if fewer tests pass than on the main branch.
+    - >-
+      Building the solution and failing on any new analyzer warning in the changed projects.
+    - >-
+      Running an agent-based review of the diff against the plan before the turn can end.
+  correct: 0
+  explanation: >-
+    A PreToolUse check must be fast and decidable from the proposed call; a text rule on the new content
+    takes milliseconds and stops the edit before it exists. Test runs, builds and reviews take seconds to
+    minutes and belong in the Stop hook or CI, or the team will disable the hook.
+- id: q8
+  question: >-
+    A security reviewer asks whether your local audit hook's log can prove to an auditor that the agent
+    made no writes to GitHub last month. What is the honest answer?
+  options:
+    - >-
+      Yes, because the hook runs on every tool call and cannot be skipped by the model.
+    - >-
+      Yes, as long as secrets were redacted before the lines were written to the file.
+    - >-
+      No, because hooks do not run for MCP tools, only for the built-in editing tools.
+    - >-
+      No, because the user being audited can edit a local file; it needs append-only storage.
+  correct: 3
+  explanation: >-
+    A local log is evidence for the developer, not an audit trail: the same user can change or delete it,
+    and it covers only this host. Shipping the lines to append-only central storage (Module 12) and
+    checking the GitHub side's own audit log are what an auditor can rely on.
+- id: q9
+  question: >-
+    A developer occasionally asks the agent to look at a pull request. Someone proposes building a
+    custom MCP server for it. The `gh` CLI is installed and logged in on every machine. What do you
+    recommend?
+  options:
+    - >-
+      Build the server, because MCP tools are always safer than letting the agent run commands.
+    - >-
+      Use the `gh` CLI with permission rules for read commands, and skip the custom server.
+    - >-
+      Build the server over HTTP, so other teams can reuse it through OAuth in the future.
+    - >-
+      Paste pull request diffs into the chat instead, so the agent never touches GitHub.
+  correct: 1
+  explanation: >-
+    One developer's occasional read is well served by a mature CLI the agent can already run, with
+    permission rules on the commands; a custom server adds code, tool definitions in context and a new
+    thing to secure. MCP pays off when several hosts need a capability or a proper OAuth flow is needed.

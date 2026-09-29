@@ -1,0 +1,140 @@
+{
+  "_comment": "Fabrikam peak hour, AFTER: one key per team sized at 17,500 TPM per developer, CI on its own small key. Same load as the break.",
+  "seed": 12,
+  "seconds": 3600,
+  "org": {
+    "tpm": 7000000
+  },
+  "keys": [
+    {
+      "id": "billing",
+      "tpm": 840000,
+      "burst": 840000
+    },
+    {
+      "id": "payments",
+      "tpm": 1120000,
+      "burst": 1120000
+    },
+    {
+      "id": "identity",
+      "tpm": 630000,
+      "burst": 630000
+    },
+    {
+      "id": "lending",
+      "tpm": 1260000,
+      "burst": 1260000
+    },
+    {
+      "id": "mobile",
+      "tpm": 980000,
+      "burst": 980000
+    },
+    {
+      "id": "data",
+      "tpm": 700000,
+      "burst": 700000
+    },
+    {
+      "id": "platform",
+      "tpm": 595000,
+      "burst": 595000
+    },
+    {
+      "id": "web",
+      "tpm": 875000,
+      "burst": 875000
+    },
+    {
+      "id": "payments-ci",
+      "tpm": 600000,
+      "burst": 600000
+    }
+  ],
+  "load": [
+    {
+      "id": "billing-devs",
+      "team": "billing",
+      "key": "billing",
+      "users": 48,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "payments-devs",
+      "team": "payments",
+      "key": "payments",
+      "users": 64,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "identity-devs",
+      "team": "identity",
+      "key": "identity",
+      "users": 36,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "lending-devs",
+      "team": "lending",
+      "key": "lending",
+      "users": 72,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "mobile-devs",
+      "team": "mobile",
+      "key": "mobile",
+      "users": 56,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "data-devs",
+      "team": "data",
+      "key": "data",
+      "users": 40,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "platform-devs",
+      "team": "platform",
+      "key": "platform",
+      "users": 34,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "web-devs",
+      "team": "web",
+      "key": "web",
+      "users": 50,
+      "activeShare": 0.35,
+      "reqPerMin": 3,
+      "tokensMean": 12000
+    },
+    {
+      "id": "payments-ci-fix-loop",
+      "team": "payments",
+      "key": "payments-ci",
+      "users": 40,
+      "activeShare": 1,
+      "reqPerMin": 6,
+      "tokensMean": 25000,
+      "from": 900,
+      "to": 2700
+    }
+  ]
+}

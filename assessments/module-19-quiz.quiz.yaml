@@ -1,0 +1,162 @@
+- id: q1
+  question: >-
+    Three months after your engagement ended, the sponsor tells you usage is back to 10% of
+    developers and asks what you look at first. What is the best first step?
+  options:
+    - >-
+      Run a company-wide survey on usefulness and trust, then plan fixes around the top complaint.
+    - >-
+      Look at weekly active use per team and cohort next to that period's events and changes.
+    - >-
+      Schedule a refresher workshop for every team, since skills fade after an engagement ends.
+    - >-
+      Ask managers which individuals stopped using the agent, so champions can follow up with them.
+  correct: 1
+  explanation: >-
+    An organisation-wide number averages different stories. Team and cohort curves show whether the
+    drop is real, where and when it happened, and whether it was a step (a change) or a decay (lost
+    support); the events point at the cause. Surveys and retraining come after; per-person follow-up is
+    monitoring.
+- id: q2
+  question: >-
+    Your stakeholder draft answers the developers' fear of replacement with "Nobody will lose their job
+    because of this, guaranteed." The sponsor likes it. What should you do?
+  options:
+    - >-
+      Replace it with a written sponsor statement of what the programme's data will and won't be used for.
+    - >-
+      Keep it, because reassurance at kickoff raises perceived usefulness and early adoption rates.
+    - >-
+      Keep it but remove "guaranteed", since the rest of the sentence is a reasonable expectation.
+    - >-
+      Drop the topic from the kickoff, because raising replacement fears only makes them stronger.
+  correct: 0
+  explanation: >-
+    Nobody can keep that promise, and one counterexample costs the whole room's trust. A boundary the
+    sponsor can keep (purpose of the data, no individual metrics) addresses the concern honestly; DORA
+    found addressing job concerns is one of the strongest adoption levers.
+- id: q3
+  question: >-
+    Fabrikam employs developers in Germany. The platform team wants a dashboard showing each
+    developer's weekly sessions "to target help". What is the right response?
+  options:
+    - >-
+      Build it, but only show it to the champions, who use it to offer help rather than to evaluate.
+    - >-
+      Build it after go-live and ask the works council to review it once the first data exists.
+    - >-
+      Aggregate by team with at least five people, agreed with the works council before go-live.
+    - >-
+      Build it with pseudonymous ids instead of names, which removes the need for any agreement.
+  correct: 2
+  explanation: >-
+    A system able to monitor behaviour or performance falls under works council co-determination in
+    Germany, and per-person data turns adoption telemetry into monitoring. Team-level counts answer the
+    adoption question; the agreement comes before the dashboard.
+- id: q4
+  question: >-
+    The draft names the three most enthusiastic pilot volunteers as champions for all eight teams,
+    working "when possible". What is the core flaw?
+  options:
+    - >-
+      Enthusiasts are poor champions in general; champions should be chosen from team leads instead.
+    - >-
+      Three champions are too few, so the fix is to recruit five more volunteers from the pilot.
+    - >-
+      Champions should be external experts, since peers lack the depth to answer hard questions.
+    - >-
+      Champions must be trusted peers inside each team, with agreed hours and co-champions.
+  correct: 3
+  explanation: >-
+    The majority adopts through opinion leaders who are like them, which means peers in their own team.
+    Unsanctioned time loses to sprint work, and one person across teams leaves no succession when they
+    move on.
+- id: q5
+  question: >-
+    Developers are split across four agent tools at 40%, 30%, 20% and 10%. Procurement proposes adding
+    a fifth, free for a year. What does the effective number of tools tell you?
+  options:
+    - >-
+      About 1.7 tools, because the largest tool already holds a large share of the developers.
+    - >-
+      About 3.3 tools already, so a fifth multiplies reviews, routes, rules formats and training.
+    - >-
+      Exactly 4 tools, because the effective number equals the count of tools that have any users.
+    - >-
+      About 2.5 tools, which is acceptable, so a fifth tool is fine if its licences are free.
+  correct: 1
+  explanation: >-
+    $H = 0.16 + 0.09 + 0.04 + 0.01 = 0.30$ and $1/H \approx 3.3$. Licence price is the smallest part of
+    the cost; each tool adds security review, gateway and telemetry work, a rules format and a training
+    path.
+- id: q6
+  question: >-
+    Feedback arrives at about 14 items a week and the only triage is the consultant, who resolves about
+    5. Satisfaction with training is 4.4 out of 5. What is the most serious problem?
+  options:
+    - >-
+      Satisfaction is too low for a rollout of this size, so the training content needs to be redone.
+    - >-
+      Fourteen items a week is too many, so the tool should be paused until the reports slow down.
+    - >-
+      The satisfaction score hides that the team has not yet learned how to write useful reports.
+    - >-
+      The queue grows by about nine a week, so reports go unanswered and people stop sending them.
+  correct: 3
+  explanation: >-
+    With arrivals above resolution the backlog grows without bound, and it depends on a person who is
+    leaving. Nothing reaches the AI layer, so the agent never gets better on the team's code; a good
+    training score cannot compensate.
+- id: q7
+  question: >-
+    A team of 50 had a stable baseline of 60% weekly active. Over six weeks it slides 62%, 58%, 54%,
+    50%, 46%, 42%. The p-chart lower limit is about 39% and no alert has fired. What do you conclude?
+  options:
+    - >-
+      A steady decline that the 3-sigma limit is slow to flag; act now and add a run rule.
+    - >-
+      No problem yet, because every weekly value is still above the team's lower control limit.
+    - >-
+      A step change, because the share has dropped by twenty points since the baseline weeks.
+    - >-
+      Seasonal noise, because six weeks is too short to distinguish a trend from normal variation.
+  correct: 0
+  explanation: >-
+    Six consecutive declines are very unlikely by chance even though each point is inside the limits.
+    Control limits catch large deviations; gradual decay needs a run rule and a look at the events.
+- id: q8
+  question: >-
+    Two teams drop from about 57% to 3% weekly active in the same week. Their seats are still paid and
+    nobody has complained. What should you check before calling it abandonment?
+  options:
+    - >-
+      Whether the champions of those teams left, since champion loss usually causes a sudden drop.
+    - >-
+      Whether the teams were properly trained, since untrained teams stop using tools all at once.
+    - >-
+      Whether a tool, licence or routing change that week moved usage out of the telemetry's view.
+    - >-
+      Whether the teams' workload changed, since a busy sprint makes everyone stop at the same time.
+  correct: 2
+  explanation: >-
+    A step points at a change in one week. Paid seats and no complaints suggest the work moved rather
+    than stopped, for example to a bundled tool outside the gateway. Champion loss and missing training
+    produce decays, not steps.
+- id: q9
+  question: >-
+    Your engagement ends at week 12. Weekly use reached the 60% target in week 10. The sponsor asks
+    whether you can leave on schedule. What decides it?
+  options:
+    - >-
+      Reaching the target once, since that shows the programme is working and can run on its own.
+    - >-
+      Whether the owner has run reviews and office hours unaided and the alert has been tested.
+    - >-
+      Whether every developer has completed the training path, since habit follows from training.
+    - >-
+      Whether the sponsor agrees to a monthly retainer, so you can keep running the rhythms remotely.
+  correct: 1
+  explanation: >-
+    Hitting a target once is declaring victory too soon, and habits typically take months to form. The
+    handover criterion is capability: the mechanisms already run with their employee owners, and your
+    remaining role is dated follow-ups.

@@ -1,0 +1,11 @@
+id	expected	query
+P01	1	I finished step 2 of the plan for BILL-154. Check it.
+P02	1	Run the gates before I open the PR.
+P03	1	Are we green? Validate BILL-150.
+P04	1	Double-check that nothing broke after the refactor.
+P05	1	Before you say you are done, verify the change.
+N01	0	Explain what LoopGate scope does.
+N02	0	Write a unit test for StatementAsync with three invoices out of order.
+N03	0	What does the Stop hook in .claude/settings.json do?
+N04	0	Plan BILL-155.
+N05	0	Rename StatementLine to StatementRow everywhere.

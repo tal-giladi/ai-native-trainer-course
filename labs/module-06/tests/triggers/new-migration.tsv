@@ -1,0 +1,11 @@
+id	expected	query
+P01	1	Add a PoNumber column to the Invoice table for BILL-153.
+P02	1	We need an index on Invoice.DueUtc for the overdue report. Create the migration.
+P03	1	Create the schema change for storing payment reminders (BILL-150).
+P04	1	Add a check constraint so that Invoice.Amount can never be negative.
+P05	1	Finance wants a Currency column on invoices, default EUR. Write the database part.
+N01	0	Fix the typo in the comment at the top of V002__add_due_date.sql.
+N02	0	Why does IsOverdue use less-than instead of less-or-equal?
+N03	0	Write a SQL query that lists customers with more than 3 overdue invoices, for a one-off report.
+N04	0	Update InvoiceRepository.ListByCustomerAsync to also return PoNumber; the column already exists.
+N05	0	Set DueUtc to IssuedUtc plus 30 days for invoice 4411; the customer called about it.

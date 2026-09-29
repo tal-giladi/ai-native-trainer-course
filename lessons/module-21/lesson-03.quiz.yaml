@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    You know the schema MCP server should run in snapshot mode. What is the right way to get that
+    decision made at the client?
+  options:
+    - >-
+      Decide it yourself and record it, since the client hired you for exactly this judgment.
+    - >-
+      Write options and a recommendation as a draft ADR; the security lead decides and signs.
+    - >-
+      Ask the whole team to vote in the channel so that everyone feels ownership of the choice.
+    - >-
+      Leave the decision open until handover so the client can revisit it after you have left.
+  correct: 1
+  explanation: >-
+    You recommend; the client person who lives with the consequence decides, and the record shows
+    both. A decision "by the consultant" is one nobody at the client can defend or change later.
+- id: q2
+  question: >-
+    Your PR log for the AI layer shows client-authored shares of 20%, 30% and 40% across the three
+    thirds of the build. What does this tell you?
+  options:
+    - >-
+      The transfer is on track, because the client share rises steadily from third to third.
+    - >-
+      Nothing yet, because authorship only matters once the layer has been handed over.
+    - >-
+      The layer is fine as long as every consultant change had a client reviewer on it.
+    - >-
+      The team is not yet the author; the last third should be at least 70% client-written.
+  correct: 3
+  explanation: >-
+    A rising trend is good but 40% in the last third means you still wrote most of the recent layer.
+    Review alone transfers awareness, not the ability to change the files.
+- id: q3
+  question: >-
+    Over 18 AI-layer files, removing the tech lead leaves 6 files with no client person who has
+    worked on them; removing the migrations developer too leaves 11. What is the client truck factor?
+  options:
+    - >-
+      2, because more than half of the files are uncovered only after the second removal.
+    - >-
+      1, because the tech lead alone knows half of the files in the AI layer.
+    - >-
+      6, because six files lose all of their client knowers after the first removal.
+    - >-
+      0, because the consultant is leaving and the truck factor always counts them.
+  correct: 0
+  explanation: >-
+    After one removal 6 of 18 (33%) are uncovered; after two, 11 of 18 (61%), over half. The truck
+    factor counts client people only, because the consultant is certain to leave.
+- id: q4
+  question: >-
+    Client developers say they have no time to pair in week 4, and the sponsor wants the layer by
+    week 6. What should you do?
+  options:
+    - >-
+      Write the remaining layer yourself in the evenings, then walk the team through it at handover.
+    - >-
+      Stop the build until the team has time, without telling the sponsor about the delay.
+    - >-
+      Raise the missed client responsibility with the sponsor, and cut scope rather than ownership.
+    - >-
+      Let the most enthusiastic developer write everything, since one client author is enough.
+  correct: 2
+  explanation: >-
+    Pairing time is a client responsibility in the SOW. Escalate it and reduce scope (fewer skills);
+    writing it yourself or through one person trades a slip now for a layer nobody can maintain.

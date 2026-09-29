@@ -1,0 +1,1 @@
+It exists for backwards compatibility. Use SqlHelper for reads and Dapper for writes.

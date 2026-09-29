@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Over two months, "does this work without a test suite?" reached you four times: twice by DM,
+    once by e-mail and once after a talk. You answered each person individually. What next?
+  options:
+    - >-
+      Keep answering privately, since each asker has a different codebase and needs a tailored reply.
+    - >-
+      Add it to your FAQ file only, since a piece on a single question is too narrow to publish.
+    - >-
+      Make it the next piece in the calendar, then answer future askers with a link to it.
+    - >-
+      Wait for ten asks before writing, so that you are sure the theme is really common enough.
+  correct: 2
+  explanation: >-
+    A theme asked three times and answered only in private is the next piece. Most readers never
+    ask, so each asker stands for several silent ones, and a public answer keeps working.
+- id: q2
+  question: >-
+    Your free pilot went well and the host's tech lead said it was "the best training in years".
+    What must be true before you publish a write-up that quotes her?
+  options:
+    - >-
+      Nothing more, since the pilot was free and the remark was made openly in front of the team.
+    - >-
+      The host's written, dated approval of the draft, and her approval of the quote itself.
+    - >-
+      Only that her company is not named, since an anonymous quote needs no further permission.
+    - >-
+      Only that you add "#ad" at the start, since the post is promotion for your workshop.
+  correct: 1
+  explanation: >-
+    Nothing about a pilot is published without the host's written consent, and every quote needs the
+    quoted person's approval. Anonymity reduces risk; it does not replace consent.
+- id: q3
+  question: >-
+    Two weeks after your lunch-and-learn, 3 of the 6 people who named an action sent a link showing
+    they tried it. How do you report this?
+  options:
+    - >-
+      As 3 of 6, Wilson interval about 19% to 81%, a measure of behaviour, not of learning.
+    - >-
+      As 50% adoption, which shows the session changed how half of the team works from now on.
+    - >-
+      As 100% of those who replied, since people who did nothing are unlikely to write back.
+    - >-
+      As proof of learning gain, since trying the method at work requires having learned it.
+  correct: 0
+  explanation: >-
+    The follow-up is Kirkpatrick level 3, a proportion from six people with a very wide interval.
+    Non-replies count as no; a lunch-and-learn without a pre/post test measured no learning.
+- id: q4
+  question: >-
+    Which row in your questions log meets the module's exit test?
+  options:
+    - >-
+      A colleague from another team asks a sharp question after you say "any questions?".
+    - >-
+      A former colleague comments under your post asking which gate stops test edits.
+    - >-
+      A stranger at a meetup asks about model upgrades during the Q&A you opened for them.
+    - >-
+      A reader you have never met replies to your article with a follow-up, without being asked.
+  correct: 3
+  explanation: >-
+    The exit signal needs both conditions: outside your network and unprompted. The others are
+    useful questions for the log but come from people who knew you or were invited to ask.

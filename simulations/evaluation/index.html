@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation simulation</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="evaluation.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Evaluation: A vs B on one task set, graders, and how wide the interval really is</h1>
+  <div id="preset-note" class="preset-note"></div>
+
+  <div class="tabs" role="tablist" aria-label="Views">
+    <button type="button" role="tab" id="tab-judge" aria-controls="view-judge">Biased judge</button>
+    <button type="button" role="tab" id="tab-trials" aria-controls="view-trials">Trials vs interval width</button>
+    <button type="button" role="tab" id="tab-paired" aria-controls="view-paired">Paired vs unpaired</button>
+  </div>
+
+  <!-- 07.3 -->
+  <section id="view-judge" role="tabpanel" aria-labelledby="tab-judge" hidden>
+    <div class="grid side">
+      <div class="panel">
+        <h2>Grader</h2>
+        <div class="field">
+          <label for="judge">Judge</label>
+          <select id="judge">
+            <option value="v1">Judge v1 — "thorough, detailed, well-explained"</option>
+            <option value="v2">Judge v2 — rubric: ground truth, binary criteria, length is not a criterion</option>
+            <option value="human">Human expert (reference)</option>
+            <option value="custom">Custom judge</option>
+          </select>
+        </div>
+        <fieldset class="box" id="judge-probs">
+          <legend>P(judge says pass)</legend>
+          <div class="field"><div class="row"><label for="j-rl">Right answer, long</label><output id="j-rl-out"></output></div><input type="range" id="j-rl" min="0" max="1" step="0.01"></div>
+          <div class="field"><div class="row"><label for="j-rs">Right answer, short</label><output id="j-rs-out"></output></div><input type="range" id="j-rs" min="0" max="1" step="0.01"></div>
+          <div class="field"><div class="row"><label for="j-wl">Wrong answer, long</label><output id="j-wl-out"></output></div><input type="range" id="j-wl" min="0" max="1" step="0.01"></div>
+          <div class="field"><div class="row"><label for="j-ws">Wrong answer, short</label><output id="j-ws-out"></output></div><input type="range" id="j-ws" min="0" max="1" step="0.01"></div>
+        </fieldset>
+        <h2>Systems</h2>
+        <div class="field"><div class="row"><label for="a-p">A: true pass rate</label><output id="a-p-out"></output></div><input type="range" id="a-p" min="0" max="1" step="0.01" value="0.8"></div>
+        <div class="field"><div class="row"><label for="a-l">A: share of long answers</label><output id="a-l-out"></output></div><input type="range" id="a-l" min="0" max="1" step="0.01" value="0.5"></div>
+        <div class="field"><div class="row"><label for="b-p">B: true pass rate</label><output id="b-p-out"></output></div><input type="range" id="b-p" min="0" max="1" step="0.01" value="0.3"></div>
+        <div class="field"><div class="row"><label for="b-l">B: share of long answers</label><output id="b-l-out"></output></div><input type="range" id="b-l" min="0" max="1" step="0.01" value="0.5"></div>
+        <div class="field"><div class="row"><label for="j-n">Answers graded per system</label><output id="j-n-out"></output></div><input type="range" id="j-n" min="10" max="200" step="10" value="50"></div>
+        <div class="controls">
+          <button type="button" id="verbose-b">Break it: B becomes verbose (90% long)</button>
+          <button type="button" id="j-rerun">Re-run (new seed)</button>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h2>What the judge reports</h2>
+          <div class="scroll-x"><table id="judge-table"></table></div>
+          <div id="judge-chart"></div>
+          <p id="judge-verdict"></p>
+        </div>
+        <div class="panel">
+          <h2>Calibration on 24 human-labelled answers</h2>
+          <p class="muted">12 right and 12 wrong; in each half, 6 long and 6 short (as in the lab’s T21 calibration set).</p>
+          <div class="grid two">
+            <div class="scroll-x"><table id="matrix"></table></div>
+            <div class="stats" id="calib-stats"></div>
+          </div>
+          <p id="calib-verdict"></p>
+          <p class="muted">Observed rate <i>q</i> = TPR·<i>p</i> + FPR·(1−<i>p</i>), so <i>p</i> = (<i>q</i> − FPR)/(TPR − FPR). The denominator is the signal the grader carries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07.4 -->
+  <section id="view-trials" role="tabpanel" aria-labelledby="tab-trials" hidden>
+    <div class="grid side">
+      <div class="panel">
+        <h2>One pass rate, one interval</h2>
+        <div class="field"><div class="row"><label for="t-n">Trials per eval run</label><output id="t-n-out"></output></div><input type="range" id="t-n" min="0" max="8" step="1" value="2"></div>
+        <div class="field"><div class="row"><label for="t-p">True pass rate (hidden until you reveal it)</label><output id="t-p-out"></output></div><input type="range" id="t-p" min="0.02" max="0.98" step="0.01" value="0.54"></div>
+        <label class="check"><input type="checkbox" id="t-reveal"> <span>Reveal the true rate on the chart</span></label>
+        <div class="controls">
+          <button type="button" class="primary" id="t-run">Run the eval once</button>
+          <button type="button" id="t-run20">Run it 20 times</button>
+          <button type="button" id="t-clear">Clear</button>
+        </div>
+        <h3>How many trials?</h3>
+        <div class="field"><div class="row"><label for="t-h">Wanted half-width ±<i>h</i></label><output id="t-h-out"></output></div><input type="range" id="t-h" min="0.02" max="0.25" step="0.01" value="0.10"></div>
+        <p class="mono" id="t-need"></p>
+      </div>
+      <div>
+        <div class="panel">
+          <h2>95% Wilson intervals, one per run</h2>
+          <div id="t-chart"></div>
+          <p id="t-summary" aria-live="polite"></p>
+          <div class="scroll-x"><table id="t-widths"></table></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid side">
+      <div class="panel">
+        <h2>Tasks × trials: clustering</h2>
+        <p class="muted">Trials of the same task are not independent. Easy tasks pass almost always, hard ones almost never.</p>
+        <div class="field"><div class="row"><label for="c-T">Tasks</label><output id="c-T-out"></output></div><input type="range" id="c-T" min="2" max="50" step="1" value="24"></div>
+        <div class="field"><div class="row"><label for="c-m">Trials per task</label><output id="c-m-out"></output></div><input type="range" id="c-m" min="1" max="25" step="1" value="5"></div>
+        <div class="field"><div class="row"><label for="c-s">How much tasks differ (spread)</label><output id="c-s-out"></output></div><input type="range" id="c-s" min="0" max="3" step="0.1" value="1.8"></div>
+        <div class="controls">
+          <button type="button" id="c-pseudo">4 tasks × 25 trials</button>
+          <button type="button" id="c-wide">24 tasks × 5 trials</button>
+          <button type="button" id="c-rerun">Re-run (new seed)</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Same budget, two intervals</h2>
+        <div id="c-chart"></div>
+        <div class="stats" id="c-stats"></div>
+        <p id="c-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07.5 -->
+  <section id="view-paired" role="tabpanel" aria-labelledby="tab-paired" hidden>
+    <div class="grid side">
+      <div class="panel">
+        <h2>Experiment</h2>
+        <div class="field"><div class="row"><label for="p-T">Tasks (same in both arms)</label><output id="p-T-out"></output></div><input type="range" id="p-T" min="4" max="50" step="1" value="20"></div>
+        <div class="field"><div class="row"><label for="p-m">Trials per task per arm</label><output id="p-m-out"></output></div><input type="range" id="p-m" min="1" max="20" step="1" value="5"></div>
+        <div class="field"><div class="row"><label for="p-s">How much tasks differ (spread)</label><output id="p-s-out"></output></div><input type="range" id="p-s" min="0" max="3" step="0.1" value="2"></div>
+        <div class="field"><div class="row"><label for="p-e">True effect of B (points on a typical task)</label><output id="p-e-out"></output></div><input type="range" id="p-e" min="-0.3" max="0.3" step="0.01" value="0"></div>
+        <div class="field"><div class="row"><label for="p-x">Task × treatment noise</label><output id="p-x-out"></output></div><input type="range" id="p-x" min="0" max="1.5" step="0.1" value="0.3"></div>
+        <div class="controls">
+          <button type="button" id="p-aa">A/A check (effect 0)</button>
+          <button type="button" id="p-rerun">Re-run (new seed)</button>
+          <button type="button" class="primary" id="p-many">Run 200 experiments</button>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h2>One experiment: B − A with a 95% interval</h2>
+          <div id="p-chart"></div>
+          <div class="scroll-x"><table id="p-table"></table></div>
+          <p id="p-verdict"></p>
+        </div>
+        <div class="panel">
+          <h2>Per task</h2>
+          <p class="muted">Tasks sorted by A’s pass rate. Tasks differ far more from each other than the two arms do; comparing each task with itself cancels that shared difficulty.</p>
+          <div id="p-tasks"></div>
+        </div>
+        <div class="panel">
+          <h2>Many experiments</h2>
+          <div id="p-many-out"><p class="muted">Press “Run 200 experiments” to compare the methods over many repeats with these settings.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">All data is simulated from a simple model: task difficulty on a log-odds scale, binomial trials, a judge with fixed pass probabilities. Numbers illustrate the lessons’ arguments; they are not measurements of any model or agent.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="evaluation.js"></script>
+</body>
+</html>

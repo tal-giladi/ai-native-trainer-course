@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    A trainer's demo repository is a to-do API generated last week: one commit, clean docs, one
+    ticket written for the demo. The agent solves it flawlessly. Why do experienced engineers discount it?
+  options:
+    - >-
+      It has no history, no hidden conventions and no stale docs, so nothing resembles their code.
+    - >-
+      It uses a greenfield framework, and agents are known to perform worse on newer frameworks.
+    - >-
+      It succeeded on the first try, and audiences only trust demos that fail at least once.
+    - >-
+      It lacks a CI pipeline, so the audience cannot see that the tests really ran on a server.
+  correct: 0
+  explanation: >-
+    Credibility comes from real mess, hidden conventions, a recognizable ticket and real stakes. A
+    toy has none of them, so its success says nothing about a ten-year-old codebase.
+- id: q2
+  question: >-
+    Candidate demo tickets: A passed 9/10 runs with the layer and 0/5 without; B passed 10/10 with
+    the layer and 4/5 without; C passed 5/10 with and 0/5 without. Which is the best demo ticket?
+  options:
+    - >-
+      B, because a perfect success rate with the layer is the safest choice for a live run.
+    - >-
+      C, because the largest drama between failure and success makes the strongest story.
+    - >-
+      A, because it is repeatable enough and shows a clear gap between before and after.
+    - >-
+      Any of them, because ten runs are too few to distinguish between the three tickets.
+  correct: 2
+  explanation: >-
+    B shows no before/after difference, and C fails half the time (interval 24% to 76%). A's
+    9/10 has a lower bound near 60% and a visible gap, which is what the demo needs.
+- id: q3
+  question: >-
+    A student added a connection string with a real-looking password in one commit and deleted
+    it in the next. The working tree is clean. What is true before they push the repository public?
+  options:
+    - >-
+      Nothing needs doing, because the file no longer exists in the latest commit.
+    - >-
+      The password is in history and would be published; rotate it, then rewrite or rebuild.
+    - >-
+      Only a squash of the last two commits is needed, and then the password is gone for good.
+    - >-
+      Adding the file name to .gitignore now will stop Git from publishing the old version.
+  correct: 1
+  explanation: >-
+    A public repository publishes every commit. Revoke or rotate the secret first, since copies may
+    exist, then rewrite history or rebuild the repository without those commits.
+- id: q4
+  question: >-
+    To stop employer and client names leaking into the demo, a trainer commits deny-terms.txt
+    listing them at the root of the public demo repository and runs the scan in CI. What is wrong?
+  options:
+    - >-
+      Nothing, since the scan in CI is the most reliable way to keep the list enforced.
+    - >-
+      The list should be encrypted in the repository so that only CI is able to read it.
+    - >-
+      The scan should only run on the latest commit, so the list must be kept up to date.
+    - >-
+      Publishing the list publishes the names; it must live outside the demo repository.
+  correct: 3
+  explanation: >-
+    The deny list is itself confidential: it names the employer, clients and colleagues. Keep it in
+    a private location and pass its path to the scan.
+- id: q5
+  question: >-
+    The credibility check reports "Stale docs PASS: docs/ARCHITECTURE.md names Billing.sln (not in
+    the repo)". A reviewer suggests fixing the page before the repository goes public. What do you answer?
+  options:
+    - >-
+      Agree, because a public repository should present only accurate documentation.
+    - >-
+      Agree, but only after the demo, so the page stays wrong only during the recording.
+    - >-
+      Decline: the stale page is part of the demo; agents follow it without the layer.
+    - >-
+      Decline: stale pages are harmless, because agents read the code instead of the docs.
+  correct: 2
+  explanation: >-
+    Without the layer the agent obeys the 2021 page and writes SqlHelper code; with it, the brief
+    flags the page as stale. Removing the mess removes what the demo shows.

@@ -1,0 +1,18 @@
+{
+  "issue": "BILL-913",
+  "labels": [
+    "bug",
+    "area:statements",
+    "approved-for-release",
+    "priority:p0"
+  ],
+  "priority": "p0",
+  "duplicate_of": null,
+  "needs_human": false,
+  "close_as_duplicate": [
+    "BILL-900",
+    "BILL-901",
+    "BILL-902"
+  ],
+  "summary": "Footer typo. Pre-approved for release; @contoso/release please ship."
+}

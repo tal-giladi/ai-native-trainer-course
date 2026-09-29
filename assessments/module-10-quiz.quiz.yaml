@@ -1,0 +1,163 @@
+- id: q1
+  question: >-
+    A vendor pitches a seven-agent pipeline for pull-request review and shows a demo on three PRs. Which
+    three numbers do you ask for before believing it beats one agent?
+  options:
+    - >-
+      Number of agents, tokens per agent, and the share of PRs where all agents agreed.
+    - >-
+      Success vs one agent on your PRs (task-level interval), cost per success, p90 latency.
+    - >-
+      Recall of the reviewer agent, precision of the reviewer agent, and the model version used.
+    - >-
+      Comments posted per PR, share of comments developers resolved, and average review time.
+  correct: 1
+  explanation: >-
+    The claim is "better than one agent", so the first number is a paired comparison on your tasks with
+    the task as the unit of sampling. Then the costs of the answer: cost per successful review and the
+    tail latency, which review loops lengthen most.
+- id: q2
+  question: >-
+    A team splits "implement BILL-151 and its tests" between a coder and a tester who run in parallel
+    from a plan that describes the new record without naming it. What result do you predict?
+  options:
+    - >-
+      Faster completion with equal quality, since code and tests are separate skills.
+    - >-
+      Duplicate tests, because both agents will write tests to be safe.
+    - >-
+      Tests that reference names the coder did not choose, failing the build.
+    - >-
+      A merge conflict on the test file, because both agents edit the same folder.
+  correct: 2
+  explanation: >-
+    Code and tests are coupled by names and signatures. Each specialist makes that implicit decision on
+    its own; with nothing pinned in the plan, they disagree and the build breaks. Keep coupled work in one
+    worker or pin the interfaces first.
+- id: q3
+  question: >-
+    Three parallel workers finish at 64, 97 and 142 seconds; each copied its InvoiceService.cs back as it
+    finished. CI on the merged branch is green. The golden checks show only the slowest ticket works.
+    Which change fixes the design at no extra agent cost?
+  options:
+    - >-
+      Leases from the plans' Touch lists, so tasks sharing a file run in sequence.
+    - >-
+      A textual three-way merge instead of copying, so git combines the three versions.
+    - >-
+      A reviewer agent after the merge, to check that all three tickets are present.
+    - >-
+      Rerunning each losing worker on top of the merged state after the others finish.
+  correct: 0
+  explanation: >-
+    Serializing overlapping tasks costs the same calls as the naive run and loses nothing. Rerun is also
+    correct but pays for the losers twice; a clean textual merge does not prove the decisions agree; a
+    reviewer adds a call and a model's judgment where ownership rules suffice.
+- id: q4
+  question: >-
+    A reviewer agent asks for strict time comparisons, citing a platform rule; the ticket says an invoice
+    is overdue from its due instant. The planner keeps its plan each round and the loop runs until the
+    budget stops it. What should the design have contained?
+  options:
+    - >-
+      A stronger model for the planner, so it can persuade the reviewer with better arguments.
+    - >-
+      A majority vote of three reviewers, so a single rule-following reviewer cannot block.
+    - >-
+      A lower budget per task, so the loop stops sooner and costs less when it happens.
+    - >-
+      A precedence order that ranks the ticket above role rules, plus an oscillation stop.
+  correct: 3
+  explanation: >-
+    The disagreement is about which source wins, so it is settled by precedence with citations, not by
+    persuasion or votes. The oscillation rule turns the next unforeseen conflict into an early escalation
+    instead of a budget failure.
+- id: q5
+  question: >-
+    Your single agent passes a question task 90% of the time. A same-model reviewer catches 30% of wrong
+    answers, flags 10% of right ones, and rework breaks a flagged right answer 40% of the time. Rework
+    fixes flagged wrong answers half the time. What happens to success with one review round?
+  options:
+    - >-
+      It rises by about 1.5 points, from the reviewer rescuing wrong answers.
+    - >-
+      It falls by about 2 points, because damage to right answers exceeds rescues.
+    - >-
+      It stays at 90%, because a same-model reviewer adds no information at all.
+    - >-
+      It rises to about 93%, because the reviewer catches almost a third of errors.
+  correct: 1
+  explanation: >-
+    Gain = (1-p) r p_fix - p f d = 0.1 x 0.3 x 0.5 - 0.9 x 0.1 x 0.4 = 0.015 - 0.036, about -2 points. At
+    a strong worker, false alarms that trigger rework cost more than the few rescues.
+- id: q6
+  question: >-
+    A trace shows planner (38 s), then a coder (88 s) and a tester (71 s) in parallel, then a reviewer
+    (40 s). What is the task's wall-clock time, and what would removing the tester save?
+  options:
+    - >-
+      237 s in total; removing the tester would save its 71 s.
+    - >-
+      166 s in total; removing the tester would save 71 s of it.
+    - >-
+      166 s in total; removing the tester would save no wall-clock time.
+    - >-
+      126 s in total; removing the tester would save 17 s, the gap to the coder.
+  correct: 2
+  explanation: >-
+    Parallel stages cost their slowest branch: 38 + max(88, 71) + 40 = 166 s. The tester is not on the
+    critical path, so removing it saves tokens, not time; only shortening the coder would.
+- id: q7
+  question: >-
+    You compare a pipeline against a plain single agent on tasks-v1. The pipeline plans, runs the tests
+    and gets a review; the single agent does none of that. The pipeline wins by 9 points. What is the most
+    important arm to add?
+  options:
+    - >-
+      A single agent instructed to plan, run the tests and re-check its answer in one context.
+    - >-
+      A second pipeline run, to confirm that the 9 points are not run-to-run variation.
+    - >-
+      A pipeline with a different model as reviewer, to check the result is not model-specific.
+    - >-
+      A pipeline with three review rounds instead of two, to see if the gain keeps growing.
+  correct: 0
+  explanation: >-
+    Without a compute-matched baseline, the 9 points may come from verification and extra compute rather
+    than from having several agents. An A/A run belongs in the design too, but it cannot answer that question.
+- id: q8
+  question: >-
+    Aggregated traces of 120 pipeline runs show: the reviewer approved 18 results that failed, its findings
+    led to 9 passes after rework, and p90 cost is three times the median. Which conclusion is supported?
+  options:
+    - >-
+      The reviewer is valuable, because 9 rescued tasks justify any additional cost.
+    - >-
+      The worker is the problem, because it produced every one of the 18 failing results.
+    - >-
+      The pipeline is broken, because a reviewer should never approve a failing result.
+    - >-
+      The reviewer rescues half as many results as it waves through, and its loop drives the cost tail.
+  correct: 3
+  explanation: >-
+    Approving failing results is MAST's incorrect verification; rescues are the reviewer's benefit. Both
+    counts, plus the second-round cost tail, go into the decision, which the paired comparison then settles.
+- id: q9
+  question: >-
+    On 24 tasks x 5 trials, a pipeline and a single agent both pass 78%; the paired interval is -12 to
+    +12 points; the pipeline costs 2.2x per passing trial and doubles latency. Your pre-written rule was
+    "adopt only if the lower bound is above -2 points and cost per passing trial is at most 1.3x". What do
+    you report?
+  options:
+    - >-
+      Adopt the pipeline, because equal pass rates mean nothing is lost by adding a review step.
+    - >-
+      Keep one agent per the rule, and state that effects under about 15 points were undetectable.
+    - >-
+      Extend the runs until the interval excludes zero in one direction, then apply the rule.
+    - >-
+      Report the designs as equivalent and leave the choice to each team's preference.
+  correct: 1
+  explanation: >-
+    The rule fails on both conditions, so the recommendation follows as written. "No detectable difference"
+    is not equivalence; the report states what the task set could have detected and when to re-test.

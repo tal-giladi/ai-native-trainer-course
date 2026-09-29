@@ -1,0 +1,1 @@
+It's deprecated. Use Entity Framework for new code.

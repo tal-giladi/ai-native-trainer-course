@@ -1,0 +1,1 @@
+{"session_id":"s-lab","transcript_path":"{root}/t.jsonl","cwd":"{root}","permission_mode":"default","hook_event_name":"PreToolUse","tool_use_id":"toolu_lab","tool_name":"Write","tool_input":{"content":"no path"}}

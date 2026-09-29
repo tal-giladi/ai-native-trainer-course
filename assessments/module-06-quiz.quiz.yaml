@@ -1,0 +1,166 @@
+- id: q1
+  question: >-
+    A team has 40 skills and nobody knows which ones fire. The lead asks you to "clean them up".
+    What is the best first week of work?
+  options:
+    - >-
+      Rewrite all 40 descriptions to be longer and more specific, so every skill fires more often.
+    - >-
+      Merge all 40 into one large skill, so the model always has every procedure in its context.
+    - >-
+      Inventory for duplicates, overlaps and cost, ask owners about use, then retire and test.
+    - >-
+      Convert all 40 into sub-agents, so each one runs in its own isolated context window instead.
+  correct: 2
+  explanation: >-
+    An audit starts with evidence: an inventory (duplicate names, overlapping descriptions, vague
+    ones, always-loaded description cost), real usage from owners, then deletion or merging of the
+    unowned and unused, and trigger tests on the overlapping survivors. Longer descriptions add cost on
+    every request; one giant skill or 40 agents make the problem worse.
+- id: q2
+  question: >-
+    A `new-migration` skill asks the model to "find the highest V number and add one". On a branch
+    where someone committed `U005__x.sql` but not yet its V005, the skill creates a second 005.
+    What is the best fix?
+  options:
+    - >-
+      Add a sentence telling the model to also check U files before choosing the next number.
+    - >-
+      Move numbering into a script that takes the highest number used by any V or U file.
+    - >-
+      Add an example of a correct V/U pair to the skill body so the model copies its numbering.
+    - >-
+      Make the skill user-invoked only, so a person always chooses the migration number.
+  correct: 1
+  explanation: >-
+    Numbering has exactly one right answer, so it belongs in code that behaves the same way every
+    time. More instructions or examples lower the error rate but leave it probabilistic; making the
+    skill user-only does not change who picks the number.
+- id: q3
+  question: >-
+    Your `prime` skill shows its research brief in the chat. `plan-feature` uses "the brief from
+    earlier in this conversation". After a reset, plans start duplicating existing logic. Which
+    design change addresses the cause?
+  options:
+    - >-
+      Forbid resets during a ticket, so the conversation always keeps the brief available.
+    - >-
+      Merge prime and plan-feature into one skill, so the brief never has to be handed over.
+    - >-
+      Tell plan-feature to research again whenever it cannot find a brief in the conversation.
+    - >-
+      Have prime write research/<id>.md, and plan-feature read it and stop if it is missing.
+  correct: 3
+  explanation: >-
+    Resets and compaction are part of the loop, so chained skills must hand off through files a
+    script can check. Merging removes the human checkpoint; silent re-research hides the missing step
+    and costs context in the planning session.
+- id: q4
+  question: >-
+    A colleague proposes a `planner` sub-agent that reads the ticket and brief and writes the plan,
+    "so the main session stays clean". The brief for BILL-153 has an open question about what value
+    existing invoices get. What is the strongest objection?
+  options:
+    - >-
+      The sub-agent cannot ask anyone, so it will decide a product question on its own.
+    - >-
+      The sub-agent will use about 15 times more tokens than the main session would use.
+    - >-
+      Planning output is too short to be worth the start-up cost of a separate context.
+    - >-
+      The sub-agent will not load AGENTS.md, so it will not know the project conventions.
+  correct: 0
+  explanation: >-
+    Sub-agents cannot put a question to the user mid-task. An open product decision needs a person
+    at a named checkpoint, so planning with open questions stays in the main session. Custom agents do
+    load the project rules, and the token figure is a multi-agent upper bound, not the main issue.
+- id: q5
+  question: >-
+    Skill v2 of `prime` loads on 12 of 15 should-load runs; v1 loaded on 10 of 15. One run of each
+    query per version, same queries. Should you ship v2 because its trigger is better?
+  options:
+    - >-
+      Yes, since v2 is 13 percentage points higher on the same queries, which is a clear win.
+    - >-
+      Not on this evidence: 15 runs cannot separate 0.80 from 0.67; check near misses, rerun.
+    - >-
+      No, since trigger recall is irrelevant for a skill that people can invoke with /prime.
+    - >-
+      Yes, as long as the false-trigger rate of v2 on the near-miss queries is exactly zero.
+  correct: 1
+  explanation: >-
+    With 15 runs each, the difference is well within what chance produces for two identical
+    descriptions. Look at the false-trigger rate and the unstable queries, rerun with more runs, and let
+    Module 7's intervals decide. Recall matters for prime because the model may load it on its own.
+- id: q6
+  question: >-
+    `prime` and `plan-feature` 1.0.0 pass five tickets, then produce a plan for a NOT NULL column
+    with no undo script and no backfill. `plan-lint` and both contracts pass. The skills were typed
+    by name, and prime ran in a forked Explore agent searching `src/` only. Where do you fix first?
+  options:
+    - >-
+      The descriptions, because a sharper trigger would load the skills in a better context.
+    - >-
+      The model, because a stronger model would know that NOT NULL columns need a backfill.
+    - >-
+      The research context and contract: load rules, widen the search, add schema rules.
+    - >-
+      The plan template, because it should have a section reserved for database migrations.
+  correct: 2
+  explanation: >-
+    Trigger is ruled out (both typed by name). The origin is context: Explore skips CLAUDE.md, so
+    the V###/U### rule never loaded, and no migration file was read. The escape is a contract that only
+    checked form. Fix both, and add the ticket to the test set.
+- id: q7
+  question: >-
+    A `reviewer` agent's description says "read-only, never edits files". Its front-matter has no
+    `tools` field. What does that mean in Claude Code?
+  options:
+    - >-
+      It is read-only, because the description tells the model not to use editing tools.
+    - >-
+      It has no tools at all, so it can only comment on the diff it receives in its prompt.
+    - >-
+      It has only the read tools by default, because agents start with a minimal tool set.
+    - >-
+      It inherits the session's tools, including edits and MCP, so the claim is not enforced.
+  correct: 3
+  explanation: >-
+    Without an allowlist, a subagent inherits the tools available in the main conversation. The
+    description is advisory; `tools: Read, Grep, Glob` is what makes read-only true.
+- id: q8
+  question: >-
+    Which change to `prime` is a major version under the course's SemVer definition for skills?
+  options:
+    - >-
+      Renaming the brief section "Existing capabilities to reuse", which plan-feature reads.
+    - >-
+      Adding `docs/adr/` to the folders the researcher agent is asked to search for evidence.
+    - >-
+      Adding a required `Schema change: yes|no` line that plan-feature does not yet read.
+    - >-
+      Rewording the description so it triggers on "load context for" as well as on "prime".
+  correct: 0
+  explanation: >-
+    Major means a caller or check that relies on the old output breaks. plan-feature reads that
+    section by name, so renaming it breaks the chain. The others add a step or rule (minor) or change
+    wording (patch).
+- id: q9
+  question: >-
+    Research for two independent tickets explores 57,000 tokens in total and returns briefs of 1,650.
+    Each sub-agent costs about 5,000 tokens to start. When is delegating both in parallel a poor
+    trade?
+  options:
+    - >-
+      When the tickets share no files, since independent work gains nothing from parallel runs.
+    - >-
+      When the session ends right after research, so the saved main context is never used.
+    - >-
+      When the briefs are under 2,000 tokens, since short briefs lose too much of the detail.
+    - >-
+      When the main session has a large context window, since isolation then adds no value.
+  correct: 1
+  explanation: >-
+    Delegation spends about 10,000 extra tokens to keep roughly 55,000 out of the main context. That
+    pays off when a long session follows (implementation) or wall-clock time matters. If nothing
+    follows, the saving protects nothing. Independence is what makes parallel research safe.

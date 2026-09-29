@@ -1,0 +1,53 @@
+# .github/workflows/ai-layer-governance.yml — lesson 11.5.
+# Deterministic governance checks on every PR that touches the AI layer. No agent runs here.
+#   1. an AI-layer change must come with an AI-LAYER-CHANGELOG.md entry
+#   2. the changelog follows the system-evolution policy (AgentOps evolution)
+#   3. agent workflows pass wflint
+# The eval gate itself is agent-evals.yml (Module 7); the attack suite gate is Module 9's. Branch protection
+# requires all three workflows plus CODEOWNERS review.
+name: ai-layer-governance
+
+on:
+  pull_request:
+    paths:
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - ".claude/**"
+      - ".mcp.json"
+      - ".github/workflows/**"
+      - ".github/agent-settings.json"
+      - ".github/review/**"
+      - ".github/triage/**"
+      - "evals/**"
+      - "AI-LAYER-CHANGELOG.md"
+
+permissions:
+  contents: read
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: AI-layer change needs a changelog entry
+        run: |
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")
+          echo "$changed"
+          if echo "$changed" | grep -qvE '^AI-LAYER-CHANGELOG\.md$' && ! echo "$changed" | grep -qx 'AI-LAYER-CHANGELOG.md'; then
+            echo "::error::AI-layer files changed without an AI-LAYER-CHANGELOG.md entry (governance.md, section 4)"; exit 1
+          fi
+
+      - name: System-evolution policy
+        run: |
+          dotnet run --project tools/AgentOps -- evolution AI-LAYER-CHANGELOG.md \
+            --tasks evals/tasks-v1/tasks.json --tasks evals/tasks-extra.json --since 2026-09-01
+
+      - name: Agent workflows
+        run: dotnet run --project tools/AgentOps -- wflint .github/workflows/*.yml

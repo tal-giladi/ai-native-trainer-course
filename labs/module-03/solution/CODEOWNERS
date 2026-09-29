@@ -1,0 +1,14 @@
+# The AI layer is code: it has owners, and changes to it need their review.
+# Last matching pattern wins, so the specific AI-layer lines come after the catch-all.
+
+*                         @contoso/billing-devs
+
+/AGENTS.md                @contoso/billing-leads
+/CLAUDE.md                @contoso/billing-leads
+/.claude/                 @contoso/billing-leads
+/.cursor/rules/           @contoso/billing-leads
+/.github/copilot-instructions.md  @contoso/billing-leads
+/.github/instructions/    @contoso/billing-leads
+/.mcp.json                @contoso/billing-leads @contoso/security
+/AI-LAYER-CHANGELOG.md    @contoso/billing-leads
+/.github/CODEOWNERS       @contoso/billing-leads

@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Your method is at 1.4.2. You rename concept C3 from "Green lie" to "Self-graded green" and keep
+    the line formerly "Green lie" on the card. Nothing else changes. What is the next version?
+  options:
+    - >-
+      2.0.0, because any change to a concept name breaks the vocabulary people learned.
+    - >-
+      1.5.0, because the rename keeps the old name as an alias, so old material resolves.
+    - >-
+      1.4.3, because a rename changes only wording and never the meaning of the concept.
+    - >-
+      1.4.2, because an alias means the change is invisible and needs no new version at all.
+  correct: 1
+  explanation: >-
+    A rename with the old name kept as an alias is a backward-compatible addition: MINOR. Without
+    the alias it would be MAJOR, because old posts and notes would point at nothing.
+- id: q2
+  question: >-
+    A concept you have taught for a year is contradicted by three new incidents. What does the
+    lesson's policy say to do with it?
+  options:
+    - >-
+      Retire it with a date and reason, keep it listed, and release a MAJOR version.
+    - >-
+      Delete it from concepts.md so that new readers are not confused by an outdated idea.
+    - >-
+      Keep teaching it but move the three incidents to the counter-evidence line only.
+    - >-
+      Give its name to the replacement idea, so audiences keep a term they already know.
+  correct: 0
+  explanation: >-
+    Retire, never delete, and never reuse the name. Withdrawing something people were taught is a
+    breaking change, and a retired entry lets old posts and slides still resolve.
+- id: q3
+  question: >-
+    Which loop diagram best follows this lesson's rules?
+  options:
+    - >-
+      Four rounded boxes in a circle labelled with the step names and a logo in the middle.
+    - >-
+      A detailed swimlane with every command typed in the agent, grouped by team role.
+    - >-
+      Boxes naming each step's output, labelled arrows, a key and a path back on failure.
+    - >-
+      A photo of the whiteboard sketch from the first retro, since it shows the real origin.
+  correct: 2
+  explanation: >-
+    Boxes should be things you can point at, arrows labelled with what is handed over, a title and
+    key, and failure paths shown. Commands belong in the implementation file, not the diagram.
+- id: q4
+  question: >-
+    What distinguishes the method evolution policy from the AI-layer governance policy of 11.5?
+  options:
+    - >-
+      Nothing; the method policy is the same loop applied to a larger number of repositories.
+    - >-
+      The method policy approves rules-file changes, while 11.5 approves changes to slides.
+    - >-
+      The method policy exists only for public methods; private ones use 11.5 without changes.
+    - >-
+      It governs the loop and concepts you teach, triggered by evidence, objections and releases.
+  correct: 3
+  explanation: >-
+    11.5 keeps one repository's AI layer honest through incidents and regression tasks. The method
+    policy is one level up: counter-evidence, experiments, tool changes, objections and new
+    frameworks trigger a review, and teaching materials follow MAJOR changes.

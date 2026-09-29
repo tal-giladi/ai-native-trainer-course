@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    A student's "AI enablement package" is priced "from 12,000", promises "unlimited revisions", and
+    its last four deliveries took 64, 131, 88 and 142 hours. What is it, in this lesson's terms?
+  options:
+    - >-
+      A productized service in its early stage, which the learning curve will fix after a few more sales.
+    - >-
+      A product, because it has a name, a price on a page and a standard set of deliverables.
+    - >-
+      Consulting with a fixed-fee label, carrying scope risk without the leverage of repetition.
+    - >-
+      A retainer, since the client can keep asking for revisions until the work is accepted.
+  correct: 2
+  explanation: >-
+    The price is open, the scope is unbounded and the hours rise instead of falling. That is consulting
+    with a nicer page; the learning curve only appears when the same work repeats.
+- id: q2
+  question: >-
+    A pilot has a fixed fee of 18,000. Your time log shows the last delivery took 120 hours, and you work
+    8-hour days. Your floor is 1,500 a day. What does the log tell you?
+  options:
+    - >-
+      The effective day rate was 1,200, below the floor, so the hours must fall or the price must change.
+    - >-
+      The effective day rate was 1,800, above the floor, so the pilot is priced correctly as it stands.
+    - >-
+      The effective day rate was 1,500, exactly the floor, so the pilot breaks even and needs no change.
+    - >-
+      Nothing yet, because an effective day rate is only meaningful once a learning curve has been fitted.
+  correct: 0
+  explanation: >-
+    120 hours is 15 days; 18,000 divided by 15 is 1,200 a day. A fixed fee hides the real rate until you
+    divide by the hours actually spent.
+- id: q3
+  question: >-
+    Every client needs some work nobody else needs. Where does the lesson put that work on a service card?
+  options:
+    - >-
+      Spread across the standard steps, with a small margin added to each step's planned hours.
+    - >-
+      In one or two named custom steps with an hour budget, ideally 25% or less of the plan.
+    - >-
+      Outside the card entirely, billed afterwards at a day rate once the real hours are known.
+    - >-
+      Nowhere; a productized service only accepts clients whose needs match the standard steps.
+  correct: 1
+  explanation: >-
+    Naming and budgeting the custom work keeps it visible and bounded. Hidden in standard steps it inflates
+    their hours and the curve; anything beyond the budget becomes a change request.
+- id: q4
+  question: >-
+    Your deliveries took 132, 109 and 97 hours, and the fitted learning rate is about 82%. Your new card plans
+    80 hours. How should you read the curve's prediction of about 90 hours for the next delivery?
+  options:
+    - >-
+      As proof that the plan is wrong and should be raised to 90 hours before the next client signs.
+    - >-
+      As irrelevant, since three deliveries are too few to say anything about the next one at all.
+    - >-
+      As a forecast accurate to a few hours, since Wright's curve has held in industry since 1936.
+    - >-
+      As a rough sanity check: the plan is a target, and the next time log shows whether it holds.
+  correct: 3
+  explanation: >-
+    Three points give a rough slope with wide uncertainty. The prediction flags whether the plan is realistic
+    (within 15% here) and whether the work is repeating at all; the next delivery updates it.

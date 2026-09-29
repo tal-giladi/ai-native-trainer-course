@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    Developers used the agent when they felt it would help. Agent tickets took a median 8.2 h,
+    others 14.1 h, and the agent arm is 62% small tickets versus 29% for the other arm. What next?
+  options:
+    - >-
+      Report a 42% reduction, since the permutation test gives p = 0.002 on 120 tickets.
+    - >-
+      Compare within each ticket size, and switch to randomized assignment going forward.
+    - >-
+      Add lines changed as a control variable, to account for how much work each ticket was.
+    - >-
+      Drop the small tickets from both arms, since they distort the comparison most.
+  correct: 1
+  explanation: >-
+    Size drives both the choice and the duration, so the naive gap is mostly size mix. Within size
+    the ratio is about 1.0. Lines changed is inflated by the agent itself, so adjusting for it is
+    an error; randomization also handles confounders nobody measured.
+- id: q2
+  question: >-
+    A team of six wants to know whether the agent speeds up its tickets over the next six weeks.
+    Which design gives the most informative result?
+  options:
+    - >-
+      Give the agent to three volunteers and compare them with the other three developers.
+    - >-
+      Compare the next six weeks with the previous six weeks, before the agent was introduced.
+    - >-
+      Randomize each refined ticket to agent or no agent within developer and size blocks.
+    - >-
+      Let the tech lead assign the agent to the tickets where it is most likely to help.
+  correct: 2
+  explanation: >-
+    Ticket-level randomization within developer makes each person their own control and balances
+    size by construction. Volunteers, before/after and hand-picked tickets all let something other
+    than the agent explain the difference.
+- id: q3
+  question: >-
+    The within-size SD of log cycle time is about 0.35. The team can run 20 tickets per arm. What
+    should the pre-registration say?
+  options:
+    - >-
+      That 20 per arm detects effects of roughly 27% or more; smaller effects may go undetected.
+    - >-
+      That 20 per arm is the course minimum, so any real effect will show up as significant.
+    - >-
+      That the experiment is pointless, because a 10% effect would need about 175 per arm.
+    - >-
+      That the SD can be ignored, because blocking by size removes all of the variation.
+  correct: 0
+  explanation: >-
+    From n = 2(1.96 + 0.84)^2 sd^2 / delta^2, 20 per arm gives delta of about 0.31, a 27% reduction.
+    The experiment is still useful: it can rule out large gains or losses. Blocking removes
+    between-size variation, not the spread within sizes.
+- id: q4
+  question: >-
+    Why must ticket size be estimated in refinement, before the ticket's arm is revealed?
+  options:
+    - >-
+      Because refinement estimates are more accurate than estimates made during the work.
+    - >-
+      Because the tool needs size to exist in the backlog export before it can assign arms.
+    - >-
+      Because developers work faster on tickets whose size they agreed on in advance.
+    - >-
+      Because an estimate made knowing the arm can shift with it, which breaks blocking.
+  correct: 3
+  explanation: >-
+    Blocking and stratifying are valid only on variables fixed before treatment. If a developer
+    knows the agent will be used, they may size the ticket differently, making size an outcome.

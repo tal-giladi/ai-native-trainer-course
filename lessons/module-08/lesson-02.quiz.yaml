@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    Your team wants the agent to help with Jira. Which of these actions should start on `deny` rather than
+    `allow` or `ask`?
+  options:
+    - >-
+      Reading an issue and its comments while researching a ticket before planning.
+    - >-
+      Searching issues with JQL to find earlier tickets that touched the same table.
+    - >-
+      Moving an issue to Done, which notifies watchers under the user's name.
+    - >-
+      Reading a linked Confluence page that documents the billing module's rules.
+  correct: 2
+  explanation: >-
+    A status transition is a visible write: watchers are notified under a person's name and the
+    notification cannot be recalled. Reads carry no such effect, so they can be allowed once you have
+    checked that the data may go to the model provider.
+- id: q2
+  question: >-
+    A team wrote deny rules for `mcp__github__create_issue` and `mcp__github__update_issue`. After a server
+    upgrade the agent closes an issue through `issue_write`. What would have prevented this most reliably?
+  options:
+    - >-
+      Adding `issue_write` to the deny list as soon as the release notes mention it.
+    - >-
+      A read-tool allowlist plus the server's read-only mode and a read-only token.
+    - >-
+      A rules-file line telling the agent never to close issues without asking first.
+    - >-
+      Setting every GitHub tool to `ask`, so each call needs a click in the prompt.
+  correct: 1
+  explanation: >-
+    Deny rules match tool names as they exist today; renamed or consolidated tools slip past them. An
+    allowlist makes any new tool need approval, and the lower layers (server read-only mode, token scope)
+    keep a write from happening even when host rules are wrong.
+- id: q3
+  question: >-
+    A developer's classic token can push to 40 repositories and the server offers 7 write tools. You
+    switch to a fine-grained, read-only token on one repository and turn on read-only mode. How does the
+    reachable write-pair count change?
+  options:
+    - >-
+      From 280 to 7, because the server still offers its write tools on the one repository.
+    - >-
+      From 47 to 1, because tools and repositories add up rather than multiply together.
+    - >-
+      From 280 to 40, because read-only mode removes tools but the token keeps its reach.
+    - >-
+      From 280 to 0, because no write tool is offered and the token reaches one repository.
+  correct: 3
+  explanation: >-
+    Reachable write pairs are $w \times r$: $7 \times 40 = 280$ before; afterwards read-only mode leaves
+    $w = 0$ and the token leaves $r = 1$, so $0 \times 1 = 0$. Each layer drives one factor down.
+- id: q4
+  question: >-
+    You add an eval task "How many acceptance criteria does BILL-142 have?" to measure the GitHub
+    integration. The ticket is also in `tickets/BILL-142.md`. What is wrong with the task?
+  options:
+    - >-
+      Nothing; a correct count shows that the integration returned the issue body.
+    - >-
+      The agent can answer from the repo file, so the task never tests the tracker.
+    - >-
+      Counting tasks cannot be graded by regex, so the task needs an LLM judge instead.
+    - >-
+      The task is too easy, so it belongs in the holdout split rather than in dev.
+  correct: 1
+  explanation: >-
+    An integration task must be unanswerable without the integration. Here the agent can pass without a
+    single tool call, so a pass tells you nothing about the tracker connection; ask for something that
+    exists only in the tracker, such as T28's label.

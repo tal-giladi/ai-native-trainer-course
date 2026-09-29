@@ -1,0 +1,13 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "duration_ms": 184320,
+  "num_turns": 9,
+  "result": "Changed IsOverdue to treat the due instant itself as overdue (<=) and added InvoiceServiceTests.Due_instant_is_overdue. dotnet test: 7 passed, 0 failed.",
+  "session_id": "illustrative-0001",
+  "total_cost_usd": 0.41,
+  "usage": { "input_tokens": 48210, "output_tokens": 2310 },
+  "permission_denials": [],
+  "stop_reason": "end_turn"
+}

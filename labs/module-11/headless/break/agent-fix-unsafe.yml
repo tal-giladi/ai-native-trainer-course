@@ -1,0 +1,31 @@
+# BREAK for lesson 11.1 — do NOT copy into a real repository.
+# "Let the agent fix PRs from anyone": it looks helpful and is a textbook pwn request.
+# Run `AgentOps wflint headless/break/agent-fix-unsafe.yml` and explain each finding before fixing it.
+name: agent-fix-unsafe
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+env:
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install the agent
+        run: curl -fsSL https://claude.ai/install.sh | bash
+
+      - name: Let the agent fix the PR
+        run: |
+          claude -p "Fix whatever the PR titled '${{ github.event.pull_request.title }}' needs, then push." \
+            --dangerously-skip-permissions
+
+      - name: Report
+        run: echo "Agent finished successfully"

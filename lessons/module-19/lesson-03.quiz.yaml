@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Feedback arrives at about 20 items a week and the triage owner resolves about 16. What happens
+    over the next quarter, and what is the first fix?
+  options:
+    - >-
+      The backlog settles at about 20 open items; add a second weekly triage slot only if needed.
+    - >-
+      The backlog grows by about 4 items a week; raise triage capacity above 20 before the next wave.
+    - >-
+      Nothing changes much, because Little's law says waiting time falls as the arrival rate rises.
+    - >-
+      The backlog shrinks once developers learn the tool, so the capacity plan can wait a quarter.
+  correct: 1
+  explanation: >-
+    With arrivals above the resolution rate the system is unstable: 20 - 16 = 4 more open items every
+    week, about 50 after a quarter. Capacity must exceed arrivals, with slack, and waves raise arrivals.
+- id: q2
+  question: >-
+    A plan targets two weeks from report to answer and expects 15 feedback items a week. How many
+    items will be open on average if the plan is met?
+  options:
+    - >-
+      About 7.5, because two weeks is half of the arrival rate expressed per month.
+    - >-
+      About 15, because each week's items are resolved before the next week's arrive.
+    - >-
+      About 30, because the open count equals arrival rate times time in the system.
+    - >-
+      About 60, because the backlog doubles every week while the target is two weeks.
+  correct: 2
+  explanation: >-
+    Little's law, $L = \lambda W = 15 \times 2 = 30$. Knowing $L$ tells the triage owner what a normal
+    queue looks like, so a pile of 30 is not a crisis and a pile of 80 is.
+- id: q3
+  question: >-
+    The kickoff webinar had 81% attendance and a 4.4 out of 5 rating. What does that tell you about
+    enablement?
+  options:
+    - >-
+      That people showed up and liked it, which is reaction, not evidence of learning or use.
+    - >-
+      That the developer path works, because satisfaction strongly predicts later use of a tool.
+    - >-
+      That the path should be recorded and reused for later waves, since it scored so highly.
+    - >-
+      That office hours are now optional, since most questions were answered in the webinar.
+  correct: 0
+  explanation: >-
+    Attendance and ratings are Kirkpatrick level 1. Learning and behaviour need pre/post items and a
+    follow-up that points to real work, as in 16.5.
+- id: q4
+  question: >-
+    Office hours during the engagement are run well by the external consultant. What should the plan
+    say about them?
+  options:
+    - >-
+      Nothing yet; the consultant can decide at the end of the engagement whether to continue them.
+    - >-
+      That they end with the engagement, because champions will answer questions in the channel.
+    - >-
+      That the consultant keeps running them remotely as part of the follow-up agreement.
+    - >-
+      That an employee owner co-runs them before handover and owns them from the handover date.
+  correct: 3
+  explanation: >-
+    Recurring mechanisms that depend on the consultant stop when the consultant leaves. Rehearsing the
+    handover (the owner runs them while the consultant observes) makes the transfer real.

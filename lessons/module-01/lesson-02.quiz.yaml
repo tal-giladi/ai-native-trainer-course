@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    A QA lead says: "Every release we spend about two days hand-writing SQL to compare staging and
+    production. We tried a spreadsheet generator twice and gave up." How should you classify it?
+  options:
+    - >-
+      Hype, because it does not mention AI or agents and so is outside your wedge.
+    - >-
+      Pain, with failed workarounds: observable, recurring, costly and owned.
+    - >-
+      Symptom, because the real cause of the two days has not been identified yet.
+    - >-
+      Blocker, because QA can refuse to sign off a release that uses an agent.
+  correct: 1
+  explanation: >-
+    It names an event, a frequency, a cost and an owner, and two abandoned tools show someone
+    already spent effort on it: the strongest signal that a pain is real.
+- id: q2
+  question: >-
+    A draft slide says 126 PRs a month times a 26-hour median review wait equals 3,276
+    engineer-hours wasted, for a team of 14 developers. What is the core error?
+  options:
+    - >-
+      It uses the median instead of the mean, which understates the long waits.
+    - >-
+      It should use p90 instead of the median, since the long waits are the real problem.
+    - >-
+      It multiplies calendar waiting time into effort; the total exceeds team capacity.
+    - >-
+      It leaves out the reviewers' time, so the true cost is even higher than shown.
+  correct: 2
+  explanation: >-
+    Waiting time is flow, not effort: the author works on other things while the PR waits. The
+    capacity check exposes it, since 3,276 hours is more than the 14 developers work in a month.
+- id: q3
+  question: >-
+    "We bought 120 agent seats and 31 people used them last month," says a VP of Engineering. What
+    is the most useful next step?
+  options:
+    - >-
+      Talk to some of the people who stopped, to find the pain behind the low usage.
+    - >-
+      Size the pain as 89 unused seats times the licence cost and propose a workshop.
+    - >-
+      Treat it as hype, since seat counts are a vanity metric with no pain behind them.
+    - >-
+      Recommend cancelling the seats, since usage shows the tool is not useful here.
+  correct: 0
+  explanation: >-
+    Low usage is a symptom: observable and owned, but its cause could be trust, onboarding, policy
+    or irrelevance. Sizing the licences sizes a procurement problem, not the pain.
+- id: q4
+  question: >-
+    For a review-queue pain, the CTO signs budgets, developers wait on reviews, a team lead shared
+    the PR data, and the CISO worries about agents reading customer data. Who needs to be
+    addressed before the CTO commits to a pilot?
+  options:
+    - >-
+      The developers, because users must vote on any change to their daily workflow first.
+    - >-
+      The team lead, because the champion must sign the pilot on the CTO's behalf.
+    - >-
+      No one else; the buyer's commitment is what matters, and the rest follows it.
+    - >-
+      The CISO, because a blocker's concern has to be handled before the buyer commits.
+  correct: 3
+  explanation: >-
+    A blocker can cancel the work after the buyer says yes. Meeting the CISO early and designing
+    for her concern turns a likely week-three cancellation into a condition of the pilot.

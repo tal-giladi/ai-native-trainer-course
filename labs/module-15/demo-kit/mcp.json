@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "contoso-schema": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [".claude/mcp/contoso-schema/ContosoSchema.Mcp.dll", "--source", "snapshot:.claude/mcp/catalog-v006.json", "--migrations", "db/migrations", "--max-age-hours", "24", "--on-stale", "warn"]
+    }
+  }
+}

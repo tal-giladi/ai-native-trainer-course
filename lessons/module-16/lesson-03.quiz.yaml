@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Your live step starts an agent run that takes about three minutes before the plan appears. What
+    is the best use of that time?
+  options:
+    - >-
+      Tell the story of how you discovered the method, so that the silence feels purposeful.
+    - >-
+      Ask everyone to write down whether the plan will name the existing rule, then check.
+    - >-
+      Switch to the fallback recording at once, since waiting always loses a room's attention.
+    - >-
+      Take questions from the room about anything, since the agent will not need you meanwhile.
+  correct: 1
+  explanation: >-
+    A prediction question commits every learner to an answer, turning passive watching into
+    constructive engagement, and the agent's result becomes an immediate check for understanding.
+- id: q2
+  question: >-
+    A plan has a 3-minute story, a 5-minute worked example and an 11-minute live coding step, then a
+    3-minute pair exercise. The objectives and items are well aligned. What is the main problem?
+  options:
+    - >-
+      The story is too short to build trust with a skeptical audience before the demo begins.
+    - >-
+      The pair exercise should come first so that learners discover the concept on their own.
+    - >-
+      Nineteen passive minutes precede any practice, and two objectives are never practised.
+    - >-
+      Live coding for 11 minutes is fine but should be recorded to avoid on-stage failures.
+  correct: 2
+  explanation: >-
+    Alignment on paper does not help if learners never practise the objectives' verbs. The plan has
+    learners active for 14% of teaching time, and the find and write objectives are only shown.
+- id: q3
+  question: >-
+    You are running four minutes late at the start of the live step. What should you cut first?
+  options:
+    - >-
+      Shorten the live step and the story, and keep the solo exercise, reflection and post-test.
+    - >-
+      Skip the reflection, since learners can reflect on their own after the session ends.
+    - >-
+      Drop the post-test and send it by email afterwards, since the content matters more.
+    - >-
+      Merge the solo exercise into the live step by solving the learners' ticket for them.
+  correct: 0
+  explanation: >-
+    Cut showing first. The practice steps are where learning happens and the post-test is your
+    evidence; an emailed post-test is taken later, by fewer people, and cannot be compared.
+- id: q4
+  question: >-
+    For the last two minutes before the post-test, which closing activity does this lesson recommend?
+  options:
+    - >-
+      A summary slide with the three key points, read aloud slowly so that everyone keeps them.
+    - >-
+      A short video of a real team using the concept, to show that it works outside the room.
+    - >-
+      An open question round, so that learners can raise anything the session did not cover.
+    - >-
+      Learners write the muddiest point and when they would not bother checking for it at all.
+  correct: 3
+  explanation: >-
+    Retrieval strengthens memory more than hearing a recap. The boundary question also teaches where
+    the concept stops, and the muddiest-point cards tell you what to fix in the follow-up.

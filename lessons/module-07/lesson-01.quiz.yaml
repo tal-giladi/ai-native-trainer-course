@@ -1,0 +1,71 @@
+- id: q1
+  question: >-
+    Two versions of a skill are identical in quality: each passes a given ticket 60% of the time.
+    Your teammate runs each once on 20 tickets. Roughly how often will one of the two versions
+    "win" by two or more tickets anyway?
+  options:
+    - >-
+      Almost never, because 20 tickets is enough to cancel out random variation.
+    - >-
+      About 5% of the time, the usual threshold for calling a result significant.
+    - >-
+      About 60% of the time, because the difference is spread over several passes.
+    - >-
+      About 15% of the time, since each version's score is fairly stable at 20.
+  correct: 2
+  explanation: >-
+    Each score has a standard deviation of about 2.2 passes and their difference about 3.1, so a
+    gap of two or more in either direction appears about 63% of the time with no real difference.
+    One run each cannot separate the versions.
+- id: q2
+  question: >-
+    A code task asks the agent to fix BILL-152. The agent's final message says "Fixed and tested",
+    but the golden tests fail in its working copy. In eval vocabulary, what disagrees with what?
+  options:
+    - >-
+      The grader disagrees with the task, so the task definition needs rewriting first.
+    - >-
+      The transcript's claim disagrees with the outcome, and only the outcome is graded.
+    - >-
+      The trial disagrees with the harness, so that trial should be discarded and rerun.
+    - >-
+      The outcome disagrees with the reference, so the reference solution is probably wrong.
+  correct: 1
+  explanation: >-
+    The transcript records what the agent said and did; the outcome is the actual state of the
+    environment afterwards. Graders should check the outcome, which is why code tasks run golden
+    tests instead of trusting the agent's summary.
+- id: q3
+  question: >-
+    Your pass rate dropped from 86% to 79% after a rules change. Which activity tells you why it
+    dropped?
+  options:
+    - >-
+      Reading the transcripts of the newly failing trials and labelling each failure.
+    - >-
+      Running more trials until the confidence interval is narrow enough to be certain.
+    - >-
+      Computing pass^k for every task so that the unreliable tasks stand out clearly.
+    - >-
+      Comparing the cost per passing trial before and after the change to the rules.
+  correct: 0
+  explanation: >-
+    Quantitative evaluation says how often and how sure; only qualitative review of transcripts says
+    why. More trials or other metrics sharpen the number but never explain the failure.
+- id: q4
+  question: >-
+    Which item belongs in an evaluation charter's "does not measure" section for the Contoso
+    tasks-v1 suite?
+  options:
+    - >-
+      Whether golden tasks such as the merged-migration rule keep passing after a change.
+    - >-
+      Whether the agent answers questions about repository conventions correctly.
+    - >-
+      Whether the agent's code changes stay inside the files the task allows.
+    - >-
+      Whether developers deliver tickets faster once the new AI layer is in place.
+  correct: 3
+  explanation: >-
+    Delivery speed is a business-impact question for Module 13's controlled experiments. The
+    other three are exactly what tasks-v1 measures through its regex, golden-test and scope graders.

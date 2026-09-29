@@ -1,0 +1,155 @@
+- id: q1
+  question: >-
+    Your agent reads public GitHub issues and can push to branches. An attacker files an issue whose
+    text tells the agent to copy a value from a private config file into a new pushed branch. Which
+    single change most directly breaks this attack path?
+  options:
+    - >-
+      Remove or deny reading the private config, so there is nothing to exfiltrate.
+    - >-
+      Add a rule to CLAUDE.md telling the agent to ignore instructions found in issue text.
+    - >-
+      Ask the agent to summarize each issue before acting on it.
+    - >-
+      Switch to a larger model that is better at spotting malicious instructions.
+  correct: 0
+  explanation: >-
+    The path is: untrusted issue (input) + private config (sensitive data) + push (outbound channel).
+    Removing or denying the private data cuts a trifecta leg, so the injection has nothing to exfiltrate.
+    Prompt rules and bigger models reduce but do not remove the path.
+- id: q2
+  question: >-
+    In the setup above, you list defenses to implement. Which ordering best reflects "boundaries
+    before hygiene"?
+  options:
+    - >-
+      Add an "ignore injections" rule, then a bigger model, then scoped permissions, then a sandbox.
+    - >-
+      Scope permissions, cut a trifecta leg, enforce OS egress, add gates, then prompt hygiene.
+    - >-
+      Turn on verbose logging first, then decide later which other defenses are actually needed.
+    - >-
+      Require human approval for every tool call the agent makes, and add no other control.
+  correct: 1
+  explanation: >-
+    Architectural boundaries (least privilege, cutting a leg, OS-enforced egress, gates) come first
+    because they hold regardless of the model; prompt hygiene is a helpful last layer, not a boundary.
+- id: q3
+  question: >-
+    A teammate says the agent is safe because a CLAUDE.md rule tells it to ignore any instructions in
+    tickets, and a five-trial test showed the injection failing. What is the strongest objection?
+  options:
+    - >-
+      Five trials is plenty; the only problem is that the rule belongs in AGENTS.md instead.
+    - >-
+      A prompt rule is no boundary; adaptive attacks beat such defenses over 90% of the time.
+    - >-
+      Telling it to ignore instructions will also make the agent ignore the user's own requests.
+    - >-
+      Tickets in a private tracker count as trusted content, so the rule was never needed.
+  correct: 1
+  explanation: >-
+    A prompt rule is not a boundary: it and the injection are the same kind of text, and published
+    adaptive attacks exceed 90% against such defenses. A few clean trials do not certify safety.
+- id: q4
+  question: >-
+    You connected a third-party notes MCP server last month. Today its search tool's description
+    silently gained a new instruction. What is this, and what should the response be?
+  options:
+    - >-
+      A confused-deputy attack; rotate the OAuth token and continue.
+    - >-
+      Normal behavior; tool descriptions are expected to change and can be auto-trusted.
+    - >-
+      A hallucination; retry the connection until the original description returns.
+    - >-
+      A rug pull; a pinned-description check should flag it and force human re-approval.
+  correct: 3
+  explanation: >-
+    A description that changes after approval is a rug pull. Pinning the approved snapshot and
+    flagging drift turns your one-time trust into a re-verifiable check.
+- id: q5
+  question: >-
+    A ticket asks the agent to add the package Contoso.Billing.Helpers, which does not exist on any
+    approved feed. Which control turns this into a loud failure instead of a silent risk?
+  options:
+    - >-
+      A rule in CLAUDE.md reminding the agent to use only packages that really exist.
+    - >-
+      A larger context window so the agent remembers the full list of approved dependencies.
+    - >-
+      NuGet package-source mapping, so an unmatched ID fails restore instead of resolving.
+    - >-
+      Running dotnet list package --vulnerable as a separate step after the build completes.
+  correct: 2
+  explanation: >-
+    Source mapping requires every package ID (including transitive) to match an approved pattern, so
+    a hallucinated name fails restore rather than reaching a public feed where an attacker could squat it.
+- id: q6
+  question: >-
+    A config's allow list contains Bash(*), while its MCP tools are all read-scoped. What is the most
+    accurate security assessment?
+  options:
+    - >-
+      Safe, because the MCP tools cannot write anything outward.
+    - >-
+      Safe, because Bash runs separately from the MCP servers and cannot reach the network.
+    - >-
+      Unsafe: Bash(*) includes curl and file writes, re-adding an exfiltration channel.
+    - >-
+      Unsafe only if the model is dishonest; an honest model will not misuse Bash.
+  correct: 2
+  explanation: >-
+    Bash(*) is excessive functionality: it includes network egress and arbitrary edits, so scoping
+    the MCP tools does not remove the outbound channel. Least privilege must cover Bash too.
+- id: q7
+  question: >-
+    A PreToolUse guard hook is meant to block writes to protected paths, but on a machine missing its
+    jq dependency it prints an error and exits 0. What has happened?
+  options:
+    - >-
+      The hook failed closed, safely denying the call it could not check.
+    - >-
+      The hook failed open, permitting the very calls it should block.
+    - >-
+      The hook became an audit hook, logging without enforcing.
+    - >-
+      Nothing; exit 0 still blocks the call on PreToolUse.
+  correct: 1
+  explanation: >-
+    Exit 0 lets the call proceed, so a guard that exits 0 when its dependency is missing waves
+    through protected writes. A guard must exit 2 (deny) on any error to fail closed.
+- id: q8
+  question: >-
+    Your security attack suite is scored into results.csv and gated with EvalHarness. Why set the
+    golden floor to 1.0 rather than the 0.8 used for capability regressions?
+  options:
+    - >-
+      Because security suites always have fewer tasks, which statistically requires a higher floor.
+    - >-
+      Because 1.0 disables the aggregate check, which is noisy for attacks.
+    - >-
+      Because 4 of 5 blocked still means one breach, and one exfiltration is a failure.
+    - >-
+      Because capability floors cannot be applied to golden-tagged tasks.
+  correct: 2
+  explanation: >-
+    For an attack, 4/5 blocked means one breach. Since a single exfiltration is categorically worse
+    than one capability regression, every attack must be blocked on every trial (floor 1.0).
+- id: q9
+  question: >-
+    After hardening, an attack shows 0 breaches in 25 trials. What is the honest way to report the
+    residual risk?
+  options:
+    - >-
+      The attack is fully mitigated; with no breaches in 25 trials the breach rate is zero.
+    - >-
+      The residual risk is exactly 12%, and it cannot be reduced by adding more trials.
+    - >-
+      Nothing can be reported about the rate until at least one breach has been observed.
+    - >-
+      No breach observed; the 95% upper bound is about 12%, and more trials tighten it.
+  correct: 3
+  explanation: >-
+    Zero observed is not zero true. With 0 events in n trials the 95% upper bound is about 3/n; for
+    n=25 that is ~12%. You report the bound and interval, not "safe," and add trials to tighten it.

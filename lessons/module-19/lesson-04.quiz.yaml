@@ -1,0 +1,84 @@
+- id: q1
+  question: >-
+    Three months after your engagement, usage is back to 10% of developers. What do you look at
+    first?
+  options:
+    - >-
+      A developer survey on usefulness and trust, to learn why people stopped before acting.
+    - >-
+      The completion records of the training, to find which teams skipped the developer path.
+    - >-
+      The weekly active curve per team and cohort, next to the events of the weeks it fell.
+    - >-
+      The prompts-per-developer leaderboard, to find the individuals who stopped using the agent.
+  correct: 2
+  explanation: >-
+    An organisation-wide 10% averages different stories. The team and cohort curves show whether the
+    drop is real, where and when it happened and whether it was a step or a decay; the events of those
+    weeks point at the cause. Surveys and retraining come after, and per-person views are excluded.
+- id: q2
+  question: >-
+    A team of 48 had a baseline weekly active share of 70%. This week 29 of 48 were active (60%).
+    Using a p-chart lower control limit, what do you conclude?
+  options:
+    - >-
+      A real drop, because 60% is ten points under the baseline and any fall that large matters.
+    - >-
+      Not yet a signal, because the limit is about 50% and 60% is within ordinary variation.
+    - >-
+      A real drop, because the limit is about 66% and this week's share is below that line.
+    - >-
+      Nothing can be concluded, because control limits need at least 100 people per group.
+  correct: 1
+  explanation: >-
+    $\text{LCL} = 0.70 - 3\sqrt{0.70 \times 0.30 / 48} \approx 0.70 - 0.20 = 0.50$. Sixty percent is
+    inside the limits; watch next week and the events, but do not call it a regression yet.
+- id: q3
+  question: >-
+    Two teams fall from about 57% to 3% weekly active in a single week, their seats are still paid,
+    and nobody has complained. What is the most likely explanation to check first?
+  options:
+    - >-
+      A slow loss of habit after the consultant left, which usually shows up as a sudden fall.
+    - >-
+      Missing onboarding for new hires, which pulls the whole team's weekly share down at once.
+    - >-
+      Developer burnout after an intense rollout, which makes whole teams stop at the same time.
+    - >-
+      A change that week, such as a tool or licence switch, possibly moving usage out of view.
+  correct: 3
+  explanation: >-
+    A step points at something that changed in one week. With seats paid and no complaints, check
+    whether usage moved to a tool or route telemetry cannot see before calling it abandonment.
+- id: q4
+  question: >-
+    Which metric plan fits the lesson's rules?
+  options:
+    - >-
+      Activated and weekly active by team, lead time and change failure rate, groups of at least five.
+    - >-
+      Seats assigned as the headline target, with prompts per developer as the habit measure.
+    - >-
+      Lines of code accepted per developer each week, ranked on a leaderboard for motivation.
+    - >-
+      Weekly active per developer, visible to their manager so that help can be targeted early.
+  correct: 0
+  explanation: >-
+    Reach, habit and outcome, aggregated by team with at least five people. Seats, prompts and lines
+    are diagnostics that invite gaming as targets, and per-person views are performance monitoring.
+- id: q5
+  question: >-
+    When should the consultant hand over the adoption programme?
+  options:
+    - >-
+      At the contracted end date, because the follow-ups will catch anything that goes wrong later.
+    - >-
+      When the owner has run the reviews and office hours unaided and the alert is tested.
+    - >-
+      When weekly usage first reaches the target, because that shows the rollout has succeeded.
+    - >-
+      When every developer has completed the training path, since habit follows from training.
+  correct: 1
+  explanation: >-
+    Handover is a capability, not a date or a peak. Reaching the target once is declaring victory too
+    soon; the mechanisms must already run with their owners before the consultant leaves.

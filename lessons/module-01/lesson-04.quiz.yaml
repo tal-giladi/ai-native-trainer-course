@@ -1,0 +1,86 @@
+- id: q1
+  question: >-
+    Which question is most likely to produce usable evidence about review delays in a discovery
+    interview?
+  options:
+    - >-
+      "Don't you find that review delays are the biggest drag on your team's delivery?"
+    - >-
+      "On a scale of 1 to 10, how painful are review delays for you in general?"
+    - >-
+      "Would faster reviews be worth investing in if an agent could help with them?"
+    - >-
+      "What happened with the last pull request you opened, from opening it to merge?"
+  correct: 3
+  explanation: >-
+    Asking about a specific past event gets an event. The others lead, ask for a generic opinion
+    on a scale, or ask for a hypothetical judgment, all of which push answers down the ladder.
+- id: q2
+  question: >-
+    A participant says: "Last month an agent-written migration dropped a default constraint; two
+    of us lost most of Thursday." The interviewer replies: "That's exactly what my workshop
+    fixes. Would your manager see the value?" What is the main mistake?
+  options:
+    - >-
+      The interviewer dropped a rung-5 event to pitch and ask for a prediction.
+    - >-
+      The interviewer should have asked the participant to rate the incident's severity.
+    - >-
+      The interviewer should have asked how much the participant would pay for a fix.
+    - >-
+      The interviewer should have moved on sooner, since one incident is only an anecdote.
+  correct: 0
+  explanation: >-
+    A dated event with a cost is the best evidence an interview produces. The right move is to
+    follow it ("what happened next?", "what did you change?"), not to pitch and ask for a guess.
+- id: q3
+  question: >-
+    After five interviews, three people described the same pain as a past event. Your summary says
+    "60% of .NET teams have this problem." What is wrong with it?
+  options:
+    - >-
+      Nothing, as long as all five interviewees were from different companies.
+    - >-
+      Five interviews find pains but cannot estimate prevalence; 3 of 5 has a very wide interval.
+    - >-
+      The figure should be 3 of 5 rounded down to 50%, since small samples overstate effects.
+    - >-
+      It should be reported as a range from 40% to 80%, which is the usual error for n = 5.
+  correct: 1
+  explanation: >-
+    Three to five interviews are for discovery. The 95% Wilson interval for 3 of 5 is roughly 23%
+    to 88%, and the sample is not random, so write "3 of 5 interviewees", not a market share.
+- id: q4
+  question: >-
+    `TranscriptLint` flags 0 of your 8 questions and shows a 25% interviewer talk share. Which
+    conclusion is justified?
+  options:
+    - >-
+      The interview was well run, so its findings can be added to the pain map without review.
+    - >-
+      The linter has a bug, because no real interview is completely free of question defects.
+    - >-
+      Surface wording looks clean; you still need to check for dropped threads and premises.
+    - >-
+      The talk share is too low, and you should have explained your idea in more detail.
+  correct: 2
+  explanation: >-
+    The linter is a regex heuristic. It cannot see a missed thread or a premise smuggled into a
+    clean sentence ("how much time does the bottleneck waste?"), so a human still reads the notes.
+- id: q5
+  question: >-
+    Five interviews produced enthusiasm, "would attend" answers and a 7.4/10 pain score, but no
+    dated events and no commitments. What should the wedge verdict be?
+  options:
+    - >-
+      Keep: five of five positive responses is strong confirmation for a small study.
+    - >-
+      Kill: if the pain were real, at least one person would have volunteered an incident.
+    - >-
+      Keep, but double the price, since the enthusiasm shows high willingness to pay.
+    - >-
+      No verdict yet: re-interview with past-event questions and a commitment ask.
+  correct: 3
+  explanation: >-
+    Compliments, promises and scale scores sit on the lowest rungs, so the interviews neither
+    confirm nor refute the wedge. The questions produced the answers; run them again properly.

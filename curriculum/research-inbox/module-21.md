@@ -1,0 +1,15 @@
+| source | url | date accessed | claim supported | lesson(s) | primary Y/N | volatility |
+|---|---|---|---|---|---|---|
+| Mendelow (1981), ICIS Proceedings | https://aisel.aisnet.org/icis1981/20/ | 2026-09-29 | Stakeholders analysed by power relative to the organisation and dynamism; origin of the power/interest grid | 21.1 | Y | stable |
+| Klein (2007), Harvard Business Review | https://hbr.org/2007/09/performing-a-project-premortem | 2026-09-29 | Premortem: assume failure, generate reasons; lets reluctant members voice reservations during planning | 21.1 | Y | stable |
+| Becker, Rush, Barnes and Rein (2025), arXiv 2507.09089 | https://arxiv.org/abs/2507.09089 | 2026-09-29 | RCT, 16 experienced OSS developers, 246 tasks: forecast -24% time, measured +19% | 21.1, 21.2, 21.5 | Y | annual |
+| DORA — software delivery performance metrics | https://dora.dev/guides/dora-metrics/ | 2026-09-29 | Throughput metrics paired with instability metrics (change fail rate, deployment rework rate) | 21.2 | Y | annual |
+| Forsgren et al. (2021), The SPACE of Developer Productivity | https://www.microsoft.com/en-us/research/publication/the-space-of-developer-productivity-theres-more-to-it-than-you-think/ | 2026-09-29 | Productivity spans several dimensions and levels; no single metric | 21.2 | Y | stable |
+| Team Topologies — Key concepts | https://teamtopologies.com/key-concepts | 2026-09-29 | Enabling teams help stream-aligned teams overcome obstacles and gain capabilities temporarily (facilitating mode) | 21.3 | Y | stable |
+| Avelino, Passos, Hora and Valente (2016), ICPC, arXiv 1604.06766 | https://arxiv.org/abs/1604.06766 | 2026-09-29 | Truck factor definition; 65% of 133 GitHub systems have TF of two or less | 21.3 | Y | stable |
+| Bacchelli and Bird (2013), ICSE | https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/ | 2026-09-29 | Code review yields fewer defect findings than expected; knowledge transfer and team awareness as outcomes | 21.3 | Y | stable |
+| Google SRE Book, ch. 32 | https://sre.google/sre-book/evolving-sre-engagement-model/ | 2026-09-29 | Production Readiness Review; onboarding by training, progressive transfer, dev team backup | 21.4 | Y | stable |
+| Kirkpatrick Partners — The Kirkpatrick Model | https://www.kirkpatrickpartners.com/the-kirkpatrick-model/ | 2026-09-29 | Four levels: reaction, learning, behavior, results | 21.4 | Y | stable |
+| NIST/SEMATECH e-Handbook 6.3.3.2 | https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc332.htm | 2026-09-29 | p-chart control limits | 21.4 | Y | stable |
+| ICO — Anonymisation guidance | https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/anonymisation/ | 2026-09-29 | Identifiability, motivated intruder test, anonymisation vs pseudonymisation (page notes it is under review after the Data (Use and Access) Act) | 21.5 | Y | annual |
+| 16 CFR 255.2 (LII copy) | https://www.law.cornell.edu/cfr/text/16/255.2 | 2026-09-29 | Endorsements on central attributes read as typical; disclose generally expected performance; "results not typical" ineffective | 21.5 | Y | annual |

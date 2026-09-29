@@ -1,0 +1,26 @@
+# .github/workflows/loop-gates.yml — lesson 05.3. The same gates as the Stop hook, where the agent cannot skip them.
+name: loop-gates
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Architecture, build and tests (no skips, no fewer tests)
+        run: dotnet run --project tools/LoopGate -- all --repo . --rules gates/architecture.rules --min-tests 6
+      - name: Plan form and scope (if the PR carries a plan)
+        run: |
+          plan=$(git diff --name-only origin/main -- 'plans/*.md' | head -n 1)
+          if [ -n "$plan" ]; then
+            dotnet run --project tools/LoopGate -- plan-lint "$plan" --repo .
+            dotnet run --project tools/LoopGate -- scope "$plan" --repo . --git origin/main
+          else
+            echo "No plan in this PR."
+          fi

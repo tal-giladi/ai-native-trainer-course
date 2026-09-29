@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Your manager said "sounds fine" in the hallway when you mentioned side training work. Your
+    contract requires approval for paid outside work. What is your status?
+  options:
+    - >-
+      Approved, since a verbal yes from your direct manager is the approval the contract means.
+    - >-
+      Approved for internal clients only, since the manager can speak only for their own budget.
+    - >-
+      Not yet approved; ask in writing, naming the work and the clients you will exclude.
+    - >-
+      Not needed, since training is not the employer's line of business and needs no approval.
+  correct: 2
+  explanation: >-
+    Written permission that names the work and the exclusions is the evidence a register needs. A hallway
+    remark is easily forgotten or denied, and whether training relates to the business is not yours to decide.
+- id: q2
+  question: >-
+    A client's contract says all intellectual property "created or used" in the engagement belongs to
+    the client. Why is that a problem for a trainer?
+  options:
+    - >-
+      It hands the client your pre-existing method, templates and tools, not just deliverables.
+    - >-
+      It is unenforceable everywhere, so it only signals that the client's lawyers are careless.
+    - >-
+      It means you may not describe the engagement anywhere, even anonymized and with approval.
+    - >-
+      It makes you an employee for tax purposes, so the client must withhold income tax.
+  correct: 0
+  explanation: >-
+    "Used" reaches your background IP. Keep pre-existing material yours and license what is embedded in their
+    deliverables; enforceability depends on jurisdiction and wording, which is why a lawyer reads it.
+- id: q3
+  question: >-
+    Which combination of facts points most clearly toward an independent-contractor relationship in the
+    IRS's framing?
+  options:
+    - >-
+      Fixed daily hours set by the client, the client's laptop and a single long-term client.
+    - >-
+      A contract that uses the word "contractor" throughout, regardless of how the work is done.
+    - >-
+      Being paid by the hour through the client's payroll, with holiday pay and a pension scheme.
+    - >-
+      Fixed-scope deliverables, your own tools and several clients, with the how left to you.
+  correct: 3
+  explanation: >-
+    The IRS weighs behavioural control, financial control and the relationship, with no single decisive factor.
+    The label in the contract does not decide status; how the work is controlled and paid does.
+- id: q4
+  question: >-
+    Three weeks into a pilot, the sponsor asks you to use the agent telemetry to rank developers by
+    productivity for a performance review. What do you do?
+  options:
+    - >-
+      Do it, since the telemetry is already collected and the sponsor owns the data.
+    - >-
+      Decline in writing, citing the SOW's measurement rules (tickets, not people), and offer team-level results.
+    - >-
+      Do it anonymously, replacing names with codes so that no individual can be identified.
+    - >-
+      Raise it at the final read-out, so the pilot's measurement is not disturbed before it ends.
+  correct: 1
+  explanation: >-
+    Ranking individuals breaks the measurement rules from Module 13 and the trust the pilot depends on.
+    Point to the document, decline the same day in writing, and offer the proper, team-level route.

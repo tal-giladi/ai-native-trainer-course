@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context budget simulation</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="context-budget.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Context budget: what irrelevant material costs in window, money and recall</h1>
+  <div id="preset-note" class="preset-note"></div>
+
+  <div class="grid side">
+    <div class="panel">
+      <h2>What is in the request</h2>
+      <div class="field">
+        <label for="window">Context window <i>W</i></label>
+        <select id="window">
+          <option value="200000">200,000 tokens</option>
+          <option value="1000000">1,000,000 tokens</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="layer">Always-loaded rules layer <i>R</i></label>
+        <select id="layer">
+          <option value="bloated">Bloated lab layer (807 lines)</option>
+          <option value="grounded">Grounded Module 3 layer (34 lines, 531 tokens)</option>
+        </select>
+      </div>
+      <fieldset id="files" class="files">
+        <legend>Files loaded at start (bloated layer)</legend>
+      </fieldset>
+      <div class="field">
+        <div class="row"><label for="docs">Irrelevant documents imported into the layer</label><output id="docs-out" for="docs"></output></div>
+        <input type="range" id="docs" min="0" max="20" step="1" value="0">
+        <small id="docs-list"></small>
+      </div>
+      <div class="field">
+        <label for="pos">Where the key facts sit in the always-loaded block</label>
+        <select id="pos">
+          <option value="start">At the top</option>
+          <option value="middle">In the middle</option>
+          <option value="end">At the end</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="row"><label for="hist">History so far <i>H</i> (tokens)</label><output id="hist-out" for="hist"></output></div>
+        <input type="range" id="hist" min="0" max="180000" step="1000" value="0">
+        <div class="controls">
+          <button type="button" id="turn1">Turn 1 (H = 0)</button>
+          <button type="button" id="turn30">Turn 30 (H = 120,000)</button>
+        </div>
+      </div>
+      <details>
+        <summary>Fixed terms and prices</summary>
+        <div class="field"><label for="S">System prompt <i>S</i></label><input type="number" id="S" min="0" step="100" value="4200"></div>
+        <div class="field"><label for="T">Tool definitions <i>T</i></label><input type="number" id="T" min="0" step="100" value="1000"></div>
+        <div class="field"><label for="O">Reserved output <i>O</i></label><input type="number" id="O" min="0" step="1000" value="20000"></div>
+        <div class="field"><label for="n">Requests per session <i>n</i></label><input type="number" id="n" min="1" step="1" value="10"></div>
+        <div class="field"><label for="sessions">Sessions per month</label><input type="number" id="sessions" min="1" step="10" value="1440"></div>
+        <div class="field"><label for="price">Input price $ per million tokens (example, as of 2026-09)</label><input type="number" id="price" min="0" step="0.5" value="3"></div>
+      </details>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h2>The window, term by term</h2>
+        <div id="bar" class="stack" role="img"></div>
+        <ul id="legend" class="legend"></ul>
+        <p class="equation mono" id="equation"></p>
+        <div class="stats" id="budget-stats"></div>
+        <p class="muted" id="budget-note"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Fact recall (educational model)</h2>
+        <p class="muted">Chance that the agent uses each fact that matters for the task, and what 20 simulated runs look like. Recall falls with irrelevant material (distraction), with total length (context rot), and when a fact sits in the middle of a long context (lost in the middle). Seed <span class="mono" id="seed"></span>.</p>
+        <div id="facts"></div>
+        <div class="controls"><button type="button" id="rerun">Re-run 20 runs (new seed)</button></div>
+      </div>
+
+      <div class="panel">
+        <div class="row">
+          <h2 id="chart-title">Expected recall</h2>
+          <label class="sr-only" for="xaxis">Chart x-axis</label>
+          <select id="xaxis" class="inline">
+            <option value="hist">vs history H</option>
+            <option value="docs">vs irrelevant documents</option>
+          </select>
+        </div>
+        <div id="chart"></div>
+        <ul id="chart-legend" class="legend"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Cost of <i>R</i>: it is re-sent on every request</h2>
+        <div class="stats" id="cost-stats"></div>
+        <p class="muted">Cached: <i>p</i>·(1.25·R + 0.1·R·(n−1)) per session (5-minute cache write 1.25×, read 0.1×; multipliers as of 2026-09). Caching changes what you pay, not whether the tokens count in the window.</p>
+      </div>
+    </div>
+  </div>
+  <p class="foot">Token counts for the layer come from the Module 4 lab (o200k proxy tokenizer). The recall curve is an illustrative model shaped after published findings (Liu et al. 2023; Chroma 2025; Shi et al. 2023), not a measurement of any model.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="context-budget.js"></script>
+</body>
+</html>

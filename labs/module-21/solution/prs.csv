@@ -1,0 +1,23 @@
+pr,week,author,author_side,reviewer,reviewer_side,area,mode,files
+1,W03,S,consultant,Avi Ben-David,client,ai-layer,pair,AGENTS.md;CLAUDE.md
+2,W03,S,consultant,Dana Katz,client,ai-layer,pair,.claude/rules/data-access.md
+3,W03,Avi Ben-David,client,S,consultant,ai-layer,pair,AGENTS.md;.github/CODEOWNERS
+4,W03,D5,client,Avi Ben-David,client,code,solo,src/Contoso.Billing/Invoices/InvoiceService.cs
+5,W04,S,consultant,Yossi Mizrahi,client,ai-layer,solo,.claude/skills/ground/SKILL.md
+6,W04,Dana Katz,client,S,consultant,ai-layer,pair,.claude/rules/migrations.md;gates/migration-undo.rules
+7,W04,S,consultant,Avi Ben-David,client,ai-layer,mob,evals/tasks-v1/tasks.json;tools/EvalHarness
+8,W04,Yossi Mizrahi,client,Dana Katz,client,code,solo,db/migrations/V007__invoice_currency.sql;db/migrations/U007__invoice_currency.sql
+9,W05,D6,client,Avi Ben-David,client,code,solo,src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs
+12,W05,Dana Katz,client,Avi Ben-David,client,ai-layer,solo,gates/migration-undo.rules;.github/workflows/loop-gates.yml
+13,W05,Yossi Mizrahi,client,Avi Ben-David,client,ai-layer,solo,.claude/skills/ground/SKILL.md;.claude/skills/prove/SKILL.md
+14,W05,Avi Ben-David,client,Dana Katz,client,ai-layer,solo,AGENTS.md;docs/ai/context-map.md
+15,W05,S,consultant,Avi Ben-David,client,ai-layer,pair,.mcp.json;.claude/settings.json
+16,W06,Yossi Mizrahi,client,Dana Katz,client,ai-layer,solo,.claude/skills/bound/SKILL.md
+17,W06,Avi Ben-David,client,Yossi Mizrahi,client,ai-layer,solo,AI-LAYER-CHANGELOG.md;AGENTS.md
+18,W06,D5,client,Dana Katz,client,code,solo,src/Contoso.Billing/Reports/RevenueRepository.cs
+19,W07,Omer Peretz,client,S,consultant,ai-layer,pair,.github/workflows/agent-evals.yml
+20,W07,Lior Ben-Ami,client,Omer Peretz,client,ai-layer,solo,.github/workflows/agent-evals.yml;tools/EvalHarness
+21,W07,S,consultant,Dana Katz,client,ai-layer,pair,docs/ai/office-hours.md
+22,W08,Dana Katz,client,Avi Ben-David,client,ai-layer,solo,.claude/rules/migrations.md;evals/tasks-v1/tasks.json
+23,W08,D5,client,Yossi Mizrahi,client,ai-layer,solo,AGENTS.md;.claude/rules/data-access.md
+24,W08,Avi Ben-David,client,Dana Katz,client,ai-layer,solo,AI-LAYER-CHANGELOG.md;.claude/settings.json;.mcp.json

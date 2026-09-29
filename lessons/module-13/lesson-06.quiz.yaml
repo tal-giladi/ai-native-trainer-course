@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Three weeks into a six-week pre-registered experiment, the interim effect is -22% with p = 0.03.
+    The sponsor wants to stop early and announce. What do you do?
+  options:
+    - >-
+      Stop now, because the result is already significant and more data costs time.
+    - >-
+      Stop now but halve the effect in the announcement, to allow for early optimism.
+    - >-
+      Continue to the registered end; stopping when a noisy estimate looks good inflates it.
+    - >-
+      Continue, but switch to a stricter 0.01 threshold for the remaining three weeks.
+  correct: 2
+  explanation: >-
+    Repeatedly checking and stopping at a good-looking moment makes false positives and inflated
+    effects likely. Weekly checks are for data quality; the analysis runs once, as registered.
+- id: q2
+  question: >-
+    Your randomized comparison of 96 tickets on one team found -16% cycle time (95% CI -25% to
+    -5%). Which sentence can go in a proposal to a different company?
+  options:
+    - >-
+      "Teams adopting our method can expect cycle times about 16% shorter."
+    - >-
+      "In a randomized comparison on one team, cycle time fell 16% (95% CI 5-25%)."
+    - >-
+      "Our method makes developers up to 25% faster, based on a controlled experiment."
+    - >-
+      "Our method delivers a statistically significant productivity gain of 16%."
+  correct: 1
+  explanation: >-
+    The supported claim names the design, the setting and the interval. Promising the effect to
+    another team needs replication; "up to 25%" quotes the favourable end of the interval.
+- id: q3
+  question: >-
+    Speed savings are $2,600-$13,100 a month; extra escaped defects could cost $0-$5,700 a month.
+    What money statement belongs in the report?
+  options:
+    - >-
+      About $7,850 a month, the midpoint of the savings range, as the best estimate.
+    - >-
+      About $13,100 a month, since the defect increase was not statistically significant.
+    - >-
+      No money statement, because any figure built on an interval is too uncertain to share.
+    - >-
+      Net about -$3,100 to +$13,100 a month before agent spend, with assumptions.
+  correct: 3
+  explanation: >-
+    Evaluate the saving at the interval ends and subtract quality costs at theirs. The range
+    includes losing money, which is the honest message and points to the next experiment.
+- id: q4
+  question: >-
+    A draft report says "no significant downsides" after 12 weeks of self-selected data, with no
+    intervals on defects or rework. What is the core problem with that sentence?
+  options:
+    - >-
+      It treats absence of evidence as evidence of absence, leaving guardrails unquantified.
+    - >-
+      It should say "no downsides at all", since non-significant results are the same as zero.
+    - >-
+      It is fine, because 12 weeks is long enough for any quality problem to have appeared.
+    - >-
+      It belongs in the appendix, because quality results are secondary to speed results.
+  correct: 0
+  explanation: >-
+    Without an interval, "not significant" can hide a large harm. Guardrails are reported with
+    intervals, and "what this does not show" says which harms the data could not rule out.

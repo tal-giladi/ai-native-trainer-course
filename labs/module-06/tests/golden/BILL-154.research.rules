@@ -1,0 +1,3 @@
+# Golden checks: research/BILL-154.md (prime).
+require | OutstandingAsync | | "issued" is already defined in OutstandingAsync
+require | (?m)^Schema change: no | | BILL-154 changes no schema

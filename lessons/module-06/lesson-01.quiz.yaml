@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    A team's `db-helper` skill has the description "Helps with database stuff." In 15 runs of
+    requests that should load it, it loads 3 times; it also loads for a one-off reporting query.
+    Which part of the skill is failing first?
+  options:
+    - >-
+      The steps, because the model reads them too loosely once the skill has been loaded.
+    - >-
+      The output contract, because nothing says what files the skill has to produce.
+    - >-
+      The inputs, because the skill never asks for a migration name or a ticket id.
+    - >-
+      The trigger, because the description says neither what it does nor when to use it.
+  correct: 3
+  explanation: >-
+    Whether a model-invoked skill loads depends only on its description. A vague one gives the model
+    nothing to match on, so recall is low and near-miss requests load it. The other parts matter only
+    after the skill has loaded.
+- id: q2
+  question: >-
+    In a migration skill, which step should be a script rather than an instruction to the model?
+  options:
+    - >-
+      Choosing the next migration number and creating the V### and U### files.
+    - >-
+      Writing the ALTER TABLE statement that adds the new column to the table.
+    - >-
+      Deciding whether a backfill or a DEFAULT constraint fits the change better.
+    - >-
+      Writing the undo script so that it reverses the schema change it pairs with.
+  correct: 0
+  explanation: >-
+    A step with exactly one right answer belongs in code: a script numbers the pair the same way every
+    time, even when an orphaned U### exists. Writing SQL and choosing a pattern need judgment, so they
+    stay model steps, each followed by a deterministic check.
+- id: q3
+  question: >-
+    A 30-request session has 40 model-invocable skills averaging 90 tokens of description, and one
+    6,000-token skill body loaded at request 5. Roughly how many input tokens do skills add?
+  options:
+    - >-
+      About 9,600, since descriptions load once at startup and a body loads only one time.
+    - >-
+      About 258,000: 108,000 for descriptions on every request plus 150,000 for the body.
+    - >-
+      About 180,000, since every skill body is loaded at startup in the same way as rules.
+    - >-
+      About 108,000, since a loaded body is dropped again as soon as its step has finished.
+  correct: 1
+  explanation: >-
+    Descriptions are re-sent with every request ($40 \times 90 \times 30$), and a loaded body stays in
+    the conversation for the remaining 25 requests ($6{,}000 \times 25$). Caching lowers the price of
+    those tokens but they still occupy the window.
+- id: q4
+  question: >-
+    Where should the rarely needed "NOT NULL column on a table with rows" pattern live in a
+    migration skill?
+  options:
+    - >-
+      In the root rules file, so that every session knows the pattern before it is needed.
+    - >-
+      In the skill's description, so the model sees the pattern when choosing the skill.
+    - >-
+      In a reference file that one step reads only when the change actually needs it.
+    - >-
+      In the body of SKILL.md, so that it is guaranteed to load whenever the skill does.
+  correct: 2
+  explanation: >-
+    Progressive disclosure: most migrations never need the pattern, so a step that says "if the change
+    adds a NOT NULL column to a table with rows, read references/patterns.md" keeps it out of context
+    until the one case that needs it.

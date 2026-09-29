@@ -1,0 +1,86 @@
+- id: q1
+  question: >-
+    Three candidate tokens have logits 2, 1 and 0. What happens to the probability of the top token
+    when temperature goes from 1.0 to 0.5?
+  options:
+    - >-
+      It halves, because dividing logits by a smaller number shrinks every probability equally.
+    - >-
+      It stays at 0.665, because temperature only changes which tokens top-p is allowed to keep.
+    - >-
+      It rises from about 0.665 to about 0.867, because lower temperature widens the logit gaps.
+    - >-
+      It becomes exactly 1.0, because any temperature below 1.0 switches the sampler to greedy decoding.
+  correct: 2
+  explanation: >-
+    Dividing logits by 0.5 turns 2, 1, 0 into 4, 2, 0; after softmax the top token gets 54.6 / 63.0 = 0.867.
+    Only the limit T approaching 0 becomes greedy. Temperature reshapes the distribution; it never changes the logits' order.
+- id: q2
+  question: >-
+    Each of 20 decision points in an agent run goes right with probability 0.97, independently.
+    Roughly how often does the whole run go right?
+  options:
+    - >-
+      About 54% of the time, because the per-step probabilities multiply across all twenty steps.
+    - >-
+      About 97% of the time, because every step has the same reliability as the run as a whole.
+    - >-
+      About 80% of the time, because the chance of failure adds up to 3% times seven risky steps.
+    - >-
+      About 99% of the time, because later steps can correct the mistakes made by earlier steps.
+  correct: 0
+  explanation: >-
+    For independent steps, P(all succeed) = p^k = 0.97^20 = 0.544. Small per-step risks compound, which is
+    why long autonomous runs need checkpoints and verifiers.
+- id: q3
+  question: >-
+    A ticket succeeds 7 of 10 runs. A teammate sets temperature to 0, reruns once, sees a pass, and calls it fixed.
+    What is the most accurate assessment?
+  options:
+    - >-
+      It is fixed, because temperature 0 makes the model deterministic and the single run proved the right path.
+    - >-
+      It is fixed only for this model version; it will need re-checking when the provider ships an update.
+    - >-
+      It made things worse, because temperature 0 always lowers accuracy on coding tasks compared with 1.0.
+    - >-
+      It hid the variance, not the cause; the wrong option keeps probability mass and can become the argmax.
+  correct: 3
+  explanation: >-
+    Temperature 0 does not change the logits, and server-side numerics still vary. At best it turns a 70% task
+    into one that passes or fails every time depending on small context details. The cause, usually in context
+    or instructions, is untouched; it must be measured over many runs.
+- id: q4
+  question: >-
+    A task passes with probability 0.7 and you can run it up to 3 times. When does 1 - 0.3^3 = 0.973
+    describe your real success rate?
+  options:
+    - >-
+      Always, because each run is sampled separately and so the runs are independent by definition.
+    - >-
+      Only with a verifier that tells pass from fail, and only if the failures are not correlated.
+    - >-
+      Only at temperature 0, because at higher temperatures the runs influence one another's outputs.
+    - >-
+      Only when the three runs use three different models, so that their mistakes cannot be the same.
+  correct: 1
+  explanation: >-
+    Retry math needs a way to detect failure (tests, build, checks) and independent failures. If the agent fails
+    because a fact is missing from context, every retry fails the same way.
+- id: q5
+  question: >-
+    An agent reports "all tests pass". Its transcript shows no tool call that ran the tests.
+    How should you classify this?
+  options:
+    - >-
+      A sampling problem that a lower temperature would fix, since the claim was an unlikely token sequence.
+    - >-
+      Normal behaviour for reasoning models, which predict test outcomes during their thinking phase.
+    - >-
+      A claim about something the harness gave it no way to observe: a tool-capability gap, not knowledge.
+    - >-
+      A context-window problem, because the test results were probably truncated out of the conversation.
+  correct: 2
+  explanation: >-
+    Model capability and tool capability are different. Without a test-running tool the model cannot know the
+    results, so the statement is unverified output. The fix is a tool plus a verification step, not sampling settings.

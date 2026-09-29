@@ -1,0 +1,349 @@
+{
+  "_comment": "Fabrikam AI-agent architecture v1 (after security review). See solution/diagram.md and solution/adr/.",
+  "name": "fabrikam-v1",
+  "policy": {
+    "residency": [
+      "eu"
+    ],
+    "maxRetentionDays": 30,
+    "teams": 8
+  },
+  "identities": [
+    {
+      "id": "dev-sso",
+      "kind": "human",
+      "auth": "sso-oidc",
+      "teams": [
+        "*"
+      ],
+      "lifetimeHours": 8,
+      "storedIn": "os-keychain"
+    },
+    {
+      "id": "gw-billing",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "billing"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-payments",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "payments"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-identity",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "identity"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-lending",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "lending"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-mobile",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "mobile"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-data",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "data"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-platform",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "platform"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "gw-web",
+      "kind": "gateway-key",
+      "auth": "vault-issued",
+      "teams": [
+        "web"
+      ],
+      "lifetimeHours": 720,
+      "storedIn": "vault"
+    },
+    {
+      "id": "ci-billing",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "billing"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-payments",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "payments"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-identity",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "identity"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-lending",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "lending"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-mobile",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "mobile"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-data",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "data"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-platform",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "platform"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "ci-web",
+      "kind": "workload",
+      "auth": "github-oidc",
+      "teams": [
+        "web"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "none"
+    },
+    {
+      "id": "jira-bot-billing",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "billing"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-payments",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "payments"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-identity",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "identity"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-lending",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "lending"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-mobile",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "mobile"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-data",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "data"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-platform",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "platform"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    },
+    {
+      "id": "jira-bot-web",
+      "kind": "service",
+      "auth": "oauth-client",
+      "teams": [
+        "web"
+      ],
+      "lifetimeHours": 1,
+      "storedIn": "vault"
+    }
+  ],
+  "egress": {
+    "directProviderAccess": false,
+    "proxy": "https://egress.fabrikam.internal",
+    "_note": "provider hosts reachable only from the gateway subnet"
+  },
+  "routes": [
+    {
+      "id": "primary",
+      "role": "primary",
+      "provider": "hyperscaler-a",
+      "endpoint": "eu geographic inference profile",
+      "geo": "eu"
+    },
+    {
+      "id": "fallback",
+      "role": "fallback",
+      "provider": "hyperscaler-b",
+      "endpoint": "eu multi-region endpoint",
+      "geo": "eu"
+    }
+  ],
+  "stores": [
+    {
+      "id": "gateway-log",
+      "kind": "gateway-log",
+      "geo": "eu",
+      "content": "redacted",
+      "retentionDays": 30,
+      "immutable": true
+    },
+    {
+      "id": "audit-log",
+      "kind": "audit-log",
+      "geo": "eu",
+      "content": "metadata",
+      "retentionDays": 400,
+      "immutable": true
+    },
+    {
+      "id": "otel",
+      "kind": "telemetry",
+      "geo": "eu",
+      "content": "metadata",
+      "retentionDays": 90
+    },
+    {
+      "id": "dev-transcripts",
+      "kind": "client-cache",
+      "geo": "eu",
+      "content": "raw",
+      "retentionDays": 14
+    },
+    {
+      "id": "provider-a",
+      "kind": "provider",
+      "geo": "eu",
+      "content": "raw",
+      "retentionDays": 30
+    }
+  ],
+  "mcpServers": [
+    {
+      "id": "jira",
+      "access": "read",
+      "identity": "per-user-oauth",
+      "geo": "eu"
+    },
+    {
+      "id": "jira-writes",
+      "access": "write",
+      "identity": "per-team-bot",
+      "geo": "eu"
+    },
+    {
+      "id": "confluence",
+      "access": "read",
+      "identity": "per-user-oauth",
+      "geo": "eu"
+    },
+    {
+      "id": "contoso-schema",
+      "access": "read",
+      "identity": "per-user-oauth",
+      "geo": "eu"
+    }
+  ]
+}

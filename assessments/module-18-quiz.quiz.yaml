@@ -1,0 +1,154 @@
+- id: q1
+  question: >-
+    After three months of posting, your dashboard shows 40,000 impressions and 900 likes, and your
+    questions log has no entry from anyone outside your network. What is the best reading?
+  options:
+    - >-
+      The funnel is working well, since attention at this scale always converts to questions later.
+    - >-
+      Posting frequency is the problem, so double the cadence until the questions start to arrive.
+    - >-
+      The pieces get attention but nobody new uses an idea; check audience, concepts and endings.
+    - >-
+      Questions are rare on every platform, so impressions are the only usable measure of the funnel.
+  correct: 2
+  explanation: >-
+    Reach and likes mostly measure the silent majority. With no outside questions, check whether each
+    piece teaches one usable concept, reaches the named audience and ends by inviting a reply.
+- id: q2
+  question: >-
+    Your plan for the first month is: an announcement that you now train teams, two general posts on
+    AI trends, and a post offering early-bird workshop seats. What should you change first?
+  options:
+    - >-
+      Replace it with teaching pieces on supported concepts and move every ask after the sixth.
+    - >-
+      Keep the order but add more hashtags, so the announcement reaches a wider audience at once.
+    - >-
+      Keep the trend posts, which build reach, and drop only the early-bird post until next month.
+    - >-
+      Drop the announcement, since the trend posts and the offer are enough to start the funnel.
+  correct: 0
+  explanation: >-
+    Two of four pieces ask for something and none teaches a concept from your method. Trust comes
+    from usable, checkable pieces; asks come later and stay at one in five or fewer.
+- id: q3
+  question: >-
+    A draft says: "PR review time dropped 49% with our agent workflow (EXP-01)." The experiment's
+    interval was 42% to 55%, and cycle time fell only 16%. What is the best revision?
+  options:
+    - >-
+      Keep the sentence, since it cites the experiment and the figure is inside the reported interval.
+    - >-
+      Report cycle time with its interval, and show review time only next to the time before the PR.
+    - >-
+      Replace 49% with "almost half", since readers remember words better than they remember numbers.
+    - >-
+      Add the interval to the 49% and leave the rest, since that fixes the missing-interval problem.
+  correct: 1
+  explanation: >-
+    The interval is missing, but the bigger problem is the late-PR illusion: review time alone
+    overstates the gain. The whole-ticket clock is the claim; review time is context.
+- id: q4
+  question: >-
+    You want to write "Studies show AI makes developers 55% faster" to open a post. What does the
+    evidence-based writing standard require?
+  options:
+    - >-
+      Nothing extra, since you are quoting a widely reported figure rather than making a claim.
+    - >-
+      Writing "up to 55%", which turns the figure into a maximum and so needs no source at all.
+    - >-
+      Removing "studies show" and keeping the number, so that you are not claiming any support.
+    - >-
+      Linking the study in that sentence, naming its task and population, or leaving it out.
+  correct: 3
+  explanation: >-
+    An express claim of support needs that support, and the figure comes from one lab task with
+    freelancers. A reader needs the source and population to see it is not about their codebase.
+- id: q5
+  question: >-
+    Your first video is a 12-minute walkthrough of your whole method on your employer's repository,
+    with auto-generated captions. Which change matters most before you publish?
+  options:
+    - >-
+      Remove the employer's code: re-record on the public demo repository at a pinned tag.
+    - >-
+      Shorten it to six minutes by speeding up the playback of the agent's slower sections.
+    - >-
+      Correct the auto-captions by hand, especially the numbers and the identifiers on screen.
+    - >-
+      Split it into one video per concept, starting with the concept your readers asked about.
+  correct: 0
+  explanation: >-
+    All four help, but publishing an employer's code is irreversible and may breach confidentiality.
+    Re-record on the demo repository first; then split per concept and review the captions.
+- id: q6
+  question: >-
+    You estimate that each piece has a 10% chance of producing a question from a stranger. Your
+    manager expects the exit signal within six pieces. What is a fair reply?
+  options:
+    - >-
+      Six pieces are almost certain to produce it, since 10% per piece adds up to 60% in total.
+    - >-
+      About a 47% chance in six pieces; plan for about a dozen or raise the per-piece chance.
+    - >-
+      No estimate is possible, since questions from strangers cannot be modelled in any way.
+    - >-
+      Exactly 10% whatever the number of pieces, since each piece has the same fixed chance.
+  correct: 1
+  explanation: >-
+    $1 - 0.9^6 = 0.47$. Twelve pieces give $1 - 0.9^{12} = 0.72$. The formula assumes independent
+    pieces with equal chance, so it sets expectations rather than forecasting a date.
+- id: q7
+  question: >-
+    Your questions log shows "how do I start without a test suite?" asked five times, each answered in
+    a DM, and your calendar's next three pieces are on topics nobody has asked about. What next?
+  options:
+    - >-
+      Keep the calendar, since changing plans for audience questions makes the content reactive.
+    - >-
+      Save the theme for your paid workshop, since answering it publicly gives away the value.
+    - >-
+      Write a longer DM template, so that each new asker gets a complete answer more quickly.
+    - >-
+      Move the theme to the next slot, publish the answer, and reply to askers with a link.
+  correct: 3
+  explanation: >-
+    A theme asked three times and answered only in private is the next piece. Readers who ask stand
+    for many who do not, and the public answer keeps working for you.
+- id: q8
+  question: >-
+    A small company hosted your free 60-minute pilot. The tech lead loved it and said you could
+    "post about it". Your draft names the company, quotes two developers and says "3x faster".
+    What should you do?
+  options:
+    - >-
+      Publish, since the tech lead's verbal permission covers the company and its developers.
+    - >-
+      Publish without the company's name, since anonymity makes consent and approvals unnecessary.
+    - >-
+      Send the draft for written approval, get each quote approved, and replace "3x" with measures.
+    - >-
+      Publish only the "3x faster" line, since a single number reveals nothing about the host.
+  correct: 2
+  explanation: >-
+    Nothing about a pilot goes public without written, dated consent to the actual draft and approval
+    of each quote. "3x" has no source; report the measured gain and follow-up with their limits.
+- id: q9
+  question: >-
+    Which situation meets the module's exit test, "someone outside your network asks a follow-up
+    question unprompted"?
+  options:
+    - >-
+      Your manager forwards your article to the CTO, who asks you about it in the next team meeting.
+    - >-
+      A reader you have never met e-mails you, having tried your reuse row, with a question on it.
+    - >-
+      At a meetup where you spoke, a stranger raises a hand when you ask for any final questions.
+    - >-
+      A former colleague comments on your video with a question about the stored procedure.
+  correct: 1
+  explanation: >-
+    Both conditions hold only for the stranger who tried the idea and wrote on their own. The CTO
+    and the former colleague are in your network; the meetup question was invited.

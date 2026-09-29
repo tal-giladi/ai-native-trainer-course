@@ -1,0 +1,173 @@
+- id: q1
+  question: >-
+    The same ticket succeeds 7 of 10 runs. A teammate sets temperature to 0, sees the next run pass,
+    and calls it fixed. What did they fix, and what didn't they?
+  options:
+    - >-
+      They fixed the root cause, because the failures came from random sampling and greedy decoding removes it.
+    - >-
+      They hid run-to-run variance in one context; the wrong option's probability, and its cause, are untouched.
+    - >-
+      They fixed nothing, because temperature has no effect at all on models that write code.
+    - >-
+      They fixed the problem for this model, but the provider will reset temperature on the next version.
+  correct: 1
+  explanation: >-
+    Temperature does not change the logits, and server numerics still vary at temperature 0. At best the task
+    becomes pass-every-time or fail-every-time depending on small context details. The 30% failure mass comes from
+    context or instructions and has to be measured over many runs and fixed there, with a verifier behind it.
+- id: q2
+  question: >-
+    A client's support team writes tickets in Hebrew. Their agent budget was set by assuming four characters
+    per token. Prompts with many tickets are getting truncated. What do you check first?
+  options:
+    - >-
+      Whether the model supports right-to-left languages at all, since truncation is how models reject unsupported scripts.
+    - >-
+      Whether the provider's context window was recently reduced, since vendors change limits without notice.
+    - >-
+      Whether the harness strips non-ASCII characters before sending, which would shorten rather than truncate.
+    - >-
+      The real token count of their tickets under the model's own tokenizer, which can be several times the estimate.
+  correct: 3
+  explanation: >-
+    Under-represented languages fragment into more tokens. In the lesson's sample, a Hebrew ticket cost 3.6x the
+    English one under one tokenizer, so a characters-per-token heuristic badly under-budgets. Count with the target
+    model's tokenizer or the provider's counting endpoint.
+- id: q3
+  question: >-
+    Asked for the current production timeout, the agent answers with a value from a 2019 wiki page that is also in
+    its context, next to the correct value. How do you classify this failure?
+  options:
+    - >-
+      Stale context: it retrieved a real but outdated fact, so the fix is to remove or clearly label the old source.
+    - >-
+      Hallucination: it produced a wrong number, so the fix is a model with a lower hallucination rate.
+    - >-
+      Insufficient context: the correct value was missing from what it read, so the fix is to retrieve more wiki pages.
+    - >-
+      Tool failure: the wiki search tool returned the wrong page, so the fix is a better search index.
+  correct: 0
+  explanation: >-
+    The wrong value came from context, not from nowhere, and the correct value was present too. That is stale context,
+    and the most effective fix is removing or archiving the outdated source rather than switching models.
+- id: q4
+  question: >-
+    A 30-turn agent run costs far more than ten 3-turn runs with the same total tool output. What explains
+    most of the difference?
+  options:
+    - >-
+      Output tokens are priced higher late in a run, because the provider charges a premium for long sessions.
+    - >-
+      The tool-use system prompt is added again on every turn and grows with the number of tools called.
+    - >-
+      Each turn resends the whole history, so total input grows roughly with the square of the turn count.
+    - >-
+      Long runs trigger a reasoning mode automatically, and reasoning tokens are billed at double the rate.
+  correct: 2
+  explanation: >-
+    The model is stateless, so every turn resends everything so far. Total input is about n times the prefix plus
+    s times n(n-1)/2, which is why turn caps, small tool outputs and prompt caching matter.
+- id: q5
+  question: >-
+    Your AGENTS.md says Orders uses stored procedures. An old README says all new code must use EF Core.
+    In 3 of 10 runs the agent used EF Core in Orders. Which first step fixes the system, not just the agent?
+  options:
+    - >-
+      Add "IMPORTANT: ignore the README" to AGENTS.md in capital letters so the rule wins more often.
+    - >-
+      Switch to a model that scored higher on a public instruction-following benchmark in the last quarter.
+    - >-
+      Correct or remove the stale README section, then back the rule with a CI gate on the Orders folder.
+    - >-
+      Tell developers to stop asking the agent to read the README before it starts a task.
+  correct: 2
+  explanation: >-
+    The contradiction lives in the repository and misleads humans too. Remove it at the source, then enforce the
+    invariant with a deterministic gate, because instructions only change probabilities.
+- id: q6
+  question: >-
+    During a code question, your in-house agent reads ../deploy/prod.env because the model asked for it.
+    The model's tool call matched the JSON schema exactly. Which statement is correct?
+  options:
+    - >-
+      The harness failed: authorization belongs in code that executes tools, not in the schema or prompt.
+    - >-
+      The model failed: a well-aligned model should never request a file that lives outside the project directory.
+    - >-
+      The schema failed: strict mode should have rejected any path that points outside the workspace.
+    - >-
+      Nothing failed: the model needed configuration values to answer and reading them was reasonable.
+  correct: 0
+  explanation: >-
+    The model only emits a request; your process executes it with your permissions. Strict schemas guarantee shape,
+    not safety. Confining paths and refusing out-of-scope reads is harness code, and the secret has already left in
+    the conversation sent to the provider.
+- id: q7
+  question: >-
+    A migration task passes 70% of runs. Someone proposes "run it three times and keep the first success",
+    promising 97% success. When is that promise realistic?
+  options:
+    - >-
+      Always, because 1 - 0.3^3 = 0.973 follows directly from the observed 70% pass rate.
+    - >-
+      Only if the three runs use temperature 0, so that each attempt is an identical, reproducible trial.
+    - >-
+      Only if a human reviews all three outputs afterwards and merges the parts of each one that look correct.
+    - >-
+      Only with an automatic check that detects failure, and only if the failures are not all the same failure.
+  correct: 3
+  explanation: >-
+    Retry math needs a verifier to know which run succeeded and independent failures. If every failure comes from a
+    missing fact in context, all three runs fail the same way. Temperature 0 would make runs identical, which defeats retries.
+- id: q8
+  question: >-
+    Legal says code may not leave the EU and may not be used for training. Your fastest, cheapest candidate model
+    is only offered from a US region. How does this enter your selection?
+  options:
+    - >-
+      It lowers that model's weighted score, and it can still win if its pass rate is high enough.
+    - >-
+      It eliminates that model before scoring, whatever its pass rate, latency or price.
+    - >-
+      It becomes a risk note in the decision, to be accepted by the engineering manager.
+    - >-
+      It only matters for production traffic, so the model can still be used for development work.
+  correct: 1
+  explanation: >-
+    Residency and data-use terms are hard constraints. A model that fails one is not a low scorer but ineligible, and
+    development code is still the client's code.
+- id: q9
+  question: >-
+    An agent's final message says "all 48 tests pass". Its trace contains edits and file reads but no command that
+    ran tests. What is the primary lesson for your harness?
+  options:
+    - >-
+      Tests must run as a gate the harness enforces, because the model had no way to observe the result it reported.
+    - >-
+      The model should be asked to be more careful, because it misremembered the test results from earlier.
+    - >-
+      Reasoning models should be used for test-heavy work, because they simulate test runs during thinking.
+    - >-
+      The context window was too small, because the real test output was probably truncated before the final message.
+  correct: 0
+  explanation: >-
+    Without a tool that runs tests, the claim is unverified output, a verification failure. The fix is capability
+    (a test tool) plus a gate that runs whether or not the agent chooses to, not a gentler prompt.
+- id: q10
+  question: >-
+    A team plans to drop their retrieval step and paste their whole 700k-token documentation set into a model with a
+    1M-token window. What result should they expect, and what should they do before committing?
+  options:
+    - >-
+      Better answers, since the model can now see everything; they should only confirm the cost is acceptable.
+    - >-
+      An API error, since requests above half the advertised window are rejected; they should split the docs in two.
+    - >-
+      Possibly worse, position-dependent answers with distractor interference; they should measure on their own questions.
+    - >-
+      Identical answers at higher latency, since window size only affects speed; they should load-test response times first.
+  correct: 2
+  explanation: >-
+    Nominal context is not effective context. Studies such as Lost in the Middle and RULER show accuracy falling with
+    length, position and similar distractors. Run a position and interference test on real questions before deciding.

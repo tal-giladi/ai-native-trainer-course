@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    A headless job returns exit code 0, subtype "success", and a summary saying the bug is fixed and
+    all tests pass. Its permission_denials list holds two Edit calls and one "dotnet test". What should
+    the job conclude?
+  options:
+    - >-
+      The task succeeded, because the subtype and the exit code both report success.
+    - >-
+      The run was interrupted and should be retried once before anyone is alerted.
+    - >-
+      The task did not happen; the denials show it could not edit or test, so fail.
+    - >-
+      The run hit its turn cap, so the cap should be raised and the job run again.
+  correct: 2
+  explanation: >-
+    Success only means the loop ended on its own. With the needed edits and the test run denied, the
+    summary describes work that never happened. Denials on required tools fail the task, and the diff
+    and tests confirm it.
+- id: q2
+  question: >-
+    Why does the course's run contract use --bare for every CI agent job?
+  options:
+    - >-
+      It lowers the cost per run, because bare mode switches the job to a smaller model.
+    - >-
+      Without it, -p loads the checkout's hooks, MCP servers and CLAUDE.md with no trust prompt.
+    - >-
+      It makes the output deterministic, so the same prompt always gives the same diff.
+    - >-
+      It is required before --max-turns and --max-budget-usd can be applied to the run.
+  correct: 1
+  explanation: >-
+    Without --bare, a -p session loads the same context as an interactive one, including hooks and
+    .mcp.json servers from whatever was checked out. Bare mode loads nothing implicitly, so the job
+    passes the layer, settings and servers it means to use.
+- id: q3
+  question: >-
+    A run ends with subtype error_max_turns. The workflow retries the same command up to three times.
+    What is wrong with that policy?
+  options:
+    - >-
+      A cap is not a transient error; the same task usually hits the same cap again.
+    - >-
+      Retries are forbidden in headless mode, so the second attempt will be rejected.
+    - >-
+      error_max_turns means the API key is invalid, so every retry fails immediately.
+    - >-
+      Retrying resets the budget cap, so the retry runs without any spending limit.
+  correct: 0
+  explanation: >-
+    Hitting a turn or budget cap says the task is larger or harder than the contract allows. Rerunning
+    it unchanged mostly triples the spend. Retry transient failures once; for caps, narrow the task or
+    raise the cap as a deliberate, reviewed change.
+- id: q4
+  question: >-
+    A teammate wants the agent to fix PRs from outside contributors and proposes pull_request_target
+    with a checkout of the PR head so the agent can build it. What is the core problem?
+  options:
+    - >-
+      pull_request_target runs on a schedule, so fixes arrive hours after the PR is opened.
+    - >-
+      Fork PRs cannot be checked out by actions/checkout, so the agent sees no code at all.
+    - >-
+      The agent cannot read PR titles under pull_request_target, so it lacks the task text.
+    - >-
+      Untrusted PR code and text run in a job holding secrets and a write-capable token.
+  correct: 3
+  explanation: >-
+    pull_request_target runs in the base repository's context with secrets. Checking out the PR head
+    puts attacker-controlled files, including hooks the agent loads, into that job: a pwn request.
+    Keep untrusted code on pull_request, where fork PRs get no secrets.

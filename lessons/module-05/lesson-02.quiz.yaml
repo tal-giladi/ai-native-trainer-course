@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    A plan step reads "Clean up data access in the area as needed so everything is consistent."
+    Which plan-quality criterion does it violate most directly?
+  options:
+    - >-
+      Goal, because the reviewer cannot tell which ticket the plan belongs to.
+    - >-
+      Validation, because it does not name the command that runs the test suite.
+    - >-
+      Evidence, because it does not cite the ADR that defines the Dapper pattern.
+    - >-
+      Boundaries, because no reviewer can predict which files the change will touch.
+  correct: 3
+  explanation: >-
+    "In the area as needed" makes the diff unpredictable, which is exactly what boundaries prevent.
+    In the lab it licensed an unreviewed rewrite of a finance report owned by another ticket.
+- id: q2
+  question: >-
+    `LoopGate plan-lint` passes on a plan. What has that shown?
+  options:
+    - >-
+      That the plan has required sections, cited files exist, and steps have verify clauses.
+    - >-
+      That every design decision is correct, because each one is backed by a file in the repo.
+    - >-
+      That the implementation will stay within scope, since the Touch list has been validated.
+    - >-
+      That a human reviewer is no longer needed for plans that pass all of the lint checks.
+  correct: 0
+  explanation: >-
+    The lint checks form. A cited file can exist without supporting the decision next to it, which
+    is why the HUMAN checkpoint remains; scope is checked later against the actual diff.
+- id: q3
+  question: >-
+    Midway through implementation the agent needs to edit a file that is not in the plan's Touch
+    list. What should happen?
+  options:
+    - >-
+      The agent edits it and mentions it in the PR description so the reviewer can check it later.
+    - >-
+      The agent stops, the plan is updated and re-approved, and then the file is edited.
+    - >-
+      The scope gate is turned off for this ticket, since boundaries are only a rough estimate.
+    - >-
+      The agent works around the file by duplicating the needed logic inside a file it may touch.
+  correct: 1
+  explanation: >-
+    Needing an extra file is normal. Silent plan drift is the problem: change the plan first so the
+    decision is reviewed, then keep the scope check on.
+- id: q4
+  question: >-
+    One plan in ten has a wrong approach. Catching it at plan time saves 60 minutes of
+    implementation and review; a plan review takes 5 minutes. What does the arithmetic say?
+  options:
+    - >-
+      Review loses time, since 9 of 10 reviews find nothing and each one costs 5 minutes.
+    - >-
+      Review always pays, because a wrong plan costs far more than any review ever could.
+    - >-
+      Review roughly breaks even: an expected 6 minutes saved against 5 minutes spent.
+    - >-
+      The numbers cannot be compared, because review time and rework time are different units.
+  correct: 2
+  explanation: >-
+    The expected saving is 0.1 times 60, which is 6 minutes, against a cost of 5. With a higher
+    wrong-plan rate review clearly pays; for one-sentence diffs the saving is tiny and it does not.

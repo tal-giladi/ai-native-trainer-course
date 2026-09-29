@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_MCP_PAT}",
+        "X-MCP-Readonly": "true",
+        "X-MCP-Toolsets": "issues,pull_requests,repos"
+      }
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    },
+    "contoso-schema": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [".claude/mcp/contoso-schema/ContosoSchema.Mcp.dll", "--source", "sql", "--migrations", "db/migrations", "--max-age-hours", "24"],
+      "env": { "CONTOSO_SCHEMA_CONN": "${CONTOSO_SCHEMA_CONN}" }
+    }
+  }
+}

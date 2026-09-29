@@ -1,0 +1,31 @@
+# Research inbox — module 02
+
+| source | url | date accessed | claim supported | lesson(s) | primary Y/N | volatility |
+|---|---|---|---|---|---|---|
+| Vaswani et al., Attention Is All You Need | https://arxiv.org/abs/1706.03762 | 2026-09-28 | Transformer architecture; scaled dot-product attention formula | 02.1 | Y | stable |
+| Sennrich et al., Neural Machine Translation of Rare Words with Subword Units | https://arxiv.org/abs/1508.07909 | 2026-09-28 | Byte-pair encoding for sub-word tokenization | 02.1 | Y | stable |
+| Su et al., RoFormer (rotary position embedding) | https://arxiv.org/abs/2104.09864 | 2026-09-28 | Rotary position embeddings encode position by rotation | 02.1 | Y | stable |
+| Liu et al., Lost in the Middle | https://arxiv.org/abs/2307.03172 | 2026-09-28 | U-shaped performance: info at start/end used better than middle of long contexts | 02.1, module quiz | Y | stable |
+| Hsieh et al., RULER | https://arxiv.org/abs/2404.06654 | 2026-09-28 | 17 models; near-perfect vanilla NIAH but large drops with length on harder tasks; only about half claiming ≥32K hold satisfactory performance at 32K | 02.1, module quiz | Y | annual |
+| Microsoft Learn, Use Microsoft.ML.Tokenizers | https://learn.microsoft.com/en-us/dotnet/ai/how-to/use-tokenizers | 2026-09-28 | TiktokenTokenizer / CountTokens / EncodeToTokens API; data packages O200kBase/Cl100kBase | 02.1, labs | Y | quarterly |
+| NuGet, Microsoft.ML.Tokenizers | https://www.nuget.org/packages/Microsoft.ML.Tokenizers | 2026-09-28 | Latest stable 2.0.0 (pinned in lab) | labs | Y | quarterly |
+| Claude API docs, Token counting | https://platform.claude.com/docs/en/build-with-claude/token-counting | 2026-09-28 | count_tokens endpoint is free, an estimate; Claude Opus 4.7+ tokenizer ~30% more tokens for same text | 02.1 | Y | quarterly |
+| Claude API docs, Models overview | https://platform.claude.com/docs/en/models/overview | 2026-09-28 | Context windows 200K–1M; example input/output prices ($4/$20 per MTok on one model); dimensions vendors publish | 02.1, 02.4, 02.5 | Y | quarterly |
+| Holtzman et al., The Curious Case of Neural Text Degeneration | https://arxiv.org/abs/1904.09751 | 2026-09-28 | Nucleus (top-p) sampling truncates the unreliable tail | 02.2 | Y | stable |
+| He / Thinking Machines Lab, Defeating Nondeterminism in LLM Inference | https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/ | 2026-09-28 | 1,000 completions at T=0 on Qwen3-235B gave 80 unique outputs, diverging at token 103; cause is lack of batch invariance | 02.2 | Y | annual |
+| Claude API docs, Messages API reference | https://platform.claude.com/docs/en/api/messages | 2026-09-28 | Temperature 0.0 not fully deterministic; temperature and top_k deprecated/rejected (non-default) on models after Claude Opus 4.6 | 02.2 | Y | quarterly |
+| Claude API docs, Thinking | https://platform.claude.com/docs/en/build-with-claude/thinking | 2026-09-28 | Thinking tokens billed as output tokens even when not returned; count toward max_tokens | 02.2 | Y | quarterly |
+| Ollama docs, OpenAI compatibility | https://docs.ollama.com/api/openai-compatibility | 2026-09-28 | Local endpoint http://localhost:11434/v1; supports temperature, top_p, seed, tools | 02.2, 02.5, labs | Y | quarterly |
+| Wallace et al., The Instruction Hierarchy | https://arxiv.org/abs/2404.13208 | 2026-09-28 | Models often treat system prompts and untrusted user text as equal priority; training to prioritise privileged instructions improves robustness | 02.3 | Y | annual |
+| OpenAI Model Spec | https://model-spec.openai.com/ | 2026-09-28 | Chain of command root/system/developer/user/guideline; tool outputs, quoted text and files have no authority unless delegated | 02.3 | Y | quarterly |
+| Claude Code docs, How Claude remembers your project | https://code.claude.com/docs/en/memory | 2026-09-28 | CLAUDE.md delivered as a user message after the system prompt; context not enforced configuration; contradicting rules may be picked arbitrarily; use PreToolUse hooks to block; @AGENTS.md import | 02.3 | Y | quarterly |
+| AGENTS.md | https://agents.md/ | 2026-09-28 | Nearest AGENTS.md takes precedence; explicit user chat prompts override everything | 02.3 | Y | quarterly |
+| Greshake et al., Indirect Prompt Injection | https://arxiv.org/abs/2302.12173 | 2026-09-28 | Instructions planted in retrieved data compromise LLM-integrated applications | 02.3 | Y | stable |
+| Claude API docs, Tool use overview | https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview | 2026-09-28 | tool_use/tool_result flow; strict tool use; tool-use system prompt tokens (286 on Claude Opus 5.5) | 02.4 | Y | quarterly |
+| Claude API docs, Handle tool calls | https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls | 2026-09-28 | is_error; instructive error messages; Claude retries 2–3 times after invalid parameters; tool results are untrusted content | 02.4 | Y | quarterly |
+| OpenAI API docs, Function calling | https://developers.openai.com/api/docs/guides/function-calling | 2026-09-28 | Five-step tool calling flow; strict: true for schema adherence | 02.4 | Y | quarterly |
+| Yao et al., ReAct | https://arxiv.org/abs/2210.03629 | 2026-09-28 | Interleaving reasoning traces and actions | 02.4 | Y | stable |
+| Anthropic Engineering, Building Effective AI Agents | https://www.anthropic.com/engineering/building-effective-agents | 2026-09-28 | Workflows vs agents definition; start simple, add agentic complexity only when it demonstrably helps | 02.4, 02.5 | Y | annual |
+| Kalai et al., Why Language Models Hallucinate | https://arxiv.org/abs/2509.04664 | 2026-09-28 | Training and evaluation incentives reward guessing over abstaining | 02.5 | Y | annual |
+| Jimenez et al., SWE-bench | https://arxiv.org/abs/2310.06770 | 2026-09-28 | 2,294 issues from 12 Python repos; best original model (Claude 2) resolved 1.96% | 02.5 | Y | stable |
+| Own measurement, labs/module-02/01-tokens (Microsoft.ML.Tokenizers 2.0.0) | ../labs/module-02/01-tokens | 2026-09-28 | Token counts for C#, SQL, English and Hebrew samples (e.g. Hebrew ticket 270 vs English 76 on cl100k; 115 vs 76 on o200k) | 02.1 | Y (own data) | stable |

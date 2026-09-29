@@ -1,0 +1,13 @@
+{
+  "_note": "Hand-written illustrative sample for practising ContextLab grade/report. Not real model output, not a measurement.",
+  "type": "result",
+  "is_error": false,
+  "result": "Code. Replace DateTime.Now with IClock.UtcNow injected through the constructor.",
+  "total_cost_usd": 0.049,
+  "usage": {
+    "input_tokens": 12,
+    "cache_read_input_tokens": 34600,
+    "cache_creation_input_tokens": 1988,
+    "output_tokens": 105
+  }
+}

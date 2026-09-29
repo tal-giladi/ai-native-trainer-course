@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Every morning five teams report that the agent is "flaky" with 429 errors. The gateway uses one
+    key for all teams and CI, and a payments CI job has been retrying in a loop. What is the root cause?
+  options:
+    - >-
+      The organisation limit is too low; requesting a higher limit from the provider is the durable fix.
+    - >-
+      One shared bucket: the CI loop drains it, so every client is throttled whoever caused the load.
+    - >-
+      The provider's token bucket resets each minute, so all teams collide at the start of every minute.
+    - >-
+      Developers send requests too large for the bucket, so enabling prompt caching would remove the errors.
+  correct: 1
+  explanation: >-
+    With one key there is one bucket, so a single team's runaway demand throttles everyone. Per-team keys
+    (and separate CI keys) put the quota boundary where the load originates.
+- id: q2
+  question: >-
+    Two independent routes have availability 0.995 and 0.99. All requests pass through a gateway with
+    availability 0.999. What is the approximate end-to-end availability?
+  options:
+    - >-
+      0.99995, because the fallback route covers almost every primary outage.
+    - >-
+      0.985, because the three availabilities multiply together.
+    - >-
+      0.999, because the gateway is the highest-availability component.
+    - >-
+      About 0.9990, because the gateway is in series with the parallel routes.
+  correct: 3
+  explanation: >-
+    The routes in parallel give 1 - 0.005 x 0.01 = 0.99995; the gateway is in series, so the total is
+    0.999 x 0.99995, about 0.99895. The gateway, not the providers, sets the ceiling.
+- id: q3
+  question: >-
+    August's chargeback shows 33% of spend on a shared CI key and a hackathon key with no team. In
+    September, after per-team CI keys, each team's cost per developer rises by about 40%. What happened?
+  options:
+    - >-
+      CI costs hidden on unowned keys now appear in each team's line; total spend barely changed.
+    - >-
+      Per-team keys cost more because the gateway charges a fee per key, which raises each team's bill.
+    - >-
+      Separate keys disable prompt caching across teams, so every team now pays full input prices.
+    - >-
+      Developers used the agent more in September, which the per-team design has encouraged.
+  correct: 0
+  explanation: >-
+    Attribution coverage went from 67% to 100%. The work did not get more expensive; it became visible
+    to the teams that cause it, which is the point of chargeback.
+- id: q4
+  question: >-
+    A request fails with HTTP 429 and no retry-after header. The error code says the monthly spend
+    limit was reached. What should the gateway do?
+  options:
+    - >-
+      Retry with exponential backoff, since a 429 always means a temporary rate limit.
+    - >-
+      Fail over to the fallback route with the same credential until the limit resets.
+    - >-
+      Stop retrying and surface a budget error; retries cannot succeed until the cap changes.
+    - >-
+      Split the request into several smaller ones so that each fits under the per-minute token limit.
+  correct: 2
+  explanation: >-
+    A spend-cap 429 differs from a rate limit: it has no retry-after and will keep failing. Retrying
+    wastes capacity; the right response is a clear budget error and an owner who can raise the cap.

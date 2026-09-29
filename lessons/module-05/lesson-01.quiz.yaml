@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    An agent given only the BILL-151 ticket writes a new `CollectionsSummaryService` that treats
+    every non-paid invoice as owed. All nine tests pass. What is the root cause?
+  options:
+    - >-
+      The model hallucinated an invoice status that does not exist in the Contoso codebase.
+    - >-
+      The rules file was too long, so the agent ignored the line that defines "owed".
+    - >-
+      The definition in `InvoiceService` never reached its context, since no research ran.
+    - >-
+      The convention tests are broken, because they should have failed on the new service.
+  correct: 2
+  explanation: >-
+    The agent worked correctly from what it had. `OutstandingAsync` and `IsOverdue` were never in
+    its context, so it wrote its own definitions. That is insufficient context, and research is the
+    phase that supplies it.
+- id: q2
+  question: >-
+    Which set of outputs should a research brief contain before planning begins?
+  options:
+    - >-
+      Code to reuse, architecture constraints, blast radius, and open questions, each with evidence.
+    - >-
+      A narrative of every file the agent read, in order, so the reviewer can retrace the steps.
+    - >-
+      A first draft of the implementation, so the planner can see how big the change will be.
+    - >-
+      A summary of the project README and architecture page, so the planner has the big picture.
+  correct: 0
+  explanation: >-
+    Research answers the questions the plan cannot be written without: what exists, what
+    constrains the design, what depends on the change, and what is unknown. Narratives, drafts and
+    README summaries cost context without answering them.
+- id: q3
+  question: >-
+    Exploration for a ticket reads about 40,000 tokens of files; the resulting brief is about 1,000.
+    Why run that exploration in a read-only sub-agent rather than the implementing session?
+  options:
+    - >-
+      Sub-agents use a cheaper model, which is the main reason the research phase costs less.
+    - >-
+      The implementing session holds the brief, not 40k tokens of partly stale exploration.
+    - >-
+      Sub-agents cannot hallucinate, because read-only tools force them to cite every claim.
+    - >-
+      The main session is not allowed to read files while it is in the implementation phase.
+  correct: 1
+  explanation: >-
+    Delegation keeps the implementation context small and free of irrelevant or stale material
+    such as an outdated architecture page. Read-only also stops research from turning into
+    unreviewed edits.
+- id: q4
+  question: >-
+    Ticket BILL-152 changes `<` to `<=` in `IsOverdue` and adds one boundary test. What is the
+    right amount of research?
+  options:
+    - >-
+      A full brief with all four tables, because skipping research is how duplication creeps in.
+    - >-
+      A sub-agent that explores the whole Invoices folder first, to be safe about callers.
+    - >-
+      None beyond reading the method; a change stated as a one-sentence diff needs no brief.
+    - >-
+      A research brief written after the change, so the notes log stays complete for Module 13.
+  correct: 2
+  explanation: >-
+    Research has a cost. For a one-sentence diff the scope is already known, so a formal brief adds
+    minutes without reducing risk. Log the ticket in NOTES.md all the same.

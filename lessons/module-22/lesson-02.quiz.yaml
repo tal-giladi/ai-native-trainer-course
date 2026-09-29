@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Your live workshop measured a normalized gain of 0.57. You are launching a self-paced course built from
+    the same outline. What should the course page say about learning?
+  options:
+    - >-
+      That learners can expect a gain of about 0.57, since the content and exercises are identical.
+    - >-
+      That the course's gain will be measured with a beta cohort and reported with its interval.
+    - >-
+      Nothing about learning, since self-paced courses are judged on reviews rather than on gains.
+    - >-
+      That the gain will be higher than live, because learners can rewatch the difficult parts.
+  correct: 1
+  explanation: >-
+    The workshop's gain came from the room: feedback, pace and peers. A course is a different format and
+    must earn its own evidence; the reference student's beta measured 0.41 on the same forms.
+- id: q2
+  question: >-
+    You want to publish your starter pack (C# hooks, PowerShell scripts, a README and exercises). Which
+    licensing matches the lesson?
+  options:
+    - >-
+      CC BY-NC 4.0 for everything, so that nobody can sell the material while everyone can learn from it.
+    - >-
+      No licence at all, with a line saying "free to use", which keeps the pack as open as possible.
+    - >-
+      CC BY 4.0 for everything, since one licence for the whole pack is simpler for readers to follow.
+    - >-
+      A software licence such as MIT for the code, and CC BY 4.0 for the README and the exercises.
+  correct: 3
+  explanation: >-
+    Creative Commons recommends against CC licences for software; MIT fits code. CC BY suits documents.
+    "Free to use" answers none of the questions a licence exists to answer, and NC invites disputes.
+- id: q3
+  question: >-
+    A company asks for a licence to your course. Which set of terms does the lesson say a team licence must
+    state?
+  options:
+    - >-
+      Seats, term, internal use, whether it may be resold or sublicensed, attribution, and which updates.
+    - >-
+      Price, currency, payment terms and a refund policy, since the rest follows from copyright law.
+    - >-
+      Unlimited seats and a perpetual term, since companies expect one purchase to cover everyone.
+    - >-
+      A non-disclosure agreement, so the company cannot show your material to anyone outside it.
+  correct: 0
+  explanation: >-
+    These are the questions procurement will ask; leaving them out gives away more than you intend.
+    "Unlimited, perpetual" is the break's version, which cannot be taken back.
+- id: q4
+  question: >-
+    Your catalog earns 13,520 a month at the high end: one workshop (6,500, 1.5 live days), course seats
+    (5,850, no live days) and a community (1,170, 0.75 fixed days). What is the revenue per live day?
+  options:
+    - >-
+      About 4,333, because only the workshop needs live days and it earns 6,500 for 1.5 of them.
+    - >-
+      About 9,013, because the community's fixed days do not count as live time for delivery.
+    - >-
+      About 6,009, because all revenue is divided by all live days including the community's.
+    - >-
+      About 18,027, because course revenue is counted twice once seats exceed the workshop count.
+  correct: 2
+  explanation: >-
+    13,520 divided by 2.25 live days (1.5 plus 0.75) is about 6,009. Fixed community days are real live
+    time; leaving them out overstates how much the catalog scales.

@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Which acceptance criterion for "AI layer in the repository" best follows the lesson?
+  options:
+    - >-
+      The AI layer is delivered to the client's full satisfaction and approved by the sponsor.
+    - >-
+      The AI layer follows current best practice for coding agents and is of high quality.
+    - >-
+      Merged via a PR reviewed by a client developer; CI fails on the two seeded cases.
+    - >-
+      The AI layer makes the pilot team measurably faster within the six weeks of the pilot.
+  correct: 2
+  explanation: >-
+    A criterion a third person could check: a reviewed merge and a check that demonstrably fails where it
+    should. Satisfaction and best practice are opinions; "measurably faster" is an outcome promise.
+- id: q2
+  question: >-
+    A client asks you to guarantee a 30% productivity improvement. What goes in the SOW instead?
+  options:
+    - >-
+      A measurement section: pre-registered outcomes, baseline, intervals and a stop rule.
+    - >-
+      A 15% guarantee, half of what they asked, with a partial refund if it is not reached.
+    - >-
+      A clause that the guarantee applies only if the client follows every recommendation.
+    - >-
+      Nothing on outcomes at all, so that the SOW cannot be used against you later.
+  correct: 0
+  explanation: >-
+    Replace the promise with a measurement both sides agreed before the first ticket, reported honestly
+    even if null. Smaller or conditional guarantees are still promises your evidence cannot support.
+- id: q3
+  question: >-
+    In week three, the sponsor asks on a call whether you could "also cover the .NET 8 team, it's only
+    six more developers". The SOW covers one team. What do you do?
+  options:
+    - >-
+      Agree on the call and start, since goodwill now will make the implementation sale easier later.
+    - >-
+      Refuse, since any change to a fixed-fee SOW sets a precedent that will be exploited later.
+    - >-
+      Agree, and add the extra days to the final invoice as an itemized line when the pilot ends.
+    - >-
+      Log it, then send a written change request with its effect on fee and schedule, or defer it.
+  correct: 3
+  explanation: >-
+    Every out-of-scope request ends as a written change request, a logged concession, a deferral or a
+    decline. Silent work and surprise invoices both damage the relationship.
+- id: q4
+  question: >-
+    Your SOW's payment table lists 15,000 + 15,000 + 20,000, and the Total line says 45,000. Which is the
+    right reading?
+  options:
+    - >-
+      The Total line prevails, so the client pays 45,000 and the last milestone becomes 15,000.
+    - >-
+      The document is inconsistent; fix it before signature, because either party can dispute it later.
+    - >-
+      The table prevails, since itemized amounts are more specific than a summary line.
+    - >-
+      It does not matter, since the invoice will state the amount and the invoice is binding.
+  correct: 1
+  explanation: >-
+    An SOW whose fees do not add up invites a dispute at the worst moment. Which figure a court or client
+    would favour is uncertain; the only safe answer is to make it consistent before anyone signs.

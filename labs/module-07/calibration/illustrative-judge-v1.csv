@@ -1,0 +1,25 @@
+file,verdict,reason
+C01.txt,fail,not detailed enough to be helpful
+C02.txt,pass,thorough and detailed
+C03.txt,pass,thorough and detailed
+C04.txt,fail,not detailed enough to be helpful
+C05.txt,pass,thorough and detailed
+C06.txt,pass,thorough and detailed
+C07.txt,pass,thorough and detailed
+C08.txt,pass,thorough and detailed
+C09.txt,fail,not detailed enough to be helpful
+C10.txt,pass,thorough and detailed
+C11.txt,fail,not detailed enough to be helpful
+C12.txt,pass,thorough and detailed
+C13.txt,pass,thorough and detailed
+C14.txt,fail,not detailed enough to be helpful
+C15.txt,fail,not detailed enough to be helpful
+C16.txt,pass,thorough and detailed
+C17.txt,fail,not detailed enough to be helpful
+C18.txt,pass,thorough and detailed
+C19.txt,fail,not detailed enough to be helpful
+C20.txt,fail,not detailed enough to be helpful
+C21.txt,fail,not detailed enough to be helpful
+C22.txt,pass,thorough and detailed
+C23.txt,fail,not detailed enough to be helpful
+C24.txt,pass,thorough and detailed

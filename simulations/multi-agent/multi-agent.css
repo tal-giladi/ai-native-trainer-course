@@ -1,0 +1,25 @@
+/* Multi-agent simulator — page-specific styles. Shared look comes from ../common/sim.css. */
+.pgroup { border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; margin: 6px 0; }
+.pgroup summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.pgroup .field label { font-size: 0.82rem; }
+
+.shape { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px; }
+.chip { font-size: 0.72rem; border: 1px solid var(--line); border-radius: 999px; padding: 0 6px; color: var(--muted); }
+.chip + .chip::before { content: "→ "; }
+
+tr.base td { background: var(--bg); }
+tr.warnrow td { background: var(--warn-bg); }
+.small { font-size: 0.8rem; }
+.stats { margin: 8px 0; }
+.stats .stat { font-size: 1.15rem; }
+
+svg .bar.b1 { fill: var(--c5); }
+svg .bar.b2 { fill: var(--c1); }
+svg .fnode { fill: var(--panel); stroke: var(--c1); stroke-width: 1.5; }
+svg .fnode.ok { stroke: var(--good); }
+svg .fnode.stop { stroke: var(--bad); }
+svg .fl { font-weight: 700; font-size: 13px; }
+svg .fs { fill: var(--muted); font-size: 11px; }
+svg .fedge { stroke: var(--muted); stroke-width: 1.5; }
+svg .fedge.back { stroke: var(--warn); stroke-dasharray: 4 3; }
+svg .arrowhead { fill: var(--muted); }

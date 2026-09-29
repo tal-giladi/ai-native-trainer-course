@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    An agent writes a query using column o.CustomerNumber, which does not exist. The trace shows it never read
+    the schema or any SQL file, and no build ran against the database. What is the best classification?
+  options:
+    - >-
+      Primary: insufficient context (the fact was never available). Escape: verification failure.
+    - >-
+      Primary: hallucination, because the model invented a column. Escape: none, it was caught later.
+    - >-
+      Primary: stale context from an old schema. Escape: tool failure in the file-reading tool.
+    - >-
+      Primary: instruction failure, since rules say to check the schema. Escape: planning failure.
+  correct: 0
+  explanation: >-
+    The invented column is the symptom. The earliest divergence is that the needed fact was never in context,
+    and it escaped because no check against the schema was run. Nothing in the trace suggests an old schema or a rule.
+- id: q2
+  question: >-
+    Model A costs $0.12 per attempt and passes 60% of the time; model B costs $0.40 and passes 90%.
+    Reviewing a failed attempt costs $15 of engineer time. Which is cheaper per finished task?
+  options:
+    - >-
+      Model A, at about $0.20 per success, because it costs less than a third as much per attempt.
+    - >-
+      They are about equal, because A's lower price almost exactly offsets its lower pass rate.
+    - >-
+      Model B, at about $2.11 versus $10.20, because failure review costs dominate token costs.
+    - >-
+      Model B, at about $0.44 versus $0.20, because tokens are the only cost that scales with volume.
+  correct: 2
+  explanation: >-
+    Cost per success = c/p + (1/p - 1)h. For A: 0.20 + 0.667 x 15 = 10.20. For B: 0.44 + 0.111 x 15 = 2.11.
+    When humans review failures, pass rate usually dominates price.
+- id: q3
+  question: >-
+    Security requires that no source code is used for model training and that data stays in the EU.
+    How should these requirements enter your model-selection matrix?
+  options:
+    - >-
+      As the two highest-weighted criteria, so that models which fail them rank near the bottom.
+    - >-
+      As notes under the decision, to be revisited if the preferred model turns out to fail them.
+    - >-
+      As a tiebreaker applied only when two models score within a few points of each other.
+    - >-
+      As hard constraints that eliminate failing models before any measured score is considered.
+  correct: 3
+  explanation: >-
+    A model that cannot legally or contractually see the code is not a low scorer; it is not a candidate.
+    Constraints eliminate first, and weights apply only to survivors.
+- id: q4
+  question: >-
+    A vendor shows its model's top score on a well-known coding benchmark built from Python repositories.
+    Your team maintains a legacy .NET and SQL Server solution. What is the right use of that score?
+  options:
+    - >-
+      As a general signal for shortlisting, followed by measuring the shortlist on your own tasks.
+    - >-
+      As sufficient evidence, because coding ability transfers across languages almost completely.
+    - >-
+      As irrelevant, because benchmark scores are always contaminated and carry no information.
+    - >-
+      As a ceiling: your pass rate will be the benchmark score minus a fixed penalty for legacy code.
+  correct: 0
+  explanation: >-
+    Public benchmarks are real but general signals, and they can be contaminated and go stale quickly. They are fine
+    for building a shortlist; the decision comes from runs on your own tasks with your own criteria.

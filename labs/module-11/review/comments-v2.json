@@ -1,0 +1,222 @@
+{
+  "prompt": "prompts/review-v2.md",
+  "note": "ILLUSTRATIVE",
+  "comments": [
+    {
+      "id": "v2-001",
+      "pr": "PR-301",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 86,
+      "severity": "low",
+      "category": "perf",
+      "body": "Consider making this method parallel."
+    },
+    {
+      "id": "v2-002",
+      "pr": "PR-301",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 42,
+      "severity": "high",
+      "category": "time",
+      "body": "Evidence: DateTimeOffset.UtcNow instead of IClock; tests cannot freeze time."
+    },
+    {
+      "id": "v2-003",
+      "pr": "PR-302",
+      "file": "src/Contoso.Billing/Invoices/IInvoiceRepository.cs",
+      "line": 129,
+      "severity": "medium",
+      "category": "correctness",
+      "body": "Consider validating the input here; negative values might cause problems."
+    },
+    {
+      "id": "v2-004",
+      "pr": "PR-302",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 58,
+      "severity": "medium",
+      "category": "sql",
+      "body": "Evidence: loads every invoice for the customer and filters in memory (BILL-142 AC4)."
+    },
+    {
+      "id": "v2-005",
+      "pr": "PR-303",
+      "file": "db/migrations/V006__payment_reminder.sql",
+      "line": 1,
+      "severity": "high",
+      "category": "sql",
+      "body": "Evidence: V006 has no U006 undo script (convention since V003)."
+    },
+    {
+      "id": "v2-006",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 32,
+      "severity": "high",
+      "category": "correctness",
+      "body": "Evidence: days overdue off by one at the due instant (< vs <=)."
+    },
+    {
+      "id": "v2-007",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 53,
+      "severity": "low",
+      "category": "tests",
+      "body": "Add a test for cancellation."
+    },
+    {
+      "id": "v2-008",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 77,
+      "severity": "high",
+      "category": "security",
+      "body": "Evidence: reference concatenated into SQL text (injection)."
+    },
+    {
+      "id": "v2-009",
+      "pr": "PR-308",
+      "file": "src/Contoso.Billing/Payments/Payment.cs",
+      "line": 10,
+      "severity": "low",
+      "category": "correctness",
+      "body": "This could fail if the database is unavailable; add retry logic."
+    },
+    {
+      "id": "v2-010",
+      "pr": "PR-308",
+      "file": "src/Contoso.Billing/Payments/PaymentAllocator.cs",
+      "line": 64,
+      "severity": "high",
+      "category": "money",
+      "body": "Evidence: remaining balance computed in double."
+    },
+    {
+      "id": "v2-011",
+      "pr": "PR-309",
+      "file": "src/Contoso.Billing/Collections/CollectionsService.cs",
+      "line": 21,
+      "severity": "medium",
+      "category": "architecture",
+      "body": "Evidence: re-implements OutstandingAsync and counts Void invoices."
+    },
+    {
+      "id": "v2-012",
+      "pr": "PR-309",
+      "file": "src/Contoso.Billing/Collections/CollectionsSummary.cs",
+      "line": 32,
+      "severity": "low",
+      "category": "tests",
+      "body": "Consider adding a test for the empty case."
+    },
+    {
+      "id": "v2-013",
+      "pr": "PR-310",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 112,
+      "severity": "low",
+      "category": "architecture",
+      "body": "Use DateTime instead of DateTimeOffset for simplicity."
+    },
+    {
+      "id": "v2-014",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/Statement.cs",
+      "line": 61,
+      "severity": "low",
+      "category": "concurrency",
+      "body": "This could throw a NullReferenceException if the invoice is null."
+    },
+    {
+      "id": "v2-015",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 48,
+      "severity": "high",
+      "category": "correctness",
+      "body": "Evidence: draft invoices with no due date throw in the banner path."
+    },
+    {
+      "id": "v2-016",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 90,
+      "severity": "low",
+      "category": "perf",
+      "body": "Consider caching this result."
+    },
+    {
+      "id": "v2-017",
+      "pr": "PR-314",
+      "file": "db/migrations/V007__po_number.sql",
+      "line": 3,
+      "severity": "high",
+      "category": "sql",
+      "body": "Evidence: NOT NULL column added to a populated table without a default."
+    },
+    {
+      "id": "v2-018",
+      "pr": "PR-316",
+      "file": "src/Contoso.Billing/Reminders/ReminderJob.cs",
+      "line": 42,
+      "severity": "medium",
+      "category": "concurrency",
+      "body": "Evidence: async void handler: exceptions are lost and the job reports success."
+    },
+    {
+      "id": "v2-019",
+      "pr": "PR-316",
+      "file": "src/Contoso.Billing/Reminders/ReminderJob.cs",
+      "line": 119,
+      "severity": "medium",
+      "category": "concurrency",
+      "body": "Potential race condition if called concurrently."
+    },
+    {
+      "id": "v2-020",
+      "pr": "PR-317",
+      "file": "src/Contoso.Billing/Common/Audit.cs",
+      "line": 19,
+      "severity": "low",
+      "category": "security",
+      "body": "Evidence: audit line writes the customer's e-mail address (PII) to logs."
+    },
+    {
+      "id": "v2-021",
+      "pr": "PR-317",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 15,
+      "severity": "low",
+      "category": "maintainability",
+      "body": "Store amounts as double to avoid decimal overhead."
+    },
+    {
+      "id": "v2-022",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 69,
+      "severity": "low",
+      "category": "tests",
+      "body": "Add a test for cancellation."
+    },
+    {
+      "id": "v2-023",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 11,
+      "severity": "medium",
+      "category": "reliability",
+      "body": "Potential race condition if called concurrently."
+    },
+    {
+      "id": "v2-024",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 55,
+      "severity": "high",
+      "category": "time",
+      "body": "Evidence: DateTime.Now (local clock) in the banner cut-off."
+    }
+  ]
+}

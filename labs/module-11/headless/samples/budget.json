@@ -1,0 +1,12 @@
+{
+  "type": "result",
+  "subtype": "error_max_budget_usd",
+  "is_error": true,
+  "duration_ms": 515300,
+  "num_turns": 11,
+  "session_id": "illustrative-0004",
+  "total_cost_usd": 1.50,
+  "usage": { "input_tokens": 210880, "output_tokens": 6110 },
+  "permission_denials": [],
+  "stop_reason": "tool_use"
+}

@@ -1,0 +1,180 @@
+- id: q1
+  question: >-
+    A team reports that AI cut coding time by 50%, but escaped defects doubled over the same period.
+    Before anyone claims an improvement, what do you ask for first?
+  options:
+    - >-
+      A developer survey on perceived productivity, to confirm the time saving is felt.
+    - >-
+      The coding-time figure broken down by developer, to find who benefited the most.
+    - >-
+      End-to-end cycle time and the cost of fixing escaped defects, with intervals.
+    - >-
+      A longer measurement window for coding time only, to confirm the 50% holds.
+  correct: 2
+  explanation: >-
+    Coding time is one segment of the ticket; the saving may move work elsewhere and the defects
+    cost time later. Cycle time from In Progress plus the cost of escaped defects, each with an
+    interval and a comparable control, decides whether anything improved.
+- id: q2
+  question: >-
+    Over 12 weeks developers used the agent when they felt it would help. `balance` shows the agent
+    was used on 74% of small and 33% of large tickets; the stratified ratio is 1.02 (95% CI 0.86 to
+    1.20). The naive ratio was 0.58. What is the correct conclusion?
+  options:
+    - >-
+      The agent cuts cycle time by about 42%, as the naive comparison of all tickets showed.
+    - >-
+      The data shows no detectable effect within size; the naive gap reflects ticket mix.
+    - >-
+      The agent slows developers down by 2%, so its use should be restricted to small tickets.
+    - >-
+      The stratified analysis is unreliable because it splits 120 tickets into three groups.
+  correct: 1
+  explanation: >-
+    Size drives both the choice and the duration. Within size, the interval spans a 14% reduction
+    to a 20% increase, so neither a gain nor a loss is shown; the 42% was the size mix.
+- id: q3
+  question: >-
+    A CTO forwards a vendor slide: "developers complete tasks 55% faster", footnoted to a lab study
+    of freelancers building a small JavaScript server. Her team maintains a 15-year-old .NET and
+    SQL Server system. What is the most useful reply?
+  options:
+    - >-
+      Expect about half that, since legacy code usually halves any published productivity gain.
+    - >-
+      Expect nothing, because studies run by vendor-affiliated authors are not trustworthy.
+    - >-
+      Expect 55%, because the result came from a randomized controlled trial with a control group.
+    - >-
+      Published effects range from slower to much faster by task and developer; measure it here.
+  correct: 3
+  explanation: >-
+    The lab result is causal for that task and population but does not transfer. Studies closer to
+    mature code bases found much smaller or negative effects; a short controlled comparison on
+    the client's own work is the only defensible forecast.
+- id: q4
+  question: >-
+    A platform dashboard shows agent-labelled PRs merging 54% faster (PR opened to merged). The
+    author adds the label when they used an agent. Which pair of problems undermines the number?
+  options:
+    - >-
+      The PR clock starts after the agent shifts work, and authors pick which PRs get labelled.
+    - >-
+      The sample of PRs is too small, and the median should have been replaced by the mean.
+    - >-
+      The label is binary, and the dashboard should instead report the share of AI-written lines.
+    - >-
+      The comparison ignores weekends, and the dashboard should use calendar days instead.
+  correct: 0
+  explanation: >-
+    With agents, developers open PRs later, so the review clock hides the earlier work; and
+    self-labelling lets the kind of change that suits agents select into the labelled group.
+- id: q5
+  question: >-
+    A team of five can run about 20 tickets per arm in six weeks. The within-size SD of log cycle
+    time is 0.35. Management hopes to detect a 10% improvement. What should the pre-registration say?
+  options:
+    - >-
+      Run the experiment as planned, since 20 per arm meets the minimum for a valid test.
+    - >-
+      Skip the experiment, since detecting 10% would need well over 100 tickets per arm.
+    - >-
+      Twenty per arm detects about 27% or more; the result can rule out large effects only.
+    - >-
+      Pool both arms' tickets and compare with last quarter, to double the effective sample.
+  correct: 2
+  explanation: >-
+    From the sample-size formula, 20 per arm gives about 80% power for a 27% reduction; 10% needs
+    about 175 per arm. The experiment is still worth running if the claim is sized to match.
+- id: q6
+  question: >-
+    The organization's worst-performing team in Q2 is chosen for the agent pilot. In Q3 its cycle
+    time falls 48%, and a difference-in-differences against 11 other teams shows -54%. Its cycle
+    time in the two quarters before Q2 was 22 h, and it is 23 h in Q3. What happened?
+  options:
+    - >-
+      The agent roughly halved cycle time, confirmed by the difference-in-differences.
+    - >-
+      The agent helped, but by less than 54% because other teams also changed in Q3.
+    - >-
+      The difference-in-differences is invalid because it needs at least 30 comparison teams.
+    - >-
+      The team returned to its usual level after a bad quarter; the pilot shows no effect.
+  correct: 3
+  explanation: >-
+    Selecting a unit for an extreme quarter guarantees regression toward its normal level. Against
+    the quarters before selection the change is about +1%; DiD cannot remove a shock specific to
+    the selected team.
+- id: q7
+  question: >-
+    A randomized comparison: raw means 20.2 h vs 15.0 h (t-test p = 0.24); one manual ticket took
+    170 h waiting on another team; the log-scale analysis stratified by size gives -16% (95% CI -25%
+    to -5%). How do you report the speed result?
+  options:
+    - >-
+      -16% (CI -25% to -5%) as primary, plus a sensitivity check without the outlier.
+    - >-
+      -26% from the raw means, because the mean uses every hour the team actually spent.
+    - >-
+      No measurable effect, because the standard t-test is not significant at 0.05.
+    - >-
+      Both -26% and -16%, and let the reader decide which analysis is more appropriate.
+  correct: 0
+  explanation: >-
+    The pre-registered log-scale stratified analysis is robust to skew and uses the blocks. The
+    raw mean is inflated by one ticket, and the t-test's non-significance reflects the outlier and
+    ignored blocks, not the absence of an effect.
+- id: q8
+  question: >-
+    Escaped defects were 4/48 tickets without the agent and 10/48 with it: difference +12.5 points,
+    95% CI 0 to +25, p = 0.13. The guardrail allows at most +10 points. What do you conclude?
+  options:
+    - >-
+      The guardrail passes, since the increase is not statistically significant at 0.05.
+    - >-
+      The guardrail fails: the interval cannot rule out an increase beyond the allowed margin.
+    - >-
+      The guardrail cannot be evaluated, since defect counts below 20 are too small to analyze.
+    - >-
+      The guardrail passes, since the point estimate is only slightly above the allowed margin.
+  correct: 1
+  explanation: >-
+    A guardrail must rule out harm. With an upper bound of +25 points, harm above the margin is
+    plausible. "Not significant" means the data could not tell, which a safety check cannot accept.
+- id: q9
+  question: >-
+    In a randomized experiment, three tickets assigned to the manual arm used the agent anyway.
+    The effect is -16% by assigned arm and -13% by actual use. Which is the primary result?
+  options:
+    - >-
+      -13% by actual use, because it compares what really happened on each ticket.
+    - >-
+      Neither; the experiment must be rerun without contamination to give a valid result.
+    - >-
+      -16% by assigned arm, because it preserves the comparison that randomization created.
+    - >-
+      The average of the two, -14.5%, since each analysis captures part of the truth.
+  correct: 2
+  explanation: >-
+    Intention to treat compares the groups the coin made and answers the policy question "what if
+    we assign the agent?". Grouping by actual use lets developers' choices back in; it is a
+    sensitivity check.
+- id: q10
+  question: >-
+    Your experiment gives -16% cycle time (95% CI -25% to -5%) on one team of four developers.
+    Your sponsor wants a slide for the board. Which sentence stays within what the data supports?
+  options:
+    - >-
+      "AI makes our developers 16% faster, saving roughly $13,000 a month."
+    - >-
+      "Our randomized trial proves AI makes developers up to 25% faster."
+    - >-
+      "Across our teams, expect cycle times about 16% shorter once AI is rolled out."
+    - >-
+      "On one team's randomized trial, cycle time fell 5-25%; defect effects are not yet ruled out."
+  correct: 3
+  explanation: >-
+    The supported claim names the setting, gives the interval and keeps the unresolved guardrail.
+    Point savings, "up to" the favourable bound, and extrapolation to other teams all climb the
+    claims ladder beyond one team's study.

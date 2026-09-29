@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    A 294-character Hebrew ticket costs 270 tokens under one tokenizer, while the same ticket in English
+    (336 characters) costs 76. What is the best explanation?
+  options:
+    - >-
+      Hebrew is right-to-left, so the model has to process it twice before it can attend to it.
+    - >-
+      The tokenizer's vocabulary has few Hebrew merges, so Hebrew words split into many sub-word pieces.
+    - >-
+      The model translates Hebrew into English internally, and the translation tokens are billed as input.
+    - >-
+      Hebrew characters take two bytes in UTF-8, and every tokenizer bills exactly one token per byte.
+  correct: 1
+  explanation: >-
+    BPE vocabularies are built from frequent strings in the training corpus. Under-represented languages get
+    fewer merges, so words fragment into more tokens. A newer tokenizer with a larger vocabulary cut the same
+    ticket to 115 tokens, which a byte-count or translation theory cannot explain.
+- id: q2
+  question: >-
+    A vendor advertises a 1M-token context window. Your agent must use one config value buried in 400k
+    tokens of old wiki pages that also mention two outdated values. What should you expect?
+  options:
+    - >-
+      Reliable retrieval, because the fact is inside the advertised window and attention sees every token.
+    - >-
+      A hard API error, because anything above roughly 128k tokens is silently rejected by most providers.
+    - >-
+      Retrieval that is slower but equally accurate, since only latency grows with context length.
+    - >-
+      Degraded and position-dependent accuracy, with a real risk of returning one of the outdated values.
+  correct: 3
+  explanation: >-
+    Nominal window is not effective context. Position effects (the U-shape from "Lost in the Middle") and
+    interference from similar distractors (RULER's harder tasks) reduce accuracy long before the hard limit.
+    Returning an outdated value is retrieval of the wrong fact, not invention.
+- id: q3
+  question: >-
+    Why are output tokens typically priced several times higher than input tokens?
+  options:
+    - >-
+      Input is processed in one parallel pass, but output needs a separate forward pass for every token.
+    - >-
+      Output tokens come from a bigger vocabulary than input tokens, so each one carries more information.
+    - >-
+      Providers must store output tokens permanently for abuse monitoring, and storage is billed per token.
+    - >-
+      Output tokens are sampled at a higher temperature, which requires more expensive hardware to run.
+  correct: 0
+  explanation: >-
+    Prefill processes the whole prompt in parallel; decode generates one token per forward pass, reusing the
+    KV cache. That serial work is what makes output slower and more expensive per token.
+- id: q4
+  question: >-
+    You budgeted a prompt of 40 Hebrew tickets using the rule "4 characters per token" and the tail of
+    the prompt was cut off. What is the right fix?
+  options:
+    - >-
+      Switch the rule to 3 characters per token, which is the accepted average for non-English text.
+    - >-
+      Ask the model in the prompt to tell you when the input looks truncated, and resend the missing part.
+    - >-
+      Count with the tokenizer of the model you call, and truncate on token boundaries, keeping new content.
+    - >-
+      Compress the tickets with gzip and base64 before sending, which cuts the token count roughly in half.
+  correct: 2
+  explanation: >-
+    Heuristics fail by 3x or more on Hebrew and SQL. Only the target model's tokenizer (or the provider's
+    counting endpoint) gives a count you can budget with, and truncation should respect token boundaries.
+    Base64 text usually costs more tokens, not fewer.

@@ -1,0 +1,49 @@
+{
+  "source": "snapshot",
+  "capturedUtc": "2026-08-18T02:00:00+00:00",
+  "schemaVersion": 5,
+  "live": false,
+  "tables": [
+    {
+      "name": "dbo.Invoice",
+      "columns": [
+        {
+          "name": "InvoiceId",
+          "type": "bigint",
+          "nullable": false
+        },
+        {
+          "name": "CustomerId",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Amount",
+          "type": "decimal(19,4)",
+          "nullable": false
+        },
+        {
+          "name": "IssuedUtc",
+          "type": "datetimeoffset(0)",
+          "nullable": false
+        },
+        {
+          "name": "DueUtc",
+          "type": "datetimeoffset(0)",
+          "nullable": false
+        },
+        {
+          "name": "Status",
+          "type": "tinyint",
+          "nullable": false
+        },
+        {
+          "name": "Notes",
+          "type": "nvarchar(400)",
+          "nullable": true
+        }
+      ]
+    }
+  ],
+  "procedures": []
+}

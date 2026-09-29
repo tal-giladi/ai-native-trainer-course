@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Which positioning sentence follows the lesson's five-slot pattern best?
+  options:
+    - >-
+      AI-native engineering transformation for modern software teams of any size, on any stack.
+    - >-
+      For legacy .NET leads whose agent PRs fail review, unlike tool training, I ground the agent and measure the effect.
+    - >-
+      Ground-Bound-Build-Prove: the proven four-step method that makes developers faster with agents.
+    - >-
+      For CTOs who want results, I guarantee a 30% productivity gain from coding agents in 90 days.
+  correct: 1
+  explanation: >-
+    It names one audience, one problem in the buyer's terms, today's alternative, what you do and a
+    measurement you control. The others are generic, lead with the method's name, or promise an outcome.
+- id: q2
+  question: >-
+    What makes the lesson's four offers a ladder rather than a price list?
+  options:
+    - >-
+      Prices rise steadily from rung to rung, so the buyer always sees a bigger option next.
+    - >-
+      Each rung is sold to a more senior buyer, so the student climbs the organization chart.
+    - >-
+      Each rung yields the evidence the next needs, and the buyer can stop with a useful result.
+    - >-
+      The top rung carries the margin, so the lower rungs can be priced at cost to win the client.
+  correct: 2
+  explanation: >-
+    The workshop measures learning, the pilot measures delivery on the client's tickets, the implementation
+    repeats that across teams. Entry to each rung is evidence from the one below, and a no-go is a result.
+- id: q3
+  question: >-
+    Your ladder's footer says "Only 2 spots left this quarter". You have no stated capacity and your
+    calendar is empty. What is the honest fix?
+  options:
+    - >-
+      Keep the line but change it to 3 spots, which is closer to what you could actually deliver.
+    - >-
+      Keep it, since business buyers expect urgency and discount it anyway when they read it.
+    - >-
+      Move it from the ladder into the proposal, where it applies to one client and one quarter.
+    - >-
+      Delete it and write a real capacity line, such as days per month, that you will keep to.
+  correct: 3
+  explanation: >-
+    Scarcity is honest only as a stated fact you keep. An invented limit is the same move as a fake
+    countdown timer, which the FTC names among deceptive dark patterns.
+- id: q4
+  question: >-
+    Rung 5 of a ladder reads "Same as rung 4, plus a 10x ROI guarantee, at three times the price", and you
+    would not want anyone to buy it. What is it?
+  options:
+    - >-
+      A decoy, added so that rung 4 looks like a bargain; remove it from the ladder.
+    - >-
+      An anchor for negotiation, which is fine as long as the price is written as a range.
+    - >-
+      A premium tier, which is standard practice and helps buyers who want lower risk.
+    - >-
+      A retainer in disguise, which should be moved to the end and priced per month instead.
+  correct: 0
+  explanation: >-
+    An option that exists only to make another look better is a decoy (Huber et al., 1982). The lesson's
+    test: would you be happy if a client bought each rung? If not, delete it.

@@ -1,0 +1,10 @@
+date,channel,network,prompted,asker,question,theme,answered_in
+2026-07-15,lunch-and-learn,inside,yes,Dana Katz,"Does Ground work when there is no test suite?",no-test-suite,verbal
+2026-07-15,lunch-and-learn,inside,yes,Yossi Mizrahi,"Isn't this just research-plan-implement with new names?",originality,verbal
+2026-07-16,dm,inside,yes,team lead,"If models improve, does the method go away?",model-improves,dm
+2026-07-29,post,inside,yes,former colleague,"Can the agent do Ground without tests?",no-test-suite,dm
+2026-08-12,article,inside,yes,avi.bd@example.com,"What about repos with zero tests?",no-test-suite,email
+2026-08-14,dm,inside,yes,engineering manager,"Will a better model make shadow rules go away?",model-improves,dm
+2026-08-26,video,inside,yes,developer,"Where do I start if there are no tests at all?",no-test-suite,dm
+2026-09-09,post,inside,yes,QA analyst,"Is this still needed with the newest models?",model-improves,dm
+2026-09-16,pilot,inside,yes,pilot developer,"How do we keep the brief from going stale?",brief-maintenance,verbal

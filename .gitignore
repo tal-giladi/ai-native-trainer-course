@@ -1,0 +1,8 @@
+bin/
+obj/
+.claude/
+.vs/
+*.user
+__pycache__/
+# source teardown of a third-party paid workshop: research input, not publishable
+ai-native-trainer-path.html

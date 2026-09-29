@@ -1,0 +1,157 @@
+- id: q1
+  question: >-
+    Two days before kickoff you have interviewed the sponsor and the tech lead. The engagement will
+    give an agent read access to the repository, and the SOW says access starts in week 1. Who do
+    you interview next, and why?
+  options:
+    - >-
+      The most enthusiastic developer, because early adopters make the first weeks go smoothly.
+    - >-
+      The security lead, because a review of what the agent may access could delay week 1.
+    - >-
+      The vendor's customer success manager, because they can speed up licence provisioning.
+    - >-
+      Nobody else until kickoff, because interviews after signature can reopen the scope.
+  correct: 1
+  explanation: >-
+    Access depends on a review nobody has requested yet; at Contoso it takes three weeks. Past-event
+    interviews before kickoff find these vetoes while they are still cheap to plan around.
+- id: q2
+  question: >-
+    The kickoff record lists deliverable D3 (the AI layer) with "Accepted by: the team", and access
+    as "TBD". What should you change before the audit starts?
+  options:
+    - >-
+      Nothing yet; acceptance and access can be settled once the first deliverable is ready.
+    - >-
+      Make yourself the acceptor, since you are best placed to judge the layer's quality.
+    - >-
+      Name the tech lead who will own the layer as acceptor, and get a dated access line.
+    - >-
+      Ask the sponsor to accept every deliverable, so that one person signs everything.
+  correct: 2
+  explanation: >-
+    One named client role per deliverable, ideally its future owner, and a date for access. "The team"
+    accepts nothing, and undated access is the most common way to lose week 1.
+- id: q3
+  question: >-
+    It is week 4. The client asks you to measure the "before" now, from the last two weeks of PRs,
+    because the historical export is awkward to produce. What is the best response?
+  options:
+    - >-
+      Get the 12-week historical export; a weeks 3–4 baseline partly measures your work.
+    - >-
+      Accept the two-week PR data, since any baseline is better than none at this stage.
+    - >-
+      Skip the delivery baseline and rely only on a satisfaction survey at the end.
+    - >-
+      Use industry benchmarks for cycle time as the baseline instead of the client's data.
+  correct: 0
+  explanation: >-
+    Once the build has started, the before is gone. History is uninfluenced by the engagement and long
+    enough to show spread; a PR clock over two weeks is neither the right metric nor enough data.
+- id: q4
+  question: >-
+    The pilot will randomize about 27 tickets and the baseline sd(log) within size is 0.44. The
+    sponsor hopes to "prove a 15% improvement". What do you tell her before signing the
+    pre-registration?
+  options:
+    - >-
+      That 27 tickets will show a 15% effect as long as the randomization is done by size.
+    - >-
+      That the eval results can be converted into a 15% delivery improvement afterwards.
+    - >-
+      That a longer read-out meeting will allow a 15% effect to be discussed in more detail.
+    - >-
+      That only changes of about 38% or more are likely to show; 15% needs ~116 per arm.
+  correct: 3
+  explanation: >-
+    $\delta = 2.80 \times 0.44 \times \sqrt{2/13.5} \approx 0.47$, a 38% reduction. Say so before the pilot so
+    that an inconclusive result is expected, and measure the more sensitive outcomes (evals, adoption) too.
+- id: q5
+  question: >-
+    By the last third of the build, 2 of 7 AI-layer changes were written by client developers, and
+    one developer wrote both. Every consultant change was reviewed. What does this mean for handover?
+  options:
+    - >-
+      The team is ready, since review by client developers transfers the necessary knowledge.
+    - >-
+      The layer is still yours: under 70% client-authored, one author, truck factor 1.
+    - >-
+      It is fine as long as the consultant stays available for questions after the handover.
+    - >-
+      Authorship does not matter as long as the eval gate passes on every change.
+  correct: 1
+  explanation: >-
+    Review builds awareness; authorship builds the ability to change the files. With one client author,
+    the layer cannot survive that person leaving; replan with pairing and client typing, and cut scope if needed.
+- id: q6
+  question: >-
+    Results: eval pass rate +21.7 pts [+10.6, +32.8]; cycle time -8% [-24%, +12%]; escaped defects
+    -13 pts [-27, 0]. Which status column is correct?
+  options:
+    - >-
+      Improved, improved, improved, since every point estimate is on the good side of zero.
+    - >-
+      Improved, inconclusive, improved, since the defect interval does not exceed zero.
+    - >-
+      Improved, inconclusive, inconclusive, since both of the last two intervals reach zero.
+    - >-
+      Inconclusive for all three, since one engagement can never show an improvement.
+  correct: 2
+  explanation: >-
+    An interval that includes zero, including one that only touches it, is inconclusive. The eval
+    interval lies entirely above zero, so that outcome improved.
+- id: q7
+  question: >-
+    Handover is on the contract date, 23 December. Office hours are "run by the consultant as
+    needed", and the Platform lead owns the eval gate but has not yet run it without you. What do
+    you do?
+  options:
+    - >-
+      Hand over on the date and book three follow-ups to catch anything that goes wrong.
+    - >-
+      Extend the engagement until usage reaches its target, then hand over everything at once.
+    - >-
+      Keep the office hours yourself and let the Platform lead take the gate after the new year.
+    - >-
+      Assign office hours to an employee owner; both owners run once unaided before handover.
+  correct: 3
+  explanation: >-
+    Handover is readiness, not a date: every responsibility needs an employee owner with a backup who
+    has already run it without you. Follow-ups check a handover; they do not replace it.
+- id: q8
+  question: >-
+    At the 60-day follow-up, weekly active use in a 6-person team fell from a baseline of 75% to 2 of
+    6. The p-chart shows no signal. What is the best next step?
+  options:
+    - >-
+      Ask the team's owner and champion what changed; small teams give very wide limits.
+    - >-
+      Do nothing, since the control chart shows the drop is within ordinary variation.
+    - >-
+      Retrain the whole team, since a fall of more than half always means skills have faded.
+    - >-
+      Ask for per-person usage to see exactly which developers stopped using the agent.
+  correct: 0
+  explanation: >-
+    With n = 6 the lower limit is about 22%, so the chart only catches collapses. The follow-up
+    conversation finds slides like this; per-person usage is monitoring and excluded.
+- id: q9
+  question: >-
+    Your case study draft reads: "Billing got 23% faster (up to 40% on migrations) at a Haifa
+    maintenance-contract company." The record's cycle-time result is -8% [-24%, +12%], inconclusive.
+    What is wrong?
+  options:
+    - >-
+      Only the city; the numbers are fine because they come from real tickets in the pilot.
+    - >-
+      Only "up to 40%"; the 23% is acceptable because it is the median the team actually saw.
+    - >-
+      Nothing, provided the client's name is removed and "results may vary" is added below.
+    - >-
+      The numbers are not the record's, "up to" is a best case, and the details identify the client.
+  correct: 3
+  explanation: >-
+    Every number must come from the record with its interval and status; "up to" presents the maximum
+    as the claim; a city plus a niche industry can identify the client. A disclaimer fixes none of it.

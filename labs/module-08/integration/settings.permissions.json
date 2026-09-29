@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__contoso-schema__*",
+      "mcp__github__issue_read",
+      "mcp__github__list_issues",
+      "mcp__github__search_issues",
+      "mcp__github__pull_request_read",
+      "mcp__github__get_file_contents"
+    ],
+    "ask": [
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "mcp__atlassian__getConfluencePage"
+    ],
+    "deny": [
+      "mcp__github__issue_write",
+      "mcp__github__add_issue_comment",
+      "mcp__github__create_pull_request",
+      "mcp__github__update_pull_request",
+      "mcp__github__merge_pull_request",
+      "mcp__github__create_or_update_file",
+      "mcp__github__delete_file",
+      "mcp__atlassian__editJiraIssue",
+      "mcp__atlassian__createJiraIssue",
+      "mcp__atlassian__transitionJiraIssue",
+      "mcp__atlassian__addCommentToJiraIssue",
+      "mcp__atlassian__createConfluencePage",
+      "mcp__atlassian__updateConfluencePage"
+    ]
+  }
+}

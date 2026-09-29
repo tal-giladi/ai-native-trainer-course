@@ -1,0 +1,162 @@
+- id: q1
+  question: >-
+    An agent's PR compiles and all tests pass, but the reviewer rejects it because it adds a
+    `CustomerBalanceService` that duplicates what `InvoiceService` already does. Which phase failed
+    first, and which gate would have caught it earliest?
+  options:
+    - >-
+      Implementation failed; a duplicate-code linter in CI would have flagged it on the first push.
+    - >-
+      Validation failed; the test suite should have included a test that forbids new services.
+    - >-
+      Research failed; a brief of existing capabilities, checked in plan review, catches it.
+    - >-
+      Code review failed; the reviewer should have caught it before the PR was even opened.
+  correct: 2
+  explanation: >-
+    A duplicate means the existing service never entered the agent's context, which is a research
+    gap. The reuse table in the research brief, checked at the plan checkpoint, is the earliest and
+    cheapest place to see it; tests cannot, because the duplicate works.
+- id: q2
+  question: >-
+    A teammate's research sub-agent returns a 1,200-token brief for a ticket; exploring cost about
+    45,000 tokens. The teammate proposes pasting the full exploration transcript into the
+    implementing session "so nothing is lost". What is the best response?
+  options:
+    - >-
+      Agree, because more context about the codebase always improves the implementation.
+    - >-
+      Keep the brief; add file pointers for anything the implementer may need to open.
+    - >-
+      Agree, but only if the context window is large enough to hold both documents at once.
+    - >-
+      Drop the brief and let the implementing agent explore again, so its context is its own.
+  correct: 1
+  explanation: >-
+    Delegated research exists to keep tens of thousands of partly irrelevant or stale tokens out of
+    the implementation context. The brief plus pointers gives the implementer what it needs and lets
+    it open files just in time.
+- id: q3
+  question: >-
+    An approved plan for a new report endpoint has a Touch list of five files. Halfway through, the
+    agent finds it must also change `ReportRegistry.cs`, which is not listed. What should happen?
+  options:
+    - >-
+      The agent changes the file and notes it in the PR description for the reviewer.
+    - >-
+      The scope gate is disabled for this PR, since the Touch list was only an estimate.
+    - >-
+      The agent writes a new registry in one of the five files so the boundary is respected.
+    - >-
+      The agent stops, the plan is amended and re-approved, and then the file is changed.
+  correct: 3
+  explanation: >-
+    Needing an extra file is normal; silent drift is not. Amending the plan first keeps the decision
+    reviewed and keeps the scope gate meaningful. Working around the boundary creates duplication.
+- id: q4
+  question: >-
+    `LoopGate plan-lint` passes on a plan whose Approach says "Use EF Core for writes (ev:
+    `InvoiceRepository.cs`)". The cited file exists and contains a Dapper repository. What does the
+    passing lint tell the reviewer?
+  options:
+    - >-
+      That the plan has the required form and the file exists, not that it backs the claim.
+    - >-
+      That the EF Core decision is grounded, since it cites a file from the data-access layer.
+    - >-
+      That the implementation will stay inside the architecture defined by ADR 0007.
+    - >-
+      That the plan has already passed human review, so the checkpoint can be skipped.
+  correct: 0
+  explanation: >-
+    The lint checks sections, existing paths, verify clauses and checkpoints. Whether the evidence
+    supports the decision is the reviewer's question, and here the cited file shows the opposite.
+- id: q5
+  question: >-
+    After four attempts in one session, an agent reports "All tests pass: Passed 8, Skipped 1,
+    Total 9". The suite had 6 tests before, and the skipped test uses a fixed clock. What do you do?
+  options:
+    - >-
+      Merge it, since nothing failed, and open a follow-up ticket to look at the flaky test.
+    - >-
+      Treat it as red: unskip the test, reset to last green, and retry with a learned note.
+    - >-
+      Ask the same session to explain why the test is flaky, then accept that explanation.
+    - >-
+      Delete the skipped test, since a test that is skipped provides no value to the suite.
+  correct: 1
+  explanation: >-
+    A skipped test hides a result, and a fixed-clock test is not flaky. Four attempts in one
+    session is past the stop rule, so the cheapest path is a reset with what was learned, not a
+    fifth try in the same context.
+- id: q6
+  question: >-
+    A failing step costs 5 minutes per attempt. In the current session you estimate a 25% chance of
+    success per attempt; a fresh session with the plan and a learned note, 50%. Re-priming costs
+    6 minutes. Which choice has the lower expected cost?
+  options:
+    - >-
+      Continue: about 20 minutes, against about 26 minutes for a reset.
+    - >-
+      They are equal, since both approaches take about 20 minutes on average.
+    - >-
+      Reset: about 16 minutes, against about 20 minutes for continuing.
+    - >-
+      Continue: re-priming costs more than a single additional attempt.
+  correct: 2
+  explanation: >-
+    Continue is 5 / 0.25 = 20 minutes. Reset is 6 + 5 / 0.5 = 16 minutes. The comparison is
+    re-priming cost against the difference in expected attempts, not against one attempt.
+- id: q7
+  question: >-
+    For "wrong data-access pattern" defects, plan review catches 40%, tests 10% and code review
+    50%. Which single change lowers the escape rate the most?
+  options:
+    - >-
+      Adding more unit tests, since tests are currently the weakest of the three gates.
+    - >-
+      A second human code reviewer with the same checklist as the first reviewer.
+    - >-
+      Longer plan reviews, raising the plan-review catch rate from 40% to 60%.
+    - >-
+      An architecture rule in CI that fails on the forbidden pattern, catching about 95%.
+  correct: 3
+  explanation: >-
+    Escape is the product of miss rates: 0.6 times 0.9 times 0.5 is 0.27. A 95% architecture gate
+    multiplies it by 0.05. More tests barely help, because the wrong pattern usually works, and a
+    second similar reviewer misses the same things.
+- id: q8
+  question: >-
+    A research brief produced by a built-in read-only sub-agent proposes EF Core, although the
+    grounded `AGENTS.md` says new data access is Dapper. How is that possible?
+  options:
+    - >-
+      The sub-agent skips the rules file, and the prompt did not point it at the ADRs.
+    - >-
+      The model ignored the rules file because read-only agents give it a lower priority.
+    - >-
+      AGENTS.md was too long, so the data-access line was lost in the middle of the file.
+    - >-
+      The sub-agent hallucinated the ADR, because read-only tools cannot open Markdown files.
+  correct: 0
+  explanation: >-
+    Built-in Explore and Plan sub-agents skip CLAUDE.md to keep research cheap, so rules do not cross
+    that context boundary. The fix is at the origin: research prompts and templates that name where
+    decisions live, such as docs/adr/.
+- id: q9
+  question: >-
+    You ran six tickets both paste-and-go and through the loop, always paste-and-go first. The loop
+    looks 30% faster. What is the most important caveat before you tell your manager?
+  options:
+    - >-
+      Six tickets cannot be timed precisely, so the minutes you recorded are unreliable.
+    - >-
+      The loop always ran second and benefited from the first run; order is confounded with method.
+    - >-
+      Paste-and-go should have been run on different tickets, so the comparison is not paired.
+    - >-
+      Speed is irrelevant; only the number of lines changed shows which method is better.
+  correct: 1
+  explanation: >-
+    Whichever arm runs second benefits from what the first run taught you. Alternate the order, keep
+    counting defects found later, and present six tickets as notes, not as a measured effect.

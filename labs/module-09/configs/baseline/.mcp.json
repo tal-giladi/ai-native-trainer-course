@@ -1,0 +1,8 @@
+{
+  "$comment": "BASELINE: every lab server connected with full scope, including a write tool (add_comment) and the untrusted third-party notes server. The lab's edge container serves each MCP endpoint on 127.0.0.1:8809 only (start security-lab first).",
+  "mcpServers": {
+    "tickets": { "type": "http", "url": "http://127.0.0.1:8809/tickets/mcp" },
+    "docs":    { "type": "http", "url": "http://127.0.0.1:8809/docs/mcp" },
+    "notes":   { "type": "http", "url": "http://127.0.0.1:8809/notes/mcp" }
+  }
+}

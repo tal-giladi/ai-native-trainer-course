@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Your application form asks for full name, work email, phone, home address, date of birth and team
+    size. Which change does the lesson ask for first?
+  options:
+    - >-
+      Keep all the fields but add a privacy note, since the applicant chose to give the data.
+    - >-
+      Keep name and work email, drop the rest, and ask about the incident and conflicts.
+    - >-
+      Drop the work email instead, since a phone call is a better first contact for a sale.
+    - >-
+      Make the personal fields optional, so that only people who want to share them do so.
+  correct: 1
+  explanation: >-
+    Collect only what the qualification decision uses (data minimization). Name and work email are needed to
+    reply; the past incident and the conflict question are what the decision actually needs.
+- id: q2
+  question: >-
+    Application A03 scores 5 of 5: a real incident, a sponsor, approved budget, a start in six weeks. It
+    also says they are a current customer of your employer. What do you do?
+  options:
+    - >-
+      Book the call, since the conflict question is only a flag and the score is perfect.
+    - >-
+      Book the call but take it on a personal email address so the employer is not involved.
+    - >-
+      Refer them elsewhere, unless you have your employer's written permission for this client.
+    - >-
+      Offer a reduced scope that avoids anything your employer sells, and proceed with the call.
+  correct: 2
+  explanation: >-
+    A conflict routes to REFER regardless of the score. Selling to your employer's customers without written
+    permission risks your job and your reputation; lesson 20.5 covers how to check.
+- id: q3
+  question: >-
+    Twelve minutes into a discovery call, the prospect says their VP wants a guaranteed 30% improvement.
+    Which reply fits the lesson?
+  options:
+    - >-
+      "I can't promise 30%. My one measured result was 16%, interval 5% to 25%, on one team; I can measure yours."
+    - >-
+      "Let's talk about that once we've scoped the work, since guarantees depend on what's included."
+    - >-
+      "Thirty is ambitious, but with full adoption and our method I'd be comfortable guaranteeing 20%."
+    - >-
+      "Most clients see more than that, so it shouldn't be a problem for a team like yours."
+  correct: 0
+  explanation: >-
+    Reset the expectation early and once, with your own result, its interval and population, and offer the
+    measurement. Deferring, counter-promising or claiming others' results all avoid the honest answer.
+- id: q4
+  question: >-
+    OfferCheck call reports that you spoke 86% of the words and first mentioned your offer at 00:00.
+    What does that most likely mean about the call?
+  options:
+    - >-
+      It was efficient, since the prospect heard the whole offer before their attention dropped.
+    - >-
+      It was fine if the prospect agreed to a next step, since the ratio matters only for failed calls.
+    - >-
+      The tool is too strict, since sales calls naturally have the seller doing most of the talking.
+    - >-
+      You learned little about their problem, decision path or budget; any proposal is a guess.
+  correct: 3
+  explanation: >-
+    Every minute you talk is a minute you are not finding out whether you can help. Pitching first also bends
+    everything the prospect says next toward your offer instead of their problem.

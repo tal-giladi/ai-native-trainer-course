@@ -1,0 +1,11 @@
+---
+description: SQL Server migration conventions for Contoso Billing
+globs: db/migrations/**
+alwaysApply: false
+---
+
+# Migrations (Cursor project rule, auto-attached by glob)
+
+- New migration = `V###__name.sql` plus matching `U###__name.sql` undo script.
+- Never edit a merged `V###` script; add a new one.
+- Time columns are `datetimeoffset(0)` in UTC; money is `decimal(19,4)`.

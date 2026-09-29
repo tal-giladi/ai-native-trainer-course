@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    An agent reports "All tests pass" and pastes `Passed: 8, Skipped: 1, Total: 9`. Before its
+    change the suite had 6 tests. What should the validation gate conclude?
+  options:
+    - >-
+      Pass, since zero tests failed and the total went up from 6 to 9 after the change.
+    - >-
+      Pass with a warning, since a single skipped test is normal while a feature is in progress.
+    - >-
+      Fail only if the skipped test belongs to a file that the plan listed as Do not touch.
+    - >-
+      Fail, because a skipped test hides a result and the report is a claim, not the evidence.
+  correct: 3
+  explanation: >-
+    Skipping is one of the ways an agent turns a red run into a green report. The gate treats
+    skipped tests and a falling test count as failures, whatever the summary says.
+- id: q2
+  question: >-
+    Where does a validation gate have to run so that it is independent of the agent's own choice
+    to run it?
+  options:
+    - >-
+      In the rules file, as an instruction that the agent must always run the tests first.
+    - >-
+      In a Stop hook that blocks the turn from ending, and in CI that blocks the merge.
+    - >-
+      In the agent's final summary, which should paste the full test output as evidence.
+    - >-
+      In a fresh-context reviewer sub-agent that reads the diff against the approved plan.
+  correct: 1
+  explanation: >-
+    Instructions and summaries depend on the agent; a reviewer sub-agent is useful but not
+    deterministic. A Stop hook runs on every attempt to finish, and CI runs regardless of the session.
+- id: q3
+  question: >-
+    Attempts cost 6 minutes. After two failures you estimate the polluted session succeeds 20% of
+    the time; a fresh session with a learned note succeeds 60%. Re-priming costs 8 minutes. Which
+    is cheaper in expectation?
+  options:
+    - >-
+      Reset: about 18 expected minutes, against about 30 for continuing in the session.
+    - >-
+      Continue: re-priming costs 8 minutes, which is more than one additional attempt.
+    - >-
+      They are equal, since both approaches eventually succeed on the same ticket anyway.
+    - >-
+      Continue: the session already holds context that a fresh session would have to rebuild.
+  correct: 0
+  explanation: >-
+    Continue costs 6 / 0.2 = 30 minutes; reset costs 8 + 6 / 0.6 = 18. When the success
+    probability in the polluted session drops, the expected cost of one more try grows fast.
+- id: q4
+  question: >-
+    Why is the obsolete-member warning not a good gate against new `SqlHelper` calls in Contoso
+    Billing?
+  options:
+    - >-
+      The .NET analyzers are disabled by default, so the warning never appears in a build.
+    - >-
+      `-warnaserror` cannot be used on a solution that contains a test project.
+    - >-
+      The project suppresses `CS0618` for the legacy caller, so new calls produce no warning.
+    - >-
+      Obsolete warnings only appear inside Visual Studio and are skipped by `dotnet build`.
+  correct: 2
+  explanation: >-
+    Contoso suppresses CS0618 project-wide so the last legacy caller builds cleanly. That silences
+    the warning for new code too, so the architecture rule and the convention test carry that gate.

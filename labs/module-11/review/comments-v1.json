@@ -1,0 +1,582 @@
+{
+  "prompt": "prompts/review-v1.md",
+  "note": "ILLUSTRATIVE",
+  "comments": [
+    {
+      "id": "v1-001",
+      "pr": "PR-301",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 42,
+      "severity": "high",
+      "category": "time",
+      "body": "DateTimeOffset.UtcNow instead of IClock; tests cannot freeze time."
+    },
+    {
+      "id": "v1-002",
+      "pr": "PR-301",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 103,
+      "severity": "nit",
+      "category": "style",
+      "body": "Consider pattern matching with 'is not null'."
+    },
+    {
+      "id": "v1-003",
+      "pr": "PR-302",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 59,
+      "severity": "medium",
+      "category": "sql",
+      "body": "Loads every invoice for the customer and filters in memory (BILL-142 AC4)."
+    },
+    {
+      "id": "v1-004",
+      "pr": "PR-303",
+      "file": "db/migrations/V006__payment_reminder.sql",
+      "line": 1,
+      "severity": "medium",
+      "category": "sql",
+      "body": "V006 has no U006 undo script (convention since V003)."
+    },
+    {
+      "id": "v1-005",
+      "pr": "PR-304",
+      "file": "README.md",
+      "line": 41,
+      "severity": "low",
+      "category": "docs",
+      "body": "Consider documenting the exceptions this can throw."
+    },
+    {
+      "id": "v1-006",
+      "pr": "PR-304",
+      "file": "README.md",
+      "line": 85,
+      "severity": "low",
+      "category": "style",
+      "body": "Consider a switch expression instead of if/else."
+    },
+    {
+      "id": "v1-007",
+      "pr": "PR-304",
+      "file": "docs/ARCHITECTURE.md",
+      "line": 62,
+      "severity": "medium",
+      "category": "perf",
+      "body": "Consider making this method parallel."
+    },
+    {
+      "id": "v1-008",
+      "pr": "PR-304",
+      "file": "docs/ARCHITECTURE.md",
+      "line": 84,
+      "severity": "low",
+      "category": "naming",
+      "body": "Private field should use camelCase without underscore."
+    },
+    {
+      "id": "v1-009",
+      "pr": "PR-304",
+      "file": "docs/ARCHITECTURE.md",
+      "line": 101,
+      "severity": "medium",
+      "category": "maintainability",
+      "body": "Store amounts as double to avoid decimal overhead."
+    },
+    {
+      "id": "v1-010",
+      "pr": "PR-304",
+      "file": "docs/ARCHITECTURE.md",
+      "line": 106,
+      "severity": "high",
+      "category": "correctness",
+      "body": "Potential race condition if called concurrently."
+    },
+    {
+      "id": "v1-011",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 127,
+      "severity": "nit",
+      "category": "docs",
+      "body": "Consider documenting the exceptions this can throw."
+    },
+    {
+      "id": "v1-012",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderText.cs",
+      "line": 19,
+      "severity": "high",
+      "category": "correctness",
+      "body": "Consider validating the input here; negative values might cause problems."
+    },
+    {
+      "id": "v1-013",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderText.cs",
+      "line": 31,
+      "severity": "medium",
+      "category": "architecture",
+      "body": "Use DateTime instead of DateTimeOffset for simplicity."
+    },
+    {
+      "id": "v1-014",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderText.cs",
+      "line": 43,
+      "severity": "low",
+      "category": "naming",
+      "body": "Async suffix is redundant here."
+    },
+    {
+      "id": "v1-015",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderText.cs",
+      "line": 54,
+      "severity": "medium",
+      "category": "perf",
+      "body": "Consider making this method parallel."
+    },
+    {
+      "id": "v1-016",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderText.cs",
+      "line": 108,
+      "severity": "nit",
+      "category": "style",
+      "body": "Use string interpolation instead of concatenation."
+    },
+    {
+      "id": "v1-017",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 17,
+      "severity": "low",
+      "category": "docs",
+      "body": "Add an XML doc comment to this public method."
+    },
+    {
+      "id": "v1-018",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 34,
+      "severity": "low",
+      "category": "style",
+      "body": "Prefer expression-bodied member."
+    },
+    {
+      "id": "v1-019",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 77,
+      "severity": "high",
+      "category": "security",
+      "body": "Reference concatenated into SQL text (injection)."
+    },
+    {
+      "id": "v1-020",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 79,
+      "severity": "high",
+      "category": "security",
+      "body": "Same issue as above: this SQL is built by concatenation."
+    },
+    {
+      "id": "v1-021",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 96,
+      "severity": "medium",
+      "category": "correctness",
+      "body": "Consider validating the input here; negative values might cause problems."
+    },
+    {
+      "id": "v1-022",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 108,
+      "severity": "low",
+      "category": "naming",
+      "body": "Private field should use camelCase without underscore."
+    },
+    {
+      "id": "v1-023",
+      "pr": "PR-307",
+      "file": "tests/Contoso.Billing.Tests/Contoso.Billing.Tests.csproj",
+      "line": 13,
+      "severity": "medium",
+      "category": "correctness",
+      "body": "Potential race condition if called concurrently."
+    },
+    {
+      "id": "v1-024",
+      "pr": "PR-307",
+      "file": "tests/Contoso.Billing.Tests/Contoso.Billing.Tests.csproj",
+      "line": 40,
+      "severity": "low",
+      "category": "naming",
+      "body": "Async suffix is redundant here."
+    },
+    {
+      "id": "v1-025",
+      "pr": "PR-307",
+      "file": "tests/Contoso.Billing.Tests/Contoso.Billing.Tests.csproj",
+      "line": 107,
+      "severity": "nit",
+      "category": "style",
+      "body": "Braces could be omitted for this single-line if."
+    },
+    {
+      "id": "v1-026",
+      "pr": "PR-308",
+      "file": "src/Contoso.Billing/Payments/Payment.cs",
+      "line": 101,
+      "severity": "low",
+      "category": "style",
+      "body": "Prefer expression-bodied member."
+    },
+    {
+      "id": "v1-027",
+      "pr": "PR-308",
+      "file": "src/Contoso.Billing/Payments/PaymentAllocator.cs",
+      "line": 63,
+      "severity": "high",
+      "category": "money",
+      "body": "Remaining balance computed in double."
+    },
+    {
+      "id": "v1-028",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 23,
+      "severity": "nit",
+      "category": "style",
+      "body": "Consider a switch expression instead of if/else."
+    },
+    {
+      "id": "v1-029",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 29,
+      "severity": "medium",
+      "category": "perf",
+      "body": "Consider making this method parallel."
+    },
+    {
+      "id": "v1-030",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 35,
+      "severity": "nit",
+      "category": "docs",
+      "body": "The README could mention this new option."
+    },
+    {
+      "id": "v1-031",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 68,
+      "severity": "high",
+      "category": "architecture",
+      "body": "Consider using Entity Framework Core instead of raw SQL for maintainability."
+    },
+    {
+      "id": "v1-032",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 82,
+      "severity": "low",
+      "category": "naming",
+      "body": "Consider renaming 'svc' to something more descriptive."
+    },
+    {
+      "id": "v1-033",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 134,
+      "severity": "medium",
+      "category": "concurrency",
+      "body": "This could fail if the database is unavailable; add retry logic."
+    },
+    {
+      "id": "v1-034",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 19,
+      "severity": "low",
+      "category": "docs",
+      "body": "Consider documenting the exceptions this can throw."
+    },
+    {
+      "id": "v1-035",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 79,
+      "severity": "low",
+      "category": "style",
+      "body": "Braces could be omitted for this single-line if."
+    },
+    {
+      "id": "v1-036",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 82,
+      "severity": "medium",
+      "category": "concurrency",
+      "body": "This could fail if the database is unavailable; add retry logic."
+    },
+    {
+      "id": "v1-037",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 87,
+      "severity": "medium",
+      "category": "perf",
+      "body": "Consider caching this result."
+    },
+    {
+      "id": "v1-038",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 88,
+      "severity": "low",
+      "category": "naming",
+      "body": "Consider renaming 'dto' to 'model'."
+    },
+    {
+      "id": "v1-039",
+      "pr": "PR-312",
+      "file": "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs",
+      "line": 134,
+      "severity": "high",
+      "category": "maintainability",
+      "body": "Use DateTime instead of DateTimeOffset for simplicity."
+    },
+    {
+      "id": "v1-040",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/Statement.cs",
+      "line": 81,
+      "severity": "low",
+      "category": "naming",
+      "body": "Consider renaming 'dto' to 'model'."
+    },
+    {
+      "id": "v1-041",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/Statement.cs",
+      "line": 108,
+      "severity": "nit",
+      "category": "style",
+      "body": "Consider using 'var' here for readability."
+    },
+    {
+      "id": "v1-042",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 50,
+      "severity": "medium",
+      "category": "correctness",
+      "body": "Draft invoices with no due date throw in the banner path."
+    },
+    {
+      "id": "v1-043",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 81,
+      "severity": "nit",
+      "category": "docs",
+      "body": "Add a summary comment explaining the class purpose."
+    },
+    {
+      "id": "v1-044",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 108,
+      "severity": "medium",
+      "category": "concurrency",
+      "body": "This may cause performance issues with large datasets."
+    },
+    {
+      "id": "v1-045",
+      "pr": "PR-314",
+      "file": "db/migrations/V007__po_number.sql",
+      "line": 3,
+      "severity": "high",
+      "category": "sql",
+      "body": "NOT NULL column added to a populated table without a default."
+    },
+    {
+      "id": "v1-046",
+      "pr": "PR-314",
+      "file": "db/migrations/V007__po_number.sql",
+      "line": 55,
+      "severity": "low",
+      "category": "style",
+      "body": "Prefer expression-bodied member."
+    },
+    {
+      "id": "v1-047",
+      "pr": "PR-315",
+      "file": "src/Contoso.Billing/Common/LogEvents.cs",
+      "line": 75,
+      "severity": "nit",
+      "category": "style",
+      "body": "Consider using 'var' here for readability."
+    },
+    {
+      "id": "v1-048",
+      "pr": "PR-317",
+      "file": "src/Contoso.Billing/Common/Audit.cs",
+      "line": 20,
+      "severity": "medium",
+      "category": "security",
+      "body": "Audit line writes the customer's e-mail address (PII) to logs."
+    },
+    {
+      "id": "v1-049",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 39,
+      "severity": "medium",
+      "category": "perf",
+      "body": "Use a StringBuilder here."
+    },
+    {
+      "id": "v1-050",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 68,
+      "severity": "low",
+      "category": "naming",
+      "body": "Private field should use camelCase without underscore."
+    },
+    {
+      "id": "v1-051",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 74,
+      "severity": "medium",
+      "category": "reliability",
+      "body": "This could throw a NullReferenceException if the invoice is null."
+    },
+    {
+      "id": "v1-052",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 79,
+      "severity": "low",
+      "category": "docs",
+      "body": "The README could mention this new option."
+    },
+    {
+      "id": "v1-053",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 93,
+      "severity": "low",
+      "category": "style",
+      "body": "Consider pattern matching with 'is not null'."
+    },
+    {
+      "id": "v1-054",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 136,
+      "severity": "medium",
+      "category": "maintainability",
+      "body": "Use DateTime instead of DateTimeOffset for simplicity."
+    },
+    {
+      "id": "v1-055",
+      "pr": "PR-319",
+      "file": "docs/adr/0008-reminders.md",
+      "line": 11,
+      "severity": "low",
+      "category": "naming",
+      "body": "Method name could be clearer, e.g. 'GetItems'."
+    },
+    {
+      "id": "v1-056",
+      "pr": "PR-319",
+      "file": "docs/adr/0008-reminders.md",
+      "line": 12,
+      "severity": "nit",
+      "category": "docs",
+      "body": "Add a summary comment explaining the class purpose."
+    },
+    {
+      "id": "v1-057",
+      "pr": "PR-319",
+      "file": "docs/adr/0008-reminders.md",
+      "line": 51,
+      "severity": "high",
+      "category": "reliability",
+      "body": "This could throw a NullReferenceException if the invoice is null."
+    },
+    {
+      "id": "v1-058",
+      "pr": "PR-319",
+      "file": "docs/adr/0008-reminders.md",
+      "line": 74,
+      "severity": "medium",
+      "category": "architecture",
+      "body": "Consider using Entity Framework Core instead of raw SQL for maintainability."
+    },
+    {
+      "id": "v1-059",
+      "pr": "PR-319",
+      "file": "docs/adr/0008-reminders.md",
+      "line": 128,
+      "severity": "nit",
+      "category": "style",
+      "body": "Braces could be omitted for this single-line if."
+    },
+    {
+      "id": "v1-060",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 49,
+      "severity": "low",
+      "category": "style",
+      "body": "Braces could be omitted for this single-line if."
+    },
+    {
+      "id": "v1-061",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 55,
+      "severity": "low",
+      "category": "time",
+      "body": "DateTime.Now (local clock) in the banner cut-off."
+    },
+    {
+      "id": "v1-062",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 100,
+      "severity": "high",
+      "category": "reliability",
+      "body": "Consider validating the input here; negative values might cause problems."
+    },
+    {
+      "id": "v1-063",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 111,
+      "severity": "low",
+      "category": "docs",
+      "body": "Add a summary comment explaining the class purpose."
+    },
+    {
+      "id": "v1-064",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 123,
+      "severity": "low",
+      "category": "naming",
+      "body": "Private field should use camelCase without underscore."
+    }
+  ]
+}

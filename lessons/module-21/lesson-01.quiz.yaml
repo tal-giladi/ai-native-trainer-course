@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Your kickoff record lists the sponsor, the tech lead and two developers. The engagement changes
+    the code behind the monthly revenue report. Who is most important to add before kickoff?
+  options:
+    - >-
+      A second senior developer, so that the build has enough reviewers from the start.
+    - >-
+      The finance controller who reconciles the report and can stop changes to it.
+    - >-
+      The vendor's account manager, so that licence questions are answered quickly.
+    - >-
+      A junior developer, since newer staff adopt new tools earliest and influence peers.
+  correct: 1
+  explanation: >-
+    Business users of the output can veto a change engineers think is safe, and they never appear in
+    the repository. The controller's month-end freeze and past incident change the build schedule.
+- id: q2
+  question: >-
+    Which interview question is most likely to surface a stakeholder's real veto or worry?
+  options:
+    - >-
+      "Would you support an AI coding initiative in your area if the results looked good?"
+    - >-
+      "On a scale of one to ten, how useful do you expect coding agents to be for you?"
+    - >-
+      "What happened the last time a tool like this was introduced here?"
+    - >-
+      "Do you agree that agent-written code needs stronger review than human code?"
+  correct: 2
+  explanation: >-
+    Past-event questions produce facts (the static-analysis tool switched off after four months);
+    hypothetical and opinion questions produce politeness or agreement with the interviewer.
+- id: q3
+  question: >-
+    The SOW lists deliverable D3, "AI layer v1 in the Billing repository". Who should accept it?
+  options:
+    - >-
+      The consultant, because they know best whether the layer meets its criterion.
+    - >-
+      "The client", so that anyone at Contoso can sign it off when it is ready.
+    - >-
+      The whole Billing team, so that acceptance reflects everyone who will use it.
+    - >-
+      The Billing tech lead, who will own and maintain the layer after handover.
+  correct: 3
+  explanation: >-
+    One named client role per deliverable. The owner of the layer is the natural acceptor; a
+    deliverable accepted by "the team" or "the client" is accepted by nobody.
+- id: q4
+  question: >-
+    In the kickoff, the sponsor asks, "So we will be 30% faster by December?" What belongs in the
+    record's success measure?
+  options:
+    - >-
+      The pre-registered outcomes with intervals, and the smallest effect the data can detect.
+    - >-
+      "At least 30% faster cycle time by week 12", since the sponsor needs a clear target.
+    - >-
+      "Up to 30% faster", which states the ambition without promising a specific number.
+    - >-
+      No measure at all, since results only become clear after the engagement ends.
+  correct: 0
+  explanation: >-
+    The SOW measures, it does not guarantee. Restating the measurement and the detectable effect sets
+    expectations honestly; "at least" and "up to" are both promises in disguise.

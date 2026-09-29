@@ -1,0 +1,29 @@
+{
+  "_comment": "Fabrikam hosting options for coding agents. Pass rates come from the M7 harness on Fabrikam's 50-task set (illustrative); prices are illustrative, not quotes. Geos and features as documented 2026-09; re-verify.",
+  "constraints": {
+    "residency": "eu",
+    "features": ["tool-use", "prompt-caching", "streaming"],
+    "minPassRate": 0.60
+  },
+  "volume": { "attemptsPerMonth": 120000, "failureReviewCost": 15 },
+  "options": [
+    { "id": "vendor-api", "kind": "SaaS model API (first party)", "geos": ["global", "us"],
+      "features": ["tool-use", "prompt-caching", "streaming", "batch", "mcp-connector", "files"],
+      "passRate": 0.74, "trials": 50, "costPerAttempt": 0.62, "fixedMonthly": 0 },
+    { "id": "hyperscaler-a-eu-profile", "kind": "cloud-hosted model, EU geographic inference profile", "geos": ["eu"],
+      "features": ["tool-use", "prompt-caching", "streaming", "batch"],
+      "passRate": 0.74, "trials": 50, "costPerAttempt": 0.62, "fixedMonthly": 0 },
+    { "id": "hyperscaler-b-eu-multiregion", "kind": "cloud-hosted model, EU multi-region endpoint (+10%)", "geos": ["eu"],
+      "features": ["tool-use", "prompt-caching", "streaming"],
+      "passRate": 0.74, "trials": 50, "costPerAttempt": 0.68, "fixedMonthly": 0 },
+    { "id": "hyperscaler-b-eu-region-older", "kind": "cloud-hosted, single EU region, previous-generation model only", "geos": ["eu"],
+      "features": ["tool-use", "prompt-caching", "streaming"],
+      "passRate": 0.64, "trials": 50, "costPerAttempt": 0.45, "fixedMonthly": 0 },
+    { "id": "self-hosted-mid-open-weights", "kind": "open-weights model on our EU GPUs (vLLM)", "geos": ["eu"],
+      "features": ["tool-use", "prompt-caching", "streaming"],
+      "passRate": 0.46, "trials": 50, "costPerAttempt": 0.02, "fixedMonthly": 48000 },
+    { "id": "self-hosted-large-open-weights", "kind": "larger open-weights model, 2x the GPUs", "geos": ["eu"],
+      "features": ["tool-use", "prompt-caching", "streaming"],
+      "passRate": 0.62, "trials": 50, "costPerAttempt": 0.04, "fixedMonthly": 96000 }
+  ]
+}

@@ -1,0 +1,4 @@
+# plan-feature 1.0.0 output contract (before the BILL-153 failure).
+# kind[@Section] | a | b | message
+require | research/[A-Z]+-\d+\.md | | the plan cites the research brief it was built from
+max-count@Steps | ^\d+\. | 8 | more than 8 steps: split the ticket or the plan

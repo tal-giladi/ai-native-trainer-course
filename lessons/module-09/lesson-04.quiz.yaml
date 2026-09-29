@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    A coding agent is configured with an allow rule of Bash(*). Which root cause of excessive agency
+    does this most directly represent?
+  options:
+    - >-
+      Excessive functionality, because one rule grants effectively every shell capability the task never asked for.
+    - >-
+      Excessive autonomy, because it removes the human from every decision.
+    - >-
+      Excessive permissions, because it changes the scope of the MCP token.
+    - >-
+      None of these; Bash(*) is only a convenience feature, not a real security concern, as long as the underlying model behaves honestly.
+  correct: 0
+  explanation: >-
+    Bash(*) is not one capability but all of them: network egress, arbitrary edits, settings changes.
+    Granting far more functionality than the task needs is excessive functionality.
+- id: q2
+  question: >-
+    A ticket instructs the agent to append a broad allow rule to .claude/settings.local.json. Why is
+    a flat deny on .claude/** the right control rather than an approval prompt?
+  options:
+    - >-
+      Because approval prompts are always ignored by users under time pressure.
+    - >-
+      Because editing the agent's own permissions is never a legitimate task step, so there is nothing to approve.
+    - >-
+      Because deny rules are faster to evaluate than ask rules at runtime.
+    - >-
+      Because showing an approval prompt would leak the contents of the settings file straight back to the attacker who filed the ticket.
+  correct: 1
+  explanation: >-
+    Self-permission edits have no legitimate place in a coding task, so a flat deny removes the
+    decision from a possibly-compromised session. Ask is for actions that are sometimes valid.
+- id: q3
+  question: >-
+    In one well-known study, roughly 40% of security-relevant code completions were found to contain
+    a vulnerability. What does this imply for an agent that writes Contoso Billing code?
+  options:
+    - >-
+      Generated code should be trusted once it compiles, since compilation catches vulnerabilities.
+    - >-
+      Only code written under an active attack needs review; unattacked code is safe.
+    - >-
+      Generated code needs the same static analysis and review as human code, e.g. CA2100 on SQL.
+    - >-
+      The risk applies only to open-source models, not to the agent used here.
+  correct: 2
+  explanation: >-
+    Vulnerable code appears with no attacker present. The defense is the same review and static
+    analysis you apply to a junior's PR; CA2100 catches string-concatenated SQL before merge.
+- id: q4
+  question: >-
+    An agent's MCP tools are all read-scoped, but its config still allows Bash(*). Has the
+    exfiltration risk been removed?
+  options:
+    - >-
+      Yes; read-scoped MCP tools mean nothing can be sent outward.
+    - >-
+      Yes, as long as network egress is denied by a Bash(curl*) rule.
+    - >-
+      No, but only because the connected MCP server could later be rug-pulled by its operator.
+    - >-
+      No; Bash(*) still permits curl and file writes, re-opening an outbound channel.
+  correct: 3
+  explanation: >-
+    Bash(*) subsumes network and file capabilities, so it re-adds an exfiltration channel regardless
+    of how the MCP tools are scoped. Least privilege must cover Bash, not just MCP.
+- id: q5
+  question: >-
+    Why does an approval gate on high-impact actions reduce risk even though it does not prevent
+    prompt injection?
+  options:
+    - >-
+      It detects injected instructions and strips them before the model acts.
+    - >-
+      It bounds the blast radius: the worst case of a compromised session becomes a prompt you can refuse.
+    - >-
+      It makes the agent behave deterministically, so a given attack no longer varies from one run to the next.
+    - >-
+      It re-authenticates the user at each step, proving the request genuinely came from a human operator.
+  correct: 1
+  explanation: >-
+    Injection can still occur, but a gate on consequential actions means a successful injection ends
+    at a prompt rather than an executed push, publish, or comment. It limits the damage, not the attack.

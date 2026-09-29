@@ -1,0 +1,11 @@
+{
+  "label": "Code task (a T18-T20 style ticket): single agent vs planner -> worker -> reviewer",
+  "note": "ILLUSTRATIVE inputs, not measurements. Replace every number with your own from AgentTeam trace and EvalHarness stats.",
+  "single":   { "p": 0.60, "cost_usd": 0.30, "seconds": 180 },
+  "planner":  { "p": 0.95, "cost_usd": 0.06, "seconds": 45 },
+  "worker":   { "p": 0.65, "p_after_bad_plan": 0.20, "p_fix": 0.60, "damage": 0.10, "cost_usd": 0.25, "seconds": 150 },
+  "reviewer": { "recall": 0.70, "false_alarm": 0.15, "cost_usd": 0.07, "seconds": 40 },
+  "max_rounds": 3,
+  "replan": true,
+  "chain": [0.95, 0.65]
+}

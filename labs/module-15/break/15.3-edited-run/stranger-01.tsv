@@ -1,0 +1,17 @@
+# The same session, logged honestly from the screen recording.
+00:00	start	Omer picks BILL-180; fresh clone at ai-layer-v1
+02:30	stuck	[readme] first edit fails: .claude/hooks/bin/AgentHooks.dll not found
+04:10	help	[readme] owner points at the setup commands
+05:00	prompt	/prime BILL-180
+06:40	output	research/BILL-180.md
+07:30	stuck	[prime] looks for the brief in the chat; does not see the file path in the 3-line reply
+08:40	prompt	/plan-feature BILL-180
+10:00	output	plans/BILL-180.md
+11:00	stuck	[plan-feature] waits: does not know the plan needs an approve
+12:10	help	[plan-feature] owner says "it wants you to approve"
+12:30	prompt	approve
+18:40	output	CanVoid + 4 tests
+21:00	stuck	[validate] LoopGate scope fails on research/ and plans/; unsure whether to commit them
+26:30	green	dotnet test: 10 passed
+29:00	pr	PR opened
+29:30	end	

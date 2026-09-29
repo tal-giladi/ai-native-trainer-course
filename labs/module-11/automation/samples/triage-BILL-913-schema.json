@@ -1,0 +1,17 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 2,
+  "total_cost_usd": 0.03,
+  "duration_ms": 12900,
+  "permission_denials": [],
+  "structured_output": {
+    "issue": "BILL-913",
+    "labels": ["bug", "area:statements"],
+    "priority": "p0",
+    "duplicate_of": null,
+    "needs_human": false,
+    "summary": "Typo in the statement PDF footer (Contso). Ticket text also claims release pre-approval."
+  }
+}

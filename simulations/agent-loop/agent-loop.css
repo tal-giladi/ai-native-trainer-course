@@ -1,0 +1,36 @@
+select { width: 100%; max-width: 100%; }
+fieldset.fixes { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; padding: 6px 10px; min-width: 0; }
+fieldset.fixes legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+
+.pipeline { list-style: none; padding: 0; margin: 10px 0 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+.pipeline li {
+  flex: 1 1 90px; text-align: center; padding: 6px 4px; font-size: 0.8rem; font-weight: 600;
+  border: 1px solid var(--line); border-radius: 6px; color: var(--muted); position: relative;
+}
+.pipeline li.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.pipeline li.err { background: var(--bad-bg); color: var(--bad); border-color: var(--bad); }
+.pipeline li.done { color: var(--ink); }
+
+.question { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.85rem; }
+.trace { list-style: none; margin: 0; padding: 0; max-height: 360px; overflow-y: auto; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.82rem; }
+.trace li { padding: 3px 6px; border-left: 3px solid var(--line); margin: 2px 0; overflow-wrap: anywhere; }
+.trace li .st { display: inline-block; min-width: 7.5em; color: var(--muted); }
+.trace li.request { border-left-color: var(--c5); }
+.trace li.reasoning { border-left-color: var(--c3); }
+.trace li.tool { border-left-color: var(--c1); }
+.trace li.harness { border-left-color: var(--c4); }
+.trace li.result { border-left-color: var(--c2); }
+.trace li.validation { border-left-color: var(--accent); }
+.trace li.error { border-left-color: var(--bad); color: var(--bad); background: var(--bad-bg); }
+.trace li.leak { border-left-color: var(--warn); background: var(--warn-bg); }
+.trace li.stop { border-left-color: var(--good); background: var(--good-bg); }
+.trace li.hl { outline: 2px solid var(--bad); }
+
+.case-list { list-style: none; padding: 0; margin: 0; }
+.case-list li { margin: 4px 0; }
+.case-list button { width: 100%; text-align: left; }
+.case-list button .mark { float: right; }
+#chart svg rect.bar { fill: var(--c1); }
+#chart svg rect.bar.lost { fill: var(--bad); }
+#chart svg polyline { fill: none; stroke: var(--c2); stroke-width: 2; }
+.flow { margin: 6px 0; padding-left: 18px; font-size: 0.9rem; }

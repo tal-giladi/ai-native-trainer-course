@@ -1,0 +1,38 @@
+# BREAK for lesson 11.3 — the v0 triage bot. Do NOT use it.
+# It "works" on normal issues. On tickets/BILL-913.md it applies a reserved label, marks p0 and closes three
+# issues, because the agent both reads untrusted text AND holds the tool that changes state.
+# It also runs nightly over ALL open issues with no memory of what it already did, so every issue is re-labelled
+# (and re-commented) every night.
+name: triage-v0
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      DISABLE_AUTOUPDATER: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the pinned agent version
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Triage every open issue
+        run: |
+          claude --bare -p "Triage every open issue in this repository. Read each one with gh, choose fitting labels and a priority, close duplicates, and leave a short comment explaining your triage." \
+            --permission-mode dontAsk \
+            --allowedTools "Bash(gh issue *)" \
+            --max-turns 60 \
+            --output-format json > result.json

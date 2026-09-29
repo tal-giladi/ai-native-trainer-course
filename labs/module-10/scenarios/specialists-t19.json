@@ -1,0 +1,126 @@
+{
+ "description": "Lesson 10.1. T19 (BILL-151) split between a coder and a tester who work in parallel from the planner's plan and never see each other or the ticket. Also contains the planner -> worker and single-agent steps for the fix.",
+ "agent_version": "fake-agent 1.0 (scripted, offline)",
+ "steps": [
+  {
+   "task": "T19",
+   "role": "planner",
+   "round": 1,
+   "text": "## Plan\n1. Add the collections summary to InvoiceService, reusing the existing meanings of owed (Issued) and overdue (IsOverdue).\n2. Add a summary record with Owed and Overdue amounts.\n3. Unit tests: no invoices; owed includes not-yet-due; paid, void and draft excluded.\nTouch: src/Contoso.Billing/Invoices/InvoiceService.cs, src/Contoso.Billing/Invoices/*.cs, tests/Contoso.Billing.Tests/*.cs\n\n## Interfaces\n- InvoiceService: an async method that returns the collections summary for a customer (customerId, CancellationToken)\n- a summary record with decimal Owed and decimal Overdue\n\n## Checks\ndotnet test Contoso.Billing.sln\n\n## Open questions\nnone",
+   "cost": 0.05,
+   "input_tokens": 24000,
+   "output_tokens": 720,
+   "ms": 38000
+  },
+  {
+   "task": "T19",
+   "role": "coder",
+   "round": 1,
+   "text": "src/Contoso.Billing/Invoices/InvoiceService.cs\nsrc/Contoso.Billing/Invoices/CollectionsSummary.cs",
+   "cost": 0.12,
+   "input_tokens": 51000,
+   "output_tokens": 1530,
+   "ms": 88000,
+   "edits": [
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "return invoices.Where(i => i.Status == InvoiceStatus.Issued).Sum(i => i.Amount);",
+     "new": "return Owed(invoices).Sum(i => i.Amount);"
+    },
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "    /// <summary>An invoice is overdue when",
+     "new": "    /// <summary>BILL-151: what the customer owes and the overdue part of it, with the same meanings as above.</summary>\n    public async Task<CollectionsSummary> CollectionsSummaryAsync(int customerId, CancellationToken ct)\n    {\n        var owed = Owed(await _invoices.ListByCustomerAsync(customerId, ct)).ToList();\n        return new CollectionsSummary(owed.Sum(i => i.Amount), owed.Where(IsOverdue).Sum(i => i.Amount));\n    }\n\n    private static IEnumerable<Invoice> Owed(IEnumerable<Invoice> invoices) =>\n        invoices.Where(i => i.Status == InvoiceStatus.Issued);\n\n    /// <summary>An invoice is overdue when"
+    }
+   ],
+   "writes": [
+    {
+     "path": "src/Contoso.Billing/Invoices/CollectionsSummary.cs",
+     "content": "namespace Contoso.Billing.Invoices;\n\n/// <summary>BILL-151: amount owed by a customer and the overdue part of it.</summary>\npublic sealed record CollectionsSummary(decimal Owed, decimal Overdue);\n"
+    }
+   ]
+  },
+  {
+   "task": "T19",
+   "role": "tester",
+   "round": 1,
+   "text": "tests/Contoso.Billing.Tests/CollectionSummaryTests.cs",
+   "cost": 0.09,
+   "input_tokens": 43000,
+   "output_tokens": 1290,
+   "ms": 71000,
+   "writes": [
+    {
+     "path": "tests/Contoso.Billing.Tests/CollectionSummaryTests.cs",
+     "content": "using Contoso.Billing.Common;\nusing Contoso.Billing.Invoices;\nusing Xunit;\n\nnamespace Contoso.Billing.Tests;\n\npublic class CollectionSummaryTests\n{\n    private static readonly DateTimeOffset Now = new(2026, 9, 28, 12, 0, 0, TimeSpan.Zero);\n    private sealed class FixedClock : IClock { public DateTimeOffset UtcNow => Now; }\n    private sealed class Rows(params Invoice[] rows) : IInvoiceRepository\n    {\n        public Task<Invoice?> GetAsync(long invoiceId, CancellationToken ct) => Task.FromResult(rows.FirstOrDefault(r => r.InvoiceId == invoiceId));\n        public Task<IReadOnlyList<Invoice>> ListByCustomerAsync(int customerId, CancellationToken ct) =>\n            Task.FromResult<IReadOnlyList<Invoice>>(rows.Where(r => r.CustomerId == customerId).ToList());\n    }\n\n    [Fact]\n    public async Task No_invoices_means_nothing_owed()\n    {\n        var sut = new InvoiceService(new Rows(), new FixedClock());\n        CollectionSummary summary = await sut.GetCollectionSummaryAsync(7, CancellationToken.None);\n        Assert.Equal(0m, summary.Owed);\n    }\n}\n"
+    }
+   ]
+  },
+  {
+   "task": "T19",
+   "role": "worker",
+   "round": 1,
+   "text": "src/Contoso.Billing/Invoices/InvoiceService.cs\nsrc/Contoso.Billing/Invoices/CollectionsSummary.cs\ntests/Contoso.Billing.Tests/InvoiceServiceTests.cs\nChecks: dotnet test Contoso.Billing.sln -> passed",
+   "cost": 0.17,
+   "input_tokens": 66000,
+   "output_tokens": 1980,
+   "ms": 131000,
+   "edits": [
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "return invoices.Where(i => i.Status == InvoiceStatus.Issued).Sum(i => i.Amount);",
+     "new": "return Owed(invoices).Sum(i => i.Amount);"
+    },
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "    /// <summary>An invoice is overdue when",
+     "new": "    /// <summary>BILL-151: what the customer owes and the overdue part of it, with the same meanings as above.</summary>\n    public async Task<CollectionsSummary> CollectionsSummaryAsync(int customerId, CancellationToken ct)\n    {\n        var owed = Owed(await _invoices.ListByCustomerAsync(customerId, ct)).ToList();\n        return new CollectionsSummary(owed.Sum(i => i.Amount), owed.Where(IsOverdue).Sum(i => i.Amount));\n    }\n\n    private static IEnumerable<Invoice> Owed(IEnumerable<Invoice> invoices) =>\n        invoices.Where(i => i.Status == InvoiceStatus.Issued);\n\n    /// <summary>An invoice is overdue when"
+    },
+    {
+     "path": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+     "old": "    [Theory]",
+     "new": "    [Fact]\n    public async Task CollectionsSummary_splits_owed_and_overdue()\n    {\n        var sut = new InvoiceService(new InMemoryInvoices(\n            Inv(1, 100m, InvoiceStatus.Issued, -3), Inv(2, 40m, InvoiceStatus.Issued, 10)), new FixedClock());\n        Assert.Equal(new CollectionsSummary(140m, 100m), await sut.CollectionsSummaryAsync(7, CancellationToken.None));\n    }\n\n    [Theory]"
+    }
+   ],
+   "writes": [
+    {
+     "path": "src/Contoso.Billing/Invoices/CollectionsSummary.cs",
+     "content": "namespace Contoso.Billing.Invoices;\n\n/// <summary>BILL-151: amount owed by a customer and the overdue part of it.</summary>\npublic sealed record CollectionsSummary(decimal Owed, decimal Overdue);\n"
+    }
+   ]
+  },
+  {
+   "task": "T19",
+   "role": "solo",
+   "round": 1,
+   "text": "src/Contoso.Billing/Invoices/InvoiceService.cs\nsrc/Contoso.Billing/Invoices/CollectionsSummary.cs\ntests/Contoso.Billing.Tests/InvoiceServiceTests.cs\nChecks: dotnet test Contoso.Billing.sln -> passed",
+   "cost": 0.16,
+   "input_tokens": 62000,
+   "output_tokens": 1860,
+   "ms": 118000,
+   "edits": [
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "return invoices.Where(i => i.Status == InvoiceStatus.Issued).Sum(i => i.Amount);",
+     "new": "return Owed(invoices).Sum(i => i.Amount);"
+    },
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "    /// <summary>An invoice is overdue when",
+     "new": "    /// <summary>BILL-151: what the customer owes and the overdue part of it, with the same meanings as above.</summary>\n    public async Task<CollectionsSummary> CollectionsSummaryAsync(int customerId, CancellationToken ct)\n    {\n        var owed = Owed(await _invoices.ListByCustomerAsync(customerId, ct)).ToList();\n        return new CollectionsSummary(owed.Sum(i => i.Amount), owed.Where(IsOverdue).Sum(i => i.Amount));\n    }\n\n    private static IEnumerable<Invoice> Owed(IEnumerable<Invoice> invoices) =>\n        invoices.Where(i => i.Status == InvoiceStatus.Issued);\n\n    /// <summary>An invoice is overdue when"
+    },
+    {
+     "path": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+     "old": "    [Theory]",
+     "new": "    [Fact]\n    public async Task CollectionsSummary_splits_owed_and_overdue()\n    {\n        var sut = new InvoiceService(new InMemoryInvoices(\n            Inv(1, 100m, InvoiceStatus.Issued, -3), Inv(2, 40m, InvoiceStatus.Issued, 10)), new FixedClock());\n        Assert.Equal(new CollectionsSummary(140m, 100m), await sut.CollectionsSummaryAsync(7, CancellationToken.None));\n    }\n\n    [Theory]"
+    }
+   ],
+   "writes": [
+    {
+     "path": "src/Contoso.Billing/Invoices/CollectionsSummary.cs",
+     "content": "namespace Contoso.Billing.Invoices;\n\n/// <summary>BILL-151: amount owed by a customer and the overdue part of it.</summary>\npublic sealed record CollectionsSummary(decimal Owed, decimal Overdue);\n"
+    }
+   ]
+  }
+ ]
+}

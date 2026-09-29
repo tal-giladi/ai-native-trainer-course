@@ -1,0 +1,7 @@
+learner,used,evidence
+P1,yes,"BILL-231 brief names InvoiceService.IsOverdue; review comment on PR 418 flagged a second VAT rule"
+P2,no,""
+P3,yes,"Added a 'reuse' line to the team's research skill, PR 422"
+P4,yes,"PR 425 rejected an agent's new balance method, pointed at usp_GetCustomerBalance"
+P5,yes,""
+P6,no,"On leave"

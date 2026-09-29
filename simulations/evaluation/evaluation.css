@@ -1,0 +1,21 @@
+select { width: 100%; max-width: 100%; }
+fieldset.box { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; padding: 6px 10px; min-width: 0; }
+fieldset.box legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+fieldset.box[disabled] { opacity: 0.6; }
+
+svg .iv { stroke-width: 6; stroke-linecap: round; }
+svg .iv.a { stroke: var(--c1); }
+svg .iv.b { stroke: var(--c2); }
+svg .iv.c { stroke: var(--c3); }
+svg .iv.miss { stroke: var(--bad); }
+svg .iv.hit { stroke: var(--c1); }
+svg .pt { fill: var(--ink); }
+svg .truth { stroke: var(--good); stroke-width: 2; stroke-dasharray: 4 3; }
+svg .zero { stroke: var(--ink); stroke-width: 1.5; }
+svg .dot-a { fill: var(--c1); }
+svg .dot-b { fill: var(--c2); }
+svg .link { stroke: var(--line); stroke-width: 2; }
+.legend { list-style: none; padding: 0; margin: 6px 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.82rem; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend i.sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+#matrix td, #matrix th { text-align: center; }

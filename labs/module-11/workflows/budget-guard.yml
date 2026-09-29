@@ -1,0 +1,65 @@
+# .github/workflows/budget-guard.yml — lesson 11.4.
+# Hourly: collect today's ledger lines from agent workflow artifacts, run AgentOps ledger against the ceilings,
+# and if a ceiling or a retried cap failure is found, DISABLE the offending workflows and open an issue.
+# Per-run caps (--max-budget-usd) bound one run; this bounds a day. The provider-side spend limit (Module 12) bounds the month.
+# Every agent workflow must upload an artifact containing ledger.jsonl (see the "Ledger line" step in agent-fix.yml).
+name: budget-guard
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write          # gh workflow disable, gh run download
+  issues: write           # open the incident issue
+
+concurrency:
+  group: budget-guard
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      DAILY_CEILING_USD: ${{ vars.AGENT_DAILY_CEILING_USD || '25' }}
+      RUN_CEILING_USD: ${{ vars.AGENT_RUN_CEILING_USD || '2' }}
+      AGENT_WORKFLOWS: "agent-fix.yml agent-review.yml agent-triage.yml agent-changelog.yml dep-fix.yml"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Collect today's ledger lines
+        run: |
+          today=$(date -u +%F)
+          mkdir -p ledger && : > today.jsonl
+          for wf in $AGENT_WORKFLOWS; do
+            gh run list --workflow "$wf" --created ">=$today" --limit 200 --json databaseId -q '.[].databaseId' 2>/dev/null |
+            while read -r id; do
+              gh run download "$id" --dir "ledger/$id" 2>/dev/null || true
+            done
+          done
+          find ledger -name ledger.jsonl -exec cat {} + >> today.jsonl || true
+          echo "$(wc -l < today.jsonl) run(s) today"
+
+      - name: Check ceilings
+        id: check
+        run: |
+          set +e
+          dotnet run --project tools/AgentOps -- ledger today.jsonl --daily-ceiling "$DAILY_CEILING_USD" --run-ceiling "$RUN_CEILING_USD" | tee report.txt
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Trip the breaker
+        if: steps.check.outputs.status != '0'
+        run: |
+          for job in $(grep -oE '^(CEILING .*; |RETRY   )[a-z-]+' report.txt | grep -oE '[a-z-]+$' | sort -u); do
+            gh workflow disable "$job.yml" && echo "disabled $job.yml"
+          done
+          gh issue create --title "Agent budget breaker tripped $(date -u +%F)" \
+            --label "agent-incident" --body-file report.txt

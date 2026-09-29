@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Every run of a nightly agent job stays under its $2 --max-budget-usd cap, yet one day costs $137.
+    Which control was missing?
+  options:
+    - >-
+      A lower per-run budget, since $2 per run is simply too generous for a nightly job.
+    - >-
+      A day-level ceiling over all runs, because per-run caps cannot see a loop of runs.
+    - >-
+      A longer timeout-minutes, so the agent could finish instead of being cut off early.
+    - >-
+      Prompt logging in telemetry, so the expensive prompts could be found and shortened.
+  correct: 1
+  explanation: >-
+    Per-run caps bound one session. A schedule plus a retry loop multiplies sessions; only a ceiling
+    summed across runs, with a breaker that disables the job, bounds the day.
+- id: q2
+  question: >-
+    With up to 3 attempts per run, what is the expected number of attempts when failures are transient
+    with q = 0.05, versus when the task always exceeds its turn cap?
+  options:
+    - >-
+      About 1.05 attempts in the transient case, and 3 attempts when the cap is always hit.
+    - >-
+      About 3 attempts in both cases, because the retry loop always runs to its limit.
+    - >-
+      About 1.15 attempts in the transient case, and 1 attempt when the cap is always hit.
+    - >-
+      About 1.05 attempts in both cases, because retries only happen after real errors.
+  correct: 0
+  explanation: >-
+    E = (1 - q^k)/(1 - q). For q = 0.05 that is about 1.05; for q near 1 it approaches k = 3, and every
+    attempt is wasted. Retry only failures that are independent across attempts.
+- id: q3
+  question: >-
+    Your review job's prompt lives in a SaaS dashboard field and the workflow installs "latest" of the
+    agent. A bad week of comments starts. What does this setup prevent you from doing?
+  options:
+    - >-
+      Disabling the job, because dashboard prompts cannot be combined with a kill switch.
+    - >-
+      Measuring precision, because comments from a dashboard prompt cannot be scored.
+    - >-
+      Seeing the cost, because unpinned installs do not report total_cost_usd in JSON output.
+    - >-
+      Rolling back, because neither the prompt nor the agent version can be reverted.
+  correct: 3
+  explanation: >-
+    Rollback requires every part of the job to be versioned: prompt, policy and layer in git, the agent
+    version pinned in a variable. An unversioned prompt and a moving install leave nothing to go back to.
+- id: q4
+  question: >-
+    Which job most needs a GitHub environment with required reviewers and "prevent self-review"?
+  options:
+    - >-
+      The triage job, because it applies labels to issues that outside users have filed.
+    - >-
+      The review job, because its comments are visible to everyone on the pull request.
+    - >-
+      A job that pushes a release branch and uses a deploy key once the agent is done.
+    - >-
+      The changelog job, because it opens a draft pull request against the default branch.
+  correct: 2
+  explanation: >-
+    Approval should follow reversibility and blast radius. Labels, comments and draft PRs are cheap to
+    undo and already gated by policy or code review; a job that pushes releases with a deploy key is not,
+    and environments release that key only after approval.

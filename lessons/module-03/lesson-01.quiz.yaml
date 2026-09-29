@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Your CODEOWNERS file lists `/CLAUDE.md @leads` on line 2 and `* @devs` on line 9.
+    A PR changes only CLAUDE.md. Who is the code owner for that file?
+  options:
+    - >-
+      The leads, because the more specific path pattern always takes precedence.
+    - >-
+      Both teams, and GitHub requires an approval from each of them to merge.
+    - >-
+      The devs, because the last matching pattern in the file takes precedence.
+    - >-
+      Nobody, because GitHub ignores CODEOWNERS entries for Markdown files.
+  correct: 2
+  explanation: >-
+    GitHub applies the last matching pattern, not the most specific one. With the catch-all
+    placed last, `*` wins for CLAUDE.md and the AI layer silently loses its owners. Put `*` first.
+- id: q2
+  question: >-
+    A team keeps its agent instructions on a Confluence page and pastes a link into chat when
+    needed. Which failure does this cause most directly?
+  options:
+    - >-
+      The agent loads the page on every session, which wastes most of the context window.
+    - >-
+      Agents never see it by default, and it cannot change in the same commit as the code.
+    - >-
+      Confluence formatting is converted badly, so the agent misreads bullet lists as code.
+    - >-
+      The agent treats wiki content as higher priority than the system prompt and overrides it.
+  correct: 1
+  explanation: >-
+    Agents load instruction files from the repository's file system. A wiki page is absent unless
+    someone pastes it, and it cannot be versioned together with the code it describes, so it drifts.
+- id: q3
+  question: >-
+    Why does this lesson say a rules file still needs deterministic checks such as convention
+    tests or hooks, even after it has an owner and a review process?
+  options:
+    - >-
+      Rules are advisory context the model weighs, so they make behavior likely, not guaranteed.
+    - >-
+      Reviewers cannot read Markdown diffs reliably, so a test is needed to catch typos in rules.
+    - >-
+      GitHub only enforces code-owner review for source files, not for configuration or docs.
+    - >-
+      Agents ignore rules files entirely once a repository contains a test project.
+  correct: 0
+  explanation: >-
+    Tools document rules files as context, not enforced configuration. A test, hook or CI gate
+    runs the same way every time, so it catches the cases where the agent does the wrong thing anyway.
+- id: q4
+  question: >-
+    Which changelog entry best supports the change-management property of the AI layer?
+  options:
+    - >-
+      "Updated CLAUDE.md with several improvements suggested by the team during the retro."
+    - >-
+      "v1.1.0: rewrote the rules file to follow current best practices from the vendor docs."
+    - >-
+      "Cleaned up the data-access section and removed some old lines that looked outdated."
+    - >-
+      "Data-access rule now names Dapper repos; agent used SqlHelper on BILL-142; ADR 0007; probes 3/3."
+  correct: 3
+  explanation: >-
+    A useful entry records what changed, the incident that triggered it, the evidence it rests on
+    and how it was verified. That is what lets someone later decide whether the rule can be deleted.

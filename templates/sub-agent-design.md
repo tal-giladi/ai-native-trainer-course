@@ -1,0 +1,49 @@
+# Sub-agent design template
+
+Fill this in before creating `.claude/agents/<name>.md` (or your tool's equivalent). Most work does **not** need a sub-agent; section 1 exists to say no early. Introduced in [06.3 · Sub-agents, and when not to build one](../lessons/module-06/lesson-03.md).
+
+## 1. Should this be a sub-agent at all?
+
+| Question | Answer | Points to |
+|---|---|---|
+| Does the work produce much more output than the caller needs (search results, logs, test output)? | yes / no | yes → sub-agent |
+| Does it need different tool permissions than the main session (read-only, no MCP)? | yes / no | yes → sub-agent |
+| Can it finish from one written brief, without asking anyone a question? | yes / no | no → keep it in the main session |
+| Does it share decisions with other work in flight (same files, same design choices)? | yes / no | yes → keep it in one thread |
+| Is it a repeatable procedure rather than an isolated context? | yes / no | yes → a skill (maybe one that delegates) |
+
+Decision: sub-agent · skill · main session · a plain script. Reason in one sentence: …
+
+## 2. Delegation contract
+
+The four things a delegation prompt must carry (objective, output format, tools and sources, boundaries).
+
+- **Objective** (one sentence): …
+- **Output** (format, length limit, sections; the caller must be able to check it): …
+- **Tools** (allowlist, not denylist): …
+- **Sources and search scope**: …
+- **Boundaries** (what it must not do; when to stop; what to return when it cannot finish): …
+- **Questions**: sub-agents cannot ask the user mid-task. Unknowns come back as a section, never as silent assumptions.
+
+## 3. Context
+
+- What it loads at start (project rules? skills preloaded? none?): …
+- What it must be given in the delegation message (paths, not pasted content): …
+- What it does **not** see (the conversation so far): …
+
+## 4. Cost and latency
+
+- Tokens per run (measured): … · runs per ticket: … · parallel instances: …
+- Context saved in the main session (tokens explored − tokens returned): …
+- Worth it because: …
+
+## 5. Validation
+
+- [ ] `SkillCheck lint` passes (description with "Use when", `tools` allowlist, `## Output` section, read-only claims match tools).
+- [ ] Output contract checked by: …
+- [ ] Tried on 3 real tickets; returned output met the contract … / 3 times.
+- [ ] One case where it should have stopped and asked: did it return the question? …
+
+## 6. Version and ownership
+
+- Version: … · CHANGELOG entry: … · Owner: …

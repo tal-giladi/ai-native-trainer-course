@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    During a stranger test the owner says "just a hint: the plan is waiting for you to approve it".
+    The stranger opens a PR with green tests at 22 minutes. What is the result of the exit test?
+  options:
+    - >-
+      Pass, since a short hint about approval is not help with the code itself.
+    - >-
+      Pass with a note, since the PR arrived well inside the 30-minute limit.
+    - >-
+      Inconclusive, since one stranger is too few to judge the result either way.
+    - >-
+      Fail, since the hint was help and the test stops counting at that moment.
+  correct: 3
+  explanation: >-
+    Any hint is help. The stuck point it papered over is exactly what the test exists to find, and
+    the fix belongs in the skill's output, not in the owner's mouth.
+- id: q2
+  question: >-
+    Watching back your recording, you find you typed "no, keep the SQL filter exactly as it is"
+    halfway through the run. What should you do with that finding?
+  options:
+    - >-
+      Treat it as a missing step: put the constraint where the layer will carry it next run.
+    - >-
+      Cut that moment from the video so the audience sees the layer working on its own.
+    - >-
+      Keep typing it in every demo, since steering the agent is part of the method.
+    - >-
+      Ignore it, since the final result passed the tests and the PR was correct.
+  correct: 0
+  explanation: >-
+    An off-script prompt means the presenter carried the run, not the layer. Fix the brief, plan or
+    rules so the constraint is there without you; never hide it with an edit.
+- id: q3
+  question: >-
+    A stuck point affects about one stranger in three. Roughly how likely is it that at least one of
+    three independent strangers runs into it?
+  options:
+    - >-
+      About 33%, since each stranger has the same chance of running into it.
+    - >-
+      About 70%, from one minus two-thirds to the power of three.
+    - >-
+      About 100%, since three strangers times one in three covers every case.
+    - >-
+      About 11%, from one-third to the power of three for all three strangers.
+  correct: 1
+  explanation: >-
+    P(seen) = 1 − (1 − L)^n = 1 − (2/3)^3 ≈ 0.70. That is why a pass with one stranger is weak
+    evidence and why you test again, with a new person, after each fix.
+- id: q4
+  question: >-
+    Your 16-minute recording has a 3-minute pause while the API retried, and you trimmed a slow
+    stretch at the end. Why does this matter for lesson 15.4, even if the run succeeded?
+  options:
+    - >-
+      Because long recordings cannot be played at a workshop, so it must be shorter still.
+    - >-
+      Because the video file is now over GitHub's size limit and cannot be committed.
+    - >-
+      Because the fallback clip may hide a failure exactly where you plan to cut to it.
+    - >-
+      Because audiences can always see where a video was edited and will stop trusting it.
+  correct: 2
+  explanation: >-
+    The unedited run is your rehearsal data and your fallback. A clip with hidden cuts is unreliable
+    at the one moment you need it, and it hides what happened during the error.
+- id: q5
+  question: >-
+    The stranger's notes show 2 stuck points in [readme], 2 in [plan-feature] and 1 in [prime].
+    What is the best next step?
+  options:
+    - >-
+      Retest the same stranger tomorrow to confirm that the stuck points were real.
+    - >-
+      One layer change per group with a regression check, then a new stranger.
+    - >-
+      Add a troubleshooting section to the README that covers all five stuck points.
+    - >-
+      Record a tutorial video for new users so that the skills need no changes.
+  correct: 1
+  explanation: >-
+    Grouping by component tells you where the layer failed. Fix each group where the stranger was
+    looking, log it with a check that would catch a regression, and test a fresh person.

@@ -1,0 +1,5 @@
+# Golden checks: research/BILL-153.md (prime). The edge case: NOT NULL column on an existing table.
+require | (?m)^Schema change: yes | | BILL-153 adds a column
+require | db/migrations/V004__due_not_null\.sql | | V004 is the backfill-then-NOT-NULL precedent
+require | (?i)FROM dbo\.Invoice | | the brief must list the SQL that reads dbo.Invoice
+require | (?is)open questions.*(existing|backfill) | | what existing invoices get is an open question

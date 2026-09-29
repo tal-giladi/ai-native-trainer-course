@@ -1,0 +1,296 @@
+{
+  "note": "ILLUSTRATIVE data (simulated, not measurements). Ground truth = defects found in human review or in the 30-day follow-up, plus adjudicated agent findings.",
+  "match_rule": "an agent comment matches a defect when pr and file are equal and |line - defect.line| <= 3; each defect matches once, later matches count as duplicates (false positives)",
+  "prs": [
+    {
+      "id": "PR-301",
+      "split": "dev",
+      "title": "BILL-150 record payment reminders (service)",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceService.cs",
+        "src/Contoso.Billing/Reminders/ReminderService.cs"
+      ]
+    },
+    {
+      "id": "PR-302",
+      "split": "dev",
+      "title": "BILL-142 list overdue invoices",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+        "src/Contoso.Billing/Invoices/IInvoiceRepository.cs"
+      ]
+    },
+    {
+      "id": "PR-303",
+      "split": "dev",
+      "title": "BILL-150 reminder table",
+      "files": [
+        "db/migrations/V006__payment_reminder.sql",
+        "src/Contoso.Billing/Reminders/ReminderRepository.cs"
+      ]
+    },
+    {
+      "id": "PR-304",
+      "split": "dev",
+      "title": "Tidy README and build badge",
+      "files": [
+        "README.md",
+        "docs/ARCHITECTURE.md"
+      ]
+    },
+    {
+      "id": "PR-305",
+      "split": "dev",
+      "title": "BILL-156 days-overdue in reminder text",
+      "files": [
+        "src/Contoso.Billing/Reminders/ReminderService.cs",
+        "src/Contoso.Billing/Reminders/ReminderText.cs"
+      ]
+    },
+    {
+      "id": "PR-306",
+      "split": "dev",
+      "title": "BILL-158 search invoices by reference",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceRepository.cs"
+      ]
+    },
+    {
+      "id": "PR-307",
+      "split": "dev",
+      "title": "Bump xunit to 2.9.2",
+      "files": [
+        "tests/Contoso.Billing.Tests/Contoso.Billing.Tests.csproj"
+      ]
+    },
+    {
+      "id": "PR-308",
+      "split": "dev",
+      "title": "BILL-160 allocate partial payments",
+      "files": [
+        "src/Contoso.Billing/Payments/PaymentAllocator.cs",
+        "src/Contoso.Billing/Payments/Payment.cs"
+      ]
+    },
+    {
+      "id": "PR-309",
+      "split": "dev",
+      "title": "BILL-151 collections summary",
+      "files": [
+        "src/Contoso.Billing/Collections/CollectionsSummary.cs",
+        "src/Contoso.Billing/Collections/CollectionsService.cs"
+      ]
+    },
+    {
+      "id": "PR-310",
+      "split": "dev",
+      "title": "BILL-161 cancellation in repository calls",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceRepository.cs"
+      ]
+    },
+    {
+      "id": "PR-311",
+      "split": "dev",
+      "title": "BILL-142 tests",
+      "files": [
+        "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs"
+      ]
+    },
+    {
+      "id": "PR-312",
+      "split": "dev",
+      "title": "Rename Cust to Customer in legacy report",
+      "files": [
+        "src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs"
+      ]
+    },
+    {
+      "id": "PR-313",
+      "split": "holdout",
+      "title": "BILL-163 monthly statement builder",
+      "files": [
+        "src/Contoso.Billing/Statements/StatementBuilder.cs",
+        "src/Contoso.Billing/Statements/Statement.cs"
+      ]
+    },
+    {
+      "id": "PR-314",
+      "split": "holdout",
+      "title": "BILL-164 purchase-order number column",
+      "files": [
+        "db/migrations/V007__po_number.sql",
+        "db/migrations/U007__po_number.sql"
+      ]
+    },
+    {
+      "id": "PR-315",
+      "split": "holdout",
+      "title": "Logging cleanup",
+      "files": [
+        "src/Contoso.Billing/Common/LogEvents.cs"
+      ]
+    },
+    {
+      "id": "PR-316",
+      "split": "holdout",
+      "title": "BILL-165 nightly reminder job",
+      "files": [
+        "src/Contoso.Billing/Reminders/ReminderJob.cs"
+      ]
+    },
+    {
+      "id": "PR-317",
+      "split": "holdout",
+      "title": "BILL-166 audit trail for invoice reads",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+        "src/Contoso.Billing/Common/Audit.cs"
+      ]
+    },
+    {
+      "id": "PR-318",
+      "split": "holdout",
+      "title": "BILL-167 late fees",
+      "files": [
+        "src/Contoso.Billing/Fees/LateFeeCalculator.cs"
+      ]
+    },
+    {
+      "id": "PR-319",
+      "split": "holdout",
+      "title": "Docs: ADR 0008 reminders",
+      "files": [
+        "docs/adr/0008-reminders.md"
+      ]
+    },
+    {
+      "id": "PR-320",
+      "split": "holdout",
+      "title": "BILL-168 statement due-date banner",
+      "files": [
+        "src/Contoso.Billing/Invoices/InvoiceService.cs",
+        "src/Contoso.Billing/Statements/StatementBuilder.cs"
+      ]
+    }
+  ],
+  "defects": [
+    {
+      "id": "D01",
+      "pr": "PR-301",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 42,
+      "category": "time",
+      "summary": "DateTimeOffset.UtcNow instead of IClock; tests cannot freeze time",
+      "found_by": "human"
+    },
+    {
+      "id": "D02",
+      "pr": "PR-302",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 58,
+      "category": "sql",
+      "summary": "loads every invoice for the customer and filters in memory (BILL-142 AC4)",
+      "found_by": "human"
+    },
+    {
+      "id": "D03",
+      "pr": "PR-303",
+      "file": "db/migrations/V006__payment_reminder.sql",
+      "line": 1,
+      "category": "sql",
+      "summary": "V006 has no U006 undo script (convention since V003)",
+      "found_by": "human"
+    },
+    {
+      "id": "D04",
+      "pr": "PR-305",
+      "file": "src/Contoso.Billing/Reminders/ReminderService.cs",
+      "line": 31,
+      "category": "correctness",
+      "summary": "days overdue off by one at the due instant (< vs <=)",
+      "found_by": "human"
+    },
+    {
+      "id": "D05",
+      "pr": "PR-306",
+      "file": "src/Contoso.Billing/Invoices/InvoiceRepository.cs",
+      "line": 77,
+      "category": "security",
+      "summary": "reference concatenated into SQL text (injection)",
+      "found_by": "human"
+    },
+    {
+      "id": "D06",
+      "pr": "PR-308",
+      "file": "src/Contoso.Billing/Payments/PaymentAllocator.cs",
+      "line": 64,
+      "category": "money",
+      "summary": "remaining balance computed in double",
+      "found_by": "human"
+    },
+    {
+      "id": "D07",
+      "pr": "PR-309",
+      "file": "src/Contoso.Billing/Collections/CollectionsService.cs",
+      "line": 22,
+      "category": "architecture",
+      "summary": "re-implements OutstandingAsync and counts Void invoices",
+      "found_by": "human"
+    },
+    {
+      "id": "D08",
+      "pr": "PR-311",
+      "file": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+      "line": 90,
+      "category": "tests",
+      "summary": "paid-invoice test asserts nothing",
+      "found_by": "human"
+    },
+    {
+      "id": "D09",
+      "pr": "PR-313",
+      "file": "src/Contoso.Billing/Statements/StatementBuilder.cs",
+      "line": 48,
+      "category": "correctness",
+      "summary": "draft invoices with no due date throw in the banner path",
+      "found_by": "human"
+    },
+    {
+      "id": "D10",
+      "pr": "PR-314",
+      "file": "db/migrations/V007__po_number.sql",
+      "line": 3,
+      "category": "sql",
+      "summary": "NOT NULL column added to a populated table without a default",
+      "found_by": "human"
+    },
+    {
+      "id": "D11",
+      "pr": "PR-316",
+      "file": "src/Contoso.Billing/Reminders/ReminderJob.cs",
+      "line": 40,
+      "category": "concurrency",
+      "summary": "async void handler: exceptions are lost and the job reports success",
+      "found_by": "human"
+    },
+    {
+      "id": "D12",
+      "pr": "PR-317",
+      "file": "src/Contoso.Billing/Common/Audit.cs",
+      "line": 19,
+      "category": "security",
+      "summary": "audit line writes the customer's e-mail address (PII) to logs",
+      "found_by": "human"
+    },
+    {
+      "id": "D13",
+      "pr": "PR-318",
+      "file": "src/Contoso.Billing/Fees/LateFeeCalculator.cs",
+      "line": 27,
+      "category": "money",
+      "summary": "Math.Round default is banker's rounding; the fee policy says away from zero",
+      "found_by": "human"
+    }
+  ]
+}

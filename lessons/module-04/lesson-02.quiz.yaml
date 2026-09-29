@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    "Every new `V###` migration needs a matching `U###` undo script" moves from AGENTS.md into a
+    Claude Code rule with `paths: db/migrations/**`. When the agent is asked which files to create for
+    a new column, what happens?
+  options:
+    - >-
+      The rule always applies, because Claude Code loads every file in `.claude/rules/` at launch.
+    - >-
+      The rule loads as soon as the prompt mentions migrations, because path rules match the prompt.
+    - >-
+      It loads only once the agent reads a migration file, so some answers miss the undo script.
+    - >-
+      The rule never loads in answers, because path rules apply only to edits, not to questions.
+  correct: 2
+  explanation: >-
+    Path-scoped rules trigger when a matching file is read. Deciding which files to create can happen
+    before any migration is opened, so the fact must be always loaded or have a pointer in the root.
+- id: q2
+  question: >-
+    Which item belongs in the generated layer rather than in a hand-written rules file?
+  options:
+    - >-
+      The rule that new data access uses Dapper repositories behind an interface, not `SqlHelper`.
+    - >-
+      An annotated file tree of the solution, rebuilt from `git ls-files` when folders move.
+    - >-
+      The 40-step procedure for cutting a release branch and tagging the build.
+    - >-
+      The connection string for the staging database that integration tests use.
+  correct: 1
+  explanation: >-
+    The file tree is a fact the repository already knows, so generate it and regenerate it on change.
+    The Dapper rule is a decision (always loaded), the release procedure is a skill, and secrets never enter context.
+- id: q3
+  question: >-
+    A teammate "moves the architecture doc to on-demand" by replacing the pasted text with
+    `@docs/architecture.md` in CLAUDE.md. What changed in the context budget?
+  options:
+    - >-
+      R fell to one line, because imports load only when the agent decides to open them.
+    - >-
+      R fell by half, because imported files are summarized before they are loaded.
+    - >-
+      R rose, because the import loads both the path and the full text of the file.
+    - >-
+      Nothing, because `@` imports are expanded at launch just like pasted text.
+  correct: 3
+  explanation: >-
+    Claude Code expands imports at launch. To make a document on demand, reference it by path
+    (a lightweight identifier the agent can follow) or move its facts into a path-scoped rule or skill.
+- id: q4
+  question: >-
+    A monorepo has a `payments/` package with conventions that differ from the rest. Which
+    placement fits the layering rules best?
+  options:
+    - >-
+      A nested AGENTS.md in `payments/`, plus a root pointer if a payments fact is needed before its files are read.
+    - >-
+      All payments conventions in the root AGENTS.md so that every agent sees them on every task.
+    - >-
+      A skill that contains the payments conventions, invoked manually by whoever remembers it.
+    - >-
+      A wiki page linked from the README, so that the conventions do not use any context at all.
+  correct: 0
+  explanation: >-
+    Directory-level facts belong in a directory-level file: the closest AGENTS.md wins and loads when
+    the agent works there. Facts needed before that trigger fires get a pointer or move to the root.

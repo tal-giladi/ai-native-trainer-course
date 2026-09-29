@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A tech lead wants to guarantee that no agent ever edits `appsettings.Production.json`.
+    Which component fits that need best?
+  options:
+    - >-
+      A bold, capitalized line at the top of the always-loaded root rules file.
+    - >-
+      A path-scoped rule that loads whenever the agent reads files in the config folder.
+    - >-
+      A skill that describes the approved procedure for changing production settings.
+    - >-
+      A hook or permission deny rule that blocks the edit before the tool call runs.
+  correct: 3
+  explanation: >-
+    "Must never happen" is a guarantee, and rules and skills are advisory context the model weighs.
+    Hooks and permission settings act on execution and run deterministically every time.
+- id: q2
+  question: >-
+    A repo has both CLAUDE.md (old data-access rule, no imports) and AGENTS.md (new rule).
+    With default settings as of 2026-09, what does Claude Code load at the repo root?
+  options:
+    - >-
+      Only CLAUDE.md, so it follows the old rule while AGENTS.md-reading tools follow the new one.
+    - >-
+      Both files concatenated, with AGENTS.md last, so the newer rule wins the conflict.
+    - >-
+      Only AGENTS.md, because the open standard takes precedence over tool-specific files.
+    - >-
+      Neither file, because conflicting instruction files disable repository instructions.
+  correct: 0
+  explanation: >-
+    Claude Code reads AGENTS.md by default only when no CLAUDE.md or CLAUDE.local.md exists.
+    The portable fix is one canonical AGENTS.md that CLAUDE.md imports with `@AGENTS.md`.
+- id: q3
+  question: >-
+    Your rules file contains a 40-step procedure for adding a report endpoint that is used about
+    once a month. Where does it belong according to the decision rule?
+  options:
+    - >-
+      In the root rules file, so the agent always has it available when a report is requested.
+    - >-
+      In a skill, because it is a procedure used sometimes and should load only when needed.
+    - >-
+      In an MCP server, because procedures that touch several files need external tool access.
+    - >-
+      In a convention test, because any multi-step procedure should be enforced by the build.
+  correct: 1
+  explanation: >-
+    Facts that apply almost everywhere go in root rules; procedures used sometimes go in skills,
+    whose body loads only when used, instead of costing context in every session.
+- id: q4
+  question: >-
+    After writing the same migration rule for Claude Code, Cursor and Copilot, what does
+    "portable" actually guarantee?
+  options:
+    - >-
+      That all three tools will follow the rule identically, since the text is the same.
+    - >-
+      That the rule is enforced deterministically, since three tools now check it.
+    - >-
+      That each tool loads the rule for matching files; obedience must still be verified.
+    - >-
+      That the rule no longer needs an owner, since each tool vendor maintains its format.
+  correct: 2
+  explanation: >-
+    Portability is format-level: each tool puts the text into context. Different models can weigh
+    the same text differently, so behavior must be checked with probes in each tool.

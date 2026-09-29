@@ -1,0 +1,1 @@
+Legacy: the monthly revenue report still calls it. Don't use it; write a Dapper repository with an interface.

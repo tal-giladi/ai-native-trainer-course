@@ -1,0 +1,6 @@
+{
+  "$comment": "HARDENED: only the tickets server, read scope only (?scope=read drops add_comment). The docs server stays off (its content is untrusted and not needed for the task); the untrusted third-party notes server is not connected. Cutting a leg of the trifecta beats trying to filter injected text.",
+  "mcpServers": {
+    "tickets": { "type": "http", "url": "http://127.0.0.1:8809/tickets/mcp?scope=read" }
+  }
+}

@@ -1,0 +1,4 @@
+Bug: the customer orders screen shows orders from another tenant.
+Steps: log in as a user of tenant 12, open customer 4411, choose "last 30 days".
+Expected: only orders of tenant 12. Actual: two orders of tenant 7 also appear.
+The problem started after last Thursday's deployment. Please check the stored procedure and the date filter.

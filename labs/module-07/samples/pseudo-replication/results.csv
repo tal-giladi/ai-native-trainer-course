@@ -1,0 +1,101 @@
+config,task,split,tags,trial,pass,reason,cost_usd,input_tokens,duration_ms,agent_version,model,layer_sha,tasks_sha
+reduced-4x25,T01,dev,representative;regression,1,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,2,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,3,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,4,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,5,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,6,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,7,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,8,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,9,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,10,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,11,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,12,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,13,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,14,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,15,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,16,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,17,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,18,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,19,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,20,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,21,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,22,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,23,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,24,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T01,dev,representative;regression,25,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,1,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,2,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,3,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,4,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,5,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,6,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,7,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,8,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,9,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,10,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,11,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,12,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,13,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,14,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,15,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,16,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,17,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,18,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,19,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,20,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,21,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,22,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,23,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,24,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T03,dev,representative,25,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,1,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,2,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,3,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,4,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,5,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,6,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,7,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,8,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,9,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,10,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,11,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,12,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,13,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,14,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,15,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,16,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,17,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,18,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,19,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,20,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,21,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,22,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,23,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,24,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T07,dev,representative,25,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,1,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,2,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,3,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,4,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,5,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,6,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,7,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,8,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,9,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,10,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,11,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,12,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,13,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,14,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,15,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,16,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,17,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,18,1,,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,19,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,20,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,21,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,22,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,23,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,24,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+reduced-4x25,T12,dev,representative,25,0,illustrative failure,0.0500,35000,30000,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative

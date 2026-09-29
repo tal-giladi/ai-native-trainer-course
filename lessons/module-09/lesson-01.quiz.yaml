@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    Your agent reads text from tickets in a Jira project you own and administer. How should the
+    threat model treat that ticket text?
+  options:
+    - >-
+      Untrusted, because anyone who can file a ticket can plant instructions in its text.
+    - >-
+      Trusted, because the Jira instance belongs to your team and you control access to it.
+    - >-
+      Trusted, as long as the reporter is an authenticated employee rather than an anonymous user.
+    - >-
+      Untrusted only when the Jira instance is reachable from the public internet.
+  correct: 0
+  explanation: >-
+    The boundary is authorship, not ownership. Whoever can write a ticket can put words in it, so
+    ticket text is untrusted content even in a private, well-administered instance.
+- id: q2
+  question: >-
+    An agent session can read fetched web docs, can read your cloud credentials, and can run curl.
+    Applying the lethal trifecta, what is the most accurate conclusion?
+  options:
+    - >-
+      It is safe, because reading credentials is a separate step from sending them anywhere.
+    - >-
+      All three legs are present, so an injection in the docs could read a secret and send it out.
+    - >-
+      Only two legs matter, since the third is redundant once network access exists.
+    - >-
+      There is no risk unless the docs are served over plain HTTP rather than HTTPS.
+  correct: 1
+  explanation: >-
+    Untrusted content, access to private data, and an outbound channel are all reachable in one
+    session. That is the full trifecta, and injected text can chain read-then-exfiltrate.
+- id: q3
+  question: >-
+    Which statement best captures why the model itself cannot be relied on to separate your
+    instructions from instructions embedded in a ticket?
+  options:
+    - >-
+      The model treats developer and user text identically and ignores system prompts entirely.
+    - >-
+      Ticket text is always longer than the user prompt, so it dominates the context window.
+    - >-
+      The instruction hierarchy is a trained preference, not an enforced boundary; it is all text.
+    - >-
+      The model can separate them, but only when the ticket is retrieved via RAG rather than a tool.
+  correct: 2
+  explanation: >-
+    A system prompt biases the model toward the developer's instructions, but it is a preference
+    learned in training, not a hard boundary. Untrusted data that reads like an instruction can win.
+- id: q4
+  question: >-
+    You connect a third-party notes MCP server but have not yet called any of its tools. Why is it
+    already inside your trust boundary?
+  options:
+    - >-
+      Because its tools run automatically at connection time before the agent decides to use them.
+    - >-
+      Because connecting a server grants it your OAuth token whether or not you call it.
+    - >-
+      It is not; an unused server has no effect on the agent until a tool is actually called.
+    - >-
+      Because its tool descriptions are injected into the agent's context as soon as it connects.
+  correct: 3
+  explanation: >-
+    A server's tool descriptions enter the agent's context at connection time. Untrusted text in a
+    description can steer the agent before any tool is called (tool poisoning, covered in 09.3).
+- id: q5
+  question: >-
+    Meta's Agents Rule of Two recommends that a single agent session satisfy at most two of three
+    properties. What assumption is the rule built on?
+  options:
+    - >-
+      That injection will sometimes succeed, so you limit what a compromised session can do.
+    - >-
+      That prompt-injection defenses now block essentially all attacks, so two properties are safe.
+    - >-
+      That two properties are always cheaper to implement than one.
+    - >-
+      That the third property is impossible to implement securely under any configuration.
+  correct: 0
+  explanation: >-
+    The rule assumes a prompt injection will occasionally get through, so the safer move is to keep
+    any one session from holding all three of untrusted input, sensitive access and external comms.

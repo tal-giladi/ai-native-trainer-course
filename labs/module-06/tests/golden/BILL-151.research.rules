@@ -1,0 +1,5 @@
+# Golden checks: research/BILL-151.md (prime). Facts the brief must contain, from lesson 05.1.
+require | OutstandingAsync | | the brief must find the existing definition of "owed"
+require | IsOverdue | | the brief must find the existing definition of "overdue"
+require | IClock | | "now" comes from IClock
+require | (?m)^Schema change: no | | BILL-151 changes no schema

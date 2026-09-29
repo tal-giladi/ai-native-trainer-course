@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "comments": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": { "type": "string" },
+          "line": { "type": "integer", "minimum": 1 },
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "category": { "type": "string", "enum": ["correctness", "sql", "security", "money", "time", "concurrency", "architecture", "tests", "perf"] },
+          "body": { "type": "string", "maxLength": 400 },
+          "evidence": { "type": "string", "maxLength": 400 }
+        },
+        "required": ["file", "line", "severity", "category", "body", "evidence"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["comments"],
+  "additionalProperties": false
+}

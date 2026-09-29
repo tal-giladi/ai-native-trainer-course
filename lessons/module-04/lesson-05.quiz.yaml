@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    A fact reads "a new `V###` migration needs a matching `U###` undo script". Two of the four
+    existing migrations have no undo file. Which bucket does it belong in?
+  options:
+    - >-
+      Retrieve when needed, as a path rule, because it only concerns the migrations folder.
+    - >-
+      Generate dynamically, because the agent can list the migrations folder when it needs to.
+    - >-
+      Never load, because the undo scripts already in the folder show the convention clearly.
+    - >-
+      Must always know: it is not inferable and is decided before a migration is opened.
+  correct: 3
+  explanation: >-
+    Half the existing scripts contradict the convention, so the code does not teach it, and the
+    agent decides which files to create before any trigger under `db/migrations/` fires.
+- id: q2
+  question: >-
+    Before the cut: 30 runs cost USD 1.80 with 15 passes. After: 30 runs cost USD 1.50 with 12 passes.
+    What does cost per passing answer show?
+  options:
+    - >-
+      The cut saved about 17%, since each run became cheaper and that is what the team pays for.
+    - >-
+      It rose from USD 0.120 to USD 0.125, so the cheaper layer is dearer per useful answer.
+    - >-
+      It fell from USD 0.120 to USD 0.100, because the total spend dropped by a sixth after the cut.
+    - >-
+      It cannot be computed, because pass rate and cost are measured on different scales.
+  correct: 1
+  explanation: >-
+    USD 1.80 / 15 = USD 0.120 and USD 1.50 / 12 = USD 0.125. Cheaper runs that fail more often can cost more per
+    correct answer, which is why the report shows both per-run cost and cost per pass.
+- id: q3
+  question: >-
+    After a 90% cut, T06 goes from 3/3 to 0/3 and no other task changes. What is the most efficient
+    next step?
+  options:
+    - >-
+      Restore the facts behind T06 one at a time and rerun T06 alone to find the load-bearing one.
+    - >-
+      Revert the whole cut, since any drop in pass rate means the reduction was a mistake.
+    - >-
+      Rerun all ten tasks ten more times, since a 0/3 result is probably sampling noise.
+    - >-
+      Loosen T06's grading pattern until it passes again, since the other tasks all held.
+  correct: 0
+  explanation: >-
+    A drop clustered on one task points at one fact. Ablation (restore one fact, rerun that task)
+    finds it cheaply; 3/3 to 0/3 is too large to dismiss as noise, and loosening the grader hides it.
+- id: q4
+  question: >-
+    Which comparison setup makes a before/after context measurement fair?
+  options:
+    - >-
+      Before in one long session and after in another, so each layer is tested over many turns.
+    - >-
+      Before on last month's model and after on today's model, so the results stay up to date.
+    - >-
+      The same tasks, agent version, model and runs per task, with a fresh session per run.
+    - >-
+      Only the tasks that failed before, since tasks that already passed cannot get any better.
+  correct: 2
+  explanation: >-
+    Only the context layer may differ. Fresh sessions stop history from one task polluting the next,
+    and rerunning passing tasks is how you catch a cut that breaks something that used to work.

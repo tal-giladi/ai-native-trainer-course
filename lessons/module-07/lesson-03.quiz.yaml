@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Your LLM judge approves 18 of 20 answers that domain experts rejected as wrong, and approves
+    most of the answers they accepted. Which grader property is failing?
+  options:
+    - >-
+      Its recall is too low, so it rejects answers that are actually correct.
+    - >-
+      Its false-positive rate is high, so a "pass" from it carries little information.
+    - >-
+      It is too strict, so real improvements will look like regressions in the report.
+    - >-
+      Nothing is failing; LLM judges are meant to rank answers rather than grade them.
+  correct: 1
+  explanation: >-
+    Approving answers the experts rejected is a false positive. With an FPR of 18/20 the judge
+    passes almost everything, so its verdict barely depends on whether the answer is right.
+- id: q2
+  question: >-
+    A judge has TPR 0.6 and FPR 0.5. System A truly passes 80% of tasks and system B truly passes
+    30%. Roughly what pass rates will the judge report?
+  options:
+    - >-
+      About 80% and 30%, because grader errors cancel out when averaged over many tasks.
+    - >-
+      About 48% and 18%, because the judge only lets through 60% of the correct answers.
+    - >-
+      About 58% and 53%, so the judge can barely tell the two systems apart at all.
+    - >-
+      About 90% and 65%, because the false positives are added on top of the true rate.
+  correct: 2
+  explanation: >-
+    Observed q equals TPR times p plus FPR times (1 - p): 0.6 x 0.8 + 0.5 x 0.2 = 0.58 and
+    0.6 x 0.3 + 0.5 x 0.7 = 0.53. With TPR - FPR only 0.1, every system scores about the same.
+- id: q3
+  question: >-
+    For task T18 (fix the due-now boundary in IsOverdue), which grader should you use first?
+  options:
+    - >-
+      Hidden golden tests in the agent's working copy, plus a check of which files changed.
+    - >-
+      An LLM judge with a rubric that reads the diff and decides whether the fix is correct.
+    - >-
+      A regex over the agent's final message that looks for "<=" and the word "boundary".
+    - >-
+      A human reviewer reading every diff, since correctness of code needs expert judgment.
+  correct: 0
+  explanation: >-
+    When correctness is testable, grade the outcome: tests the agent never saw, and the scope of
+    the change. The agent's words are a proxy, a judge adds bias and cost, and humans are for calibration.
+- id: q4
+  question: >-
+    After a skill change that made every answer about twice as long, an uncalibrated judge's pass
+    rate on T21 rose from 55% to 70%. What should you check first?
+  options:
+    - >-
+      Whether the new skill version also reduced the cost per trial enough to justify it.
+    - >-
+      Whether pass@3 rose as well, which would confirm the improvement is consistent.
+    - >-
+      Whether the judge agrees with itself when the same answers are judged a second time.
+    - >-
+      Whether the judge passes long wrong answers more often than short right ones.
+  correct: 3
+  explanation: >-
+    Verbosity bias is a documented property of LLM judges. Calibrate against human labels and
+    compare pass rates by length at equal human label before crediting the skill change.

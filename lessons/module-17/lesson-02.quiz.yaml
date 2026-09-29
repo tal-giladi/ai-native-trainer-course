@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    Two days before your workshop, 12 of 14 learners have sent "SETUP OK". One sent "SETUP FAILED
+    (T-02)": restore is blocked by the company proxy. What do you do?
+  options:
+    - >-
+      Ask the learner to request a proxy exception from IT so that nuget.org works on the day.
+    - >-
+      Reply with the offline command that restores from the local feed shipped in the pack.
+    - >-
+      Plan to fix the laptop yourself at the start of the first exercise, when you can see it.
+    - >-
+      Tell the learner to follow along on the projector, since the proxy cannot be changed.
+  correct: 1
+  explanation: >-
+    The pack's local feed exists for exactly this: dotnet restore with the packages folder as the
+    source takes seconds and needs no one else. Fixing it on the day costs an exercise.
+- id: q2
+  question: >-
+    At 1:18, four learners are still building in Hands-on 2, which stops at 1:19. Hands-on 3 needs a
+    built change. What does the kit let you say?
+  options:
+    - >-
+      "Keep going; we will wait two more minutes so that everyone can finish the build properly."
+    - >-
+      "Skip Hands-on 3 and watch my screen instead, since your builds will not be ready in time."
+    - >-
+      "Stash your work and check out ws-2-bound; you start Hands-on 3 with a finished build."
+    - >-
+      "Copy the finished files from your neighbour, then continue with the rest of the room."
+  correct: 2
+  explanation: >-
+    A catch-up tag holds each step's finished state, so learners who are behind join the next step
+    with everyone else. Waiting spends everyone's time, and watching or copying loses the practice.
+- id: q3
+  question: >-
+    Fourteen learners will start the planner together, each first call sending about 40,000 uncached
+    input tokens. The host's organization limit for that model is 400,000 input tokens per minute.
+    What does the arithmetic suggest?
+  options:
+    - >-
+      Peak demand is 560,000 tokens, so stagger starts across two one-minute groups at least.
+    - >-
+      Demand is 40,000 tokens per learner, far below the limit, so no change to the plan is needed.
+    - >-
+      Peak demand is 560,000 tokens, so the exercise must be replaced with a recorded run.
+    - >-
+      Limits apply per learner rather than per organization, so the room size does not matter here.
+  correct: 0
+  explanation: >-
+    D = 14 × 40,000 = 560,000 exceeds 400,000 in the first minute. Two groups bring the peak to about
+    280,000; staggering is free, while dropping the exercise throws away the practice.
+- id: q4
+  question: >-
+    A troubleshooting entry reads: "Old .NET SDK — install .NET 8 — 600 seconds — tested: no". What
+    is wrong with it as a tool for the room?
+  options:
+    - >-
+      Nothing, as long as the co-host knows how to install the SDK on every operating system.
+    - >-
+      It should list the exact SDK version number, since any older release will fail as well.
+    - >-
+      It belongs in the starter pack's README instead, since learners should fix it at home.
+    - >-
+      The fix is untested and too long for an exercise; pair them now and install at the break.
+  correct: 3
+  explanation: >-
+    An untested fix is a guess, and a ten-minute fix during a twelve-minute exercise costs the
+    learner the exercise. The three-minute rule sends them to pairing or the paper path instead.

@@ -1,0 +1,71 @@
+- id: q1
+  question: >-
+    A review loop is capped at 3 rounds, and the reviewer approves any given round with probability 0.5.
+    What is the expected number of review rounds per task?
+  options:
+    - >-
+      1.50, because on average the reviewer approves halfway through the first retry.
+    - >-
+      1.75, from 1 + 0.5 + 0.25 across the three possible rounds.
+    - >-
+      2.00, because 1 divided by the approval probability of 0.5 gives two rounds.
+    - >-
+      3.00, because the cap is the number of rounds the orchestrator plans for.
+  correct: 1
+  explanation: >-
+    E[rounds] = sum over k from 0 to R-1 of (1-a)^k = 1 + 0.5 + 0.25 = 1.75. Without the cap it would be
+    1/a = 2; the cap trims the tail, and every round multiplies the per-round cost.
+- id: q2
+  question: >-
+    A single agent answers repository questions correctly 90% of the time. A same-model reviewer catches
+    30% of wrong answers, flags 15% of right ones, and rewriting a flagged right answer breaks it 30% of
+    the time. What does adding the reviewer do?
+  options:
+    - >-
+      Lowers success slightly, because damage to right answers outweighs the few rescues.
+    - >-
+      Raises success by about 3 points, because the reviewer catches 30% of the wrong answers.
+    - >-
+      Leaves success unchanged, because rescues and damage always cancel out on average.
+    - >-
+      Raises success to about 97%, because two independent checks multiply their reliability.
+  correct: 0
+  explanation: >-
+    Gain = (1-p) r p_fix - p f d. Even with p_fix = 1, rescues are at most 0.1 x 0.3 = 0.03, while
+    damage is 0.9 x 0.15 x 0.3 = 0.04. At a strong worker, a weak same-model reviewer costs a call and
+    loses points.
+- id: q3
+  question: >-
+    A pipeline stopped on its budget after six rounds; the working copy's golden tests pass. The trace
+    shows the same reviewer finding every round and the planner answering KEEP every round. Where did the
+    failure originate?
+  options:
+    - >-
+      In the budget stop in round six, because it discarded a result that was correct.
+    - >-
+      In the worker, because it never changed the code in response to the reviewer.
+    - >-
+      In the round-1 reviewer span, whose finding cites a rule that contradicts the task.
+    - >-
+      In the planner, because it should have revised the plan after the second request.
+  correct: 2
+  explanation: >-
+    The budget stop is the symptom. The first span that produced a wrong output is the reviewer's
+    round-1 finding; every later span repeats it. Fix the rule and precedence, and add an oscillation stop.
+- id: q4
+  question: >-
+    A planner stage is right 95% of the time and a worker succeeds 70% of the time given a sound plan.
+    A single agent alone succeeds 68% of the time. What does the chain buy, assuming independence?
+  options:
+    - >-
+      About 17 points, because the plan makes the worker's job much easier than one agent's.
+    - >-
+      Nothing measurable: 0.95 x 0.70 is about 0.67, below the single agent's 0.68.
+    - >-
+      About 2 points, because the worker's 70% is higher than the single agent's 68%.
+    - >-
+      Exactly 5 points, because the planner's 95% adds its own success to the worker's.
+  correct: 1
+  explanation: >-
+    In a chain every stage must succeed: 0.95 x 0.70 = 0.665. A chain beats one agent only if the plan
+    raises the worker's success enough to pay for the chance that the plan itself is wrong.

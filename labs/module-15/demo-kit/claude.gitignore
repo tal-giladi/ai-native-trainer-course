@@ -1,0 +1,4 @@
+hooks/bin/
+mcp/contoso-schema/
+audit/
+settings.local.json

@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "contoso-ops": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@contoso-internal/ops-mcp"],
+      "env": {
+        "OPS_DB": "Server=sql-prod-01;Database=ContosoBilling;User Id=sa;Password=Summer2026!",
+        "JIRA_TOKEN": "ATATT3xFfGF0kq9Zb7EXAMPLEONLYnotarealtoken0000"
+      }
+    },
+    "github": {
+      "type": "stdio",
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "-e", "GITHUB_TOOLSETS", "ghcr.io/github/github-mcp-server"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_EXAMPLEONLYnotarealtoken000000000000",
+        "GITHUB_TOOLSETS": "all"
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+- id: q1
+  question: >-
+    Objective O2 says "Given an agent's diff, decide whether it added a shadow rule." Its only two
+    test items are "Define DRY" and "Why are shadow rules bad?" What is the problem?
+  options:
+    - >-
+      The items are fine, since a learner who can explain the idea can also apply it.
+    - >-
+      The objective is too hard for a short session and should be lowered to "explain".
+    - >-
+      There are only two items, and every objective needs at least four to be reliable.
+    - >-
+      The items only test recall and explanation, not whether learners can decide.
+  correct: 3
+  explanation: >-
+    Constructive alignment: the verb in the objective should be the verb in the item. An analyze
+    objective needs an item that makes learners decide on a diff and name what it duplicates.
+- id: q2
+  question: >-
+    Which rewrite of "Participants will understand the research brief" is a usable objective?
+  options:
+    - >-
+      Given a ticket, write the brief line that makes the agent name the rule to reuse.
+    - >-
+      Participants will gain a deep appreciation of why the research brief matters to agents.
+    - >-
+      Participants will know the four parts of a research brief and their purpose.
+    - >-
+      Participants will learn about research briefs through a live demonstration.
+  correct: 0
+  explanation: >-
+    A usable objective has a condition, an observable performance and, ideally, a criterion.
+    "Appreciate", "know" and "learn about" cannot be observed; a written brief line can be scored.
+- id: q3
+  question: >-
+    A staff engineer sighs through your step-by-step walkthrough of the first diff, then solves the
+    independent problem in a minute. What does cognitive load theory suggest?
+  options:
+    - >-
+      Slow down further, since experts need extra repetition to replace old habits.
+    - >-
+      Let experienced learners start at the faded or full problem instead of the walkthrough.
+    - >-
+      Remove the worked example for everyone, since guidance never helps professional adults.
+    - >-
+      Ask the engineer to present the walkthrough instead, since peers teach one another best.
+  correct: 1
+  explanation: >-
+    The expertise reversal effect: guidance that helps novices becomes redundant load for experts.
+    Keep the worked example for novices and let experts enter at a later step of the fading sequence.
+- id: q4
+  question: >-
+    Your chats showed people believe "any agent change to business logic is a shadow rule". Which
+    item best tests for that misconception?
+  options:
+    - >-
+      A diff that adds a second overdue check next to the existing one, asking whether it is one.
+    - >-
+      A question asking learners to write the definition of a shadow rule in their own words.
+    - >-
+      A diff that extends the existing rule with a parameter, asking if it is a shadow rule.
+    - >-
+      A question asking which incident gave the concept its name and on which date it happened.
+  correct: 2
+  explanation: >-
+    A correct-looking non-example catches over-application: learners with the misconception say
+    "yes" to an extension of the one implementation. The duplicate diff tests the concept, not the error.
+- id: q5
+  question: >-
+    Your opening slide introduces nine of your method's terms in six minutes, although the objectives
+    need two of them. What kind of load does it add, and what do you do?
+  options:
+    - >-
+      Intrinsic load, so split the slide over two steps and keep all nine terms.
+    - >-
+      Germane load, so keep it, since more connections help learners build schemas.
+    - >-
+      No load at all, since a slide that is only listening costs learners nothing.
+    - >-
+      Extraneous load, so cut the terms no objective needs and introduce the rest one per step.
+  correct: 3
+  explanation: >-
+    Terms that no objective needs are load created by the design, not by the material. Removing them
+    frees working memory for the elements that the objectives actually require.

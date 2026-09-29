@@ -1,0 +1,25 @@
+{
+  "$comment": "Settings for every CI agent job (copy to .github/agent-settings.json; passed with --settings because --bare loads nothing implicitly). Deny rules from labs/module-09/configs/hardened. The runner is ephemeral, but the token and API key in its environment are not: the agent may not read secrets, reach the network or edit its own layer.",
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/*.pem)",
+      "Read(./secrets/**)",
+      "Edit(./.claude/**)",
+      "Edit(./.github/**)",
+      "Edit(./AGENTS.md)",
+      "Edit(./CLAUDE.md)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(gh *)",
+      "Bash(git push *)",
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "network": { "allowedDomains": ["api.nuget.org"] },
+    "filesystem": { "denyRead": ["./.env", "./secrets"] }
+  }
+}

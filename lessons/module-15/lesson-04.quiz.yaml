@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    Your demo has four live segments, each clean in 9 of 10 rehearsals. Assuming they fail
+    independently, about how likely is a run with no failure at all?
+  options:
+    - >-
+      About 90%, since every segment is clean nine times out of ten.
+    - >-
+      About 36%, since four segments each have a one in ten chance to fail.
+    - >-
+      About 66%, from 0.9 multiplied by itself for each of four segments.
+    - >-
+      About 99%, since a failure needs all four segments to fail together.
+  correct: 2
+  explanation: >-
+    P(clean) is the product of the per-segment rates: 0.9^4 ≈ 0.66. About one run in three needs a
+    recovery, so the recovery must be planned and rehearsed like the run itself.
+- id: q2
+  question: >-
+    A segment ran a live check against a Docker database and worked in 1 of 3 rehearsals. Its run
+    sheet fallback says "restart docker". What does the lesson recommend?
+  options:
+    - >-
+      Keep it live, since the database check is the most impressive part of the demo.
+    - >-
+      Keep it live but rehearse it seven more times, since three runs are not enough.
+    - >-
+      Keep it and add a line to say, since the audience forgives a failing database.
+    - >-
+      Cut or replace it: a hope is no fallback, and the segment dominates the risk.
+  correct: 3
+  explanation: >-
+    A segment failing more than one rehearsal in five is recorded, pre-baked or cut. Here the snapshot
+    schema server shows the same point with no moving parts; a fallback is something you have opened.
+- id: q3
+  question: >-
+    Mid-demo, the agent's plan suddenly proposes SqlHelper and DataSet. You realize AGENTS.md was
+    left renamed after a drill. Which response follows the recovery pattern best?
+  options:
+    - >-
+      Say this is the before behavior, restore AGENTS.md, rewind before the plan, rerun.
+    - >-
+      Apologize, restart the whole demo from the beginning, and skip the Q&A to catch up.
+    - >-
+      Keep going with the wrong plan and fix the code by hand while the agent implements it.
+    - >-
+      Switch silently to the recording of Tuesday's run so the audience does not notice.
+  correct: 0
+  explanation: >-
+    Name it, decide within the budget, teach it. Here the failure is itself a live before/after, and
+    /rewind plus the restored rules gets back on the run sheet quickly.
+- id: q4
+  question: >-
+    After a wrong turn, you use /rewind to restore the code to before the implementation prompt. The
+    agent had also run a shell command that deleted a generated file. What is true?
+  options:
+    - >-
+      Everything is restored, since checkpoints capture the whole working tree every turn.
+    - >-
+      Edits made by file-editing tools are restored, but the shell deletion is not.
+    - >-
+      Nothing is restored, since checkpoints only apply to the conversation, not to files.
+    - >-
+      Only the shell deletion is restored, since tool edits are already tracked by git.
+  correct: 1
+  explanation: >-
+    Checkpoints track changes made through Claude Code's editing tools, not changes made by shell
+    commands. The reset command (git reset and git clean) covers the rest.
+- id: q5
+  question: >-
+    The demo breaks during a paid workshop and your fallback works. Which sentence best uses the
+    failure as teaching, according to the lesson?
+  options:
+    - >-
+      "Sorry about that, this never happens, the tool is normally very reliable."
+    - >-
+      "That was the model provider's fault, which is not something we can control."
+    - >-
+      "That was an overload. In CI the same thing happens, which is why jobs cap retries."
+    - >-
+      "Let's skip this part, it's not important for what I wanted to show you today."
+  correct: 2
+  explanation: >-
+    Name what happened and connect it to real work. An explained failure is remembered, and it
+    shows the room how agents behave outside a rehearsed run without blaming anyone.

@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A golden task passed 5 of 5 trials. A teammate writes "T06: 100% (95% CI 100-100%)". What is
+    the problem?
+  options:
+    - >-
+      Nothing; with zero failures there is no variance, so the interval really is zero width.
+    - >-
+      The Wald interval collapses at 0 or 100%; Wilson gives about 57-100% for 5 of 5.
+    - >-
+      Five trials are too few to compute any interval, so no range should be reported.
+    - >-
+      The interval should be computed with pass^5 instead of the plain pass rate here.
+  correct: 1
+  explanation: >-
+    The textbook interval uses p(1-p), which is zero at 5/5, so it claims certainty from five
+    coin flips. The Wilson interval stays honest at small n and extreme rates: about 57% to 100%.
+- id: q2
+  question: >-
+    A nightly agent updates dependencies unattended, once per night. A task passed 4 of 5 trials.
+    Which figure describes how often it will get three nights in a row right?
+  options:
+    - >-
+      pass@3, which is 1.0 here, because every set of three trials includes a pass.
+    - >-
+      pass@1, which is 0.8, because each night is simply one independent new attempt.
+    - >-
+      pass^3, which is 0.4 here: four of the ten possible triples are all passes.
+    - >-
+      The Wilson lower bound, about 0.38, since reliability means planning for the worst.
+  correct: 2
+  explanation: >-
+    Unattended runs have no verifier to pick a good attempt, so every run must pass: that is pass^k.
+    C(4,3)/C(5,3) = 4/10. pass@3 answers a different question, where one success among three suffices.
+- id: q3
+  question: >-
+    Your 24-task suite gives a pass-rate interval that is too wide for a decision. Each task already
+    has 5 trials. What shrinks the interval most for the same budget?
+  options:
+    - >-
+      Running 20 trials of each task instead of 5, which quadruples the total trials.
+    - >-
+      Switching from the Wilson interval to the narrower Wald interval for large n.
+    - >-
+      Dropping the tasks that always pass, since they add no variance to the estimate.
+    - >-
+      Adding more distinct tasks, since task-to-task variation dominates the error.
+  correct: 3
+  explanation: >-
+    Trials of the same task are clustered. Past a few trials per task, the task-level spread
+    dominates the standard error, and only more tasks reduce it.
+- id: q4
+  question: >-
+    You want to estimate a pass rate near 70% to within plus or minus 10 points at 95% confidence.
+    Roughly how many independent trials do you need?
+  options:
+    - >-
+      About 80, from n = z squared times p(1 - p) divided by the half-width squared.
+    - >-
+      About 20, since the course's 20-task minimum is designed for exactly this purpose.
+    - >-
+      About 400, since 95% confidence always requires several hundred observations.
+    - >-
+      About 10, because a 10-point margin corresponds to one trial per 10 points.
+  correct: 0
+  explanation: >-
+    3.84 x 0.21 / 0.01 is about 81. Those trials should also be spread over many tasks, because
+    repeats of the same task are not independent.

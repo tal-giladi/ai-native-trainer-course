@@ -1,0 +1,50 @@
+/* Security simulator — page-specific styles. Shared look comes from ../common/sim.css. */
+.d-help { display: block; color: var(--muted); font-size: 0.8rem; }
+.check label span { display: block; }
+
+.trifecta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0; font-size: 0.9rem; }
+.trifecta .k { color: var(--muted); }
+
+.paths { display: grid; gap: 10px; margin-top: 8px; }
+.path { border: 1px solid var(--line); border-radius: 6px; padding: 8px; min-width: 0; }
+.path-h { margin-bottom: 6px; }
+.chain { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+.chain .node {
+  position: relative; border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px;
+  font-size: 0.78rem; min-width: 0; overflow-wrap: anywhere; background: var(--bg);
+}
+.chain .node + .node::before {
+  content: "→"; position: absolute; left: -9px; top: 6px; color: var(--muted); font-size: 0.8rem;
+}
+.node-s { display: block; font-weight: 600; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.02em; }
+.node-p { display: block; }
+.node-c { display: block; font-weight: 700; margin-top: 2px; }
+.node-b { display: block; color: var(--muted); font-size: 0.72rem; }
+.chain .node.stop { border-color: var(--good); background: var(--good-bg); }
+.chain .node.stop .node-c { color: var(--good); }
+.chain .node.luck { border-color: var(--warn); background: var(--warn-bg); }
+.chain .node.luck .node-c { color: var(--warn); }
+.chain .node.breach { border-color: var(--bad); background: var(--bad-bg); }
+.chain .node.breach .node-c { color: var(--bad); }
+
+@media (max-width: 560px) {
+  .chain { grid-template-columns: minmax(0, 1fr); }
+  .chain .node + .node::before { content: "↓"; left: 8px; top: -14px; }
+  .chain { gap: 14px; }
+}
+
+.legend { font-size: 0.8rem; margin-top: 8px; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; border: 1px solid; }
+.s-stop { background: var(--good-bg); border-color: var(--good); }
+.s-luck { background: var(--warn-bg); border-color: var(--warn); }
+.s-breach { background: var(--bad-bg); border-color: var(--bad); }
+
+.gate { font-weight: 600; margin-top: 8px; }
+
+.trace { margin: 8px 0 0; padding-left: 22px; }
+.trace li { margin: 4px 0; }
+.trace li.stop { color: var(--good); }
+.trace li.breach { color: var(--bad); }
+.trace li.luck { color: var(--warn); }
+
+#trace-attack, .field select { max-width: 100%; min-width: 0; }

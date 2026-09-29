@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    Which wedge sentence best satisfies the stack × audience × pain formula and lets a stranger
+    tell whether they are in or out?
+  options:
+    - >-
+      AI-native SDLC training for software teams that want to move faster with coding agents.
+    - >-
+      Power-user training for one popular AI editor, for developers of every language.
+    - >-
+      AI-native delivery for .NET/SQL Server brownfield teams who fear agent migrations.
+    - >-
+      Helping forward-looking engineering leaders build an AI-first culture in their teams.
+  correct: 2
+  explanation: >-
+    It names a stack, an audience situation and a pain, so a Java greenfield team knows it is out.
+    The others name everyone, a single tool, or a feeling rather than a pain.
+- id: q2
+  question: >-
+    A student multiplies survey shares, 27.8% C# × 30.1% SQL Server × 46.4% Jira = 3.9%, and calls
+    it the size of their wedge. What is the main problem?
+  options:
+    - >-
+      The shares are correlated, so the product is not the joint share; count it directly.
+    - >-
+      The shares should be added, not multiplied, since one developer can use all three tools.
+    - >-
+      The survey is from 2025, so the result has to be adjusted for growth since then.
+    - >-
+      Nothing: multiplying the shares is the standard way to estimate a niche market.
+  correct: 0
+  explanation: >-
+    Multiplying marginals assumes independence, but C# developers use SQL Server far more than
+    average. Survey respondents are also self-selected; estimate the wedge from your own network.
+- id: q3
+  question: >-
+    Two candidates: A, "Tool X power-user training", reachable 60 people; B, ".NET/SQL Server
+    brownfield teams on Jira", reachable 40 people, where you have eight years of incidents. Why
+    does B usually win on the five criteria?
+  options:
+    - >-
+      B has more reachable people, and reach carries the highest weight of the five.
+    - >-
+      B scores higher on advantage and durability; A expires with the tool's next release.
+    - >-
+      A is too broad to score on specificity, so it is disqualified before any scoring.
+    - >-
+      B avoids competition entirely, because no other trainer works on legacy .NET.
+  correct: 1
+  explanation: >-
+    A reaches more people, but a tool-first wedge scores low on durability and the vendor teaches
+    it for free. Your own incidents make advantage, the most heavily weighted criterion, high for B.
+- id: q4
+  question: >-
+    Your reachability funnel for a precise wedge ends at 4 people you could actually talk to. What
+    should you conclude?
+  options:
+    - >-
+      The market is too small, so abandon this niche permanently and pick another stack.
+    - >-
+      Proceed anyway; four interviews are enough to confirm a wedge with high confidence.
+    - >-
+      Multiply the funnel by the national developer population to get the real market size.
+    - >-
+      It is too narrow to test now; widen one dimension and keep the niche for later.
+  correct: 3
+  explanation: >-
+    Under about 15 reachable people you cannot run interviews and find a pilot. That says nothing
+    about the market; widen one dimension now and revisit the niche once content brings people to you.

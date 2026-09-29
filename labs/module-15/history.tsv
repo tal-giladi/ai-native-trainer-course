@@ -1,0 +1,24 @@
+# Contoso Billing history for brownfield-demo, replayed by scripts/assemble-demo.sh.
+# date<TAB>author<TAB>message<TAB>operations separated by " ; "
+# Sources: B: labs/module-03/brownfield/  H: labs/module-15/history/  K: labs/module-15/  L: labs/  R: course root
+# Operations: +SRC>DEST (copy; a trailing / on SRC copies a folder) · +B:path (same path) · mv A>B · rm A · touch A · tag NAME
+2016-03-02	moshe	initial import	+K:history/2016/gitignore>.gitignore ; +B:Contoso.Billing.sln>Billing.sln ; +H:2016/Contoso.Billing.csproj>src/Contoso.Billing/Contoso.Billing.csproj ; +H:2016/SqlHelper.cs>src/Contoso.Billing/Legacy/SqlHelper.cs ; +H:2016/MonthlyRevenueReport.cs>src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs ; +B:db/migrations/V001__create_invoice.sql
+2019-11-18	moshe	V002 add due date	+B:db/migrations/V002__add_due_date.sql
+2021-06-10	moshe	docs: copy architecture page from wiki	+B:docs/ARCHITECTURE.md
+2023-01-09	moshe	rename Billing.sln -> Contoso.Billing.sln, Billing.UnitTests -> Contoso.Billing.Tests	mv Billing.sln>Contoso.Billing.sln ; +B:global.json ; +B:tests/Contoso.Billing.Tests/Contoso.Billing.Tests.csproj
+2024-04-22	avi	ADR 0007 Dapper repositories replace SqlHelper	+B:docs/adr/0007-dapper-repositories.md ; +B:src/Contoso.Billing/Contoso.Billing.csproj ; +B:src/Contoso.Billing/Legacy/SqlHelper.cs
+2024-05-14	dana	BILL-61 V003 datetimeoffset + Status (+U003); rollback scripts from now on	+B:db/migrations/V003__utc_offsets_and_status.sql ; +B:db/migrations/U003__utc_offsets_and_status.sql ; +B:src/Contoso.Billing/Invoices/Invoice.cs
+2024-06-02	avi	BILL-66 migrate invoice reads from SqlHelper to InvoiceRepository (Dapper)	+H:2024/IInvoiceRepository.cs>src/Contoso.Billing/Invoices/IInvoiceRepository.cs ; +H:2024/InvoiceRepository.cs>src/Contoso.Billing/Invoices/InvoiceRepository.cs ; +B:src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs
+2024-11-19	avi	BILL-79 convention tests: SqlHelper only in Legacy/, no DateTime.Now	+B:tests/Contoso.Billing.Tests/ConventionTests.cs
+2025-02-03	dana	BILL-88 V004 due date not null (+U004)	+B:db/migrations/V004__due_not_null.sql ; +B:db/migrations/U004__due_not_null.sql
+2025-06-10	dana	V005 invoice notes (+U005)	+L:module-08/overlay/db/migrations/V005__invoice_notes.sql>db/migrations/V005__invoice_notes.sql ; +L:module-08/overlay/db/migrations/U005__invoice_notes.sql>db/migrations/U005__invoice_notes.sql
+2026-06-12	yossi	BILL-120 InvoiceService.IsOverdue uses IClock	+B:src/Contoso.Billing/Common/IClock.cs ; +H:2026-06/InvoiceService.cs>src/Contoso.Billing/Invoices/InvoiceService.cs ; +H:2026-06/InvoiceServiceTests.cs>tests/Contoso.Billing.Tests/InvoiceServiceTests.cs
+2026-08-30	dana	BILL-131 add ListByCustomerAsync to IInvoiceRepository	+B:src/Contoso.Billing/Invoices/IInvoiceRepository.cs ; +B:src/Contoso.Billing/Invoices/InvoiceRepository.cs ; +B:src/Contoso.Billing/Invoices/InvoiceService.cs ; +B:tests/Contoso.Billing.Tests/InvoiceServiceTests.cs
+2026-09-10	noa	prd: finance close Q4 (from Confluence)	+K:company/prd/PRD-finance-close-q4.md>prd/PRD-finance-close-q4.md
+2026-09-14	dana	BILL-158 V006 notes move to dbo.InvoiceNote (+U006)	+L:module-08/overlay/db/migrations/V006__invoice_note_table.sql>db/migrations/V006__invoice_note_table.sql ; +L:module-08/overlay/db/migrations/U006__invoice_note_table.sql>db/migrations/U006__invoice_note_table.sql
+2026-09-16	yossi	docs: history notes for new joiners	+B:docs/history-excerpt.txt
+2026-09-18	noa	tickets: export the open Billing backlog from Jira	+K:company/tickets/>tickets/ ; +B:tickets/BILL-142.md ; +L:module-05/tickets/>tickets/ ; +L:module-06/tickets/>tickets/ ; +L:module-08/overlay/tickets/>tickets/
+2026-09-19	noa	prd: collections improvements Q4	+L:module-06/prd/PRD-collections-q4.md>prd/PRD-collections-q4.md
+2026-09-19	noa	company: handbook, team and glossary (from Confluence)	+K:company/README.md>company/README.md ; +K:company/team.md>company/team.md ; +K:company/glossary.md>company/glossary.md ; +K:company/docs/>company/docs/
+@BREAK
+2026-09-21	trainer	demo: empty AI layer placeholder and demo config	touch .claude/.gitkeep ; +K:demo-kit/demo.json>demo/demo.json ; +K:demo-kit/recordings-README.md>recordings/README.md ; tag before-ai-layer

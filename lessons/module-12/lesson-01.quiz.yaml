@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    Legal requires that prompts are processed only in the EU. The vendor's own API offers the newest
+    model and the lowest price per attempt, but its inference geography options are "global" and "us".
+    What is the correct way to treat that option?
+  options:
+    - >-
+      Keep it and give it a low score on the residency criterion, since it wins on price and features.
+    - >-
+      Keep it for developers outside the EU and route only EU developers elsewhere by default.
+    - >-
+      Eliminate it before any weighing, because residency is a hard constraint, not a preference.
+    - >-
+      Keep it and ask the vendor to disable logging, which removes the residency concern for prompts.
+  correct: 2
+  explanation: >-
+    Hard constraints eliminate; they are never traded against price or features. A route that
+    processes prompts outside the EU fails the requirement no matter how well it scores elsewhere.
+- id: q2
+  question: >-
+    Option X costs $0.45 per attempt and passes 64% of your tasks. Option Y costs $0.62 per attempt and
+    passes 74%. A failed attempt costs $15 of review. Which statement is correct?
+  options:
+    - >-
+      X is cheaper per success, because its price per attempt is 27% lower than Y's price.
+    - >-
+      Y is cheaper per success, about $6.11 against $9.14, as review of failures dominates.
+    - >-
+      They cost the same per success once pass rates are taken into account.
+    - >-
+      You cannot compare them at all without also knowing the fixed monthly cost of each provider.
+  correct: 1
+  explanation: >-
+    Cost per success is c/p + (1/p - 1)h. For X, 0.703 + 8.44 = 9.14; for Y, 0.838 + 5.27 = 6.11.
+    The review term, driven by pass rate, outweighs the difference in token price.
+- id: q3
+  question: >-
+    Two survivors pass 31/50 and 37/50 of your tasks. Their 95% intervals are roughly 48-74% and 60-84%.
+    What should you conclude before choosing between them on pass rate?
+  options:
+    - >-
+      The second option is clearly more capable, since its point estimate is twelve points higher.
+    - >-
+      Pass rates on 50 tasks are meaningless, so ignore them and choose on price per attempt.
+    - >-
+      The first option should be eliminated because its lower bound is below the 60% floor.
+    - >-
+      The difference is not established; decide on constraints and cost, or run more trials.
+  correct: 3
+  explanation: >-
+    Overlapping intervals mean the observed gap could be noise (07.4). Either the decision is robust to
+    it for other reasons, such as a large gap in cost per success, or you need more trials.
+- id: q4
+  question: >-
+    What most distinguishes a cloud-hosted model (the vendor's model on a hyperscaler) from the vendor's
+    own SaaS API, from an enterprise architect's point of view?
+  options:
+    - >-
+      Requests use your cloud account, IAM, billing and regions, but new models and features often arrive later.
+    - >-
+      The model weights are copied into your own cloud account, so you operate the model and its upgrades.
+    - >-
+      The model is a different, smaller model trained by the hyperscaler under the same product name.
+    - >-
+      Prompts are always processed in the region you call from, with no cross-region routing possible.
+  correct: 0
+  explanation: >-
+    The hyperscaler operates the model, and you reach it through your existing cloud identity, network,
+    audit and billing. The trade-off is feature and model lag; routing options such as geographic or
+    global profiles vary by platform.

@@ -1,0 +1,1 @@
+It is only kept for MonthlyRevenueReport, the last legacy caller, until BILL-97 migrates it. For anything new, write a Dapper repository behind an interface as ADR 0007 describes.

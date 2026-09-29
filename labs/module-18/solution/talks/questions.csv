@@ -1,0 +1,16 @@
+date,channel,network,prompted,asker,question,theme,answered_in
+2026-07-15,lunch-and-learn,inside,yes,staff engineer,"How do you trust the tests if the agent wrote them?",agent-tests,P-03
+2026-07-15,lunch-and-learn,inside,yes,developer,"Isn't this just research-plan-implement with new names?",originality,FAQ-01
+2026-07-15,lunch-and-learn,inside,no,QA analyst,"Does Ground work when there is no test suite?",no-test-suite,P-08
+2026-07-16,dm,inside,no,developer,"Our small tickets got slower with the loop. Is that normal?",small-tickets,FAQ-02
+2026-07-29,post,inside,no,former colleague,"Which gate stops the agent from editing the tests?",agent-tests,P-03 thread
+2026-08-12,article,outside,no,R1,"Time to PR went up 35%. Did reviewers push back on getting PRs later?",review-time,P-04 thread
+2026-08-14,dm,inside,no,engineering manager,"If models improve, does the method go away?",model-improves,dm
+2026-08-20,meetup,outside,yes,R2,"Will a better model fix shadow rules on its own?",model-improves,verbal
+2026-08-26,video,outside,no,R3,"What does your reuse search actually run against SQL Server?",sql-reuse-search,P-05 thread
+2026-09-02,email,outside,no,R4,"Can the agent do Ground on a repo with no tests at all?",no-test-suite,email
+2026-09-09,post,outside,no,R5,"So what does a better model change, concretely?",model-improves,P-06
+2026-09-09,post,outside,no,R6,"Would this work with Copilot instead of Claude Code?",tool-portability,P-06 thread
+2026-09-16,pilot,outside,yes,pilot developer,"How do we keep the brief from going stale?",brief-maintenance,email
+2026-09-23,pilot,outside,no,pilot tech lead,"Where do we start with no tests on the invoicing module?",no-test-suite,email
+2026-09-24,case-study,outside,no,R7,"How long did the pilot preparation take?",pilot-effort,P-07 thread

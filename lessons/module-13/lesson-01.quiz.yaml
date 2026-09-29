@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    A dashboard shows agent-assisted PRs merging 49% faster, measured from PR opened to merged. Time
+    from In Progress to PR opened is 35% longer with the agent. What is the best reading?
+  options:
+    - >-
+      The agent speeds reviews by 49%, and the extra time before the PR is a separate issue.
+    - >-
+      Both numbers are unreliable, since PR data cannot be used to measure delivery at all.
+    - >-
+      The two effects roughly cancel out, so the agent has no effect on delivery speed.
+    - >-
+      The PR clock starts after the agent has shifted work, so cycle time is the fair measure.
+  correct: 3
+  explanation: >-
+    With the agent, developers open PRs later, so part of the work moves before the PR clock starts.
+    A comparison metric must start before the treatment can act; cycle time from In Progress does.
+- id: q2
+  question: >-
+    Four tickets took 2, 4, 8 and 50 hours. Which summary best describes a typical ticket, and which
+    would you use to express a percentage change between two ways of working?
+  options:
+    - >-
+      The mean of 16 hours for both, because it uses every value and is the standard average.
+    - >-
+      The median of 6 hours to describe; a ratio of geometric means to express the change.
+    - >-
+      The maximum of 50 hours to describe, since planning must cover the worst case.
+    - >-
+      The median for both, because medians of two groups can be divided to give a ratio.
+  correct: 1
+  explanation: >-
+    Durations are skewed, so the mean (16 h) describes no real ticket. The median (6 h) describes a
+    typical one; analysis on the log scale gives a ratio of geometric means that means the same for
+    small and large tickets.
+- id: q3
+  question: >-
+    Without the agent, 40 tickets cost $53,200 and 34 meet the quality bar. With it, 40 tickets
+    cost $47,400 including agent spend and 30 meet the bar. What is the cost per successful task?
+  options:
+    - >-
+      About $1,565 without and $1,580 with the agent: fewer hours, but no cheaper per success.
+    - >-
+      About $1,330 without and $1,185 with the agent: an 11% saving per ticket delivered.
+    - >-
+      It cannot be computed without knowing how many escaped defects each arm produced.
+    - >-
+      About $1,565 without and $1,520 with the agent, once agent spend is left out as overhead.
+  correct: 0
+  explanation: >-
+    Divide total cost by tickets that met the bar: 53,200 / 34 and 47,400 / 30. Dividing by all 40
+    tickets ignores the rework; dropping agent spend from the numerator flatters the agent arm.
+- id: q4
+  question: >-
+    Your manager proposes three outcome metrics for an agent pilot. Which one should you reject as
+    an outcome?
+  options:
+    - >-
+      Median cycle time from In Progress to merged, reported with p90 and by ticket size.
+    - >-
+      Share of tickets with an escaped defect within 30 days of deployment.
+    - >-
+      Lines of code changed per developer per week, as a measure of output.
+    - >-
+      Change fail rate: deployments that needed a rollback or an immediate hotfix.
+  correct: 2
+  explanation: >-
+    An agent inflates lines changed by construction, so the metric moves without the work
+    improving. Cycle time, escaped defects and change fail rate measure outcomes and guardrails.

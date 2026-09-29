@@ -1,0 +1,17 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 2,
+  "total_cost_usd": 0.03,
+  "duration_ms": 14200,
+  "permission_denials": [],
+  "structured_output": {
+    "issue": "BILL-912",
+    "labels": ["bug", "area:reminders"],
+    "priority": "p2",
+    "duplicate_of": null,
+    "needs_human": false,
+    "summary": "Reminder shows the due date in UTC, not the customer's local date; customers east of UTC see the previous day."
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "Q01",
+    "category": "Hosting & vendor",
+    "question": "Where does model inference run, which provider and which region(s), including any fallback?"
+  },
+  {
+    "id": "Q02",
+    "category": "Hosting & vendor",
+    "question": "Under what contractual terms is the model accessed, and do they forbid training on our inputs and outputs?"
+  },
+  {
+    "id": "Q03",
+    "category": "Hosting & vendor",
+    "question": "How do we switch provider or model if the vendor changes terms, prices or retires a model?"
+  },
+  {
+    "id": "Q04",
+    "category": "Hosting & vendor",
+    "question": "Which model versions are allowed, who approves a new one, and how is the version pinned?"
+  },
+  {
+    "id": "Q05",
+    "category": "Identity & access",
+    "question": "How do developers authenticate to the agent and the gateway, and is it tied to our IdP with MFA?"
+  },
+  {
+    "id": "Q06",
+    "category": "Identity & access",
+    "question": "What identity does an unattended agent (CI, scheduled job) use, and how long does its credential live?"
+  },
+  {
+    "id": "Q07",
+    "category": "Identity & access",
+    "question": "Can one team's credential be used to spend another team's budget or reach another team's data?"
+  },
+  {
+    "id": "Q08",
+    "category": "Identity & access",
+    "question": "How is access revoked when a person leaves or a team is dissolved, and how fast?"
+  },
+  {
+    "id": "Q09",
+    "category": "Identity & access",
+    "question": "Which identities can change the gateway, agent policy (managed settings) and MCP configuration?"
+  },
+  {
+    "id": "Q10",
+    "category": "Secrets",
+    "question": "Where are provider and gateway credentials stored, and can a developer read the provider key?"
+  },
+  {
+    "id": "Q11",
+    "category": "Secrets",
+    "question": "How are credentials rotated, and what happens to running agents during rotation?"
+  },
+  {
+    "id": "Q12",
+    "category": "Secrets",
+    "question": "What stops secrets in the repository or in pasted text from reaching the model provider or our logs?"
+  },
+  {
+    "id": "Q13",
+    "category": "Network",
+    "question": "Can a developer machine or CI runner reach model providers directly, bypassing the gateway?"
+  },
+  {
+    "id": "Q14",
+    "category": "Network",
+    "question": "Is traffic between the gateway and the provider private (private endpoint) or over the internet?"
+  },
+  {
+    "id": "Q15",
+    "category": "Network",
+    "question": "What outbound network access does the agent itself have when it runs tools (shell, fetch)?"
+  },
+  {
+    "id": "Q16",
+    "category": "Data & residency",
+    "question": "What data leaves the developer machine: code, prompts, tool results, telemetry? List every destination."
+  },
+  {
+    "id": "Q17",
+    "category": "Data & residency",
+    "question": "Where is each copy of prompt data stored at rest, for how long, and who can read it?"
+  },
+  {
+    "id": "Q18",
+    "category": "Data & residency",
+    "question": "How do we meet 'no source code leaves the EU', including fallback routes, MCP servers and telemetry?"
+  },
+  {
+    "id": "Q19",
+    "category": "Data & residency",
+    "question": "What personal data can reach the model, and what is the lawful basis and minimisation approach?"
+  },
+  {
+    "id": "Q20",
+    "category": "Data & residency",
+    "question": "How do we honour deletion requests and retention limits for prompt and log data?"
+  },
+  {
+    "id": "Q21",
+    "category": "Logging & audit",
+    "question": "What is logged for each model call and tool call, and is prompt content logged?"
+  },
+  {
+    "id": "Q22",
+    "category": "Logging & audit",
+    "question": "Can the people being audited modify or delete the audit log?"
+  },
+  {
+    "id": "Q23",
+    "category": "Logging & audit",
+    "question": "How would we reconstruct what an agent did in a given session, and by whose authority?"
+  },
+  {
+    "id": "Q24",
+    "category": "Logging & audit",
+    "question": "How are spend and usage attributed to teams, and what share is unattributed?"
+  },
+  {
+    "id": "Q25",
+    "category": "Agent behaviour & tools",
+    "question": "Which tools and MCP servers can agents use, and which can write to production systems?"
+  },
+  {
+    "id": "Q26",
+    "category": "Agent behaviour & tools",
+    "question": "How are prompt injection and untrusted content (tickets, docs, dependencies) handled?"
+  },
+  {
+    "id": "Q27",
+    "category": "Agent behaviour & tools",
+    "question": "How is agent-generated code reviewed and tested before merge?"
+  },
+  {
+    "id": "Q28",
+    "category": "Agent behaviour & tools",
+    "question": "Who owns the AI layer (rules, skills, hooks, MCP config) and how are changes approved?"
+  },
+  {
+    "id": "Q29",
+    "category": "Operations & cost",
+    "question": "What quotas, rate limits and budget ceilings exist per team and per workload, and what happens when one is hit?"
+  },
+  {
+    "id": "Q30",
+    "category": "Operations & cost",
+    "question": "What is the incident process for an agent misbehaving, a leaked key, or a provider outage?"
+  }
+]

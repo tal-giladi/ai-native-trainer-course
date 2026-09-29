@@ -1,0 +1,15 @@
+# Contoso Billing architecture rules for `LoopGate arch`.
+# Format: kind | pattern | include-glob | exclude-glob | reason
+# Every rule names the evidence it encodes. A rule without evidence is an opinion; leave it out.
+
+# ADR 0007: new data access is Dapper in a repository behind an interface.
+forbid-package | ^Microsoft\.EntityFrameworkCore | **/*.csproj |  | ADR 0007: data access is Dapper repositories, not EF Core
+forbid-text | DbContext | src/**/*.cs |  | ADR 0007: data access is Dapper repositories, not EF Core
+forbid-text | SqlHelper. | src/**/*.cs | src/Contoso.Billing/Legacy/** | ADR 0007: SqlHelper is [Obsolete]; only Legacy/ may call it
+
+# IClock.cs: all "now" values come from IClock so tests can freeze time.
+forbid-text | DateTimeOffset.UtcNow | src/**/*.cs | src/Contoso.Billing/Common/IClock.cs | IClock.cs: "now" comes from IClock.UtcNow
+forbid-text | DateTime.Now | src/**/*.cs |  | IClock.cs: never the local wall clock
+
+# V003: from V003 on, every migration ships with its undo script.
+migration-pair | 3 | db/migrations |  | V003 header: a V### without its U### is rejected

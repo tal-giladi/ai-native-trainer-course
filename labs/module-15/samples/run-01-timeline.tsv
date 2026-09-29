@@ -1,0 +1,40 @@
+# Illustrative timeline of an unedited run (BILL-97, after tag). Written while watching the recording back.
+# mm:ss<TAB>kind<TAB>note   kinds: start say prompt wait output stuck help error recover fallback pr green cut end
+00:00	start	terminal in the demo-after worktree at ai-layer-v1; recording starts
+00:05	say	Contoso Billing: ten years, five authors, one ticket nobody touches (BILL-97)
+01:10	say	the ticket and the PRD non-goal: revenue includes every status
+02:00	prompt	/prime BILL-97
+02:05	wait	researcher sub-agent searching src, tests, migrations, ADRs
+02:20	say	what the researcher is looking for, and what it must not do
+03:05	say	ConventionTests: the house rules as code
+03:40	output	research/BILL-97.md written, 2 open questions
+03:45	say	read the open questions aloud: void invoices, UTC month boundary
+05:00	prompt	/plan-feature BILL-97
+05:05	wait	planning
+05:15	say	Touch and Do not touch: why SqlHelper stays
+06:00	say	chat question answered during the wait: does it run the tests itself?
+06:40	output	plans/BILL-97.md
+06:50	say	walk the plan; the HUMAN checkpoint for Finance
+08:00	prompt	approve; implement step 1, tests first
+08:05	wait	writing tests
+08:20	say	why the filter gets a characterization test
+09:00	error	API overloaded; the session retries
+09:31	recover	retry succeeded; explained what an overload error is and why nothing on disk changed
+10:10	output	3 new tests, red as planned
+10:20	prompt	implement step 2
+10:25	wait	repository, record, report moved out of Legacy/
+10:40	say	the ADR 0007 pattern the agent is copying
+11:30	say	chat question: what if it changes the SQL?
+12:15	output	Reports/ created, Legacy/MonthlyRevenueReport.cs deleted
+12:30	prompt	/validate BILL-97
+12:35	wait	LoopGate scope, arch, tests
+13:00	say	checks the agent did not write and cannot edit
+13:50	output	scope PASS, arch PASS
+14:10	green	dotnet test: 9 passed (was 6)
+14:20	prompt	/pr-review
+14:25	wait	reviewer sub-agent
+14:55	say	what a reviewer agent is good and bad at
+15:40	output	0 blocking findings; open questions carried into the PR body
+16:10	pr	draft PR opened with the two Finance questions
+16:55	say	recap against the 90-second before clip: SqlHelper, DataSet, convention test red
+17:40	end	recording stops

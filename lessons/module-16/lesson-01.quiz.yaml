@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    After your lunch-and-learn, the feedback form averages 4.7 out of 5 and every comment praises
+    the demo. Which Kirkpatrick level does this evidence speak to?
+  options:
+    - >-
+      Learning, because people who rate a session highly have usually understood the material.
+    - >-
+      Reaction, because it records how favourable and relevant people found the session.
+    - >-
+      Behaviour, because people only praise techniques they are planning to use at work.
+    - >-
+      Results, because satisfied engineers are the main driver of team delivery outcomes.
+  correct: 1
+  explanation: >-
+    A feedback form is level 1, reaction. Studies such as Deslauriers et al. (2019) and Uttl et al.
+    (2017) show that ratings say little about learning, which needs its own measure, such as a
+    pre/post test.
+- id: q2
+  question: >-
+    Learners who watched a smooth 12-minute live demo rate their confidence at 89% but score 43% on
+    the post-test. What best explains the gap?
+  options:
+    - >-
+      The post-test was too hard, since people are good judges of what they can do.
+    - >-
+      The demo was too short, since confidence and skill both grow with watching time.
+    - >-
+      Watching an expert work fluently feels like understanding, a fluency illusion.
+    - >-
+      The learners were anxious during the test, which lowered only their actual scores.
+  correct: 2
+  explanation: >-
+    Following a fluent performance produces a feeling of understanding without the schemas needed to
+    do it alone. Self-rated confidence is a reaction measure; the post-test is the learning measure.
+- id: q3
+  question: >-
+    Which activity would the ICAP framework predict produces the most learning for the concept
+    "shadow rule"?
+  options:
+    - >-
+      Watching the instructor find a shadow rule in a diff while narrating each decision.
+    - >-
+      Rerunning the instructor's exact search command on the same repository afterwards.
+    - >-
+      Reading a clear one-page summary of the concept and its evidence after the session.
+    - >-
+      Arguing with a partner about whether a borderline diff is a shadow rule until you agree.
+  correct: 3
+  explanation: >-
+    ICAP orders engagement Interactive > Constructive > Active > Passive. Co-constructing a judgment
+    with a peer on a new case is interactive; watching and reading are passive, rerunning is active.
+- id: q4
+  question: >-
+    Your learning claim reads "After the session, participants will understand why shadow rules
+    matter." What is the main problem with it?
+  options:
+    - >-
+      Nobody can observe "understand", so no test could show whether it happened.
+    - >-
+      It is too ambitious for a 30-minute session and should cover a smaller concept.
+    - >-
+      It mentions a concept name, and learning claims should avoid your own vocabulary.
+    - >-
+      It describes the learners' motivation instead of the content that will be covered.
+  correct: 0
+  explanation: >-
+    A learning claim names an observable performance in a situation, such as "can tell whether an
+    agent's diff duplicated an existing rule and name the rule". "Understand" gives no way to check.

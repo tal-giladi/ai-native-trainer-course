@@ -1,0 +1,7 @@
+ticket,after_runs,after_pass,after_median_min,after_p90_min,before_runs,before_pass,before_failure,recognizable_votes_of_5,notes
+BILL-97,10,9,13,18,5,0,SqlHelper + DataSet; ConventionTests red,5,annoying tech debt everyone has; Finance's number at stake
+BILL-142,10,9,11,16,5,1,in-memory filter; own overdue rule,3,good but small; overlaps what Module 3 already showed
+BILL-151,10,7,14,22,5,2,second definition of owed,4,shows the shadow rule; 7/10 is too fragile live
+BILL-153,10,5,21,34,5,0,NOT NULL column without backfill,4,great story; fails half the time and runs past the slot
+BILL-161,10,6,18,29,5,1,reads the dropped Notes column,3,needs the schema server live; two moving parts
+BILL-180,10,10,6,8,5,4,none worth showing,2,too easy: the before run passes too; nothing to see

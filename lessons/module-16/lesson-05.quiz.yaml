@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    A class averages 40% on the pre-test and 70% on the post-test. What is the normalized gain
+    $\langle g \rangle$, and in which of Hake's bands does it fall?
+  options:
+    - >-
+      0.75, in the high band, because the scores rose by three quarters of the starting value.
+    - >-
+      0.30, in the low band, because the raw gain was thirty percentage points out of a hundred.
+    - >-
+      0.50, in the medium band, because thirty of the sixty possible points were gained.
+    - >-
+      0.43, in the medium band, because seventy percent is forty-three percent above forty.
+  correct: 2
+  explanation: >-
+    $\langle g \rangle = (70 - 40)/(100 - 40) = 30/60 = 0.50$, medium (0.3 to 0.7). The 0.75 is the
+    relative change $(70-40)/40$, which rewards a low pre-test and should never be reported.
+- id: q2
+  question: >-
+    Feedback averages 4.8 out of 5, but post-test scores barely moved from the pre-test. What
+    happened, and what do you change?
+  options:
+    - >-
+      The post-test was badly written, so rewrite it until it agrees with the feedback.
+    - >-
+      Learners enjoyed a mostly passive session; move time from showing to practice.
+    - >-
+      Learners were tired by the end, so move the post-test to the following morning.
+    - >-
+      The group was too advanced for the material, so raise the level of the content.
+  correct: 1
+  explanation: >-
+    Reaction and learning are different levels. A loved, fluent session that learners mostly watched
+    is the classic cause; check the plan's active share and the per-objective gains, then redesign.
+- id: q3
+  question: >-
+    One learner scored 100% on both the pre-test and the post-test. How should they enter the mean
+    normalized change $\bar c$?
+  options:
+    - >-
+      Dropped from the average, with the count of dropped learners reported next to it.
+    - >-
+      Counted as 1.0, since they finished with full marks and clearly mastered the content.
+    - >-
+      Counted as 0.0, since their score did not change at all between the two tests.
+    - >-
+      Counted as the class average, so that the learner does not skew the result either way.
+  correct: 0
+  explanation: >-
+    For a learner at 0% or 100% on both tests, $c$ is undefined: there was no room to gain. Marx and
+    Cummings drop such cases; counting them as 1.0 inflates the average.
+- id: q4
+  question: >-
+    You plan to reuse the exact same eight questions as both the pre-test and the post-test so that
+    results stay comparable. What is the main problem?
+  options:
+    - >-
+      Eight questions are too few, so the post-test should add at least four new items.
+    - >-
+      Learners may find the test boring, so the feedback rating will be unfairly lowered.
+    - >-
+      Identical items cannot be scored blind, so the instructor's bias will enter the results.
+    - >-
+      Learners remember the items, so the gain mixes learning with memory of the pre-test.
+  correct: 3
+  explanation: >-
+    Use parallel forms with the same items on different surfaces, and counterbalance them (half take
+    A first, half B), so that neither memory nor a harder form can produce the gain.
+- id: q5
+  question: >-
+    Two weeks after the session, 3 of 6 learners point to a PR or brief where they used the concept.
+    How should you report it?
+  options:
+    - >-
+      As 50%, which shows that half of all developers will adopt the concept within two weeks.
+    - >-
+      As 3 of 6, 50%, with a Wilson interval of about 19% to 81%, from one small group.
+    - >-
+      As a failure, since fewer than two thirds of the learners changed their behaviour at all.
+    - >-
+      As 100% of those who replied, since learners who did not use it are unlikely to reply.
+  correct: 1
+  explanation: >-
+    Behaviour (level 3) is a proportion; with six learners its interval is very wide. Report k of n
+    with the interval and count a "yes" without evidence as no.

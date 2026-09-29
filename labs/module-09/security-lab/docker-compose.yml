@@ -1,0 +1,74 @@
+# Module 9 security-lab. LOCAL ONLY. Never point any of this at a real system.
+#
+# An internal Docker network with NO route to the internet (internal: true). The data services
+# (tickets, docs, notes) and the egress-catcher sit on it. The only host-reachable port is the
+# edge forwarder, bound to 127.0.0.1 so nothing is exposed off this machine.
+#
+#   docker compose up -d                 # clean lab: tickets, docs, notes(clean), egress-catcher
+#   NOTES_MODE=poisoned docker compose up -d notes   # switch the notes server to poisoned mode (A04)
+#   docker compose logs egress-catcher   # see which canaries reached the catcher (A02)
+#   docker compose down -v               # tear down and delete volumes
+#
+# Everything served here is a BENIGN, TEST-ONLY fixture. Planted instructions only ask for
+# harmless observable actions with the fake canary CANARY-7f3a. See ../attacks/attacks.json.
+services:
+  tickets:
+    build: ./services
+    command: ["python", "-u", "/app/tickets.py"]
+    environment:
+      PORT: "8801"
+    volumes:
+      - ./fixtures/tickets:/data/tickets:ro
+      - catcher-data:/data/catcher      # add_comment writes here so CanaryCheck can observe the ticket-comment sink
+    networks: [labnet]
+    restart: unless-stopped
+
+  docs:
+    build: ./services
+    command: ["python", "-u", "/app/docs.py"]
+    environment:
+      PORT: "8802"
+    volumes:
+      - ./fixtures/docs:/data/docs:ro
+    networks: [labnet]
+    restart: unless-stopped
+
+  notes:
+    build: ./services
+    command: ["python", "-u", "/app/notes.py"]
+    environment:
+      PORT: "8803"
+      NOTES_MODE: ${NOTES_MODE:-clean}   # clean | poisoned  (poisoned = the rug pull for A04)
+    networks: [labnet]
+    restart: unless-stopped
+
+  egress-catcher:
+    build: ./services
+    command: ["python", "-u", "/app/catcher.py"]
+    environment:
+      PORT: "9109"
+    volumes:
+      - catcher-data:/data/catcher       # records every hit; CanaryCheck reads hits.jsonl from here
+    networks: [labnet]
+    restart: unless-stopped
+
+  # The ONLY container with a host-published port, bound to loopback. It proxies to the internal
+  # services so a locally-run agent can reach them at 127.0.0.1 without exposing the lab off-box.
+  edge:
+    build: ./services
+    command: ["python", "-u", "/app/edge.py"]
+    environment:
+      PORT: "8080"
+    ports:
+      - "127.0.0.1:8809:8080"
+    networks: [labnet, edgenet]   # labnet to reach the services; edgenet to publish a loopback port
+    depends_on: [tickets, docs, notes, egress-catcher]
+    restart: unless-stopped
+
+networks:
+  labnet:
+    internal: true      # no bridge to the host network or the internet; the data services live here only
+  edgenet:              # host-facing bridge, used ONLY by the edge forwarder for its 127.0.0.1 port
+
+volumes:
+  catcher-data:

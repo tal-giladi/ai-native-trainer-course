@@ -1,0 +1,69 @@
+- id: q1
+  question: >-
+    Your hot take on AI replacing junior developers reached 9,800 people; your article on the
+    late-PR illusion reached 960 and brought one question from a tech lead you had never met. Which
+    piece did more for the funnel, and why?
+  options:
+    - >-
+      The hot take, because reach is the top of the funnel and the article's audience was too small.
+    - >-
+      Both equally, because each piece did its own job at a different stage of the funnel.
+    - >-
+      The article, because a stranger tried to use the idea, the signal the funnel exists for.
+    - >-
+      Neither, because a funnel can only be judged by the number of workshops it eventually sells.
+  correct: 2
+  explanation: >-
+    Reach is attention and mostly comes from people who never act. An unprompted question from
+    outside your network shows someone applied a concept and got stuck: the output you measure.
+- id: q2
+  question: >-
+    Six of your last ten pieces announce your workshop, offer a discount or ask people to book a call.
+    What is the most likely effect?
+  options:
+    - >-
+      Your audience learns that your content is advertising, and trust pieces lose their effect.
+    - >-
+      More bookings, because repeated asks are the fastest way to convert an existing audience.
+    - >-
+      Nothing measurable, because readers skip the asks and remember only the teaching pieces.
+    - >-
+      Higher reach, because platforms tend to reward posts that contain a clear call to action.
+  correct: 0
+  explanation: >-
+    Asks spend the credibility teaching pieces earn. Keep them to at most one piece in five, after
+    several pieces people could use.
+- id: q3
+  question: >-
+    You estimate that each piece has a 5% chance of producing a question from someone outside your
+    network. About how likely is it that twelve pieces produce at least one?
+  options:
+    - >-
+      About 60%, because twelve pieces at 5% each add up to sixty percent in total.
+    - >-
+      About 46%, because the chance that none of the twelve does is 0.95 to the power 12.
+    - >-
+      About 5%, because each piece keeps the same chance no matter how many you publish.
+    - >-
+      About 95%, because with twelve independent tries at least one success is almost certain.
+  correct: 1
+  explanation: >-
+    $1 - (1 - 0.05)^{12} = 1 - 0.54 = 0.46$. Adding probabilities overcounts; the lever is raising
+    $p$ with a sharper audience and one concept per piece, not only publishing more.
+- id: q4
+  question: >-
+    A colleague asks a follow-up question after your internal lunch-and-learn, right after you said
+    "any questions?". Does it meet the module's exit test?
+  options:
+    - >-
+      Yes, because any follow-up question shows that the teaching worked for someone in the room.
+    - >-
+      Yes, as long as the colleague works on a different team from the one you work on yourself.
+    - >-
+      No, because the exit test requires a question asked in writing, on a public platform.
+    - >-
+      No, because the asker already knew you and the question was prompted; log it all the same.
+  correct: 3
+  explanation: >-
+    The exit signal is a question from outside your network, asked unprompted. Inside and prompted
+    questions are still valuable data for the questions log and the next pieces.

@@ -1,0 +1,83 @@
+- id: q1
+  question: >-
+    When the attack suite is scored into results.csv, a row "passes" under what condition?
+  options:
+    - >-
+      When the defense held: the canary did not reach the attack's sink.
+    - >-
+      When the agent completed the task the ticket described, regardless of the canary.
+    - >-
+      When the canary reached the sink, proving the attack executed as designed.
+    - >-
+      When the trial finished without an error in the harness.
+  correct: 0
+  explanation: >-
+    The polarity is inverted for a security suite: a green row means an attack was blocked. Pass =
+    the defense held = the canary never reached its sink.
+- id: q2
+  question: >-
+    Why is the golden floor set to 1.0 for the security attack suite instead of the 0.8 default used
+    for capability regression?
+  options:
+    - >-
+      Because security attacks run more trials, so a higher floor is statistically required.
+    - >-
+      Because 4 of 5 blocked still means one breach, and one breach is a failure.
+    - >-
+      Because 1.0 makes the gate run faster by skipping the aggregate check.
+    - >-
+      Because capability tasks cannot use a 1.0 floor, only security tasks can.
+  correct: 1
+  explanation: >-
+    For an attack, 4/5 blocked means the canary escaped once. One exfiltration is categorically worse
+    than one capability regression, so every attack must be blocked on every trial.
+- id: q3
+  question: >-
+    You harden a defense and observe 0 breaches in 25 trials. Using the rule of three, what can you
+    honestly claim about the true breach rate?
+  options:
+    - >-
+      The breach rate is zero, since no breach occurred in any of the 25 trials.
+    - >-
+      The breach rate is exactly 3/25, or 12%, by the rule of three.
+    - >-
+      No breach was observed; the 95% upper bound is about 3/25, or 12%.
+    - >-
+      Nothing can be said about the rate until at least one breach is observed.
+  correct: 2
+  explanation: >-
+    With 0 events in n trials, the 95% upper bound is about 3/n. Zero observed is not zero true; you
+    report "no breach observed, upper bound ~12%," and more trials tighten it.
+- id: q4
+  question: >-
+    An attack is blocked on both the baseline and the hardened config. What is wrong with using it as
+    a regression test for your mitigation?
+  options:
+    - >-
+      Nothing; an attack that never breaches is the ideal regression test for a fix.
+    - >-
+      It tests nothing about the fix, because it never failed before the mitigation.
+    - >-
+      It will cause the gate to fail even when the mitigation works.
+    - >-
+      It can only be used if it is tagged capability rather than golden.
+  correct: 1
+  explanation: >-
+    A regression test must fail before the fix and pass after. An attack already blocked on the
+    baseline proves nothing about your mitigation, exactly like an incident task that passes pre-fix.
+- id: q5
+  question: >-
+    Your hardened attack suite gates green in CI. Which conclusion is justified?
+  options:
+    - >-
+      The system is secure, so the residual-risk register can now be closed out.
+    - >-
+      No further attacks need to be added, since the gate covers all cases.
+    - >-
+      The agent will reliably resist adaptive attackers once it runs in production.
+    - >-
+      The known attacks held this run; attacks you did not think of remain a risk.
+  correct: 3
+  explanation: >-
+    Green means the attacks you wrote held this time. It does not cover attacks you did not imagine
+    or a stronger adaptive attacker, and the residual rate is only as tight as your trial count.

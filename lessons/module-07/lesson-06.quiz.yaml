@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A layer change raises the mean pass rate over 24 tasks by 7 points, but one golden task drops
+    from 5/5 to 0/5. Why can an aggregate-only gate not catch this?
+  options:
+    - >-
+      Golden tasks are excluded from the aggregate, so their results never reach the gate.
+    - >-
+      The gate uses a paired design, which cancels out any change that affects only one task.
+    - >-
+      One task collapsing moves the mean by only 1/24 and other gains outweigh it.
+    - >-
+      Five trials are too few to detect a change from 100% to 0% on any single task.
+  correct: 2
+  explanation: >-
+    A task going from 1.0 to 0.0 lowers the mean of 24 task rates by about 4 points, well inside
+    the aggregate interval and easily offset by gains elsewhere. Only a per-task floor sees it.
+- id: q2
+  question: >-
+    An agent proposed editing a merged migration in production work last week. What is the right
+    first step when you turn this incident into a regression task?
+  options:
+    - >-
+      Fix the rules file first, then write the task and confirm that it passes.
+    - >-
+      Write the task and confirm it fails on the current layer before changing anything.
+    - >-
+      Add the task to the holdout split so the fix cannot be tuned against it.
+    - >-
+      Tag the task golden and let the nightly run decide whether it needs a fix.
+  correct: 1
+  explanation: >-
+    A regression task that already passes before the fix does not test the fix. Seeing it fail
+    first proves it reproduces the incident; then the fix must turn it green.
+- id: q3
+  question: >-
+    Your evals workflow runs `claude -p` on every pull request, including PRs from forks. What is
+    the main risk?
+  options:
+    - >-
+      A PR can add hooks or MCP servers that -p runs, next to your API key in the job.
+    - >-
+      Fork PRs will produce noisier results because they use a different model version.
+    - >-
+      The workflow will run too often, which makes the baseline results go stale faster.
+    - >-
+      Headless runs ignore the repository's CLAUDE.md, so the eval tests the wrong layer.
+  correct: 0
+  explanation: >-
+    A -p session runs the project's hooks and connects its .mcp.json servers even in an untrusted
+    folder. Untrusted PRs must not trigger agent runs with secrets; restrict the workflow to your own branches.
+- id: q4
+  question: >-
+    The golden check fails about twice a month on changes that turn out to be fine. What is the
+    best response?
+  options:
+    - >-
+      Switch the gate to the aggregate only, since golden tasks are already in the mean.
+    - >-
+      Remove the flaky golden tasks from the smoke suite and keep them in the nightly run.
+    - >-
+      Require 100% on every golden task so that any failure is treated as a true signal.
+    - >-
+      Measure false alarms with A/A runs, then allow one miss per task or add trials.
+  correct: 3
+  explanation: >-
+    Flakiness is noise to measure and tune, not a reason to drop the signal. A floor that
+    tolerates one failed trial, or more trials, keeps the per-task check while cutting false alarms.

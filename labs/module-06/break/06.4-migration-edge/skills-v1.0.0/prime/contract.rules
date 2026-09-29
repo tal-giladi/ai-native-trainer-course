@@ -1,0 +1,10 @@
+# prime 1.0.0 output contract (before the BILL-153 failure).
+# kind[@Section] | a | b | message
+section | Existing capabilities to reuse | | the brief must say what already exists
+section | Architecture facts that constrain the design | | constraints need evidence
+section | Dependencies and blast radius | | callers and schema that the change reaches
+section | Open questions | | unknowns go to the plan checkpoint, not into guesses
+min-count@Existing capabilities to reuse | `[^`]*/[^`]*` | 1 | every reuse row names a path
+min-count@Architecture facts that constrain the design | `[^`]*/[^`]*` | 1 | every constraint names its evidence path
+max-count | \S | 80 | a brief fits on one screen
+forbid | ^(First|Then|Next),? I\b | | the brief narrates the exploration instead of reporting findings

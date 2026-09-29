@@ -1,0 +1,155 @@
+- id: q1
+  question: >-
+    An agent does well on your .NET tickets when you give it the entire repository, but poorly when
+    you give it a focused context (the rules file plus the ticket). Which experiment plan best finds out why?
+  options:
+    - >-
+      Switch the focused setup to a model with a larger window, then compare a handful of tickets by eye.
+    - >-
+      Keep giving it the entire repository, since that works and the extra tokens are mostly cached anyway.
+    - >-
+      On a fixed task set, add repo parts back one at a time and check the rules for stale or contradictory lines.
+    - >-
+      Add "IMPORTANT" to the key lines of the focused rules and rerun the same tickets until results improve.
+  correct: 2
+  explanation: >-
+    Either the full repository contains a non-inferable fact the focused context lacks (bisect by adding
+    parts back, e.g. the ADR or history) or the focused rules contain something the full context outweighs
+    (stale or contradictory lines). A fixed task set and several fresh runs per variant make the comparison fair.
+- id: q2
+  question: >-
+    Midway through a session, each turn suddenly costs several times more than before. `/context` shows
+    the messages category jumped after the agent ran `dotnet test -v diag`. What is going on and what fixes it?
+  options:
+    - >-
+      History H grew with a huge log resent each turn; clear or rewind, and keep verbose logs out.
+    - >-
+      The rules term R grew because test output was appended to CLAUDE.md; delete those new lines.
+    - >-
+      The tool definitions T grew because a new test tool was registered; disable unused MCP servers.
+    - >-
+      The output reserve O grew because the agent keeps summarizing the log; lower the effort level.
+  correct: 0
+  explanation: >-
+    Tool output lands in the history and is resent (or re-read from cache) on every later request.
+    `/clear` or `/rewind` removes it; quiet verbosity, a filtering hook or a sub-agent keeps it out next time.
+- id: q3
+  question: >-
+    In one repository, Claude Code users get Dapper repositories and Copilot users get `SqlHelper`
+    with `DataSet`. Both CLAUDE.md and AGENTS.md exist, and CLAUDE.md does not import AGENTS.md. What is the diagnosis?
+  options:
+    - >-
+      Copilot's model is weaker, so it ignores the Dapper rule that both tools load equally.
+    - >-
+      The ADR is stale, so each tool guesses a different pattern from the old documentation.
+    - >-
+      A path-scoped rule is loading in Copilot only, because it matches different files there.
+    - >-
+      A cross-tool contradiction: each tool loads a different file, and the files disagree.
+  correct: 3
+  explanation: >-
+    Claude Code reads CLAUDE.md and not AGENTS.md when both exist (by default), while Copilot reads AGENTS.md.
+    Make AGENTS.md canonical, import it from CLAUDE.md, and delete the diverging copy.
+- id: q4
+  question: >-
+    You move "invoice totals are rounded to 2 decimals only for display, never when stored" into a rule
+    scoped to `src/Reports/**`. An agent adding a `Total` column in a migration now rounds before storing.
+    Why?
+  options:
+    - >-
+      Path-scoped rules are only advisory, so the agent is free to ignore them when it disagrees.
+    - >-
+      Working in a migration never loads the Reports rule; the fact belongs in the root.
+    - >-
+      The rule file is too long, so the rounding line was lost in the middle of the context.
+    - >-
+      Compaction removed the rule, because path-scoped rules never survive a summary.
+  correct: 1
+  explanation: >-
+    Path rules load when matching files are read. The rounding decision happens outside `src/Reports/`,
+    so the trigger never fires. Facts needed before (or outside) their trigger go in the always-loaded layer.
+- id: q5
+  question: >-
+    In a .NET-only repository, the agent ends its answers with "run `npm run lint` and `helm upgrade`
+    before merging". Which pathology does this point to first?
+  options:
+    - >-
+      Pollution, because an earlier task in the same session used npm and Helm.
+    - >-
+      Irrelevance, because the layer includes other stacks' instructions that do not apply here.
+    - >-
+      Staleness, because the repository used to have a front-end that was removed.
+    - >-
+      Redundancy, because the same build instruction is repeated in several files.
+  correct: 1
+  explanation: >-
+    Tools with no trace in the repository, suggested in fresh sessions too, usually come from pasted
+    company-wide or other-team content. Confirm with the audit and a fresh session; then delete it.
+- id: q6
+  question: >-
+    Early in a long session you told the agent "do not modify `InvoiceService.cs`; another PR is rewriting
+    it". After auto-compaction, it edits that file. What is the durable fix?
+  options:
+    - >-
+      Add the constraint to the root AGENTS.md so every future session in the repository sees it.
+    - >-
+      Repeat the constraint in chat every few turns so that it stays in the recent history.
+    - >-
+      Disable auto-compaction for the repository, so the conversation is never summarized.
+    - >-
+      Write it in the task's handoff note or plan and re-inject that after compaction.
+  correct: 3
+  explanation: >-
+    Chat-only constraints are summarized and may be lost. It is a task fact, so the root rules are wrong
+    (they would mislead every other task). A re-injected task artifact survives compaction.
+- id: q7
+  question: >-
+    After your context audit, always-loaded tokens fell by 80% and the pass rate on 10 tasks × 3 runs went
+    from 26/30 to 25/30. How should you report it?
+  options:
+    - >-
+      Results held within noise at far lower context; name the failing task and label its cause.
+    - >-
+      The new layer is 4% worse, so the audit failed and the old layer should be restored.
+    - >-
+      The new layer is significantly better, since an 80% cut with equal results is a proven win.
+    - >-
+      Nothing can be said, because 30 runs are too few for any conclusion at all.
+  correct: 0
+  explanation: >-
+    One run in 30 is within noise, so "held" is the honest word; the cost and attention savings are real.
+    Read the one extra failure (context, grader or model) before shipping. Module 7 adds intervals.
+- id: q8
+  question: >-
+    After the cut, T02 fails once. Its answer is correct but names the new method without writing
+    the interface name that the regex requires. What should you do?
+  options:
+    - >-
+      Restore the data-access section of the old layer, since the task that covers it failed.
+    - >-
+      Count it as a context failure and rerun T02 until it passes three times in a row.
+    - >-
+      Label it a grader false negative, log it for grader work, and keep the layer.
+    - >-
+      Delete T02 from the task set, since a task that fails on correct answers is useless.
+  correct: 2
+  explanation: >-
+    The context did its job; the grader was too strict. Re-adding lines would add context that was never
+    needed. Keep the task, record the false negative, and improve the grader deliberately (Module 7).
+- id: q9
+  question: >-
+    Layer A costs USD 0.04 per run and passes 18 of 30 runs. Layer B costs USD 0.05 per run and passes 27
+    of 30. Which layer is cheaper per passing answer?
+  options:
+    - >-
+      Layer A, at about USD 0.040, because cost per run is what the team is billed for.
+    - >-
+      Layer B, at about USD 0.056 against A's USD 0.067, since it fails far less often.
+    - >-
+      Layer A, at about USD 0.067 against B's USD 0.083, because B's runs cost 25% more.
+    - >-
+      Neither; they cost the same per passing answer once caching discounts are applied.
+  correct: 1
+  explanation: >-
+    A: 30 × 0.04 / 18 = USD 0.067. B: 30 × 0.05 / 27 = USD 0.056. A cheaper run that fails more often
+    costs more per useful answer, which is why the audit reports cost per pass as well as cost per run.

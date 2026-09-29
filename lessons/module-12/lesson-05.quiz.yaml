@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Six months after ADR-0002 ("teams call providers directly") was accepted, the platform team moves
+    everyone to a central gateway. What is the correct way to record this?
+  options:
+    - >-
+      Edit ADR-0002 to describe the gateway, so readers always find the current decision in one place.
+    - >-
+      Write a new ADR that says "Supersedes: ADR-0002" and mark ADR-0002 "Superseded by" it.
+    - >-
+      Delete ADR-0002 and reuse its number for the gateway decision to keep the log short and tidy.
+    - >-
+      Leave both accepted, since each one was correct at the time it was written and approved.
+  correct: 1
+  explanation: >-
+    Accepted decisions are not edited or deleted; a new ADR supersedes the old one and the link is recorded
+    in both. The history explains why direct access was tried and why it stopped.
+- id: q2
+  question: >-
+    An ADR titled "Log all prompts at the gateway" lists one option, two positive consequences and an empty
+    Confirmation section. What is the most important weakness?
+  options:
+    - >-
+      It is too short; ADRs should run to several pages so reviewers see the full analysis.
+    - >-
+      It lacks a diagram, and every ADR must include its own architecture drawing.
+    - >-
+      It has no alternatives, cost or check, so it records a preference rather than a decision.
+    - >-
+      It should have been written after the gateway was built, once the consequences were known.
+  correct: 2
+  explanation: >-
+    A decision needs real options, an honest negative consequence and a confirmation someone else can run.
+    Without them the record cannot be reviewed or verified, and its cost stays hidden.
+- id: q3
+  question: >-
+    A security-review answer reads "Q13: Can clients bypass the gateway? Answer: No." with no evidence.
+    The architecture file says directProviderAccess is true. What does this show?
+  options:
+    - >-
+      The architecture file is probably out of date, since the review answer is the more recent document.
+    - >-
+      Nothing serious; reviewers accept short answers when the question is a yes-or-no question.
+    - >-
+      The lint rule is too strict, because direct access is acceptable when a proxy is configured.
+    - >-
+      The answer describes the intended design, not the real one; evidence links and lint expose it.
+  correct: 3
+  explanation: >-
+    Unevidenced answers drift toward what the team wants to be true. Requiring evidence and linting the
+    machine-readable architecture forces the answers and the system to agree.
+- id: q4
+  question: >-
+    Why keep a machine-readable twin (such as architecture.json) of the reference diagram?
+  options:
+    - >-
+      It can be checked in CI, so the described architecture and its rules cannot silently drift apart.
+    - >-
+      Reviewers prefer JSON to diagrams, so it replaces the need for a context or container view.
+    - >-
+      The model gateway reads it at start-up to configure routes, quotas and keys automatically.
+    - >-
+      It is required by the C4 model, which defines a standard JSON schema for every container diagram.
+  correct: 0
+  explanation: >-
+    A picture cannot be linted. The twin lets residency, identity and logging rules run on every change,
+    and that run doubles as the confirmation for several ADRs.

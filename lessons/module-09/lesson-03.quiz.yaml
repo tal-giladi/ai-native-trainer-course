@@ -1,0 +1,82 @@
+- id: q1
+  question: >-
+    Why can a malicious MCP tool description influence the agent before the tool is ever called?
+  options:
+    - >-
+      Because tool descriptions enter the model's context as soon as the server connects.
+    - >-
+      Because the client executes each tool once at connection time to discover its behavior.
+    - >-
+      Because connecting a server automatically grants it write access to the repository.
+    - >-
+      Because the description is stored as a system prompt that overrides the user's instructions.
+  correct: 0
+  explanation: >-
+    On connection the server sends tool names and descriptions, which the client puts into the
+    model's context. Untrusted text there can steer the agent before any tool runs.
+- id: q2
+  question: >-
+    A server you approved last month now sends a tool description containing a hidden instruction it
+    did not have before. What is this called, and what control catches it?
+  options:
+    - >-
+      Shadowing; caught by giving each server its own OAuth scope.
+    - >-
+      Excessive agency; caught by requiring human approval for every tool call.
+    - >-
+      A rug pull; caught by pinning approved descriptions and flagging drift.
+    - >-
+      Token passthrough; caught by validating the token audience at the server.
+  correct: 2
+  explanation: >-
+    Changing descriptions after approval is a rug pull. A pinned snapshot plus a drift check forces
+    a human to re-approve the changed tool rather than trusting it silently.
+- id: q3
+  question: >-
+    Published measurements put package hallucination at roughly 5% for commercial models and over
+    20% for open-source ones. Why does that create a supply-chain risk rather than just a build error?
+  options:
+    - >-
+      Hallucinated packages slow the build, giving attackers time to intercept the restore traffic.
+    - >-
+      An attacker can register a commonly hallucinated name, so the agent installs their code.
+    - >-
+      Hallucinated names always shadow a real package with the same prefix.
+    - >-
+      The model will keep retrying the install until some package with that name is found.
+  correct: 1
+  explanation: >-
+    Slopsquatting: attackers pre-register names that models frequently invent. When an agent
+    hallucinates one and resolves it from a public feed, it pulls attacker-controlled code.
+- id: q4
+  question: >-
+    How does NuGet package-source mapping defend against a hallucinated dependency name?
+  options:
+    - >-
+      It scans each package's source code for malicious patterns before installing it.
+    - >-
+      It blocks the agent from editing any .csproj file without human approval.
+    - >-
+      It automatically substitutes the closest real package name for a misspelled or unknown one.
+    - >-
+      Every package ID, even transitive, must match an approved pattern or the restore fails.
+  correct: 3
+  explanation: >-
+    With mapping, an ID that matches no approved pattern fails restore instead of resolving from a
+    public feed. A hallucinated name becomes a loud build failure, not a silent install.
+- id: q5
+  question: >-
+    A drift check reports that a pinned tool description changed. What is the correct response?
+  options:
+    - >-
+      Ignore it if the change looks small, since minor edits are harmless.
+    - >-
+      Treat it as re-approval: a human reviews the change before the tool is trusted again.
+    - >-
+      Automatically re-pin the new description so the check stops firing.
+    - >-
+      Disconnect the server permanently, because any change after approval proves it is malicious.
+  correct: 1
+  explanation: >-
+    Drift means your one-time approval no longer holds. It may be benign (a version bump) or a rug
+    pull, so a human re-reviews before trust is restored. Auto-re-pinning defeats the control.

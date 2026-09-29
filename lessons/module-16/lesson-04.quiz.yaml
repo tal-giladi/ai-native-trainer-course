@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    A staff engineer says: "Isn't this just DRY? We've known that for decades." Which response best
+    follows the skeptic protocol from this lesson?
+  options:
+    - >-
+      Thank them for the great question, then retell the incident story in more detail.
+    - >-
+      Concede that duplication is old, ask for their case, give your evidence and boundary.
+    - >-
+      Explain that DRY is about human authors and so does not apply to coding agents at all.
+    - >-
+      Park the question for the follow-up, since challenges derail a 30-minute session.
+  correct: 1
+  explanation: >-
+    Concede the specific true part, ask for their incident, answer with the concept's evidence and
+    interval, state the boundary and offer a test on their code, in about a minute.
+- id: q2
+  question: >-
+    You ask "Any questions?", wait two seconds, and move on. What does the lesson suggest instead?
+  options:
+    - >-
+      Ask a specific question, have everyone write an answer, then wait at least five seconds.
+    - >-
+      Call on the most senior person by name, since juniors follow once someone has spoken.
+    - >-
+      Skip questions entirely and collect them on the feedback form after the post-test.
+    - >-
+      Ask the same question again more loudly, since silence usually means people did not hear.
+  correct: 0
+  explanation: >-
+    Teachers typically wait under a second; longer wait time and write-first prompts produce more
+    and better answers from more people. Specific questions get answers where "any questions?" does not.
+- id: q3
+  question: >-
+    Pre-test scores in your room range from 12% to 75%. Which plan serves this mixed room best?
+  options:
+    - >-
+      Teach to the average learner, since anything else leaves most of the room behind.
+    - >-
+      Ask the strongest learners to leave early, since the session is not aimed at them.
+    - >-
+      Keep one fixed pace but add a second worked example for the benefit of the weakest.
+    - >-
+      Offer entry points, an extension, and novice-expert pairs with the novice writing.
+  correct: 3
+  explanation: >-
+    One pace fails both ends: guidance novices need is redundant load for experts. Entry points in
+    the fading sequence, a ceiling task and role-based pairs let each learner work at the right level.
+- id: q4
+  question: >-
+    In a remote session you open breakout rooms, then realize the exercise link was never shared.
+    What should the plan have included?
+  options:
+    - >-
+      Cameras required in breakout rooms, so that you can see who is working and who is not.
+    - >-
+      Longer breakout rooms, so that learners have time to find the link on their own.
+    - >-
+      The task and link pasted in chat before rooms open, with a visible timer and a warning.
+    - >-
+      No breakout rooms at all, since pair work does not function over a video call.
+  correct: 2
+  explanation: >-
+    Once rooms open, learners cannot see your screen or the main chat, so everything they need must
+    be in their hands before they go. A co-host can handle this while you keep teaching.

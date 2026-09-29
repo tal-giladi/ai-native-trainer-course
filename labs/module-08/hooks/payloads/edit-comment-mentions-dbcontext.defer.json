@@ -1,0 +1,1 @@
+{"session_id":"s-lab","transcript_path":"{root}/t.jsonl","cwd":"{root}","permission_mode":"default","hook_event_name":"PreToolUse","tool_use_id":"toolu_lab","tool_name":"Edit","tool_input":{"file_path":"{root}/src/Contoso.Billing/Invoices/InvoiceNotes.cs","old_string":"x","new_string":"// BillingDbContext was removed in 2024 (ADR 0007)"}}

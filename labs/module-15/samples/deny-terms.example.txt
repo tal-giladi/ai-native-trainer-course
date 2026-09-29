@@ -1,0 +1,7 @@
+# Example deny list for the 15.1 break. Your real list lives OUTSIDE the demo repository
+# (for example ~/private/deny-terms.txt): employer and client names, product code names,
+# internal host and share names, colleagues' names. One term per line, case-insensitive.
+Northwind
+northwindpayments
+Tailspin
+Rachel Cohen

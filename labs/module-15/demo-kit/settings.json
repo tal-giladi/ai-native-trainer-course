@@ -1,0 +1,48 @@
+{
+  "$comment": "Demo settings: Module 9 hardened permissions and Module 8 hooks, composed for a live demo. Only the schema server in snapshot mode: no tokens, no database, no network dependency except the model API.",
+  "permissions": {
+    "allow": [
+      "Bash(dotnet build*)",
+      "Bash(dotnet test*)",
+      "Bash(dotnet run --project tools/*)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Read(./**)",
+      "Edit(./src/**)",
+      "Edit(./tests/**)",
+      "Edit(./research/**)",
+      "Edit(./plans/**)",
+      "mcp__contoso-schema__*"
+    ],
+    "ask": [
+      "Edit(./*.csproj)",
+      "Edit(./**/*.csproj)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/*.pem)",
+      "Edit(./.claude/**)",
+      "Bash(curl*)",
+      "Bash(wget*)",
+      "WebFetch(domain:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "dotnet \"${CLAUDE_PROJECT_DIR}/.claude/hooks/bin/AgentHooks.dll\" guard --rules gates/architecture.rules", "timeout": 10 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          { "type": "command", "command": "dotnet \"${CLAUDE_PROJECT_DIR}/.claude/hooks/bin/AgentHooks.dll\" audit", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}

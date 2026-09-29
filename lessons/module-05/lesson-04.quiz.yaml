@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A diff adds EF Core against ADR 0007. The diff follows the approved plan, the plan follows the
+    research brief, and the brief never cites the ADR. Where did the defect originate?
+  options:
+    - >-
+      Implementation, because that is the phase in which the EF Core packages were added.
+    - >-
+      Research, because the brief filled a gap with a default instead of reading the ADR.
+    - >-
+      Validation, because no architecture gate was in CI when the pull request was opened.
+    - >-
+      Planning, because the plan is the first artifact that mentions EF Core by name.
+  correct: 1
+  explanation: >-
+    The origin is the first artifact that is wrong about the repository. The plan and the diff
+    faithfully carried the brief's error forward; the missing gate is an escape, not the origin.
+- id: q2
+  question: >-
+    For one defect class, plan review catches 50%, tests 10% and code review 60%, independently.
+    Roughly how often does such a defect escape all three?
+  options:
+    - >-
+      About 40%, since code review is the strongest gate and misses 40% on its own.
+    - >-
+      About 2%, since three gates in a row catch nearly every defect of any kind.
+    - >-
+      About 50%, since the weakest gate in the chain decides how many defects escape.
+    - >-
+      About 18%, the product of the three miss rates 0.5, 0.9 and 0.4.
+  correct: 3
+  explanation: >-
+    Escape probability is the product of the miss rates, 0.5 times 0.9 times 0.4, which is 0.18.
+    Correlated reviewers make the real number higher; a targeted deterministic gate lowers it most.
+- id: q3
+  question: >-
+    The PR compiles and tests pass, but the reviewer rejects it for duplicating an existing
+    service. Which phase failed first, and which gate would have caught it earliest?
+  options:
+    - >-
+      Research missed it; a brief listing existing capabilities, checked at planning.
+    - >-
+      Implementation copied code; a stricter linter configured to flag duplicated blocks.
+    - >-
+      Validation was too weak; more unit tests for the new service before it was merged.
+    - >-
+      Code review was too late; reviewers should look at every agent PR within the hour.
+  correct: 0
+  explanation: >-
+    Duplication means the existing service never entered the agent's context. The reuse table of a
+    research brief, looked at during plan review, is the cheapest point to catch it.
+- id: q4
+  question: >-
+    You run six tickets both paste-and-go and through the loop, always doing paste-and-go first.
+    The loop arm is faster on five of six. What is the main problem with concluding it is faster?
+  options:
+    - >-
+      Six tickets is too few to measure time with any accuracy on a timer.
+    - >-
+      Paste-and-go should always be run second, because it needs less context.
+    - >-
+      The loop arm always ran second and benefited from what the first run taught you.
+    - >-
+      Time is the wrong metric; only defects found later matter in such comparisons.
+  correct: 2
+  explanation: >-
+    Running the loop second gives it a learning advantage, so order is confounded with the method.
+    Alternate the order and treat six tickets as notes for Module 13, not as proof.

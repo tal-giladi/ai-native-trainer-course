@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    Your draft says "a fintech in Tel Aviv with 19 .NET developers". The client's name appears
+    nowhere. Is it anonymized?
+  options:
+    - >-
+      Yes, because removing the company name is what anonymization requires.
+    - >-
+      Yes, as long as the developers' names have also been replaced by codes.
+    - >-
+      No, because city, industry and an exact headcount together may match one firm.
+    - >-
+      No, because any mention of the technology stack reveals the client.
+  correct: 2
+  explanation: >-
+    Each detail shrinks the set of matching organizations; a city, an industry and an exact count can
+    leave one. Use bands and drop the city until a motivated intruder could not name the client.
+- id: q2
+  question: >-
+    The record reports cycle time as -8%, 95% interval -24% to +12%, inconclusive. One migration
+    ticket was 40% faster. Which sentence belongs in the case study?
+  options:
+    - >-
+      "Cycle time: -8%, interval -24% to +12%; inconclusive at this sample size."
+    - >-
+      "Up to 40% faster on migration tickets, with an overall trend towards speed-up."
+    - >-
+      "Billing got faster, with results varying by ticket type; results not typical."
+    - >-
+      "Cycle time improved by 8%, in line with what similar teams report."
+  correct: 0
+  explanation: >-
+    The case study repeats the record's estimate, interval and status. "Up to" presents the best case
+    as the claim, "results not typical" does not fix that, and "similar teams" is an unsupported rung-4 claim.
+- id: q3
+  question: >-
+    The client's sponsor liked the read-out and said on a call, "Sure, write it up." What do you
+    need before publishing the anonymized case study?
+  options:
+    - >-
+      Nothing more; a verbal yes from the sponsor on a recorded call is sufficient approval.
+    - >-
+      Approval from your own lawyer, since the client's consent is implied by the SOW.
+    - >-
+      Nothing, provided the case study is fully anonymized and names no one at all.
+    - >-
+      The client's dated, written approval of the exact text, as the SOW's IP clause needs.
+  correct: 3
+  explanation: >-
+    The SOW allows an anonymized description only with written approval of the text. Send the exact
+    text, record the dated yes, and add employer permission if the client was your employer's customer.
+- id: q4
+  question: >-
+    EngageCheck casestudy is clean, but the draft mentions a three-day month-end freeze adopted after
+    a 2023 revenue-reporting error. What should you do?
+  options:
+    - >-
+      Keep it; the checker found no names, keys or exact counts, so the text is anonymous.
+    - >-
+      Remove it; a unique story can identify the client even when no name appears.
+    - >-
+      Keep it, but add the phrase "details changed to protect the client" underneath.
+    - >-
+      Move it to the limitations section, where readers do not look for identifying details.
+  correct: 1
+  explanation: >-
+    Tools catch mechanical leaks, not unique ones. A distinctive incident can collapse the matching set
+    to one company; read the draft as the client's competitor would and cut it.

@@ -1,0 +1,15 @@
+You are reviewing a C# method in a legacy .NET service that uses Dapper and SQL Server stored procedures.
+
+public IReadOnlyList<OrderSummaryDto> GetOrdersByCustomer(int tenantId, int customerId, DateTime? fromUtc)
+{
+    using (IDbConnection conn = _connectionFactory.Create())
+    {
+        return conn.Query<OrderSummaryDto>(
+            "dbo.usp_GetOrdersByCustomer",
+            new { TenantId = tenantId, CustomerId = customerId, FromUtc = fromUtc },
+            commandType: CommandType.StoredProcedure).AsList();
+    }
+}
+
+Suggest a name for a new sibling method that returns only orders with StatusCode = 'OPEN' for the same customer.
+Reply with the method signature only, one line, no explanation.

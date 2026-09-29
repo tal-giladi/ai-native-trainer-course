@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-agent simulator</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="multi-agent.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Multi-agent simulator: reliability, cost and latency</h1>
+  <p class="muted">Planner, worker and reviewer as numbers: success probabilities, reviewer recall and false alarms, cost and
+    seconds per call. The expected values use the same equations as <code>AgentTeam estimate</code> (10.3); the simulated
+    runs draw tasks one by one so you can see the spread and read traces.</p>
+
+  <div class="tabs" id="presets" role="group" aria-label="Views"></div>
+  <div id="note" class="preset-note" aria-live="polite"></div>
+
+  <div class="grid side">
+    <section class="panel" aria-labelledby="p-h">
+      <h2 id="p-h">Parameters</h2>
+      <div class="field">
+        <label for="task">Task type (illustrative inputs from <code>labs/module-10/pipelines/</code>)</label>
+        <select id="task">
+          <option value="code">Code task (code-task.json)</option>
+          <option value="qa">Question task (qa-task.json)</option>
+        </select>
+      </div>
+      <div id="params"></div>
+      <div class="controls">
+        <button type="button" id="reset">Reset to task inputs</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-live="polite">
+      <div id="view"></div>
+    </section>
+  </div>
+
+  <p class="foot">All inputs are illustrative, not measurements. The model assumes the reviewer's misses are independent of
+    the worker's mistakes; a reviewer on the same model with the same context shares blind spots, so its real recall on
+    the errors that matter is lower. Replace every number with your own from traces and EvalHarness stats.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="multi-agent.js"></script>
+</body>
+</html>

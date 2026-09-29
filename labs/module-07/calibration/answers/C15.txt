@@ -1,0 +1,1 @@
+It's legacy; one old report still needs it. Use the repository pattern from ADR 0007 for anything new.

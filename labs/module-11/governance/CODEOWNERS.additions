@@ -1,0 +1,13 @@
+# Lines to append to the Module 3 CODEOWNERS (labs/module-03/solution/CODEOWNERS), AFTER the catch-all.
+# Last matching pattern wins, so these must come after "*".
+/.github/workflows/agent-*.yml     @contoso/billing-leads @contoso/security
+/.github/workflows/dep-fix.yml     @contoso/billing-leads @contoso/security
+/.github/workflows/budget-guard.yml  @contoso/billing-leads @contoso/security
+/.github/workflows/ai-layer-governance.yml  @contoso/billing-leads @contoso/security
+/.github/workflows/agent-evals.yml @contoso/billing-leads
+/.github/agent-settings.json       @contoso/billing-leads @contoso/security
+/.github/review/                   @contoso/billing-leads
+/.github/triage/                   @contoso/billing-leads @contoso/security
+/.github/automation/               @contoso/billing-leads
+/evals/                            @contoso/billing-leads
+/governance.md                     @contoso/billing-leads @contoso/security

@@ -1,0 +1,241 @@
+config,task,split,tags,trial,pass,reason,cost_usd,input_tokens,duration_ms,agent_version,model,layer_sha,tasks_sha
+skill-v1-once,S01,dev,representative,1,1,,0.0458,32060,53012,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S02,dev,representative,1,1,,0.0506,35420,39806,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S03,dev,representative,1,1,,0.0528,36960,55501,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S04,dev,representative,1,1,,0.0512,35840,26881,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S05,dev,representative,1,1,,0.0525,36750,17058,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S06,dev,representative,1,1,,0.0506,35420,53639,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S07,dev,representative,1,0,illustrative failure,0.0565,39550,21167,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S08,dev,representative,1,1,,0.0515,36050,31491,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S09,dev,representative,1,1,,0.0584,40880,43584,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S10,dev,representative,1,1,,0.0495,34650,46481,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S11,dev,representative,1,0,illustrative failure,0.0556,38920,30050,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S12,dev,representative,1,0,illustrative failure,0.0553,38710,27176,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S13,dev,representative,1,1,,0.0486,34020,26726,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S14,dev,representative,1,0,illustrative failure,0.0402,28140,51808,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S15,dev,representative,1,1,,0.0562,39340,34473,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S16,dev,representative,1,1,,0.0597,41790,33854,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S17,dev,representative,1,0,illustrative failure,0.0464,32479,25697,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S18,dev,representative,1,0,illustrative failure,0.0439,30730,40968,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S19,dev,representative,1,0,illustrative failure,0.0528,36960,15261,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1-once,S20,dev,representative,1,0,illustrative failure,0.0454,31780,35399,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v2-once,S01,dev,representative,1,1,,0.0516,36120,47222,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S02,dev,representative,1,1,,0.0491,34370,28877,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S03,dev,representative,1,1,,0.0543,38010,42534,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S04,dev,representative,1,1,,0.0549,38430,57981,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S05,dev,representative,1,1,,0.0462,32340,52083,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S06,dev,representative,1,1,,0.0506,35420,30409,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S07,dev,representative,1,1,,0.0451,31570,26239,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S08,dev,representative,1,0,illustrative failure,0.0487,34090,51822,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S09,dev,representative,1,1,,0.0480,33600,30541,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S10,dev,representative,1,1,,0.0487,34090,48022,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S11,dev,representative,1,0,illustrative failure,0.0473,33110,53825,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S12,dev,representative,1,0,illustrative failure,0.0561,39270,50057,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S13,dev,representative,1,1,,0.0567,39690,15039,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S14,dev,representative,1,0,illustrative failure,0.0509,35630,21218,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S15,dev,representative,1,1,,0.0409,28630,17677,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S16,dev,representative,1,1,,0.0424,29680,52376,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S17,dev,representative,1,1,,0.0562,39340,34143,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S18,dev,representative,1,0,illustrative failure,0.0565,39550,18238,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S19,dev,representative,1,1,,0.0476,33320,39573,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2-once,S20,dev,representative,1,0,illustrative failure,0.0415,29050,53263,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v1,S01,dev,representative,1,1,,0.0458,32060,53012,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S02,dev,representative,1,1,,0.0506,35420,39806,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S03,dev,representative,1,1,,0.0528,36960,55501,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S04,dev,representative,1,1,,0.0512,35840,26881,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S05,dev,representative,1,1,,0.0525,36750,17058,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S06,dev,representative,1,1,,0.0506,35420,53639,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S07,dev,representative,1,0,illustrative failure,0.0565,39550,21167,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S08,dev,representative,1,1,,0.0515,36050,31491,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S09,dev,representative,1,1,,0.0584,40880,43584,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S10,dev,representative,1,1,,0.0495,34650,46481,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S11,dev,representative,1,0,illustrative failure,0.0556,38920,30050,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S12,dev,representative,1,0,illustrative failure,0.0553,38710,27176,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S13,dev,representative,1,1,,0.0486,34020,26726,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S14,dev,representative,1,0,illustrative failure,0.0402,28140,51808,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S15,dev,representative,1,1,,0.0562,39340,34473,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S16,dev,representative,1,1,,0.0597,41790,33854,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S17,dev,representative,1,0,illustrative failure,0.0464,32479,25697,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S18,dev,representative,1,0,illustrative failure,0.0439,30730,40968,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S19,dev,representative,1,0,illustrative failure,0.0528,36960,15261,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S20,dev,representative,1,0,illustrative failure,0.0454,31780,35399,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S01,dev,representative,2,1,,0.0573,40110,20937,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S02,dev,representative,2,1,,0.0551,38570,34414,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S03,dev,representative,2,1,,0.0529,37030,59532,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S04,dev,representative,2,0,illustrative failure,0.0599,41930,55617,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S05,dev,representative,2,1,,0.0481,33670,22317,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S06,dev,representative,2,0,illustrative failure,0.0498,34860,36853,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S07,dev,representative,2,1,,0.0466,32620,37707,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S08,dev,representative,2,1,,0.0462,32340,21725,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S09,dev,representative,2,1,,0.0589,41230,40246,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S10,dev,representative,2,0,illustrative failure,0.0436,30520,50842,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S11,dev,representative,2,1,,0.0406,28419,22862,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S12,dev,representative,2,0,illustrative failure,0.0564,39480,20935,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S13,dev,representative,2,0,illustrative failure,0.0577,40390,25814,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S14,dev,representative,2,0,illustrative failure,0.0431,30170,21216,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S15,dev,representative,2,0,illustrative failure,0.0577,40390,46480,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S16,dev,representative,2,0,illustrative failure,0.0531,37170,40367,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S17,dev,representative,2,0,illustrative failure,0.0586,41020,36343,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S18,dev,representative,2,1,,0.0444,31080,38695,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S19,dev,representative,2,0,illustrative failure,0.0477,33390,26882,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S20,dev,representative,2,0,illustrative failure,0.0544,38080,15385,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S01,dev,representative,3,1,,0.0432,30240,47574,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S02,dev,representative,3,1,,0.0537,37590,19320,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S03,dev,representative,3,1,,0.0455,31850,55903,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S04,dev,representative,3,0,illustrative failure,0.0556,38920,40844,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S05,dev,representative,3,1,,0.0518,36260,39819,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S06,dev,representative,3,1,,0.0441,30870,17567,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S07,dev,representative,3,1,,0.0432,30240,47707,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S08,dev,representative,3,0,illustrative failure,0.0432,30240,54828,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S09,dev,representative,3,0,illustrative failure,0.0473,33110,48295,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S10,dev,representative,3,1,,0.0531,37170,48744,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S11,dev,representative,3,0,illustrative failure,0.0516,36120,24771,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S12,dev,representative,3,0,illustrative failure,0.0532,37240,37450,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S13,dev,representative,3,1,,0.0599,41930,58016,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S14,dev,representative,3,0,illustrative failure,0.0498,34860,44558,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S15,dev,representative,3,1,,0.0410,28700,26121,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S16,dev,representative,3,0,illustrative failure,0.0593,41510,49020,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S17,dev,representative,3,0,illustrative failure,0.0419,29330,52344,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S18,dev,representative,3,1,,0.0440,30800,40424,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S19,dev,representative,3,0,illustrative failure,0.0412,28840,49348,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S20,dev,representative,3,0,illustrative failure,0.0531,37170,40660,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S01,dev,representative,4,0,illustrative failure,0.0568,39760,16505,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S02,dev,representative,4,0,illustrative failure,0.0531,37170,58970,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S03,dev,representative,4,0,illustrative failure,0.0482,33740,21400,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S04,dev,representative,4,0,illustrative failure,0.0405,28350,21726,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S05,dev,representative,4,1,,0.0562,39340,22277,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S06,dev,representative,4,1,,0.0447,31289,42840,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S07,dev,representative,4,1,,0.0562,39340,42271,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S08,dev,representative,4,0,illustrative failure,0.0420,29400,19999,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S09,dev,representative,4,1,,0.0565,39550,57533,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S10,dev,representative,4,1,,0.0593,41510,34542,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S11,dev,representative,4,0,illustrative failure,0.0405,28350,32191,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S12,dev,representative,4,1,,0.0549,38430,51706,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S13,dev,representative,4,1,,0.0512,35840,20369,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S14,dev,representative,4,0,illustrative failure,0.0415,29050,55420,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S15,dev,representative,4,1,,0.0511,35770,44308,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S16,dev,representative,4,1,,0.0581,40670,40063,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S17,dev,representative,4,0,illustrative failure,0.0547,38290,34781,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S18,dev,representative,4,0,illustrative failure,0.0405,28350,17578,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S19,dev,representative,4,0,illustrative failure,0.0548,38360,47522,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S20,dev,representative,4,1,,0.0439,30730,25793,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S01,dev,representative,5,1,,0.0523,36610,27366,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S02,dev,representative,5,1,,0.0534,37380,30399,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S03,dev,representative,5,1,,0.0539,37730,23713,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S04,dev,representative,5,1,,0.0435,30449,27972,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S05,dev,representative,5,1,,0.0422,29540,30644,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S06,dev,representative,5,1,,0.0490,34300,33196,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S07,dev,representative,5,1,,0.0468,32760,55085,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S08,dev,representative,5,1,,0.0475,33250,27840,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S09,dev,representative,5,1,,0.0528,36960,57811,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S10,dev,representative,5,0,illustrative failure,0.0520,36400,50462,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S11,dev,representative,5,1,,0.0500,35000,41210,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S12,dev,representative,5,1,,0.0587,41090,42778,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S13,dev,representative,5,1,,0.0520,36400,25814,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S14,dev,representative,5,1,,0.0422,29540,40544,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S15,dev,representative,5,1,,0.0476,33320,48679,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S16,dev,representative,5,0,illustrative failure,0.0447,31289,39038,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S17,dev,representative,5,0,illustrative failure,0.0408,28560,36608,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S18,dev,representative,5,0,illustrative failure,0.0546,38220,43955,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S19,dev,representative,5,0,illustrative failure,0.0494,34580,40858,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v1,S20,dev,representative,5,0,illustrative failure,0.0413,28910,37055,illustrative-agent 1.0,(agent default),skill-v1,illustrative
+skill-v2,S01,dev,representative,1,1,,0.0516,36120,47222,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S02,dev,representative,1,1,,0.0491,34370,28877,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S03,dev,representative,1,1,,0.0543,38010,42534,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S04,dev,representative,1,1,,0.0549,38430,57981,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S05,dev,representative,1,1,,0.0462,32340,52083,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S06,dev,representative,1,1,,0.0506,35420,30409,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S07,dev,representative,1,1,,0.0451,31570,26239,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S08,dev,representative,1,0,illustrative failure,0.0487,34090,51822,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S09,dev,representative,1,1,,0.0480,33600,30541,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S10,dev,representative,1,1,,0.0487,34090,48022,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S11,dev,representative,1,0,illustrative failure,0.0473,33110,53825,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S12,dev,representative,1,0,illustrative failure,0.0561,39270,50057,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S13,dev,representative,1,1,,0.0567,39690,15039,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S14,dev,representative,1,0,illustrative failure,0.0509,35630,21218,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S15,dev,representative,1,1,,0.0409,28630,17677,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S16,dev,representative,1,1,,0.0424,29680,52376,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S17,dev,representative,1,1,,0.0562,39340,34143,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S18,dev,representative,1,0,illustrative failure,0.0565,39550,18238,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S19,dev,representative,1,1,,0.0476,33320,39573,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S20,dev,representative,1,0,illustrative failure,0.0415,29050,53263,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S01,dev,representative,2,1,,0.0521,36470,15394,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S02,dev,representative,2,1,,0.0593,41510,23826,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S03,dev,representative,2,1,,0.0563,39410,17623,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S04,dev,representative,2,1,,0.0451,31570,30705,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S05,dev,representative,2,1,,0.0502,35140,24942,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S06,dev,representative,2,1,,0.0436,30520,42933,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S07,dev,representative,2,0,illustrative failure,0.0514,35980,19046,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S08,dev,representative,2,1,,0.0502,35140,22304,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S09,dev,representative,2,1,,0.0458,32060,33213,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S10,dev,representative,2,1,,0.0448,31360,35685,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S11,dev,representative,2,1,,0.0563,39410,26531,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S12,dev,representative,2,1,,0.0575,40250,17384,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S13,dev,representative,2,1,,0.0583,40810,19379,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S14,dev,representative,2,0,illustrative failure,0.0427,29890,30158,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S15,dev,representative,2,0,illustrative failure,0.0537,37590,48350,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S16,dev,representative,2,0,illustrative failure,0.0475,33250,32612,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S17,dev,representative,2,0,illustrative failure,0.0570,39900,20930,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S18,dev,representative,2,0,illustrative failure,0.0581,40670,43732,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S19,dev,representative,2,0,illustrative failure,0.0479,33530,44906,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S20,dev,representative,2,0,illustrative failure,0.0515,36050,45480,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S01,dev,representative,3,1,,0.0420,29400,58186,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S02,dev,representative,3,1,,0.0512,35840,36551,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S03,dev,representative,3,0,illustrative failure,0.0514,35980,23772,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S04,dev,representative,3,1,,0.0481,33670,50289,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S05,dev,representative,3,1,,0.0593,41510,18584,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S06,dev,representative,3,1,,0.0441,30870,23275,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S07,dev,representative,3,1,,0.0440,30800,55085,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S08,dev,representative,3,1,,0.0473,33110,15865,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S09,dev,representative,3,0,illustrative failure,0.0432,30240,57024,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S10,dev,representative,3,1,,0.0530,37100,43340,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S11,dev,representative,3,0,illustrative failure,0.0597,41790,58789,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S12,dev,representative,3,0,illustrative failure,0.0535,37450,58509,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S13,dev,representative,3,1,,0.0539,37730,51675,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S14,dev,representative,3,0,illustrative failure,0.0570,39900,45501,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S15,dev,representative,3,1,,0.0482,33740,55802,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S16,dev,representative,3,0,illustrative failure,0.0596,41720,54411,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S17,dev,representative,3,0,illustrative failure,0.0549,38430,25241,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S18,dev,representative,3,0,illustrative failure,0.0560,39200,43129,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S19,dev,representative,3,0,illustrative failure,0.0438,30660,19497,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S20,dev,representative,3,0,illustrative failure,0.0547,38290,23148,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S01,dev,representative,4,1,,0.0443,31010,15671,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S02,dev,representative,4,0,illustrative failure,0.0586,41020,17085,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S03,dev,representative,4,1,,0.0512,35840,52071,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S04,dev,representative,4,1,,0.0537,37590,19900,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S05,dev,representative,4,0,illustrative failure,0.0598,41860,59702,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S06,dev,representative,4,0,illustrative failure,0.0563,39410,21817,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S07,dev,representative,4,1,,0.0447,31289,20905,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S08,dev,representative,4,1,,0.0474,33180,33996,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S09,dev,representative,4,1,,0.0554,38780,46822,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S10,dev,representative,4,0,illustrative failure,0.0527,36890,16096,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S11,dev,representative,4,0,illustrative failure,0.0553,38710,57395,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S12,dev,representative,4,1,,0.0455,31850,43716,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S13,dev,representative,4,0,illustrative failure,0.0418,29259,32666,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S14,dev,representative,4,0,illustrative failure,0.0590,41300,58611,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S15,dev,representative,4,0,illustrative failure,0.0530,37100,53828,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S16,dev,representative,4,0,illustrative failure,0.0409,28630,38887,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S17,dev,representative,4,0,illustrative failure,0.0579,40530,16589,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S18,dev,representative,4,1,,0.0506,35420,52493,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S19,dev,representative,4,0,illustrative failure,0.0529,37030,21642,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S20,dev,representative,4,0,illustrative failure,0.0524,36680,27797,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S01,dev,representative,5,1,,0.0471,32970,37604,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S02,dev,representative,5,1,,0.0554,38780,53619,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S03,dev,representative,5,1,,0.0454,31780,51765,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S04,dev,representative,5,0,illustrative failure,0.0525,36750,52719,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S05,dev,representative,5,0,illustrative failure,0.0453,31710,40836,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S06,dev,representative,5,1,,0.0421,29470,57633,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S07,dev,representative,5,1,,0.0420,29400,37692,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S08,dev,representative,5,0,illustrative failure,0.0555,38850,55942,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S09,dev,representative,5,0,illustrative failure,0.0499,34930,17547,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S10,dev,representative,5,1,,0.0524,36680,52784,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S11,dev,representative,5,1,,0.0442,30940,40470,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S12,dev,representative,5,0,illustrative failure,0.0515,36050,18846,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S13,dev,representative,5,0,illustrative failure,0.0524,36680,36586,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S14,dev,representative,5,1,,0.0589,41230,24071,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S15,dev,representative,5,0,illustrative failure,0.0438,30660,43815,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S16,dev,representative,5,1,,0.0496,34720,53995,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S17,dev,representative,5,1,,0.0551,38570,50844,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S18,dev,representative,5,0,illustrative failure,0.0561,39270,32203,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S19,dev,representative,5,0,illustrative failure,0.0475,33250,26148,illustrative-agent 1.0,(agent default),skill-v2,illustrative
+skill-v2,S20,dev,representative,5,0,illustrative failure,0.0443,31010,33101,illustrative-agent 1.0,(agent default),skill-v2,illustrative

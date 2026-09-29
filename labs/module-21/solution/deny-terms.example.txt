@@ -1,0 +1,8 @@
+# Example private deny list for the dry run. Your real list lives OUTSIDE any repository you publish:
+# client and product names, internal host names, people's names, tracker project keys.
+# One term per line, case-insensitive. EngageCheck casestudy adds the client and stakeholder names from the record.
+Contoso
+contoso.com
+Finance close Q4
+MonthlyRevenueReport
+SqlHelper

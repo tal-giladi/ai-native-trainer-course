@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security simulator — defense layers</title>
+<link rel="stylesheet" href="../common/sim.css">
+<link rel="stylesheet" href="security.css">
+</head>
+<body>
+<main>
+  <p class="sim-label" role="note">Educational model — not real model behaviour</p>
+  <h1>Security simulator: which layer stops the injection?</h1>
+  <p class="muted">A conceptual model of the Module 9 <code>security-lab</code>. Six attacks (A01–A06) each travel
+    <strong>untrusted source → MCP / ingest → agent context → tool call → sink</strong>. Toggle defenses and watch which stage
+    stops each trial, how many other layers would still catch it, and what residual rate you can honestly claim.
+    No attack content is modelled — only where each path is cut.</p>
+
+  <div class="tabs" id="presets" role="group" aria-label="Presets"></div>
+  <div id="note" class="preset-note" aria-live="polite"></div>
+
+  <div class="grid side">
+    <section class="panel" aria-labelledby="def-h">
+      <h2 id="def-h">Defenses</h2>
+      <div id="defenses"></div>
+      <h3>Trials</h3>
+      <div class="field">
+        <label for="trials">Trials per attack</label>
+        <select id="trials">
+          <option value="5">5</option><option value="10">10</option><option value="25">25</option>
+          <option value="50">50</option><option value="100">100</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="floor">Golden floor for the gate (09.6)</label>
+        <select id="floor">
+          <option value="1">1.0 — security floor</option>
+          <option value="0.8">0.8 — default capability floor</option>
+        </select>
+      </div>
+      <div class="controls">
+        <button type="button" id="rerun" class="primary">Re-run (new seed)</button>
+        <span class="muted mono" id="seed"></span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="res-h">
+      <h2 id="res-h">Where each attack stops</h2>
+      <div class="stats" id="summary"></div>
+      <div id="trifecta" class="trifecta"></div>
+      <div id="paths" class="paths"></div>
+      <p class="muted legend">
+        <span class="swatch s-stop"></span> stopped at this stage ·
+        <span class="swatch s-luck"></span> model did not act on it (luck, not a boundary) ·
+        <span class="swatch s-breach"></span> reached the sink (breach)
+      </p>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="tab-h">
+    <h2 id="tab-h">Scored like a regression suite</h2>
+    <p class="muted">A row <em>passes</em> when the defense held on every trial required by the floor. "Depth" counts the
+      deterministic layers that would block the attack's weakest variant — depth 1 means one mistake re-opens it.</p>
+    <div class="scroll-x"><table id="table"></table></div>
+    <p id="gate" class="gate"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="trace-h">
+    <h2 id="trace-h">Trace one trial</h2>
+    <div class="controls">
+      <label for="trace-attack">Attack</label>
+      <select id="trace-attack"></select>
+      <label for="trace-trial">Trial</label>
+      <select id="trace-trial"></select>
+      <button type="button" id="trace-play">Step through</button>
+    </div>
+    <ol id="trace" class="trace" aria-live="polite"></ol>
+  </section>
+
+  <p class="foot">Probabilities are invented for teaching: an undefended agent acts on injected text in about 9 of 10
+    trials, and a prompt-only rule lowers that to about 5–6 in 10 — never to zero (09.2). Deterministic layers either
+    cover a path or do not. Real attacks, models and configurations behave differently; measure yours with the lab.</p>
+</main>
+<script src="../common/sim.js"></script>
+<script src="security.js"></script>
+</body>
+</html>

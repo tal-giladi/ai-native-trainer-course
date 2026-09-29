@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    Your randomized comparison found cycle time 16% shorter (95% CI 5% to 25%) on one team's tickets.
+    Which sentence is the strongest one you may publish?
+  options:
+    - >-
+      "Coding agents make .NET teams about 16% faster; expect 5–25% on your own tickets."
+    - >-
+      "Our agent workflow cuts cycle time by 16%, as our controlled experiment has shown."
+    - >-
+      "On one team's tickets, cycle time fell 16% (95% CI 5% to 25%) in a randomized comparison."
+    - >-
+      "Agents speed up delivery, and our results suggest the effect is probably around 16%."
+  correct: 2
+  explanation: >-
+    Rung 2 with its population, design and interval is supported. Extending to other teams is rung 4,
+    and dropping the interval turns an estimate into a fact about the world.
+- id: q2
+  question: >-
+    A draft says "Studies show developers finish tasks 55% faster with AI." You remember the number
+    from a vendor slide. What should you do?
+  options:
+    - >-
+      Keep it, since the claim names studies rather than your own results and so needs no link.
+    - >-
+      Link the primary study and name its task and population, or cut the sentence entirely.
+    - >-
+      Soften it to "studies suggest" so that the sentence no longer makes a factual claim.
+    - >-
+      Replace 55% with your own 16%, since your number is the more conservative of the two.
+  correct: 1
+  explanation: >-
+    An express claim of support needs at least that support (FTC policy). The 55% comes from one lab
+    task with freelancers; a reader needs the source and its population to judge it.
+- id: q3
+  question: >-
+    Why does a trainer's exaggeration matter more than a single post's accuracy suggests?
+  options:
+    - >-
+      Because platforms remove posts that contain unsupported claims and may suspend the account.
+    - >-
+      Because readers remember numbers better than caveats and so forget the limits line anyway.
+    - >-
+      Because only engineers read technical posts, and engineers never trust any number at all.
+    - >-
+      Because exaggeration in a source is repeated and amplified downstream, under your name.
+  correct: 3
+  explanation: >-
+    Sumner et al. found that exaggeration in health news was strongly associated with exaggeration
+    already present in the press release. Your posts are the press release for your method.
+- id: q4
+  question: >-
+    Your post is accurate and sourced, but has no line saying where the idea does not apply, and
+    your employer gave you free access to the agent you write about. What is missing?
+  options:
+    - >-
+      A limits line and a disclosure line stating the free access, placed in the post itself.
+    - >-
+      Nothing, since accurate and sourced claims are all that honest technical writing requires.
+    - >-
+      A disclosure line only, since limits are for experiment reports and not for short posts.
+    - >-
+      A limits line only, since a connection through your employer does not count as material.
+  correct: 0
+  explanation: >-
+    The limits line makes the rest believable, and free access is a material connection a reader
+    would not expect; the FTC guidance asks for it to be disclosed clearly in the post.

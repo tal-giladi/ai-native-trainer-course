@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Your script for a "three-minute" teaching video has 650 spoken words and covers three concepts.
+    What is the best fix?
+  options:
+    - >-
+      Speak faster during recording, since viewers are known to prefer a brisk speaking pace.
+    - >-
+      Keep the script and relabel it as a ten-minute video, since the content is all useful.
+    - >-
+      Split it into three videos, one concept each, and cut the first one to fit its target.
+    - >-
+      Keep all three concepts but remove the evidence, so that each one takes a single minute.
+  correct: 2
+  explanation: >-
+    At about 150 words per minute, 650 words is over four minutes of speech before screen time.
+    One concept per short piece leaves room for the evidence and the limits.
+- id: q2
+  question: >-
+    Your platform generates captions automatically, and they look mostly right. What should you do
+    before publishing?
+  options:
+    - >-
+      Publish as is, since auto-captions satisfy accessibility rules for prerecorded video.
+    - >-
+      Correct them by hand, checking every number, identifier and product name in particular.
+    - >-
+      Turn captions off, since viewers who need them can use their own device's transcription.
+    - >-
+      Replace them with a written summary in the description, which is quicker to check.
+  correct: 1
+  explanation: >-
+    W3C guidance says auto-generated captions do not meet the requirement unless confirmed accurate,
+    and numbers and code names are exactly what they get wrong.
+- id: q3
+  question: >-
+    Which opening for a short video on shadow rules is most likely to keep viewers?
+  options:
+    - >-
+      "Hi, I'm Dana, and today I'll cover three patterns I noticed with coding agents this year."
+    - >-
+      "Before we start, please subscribe; then a bit of background on the system I work on."
+    - >-
+      "Agents are changing software development, so in this video we'll explore what that means."
+    - >-
+      "This PR passes its tests and still disagrees with a stored procedure. Can you see why?"
+  correct: 3
+  explanation: >-
+    The first seconds decide whether anyone stays. Open on the viewer's problem, with something to
+    look at and a question; introductions can come later or in the description.
+- id: q4
+  question: >-
+    You want to show the shadow-rule fix on real code in a public video. Which repository do you use?
+  options:
+    - >-
+      The public demo repository at a named tag, so viewers can check out exactly what they saw.
+    - >-
+      Your employer's repository, blurred where customer data appears, since it is more realistic.
+    - >-
+      The demo repository's main branch, so viewers always see the latest version of the code.
+    - >-
+      A fresh repository created for the video, so that nothing from earlier work can leak.
+  correct: 0
+  explanation: >-
+    Only the confidentiality-safe demo goes on screen (15.1), and pinning a tag keeps the video
+    reproducible after later commits; a fresh repository has no history to make the point.

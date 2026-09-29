@@ -1,0 +1,66 @@
+- id: q1
+  question: >-
+    Your four-phase loop turns out to be identical in shape to one a popular trainer teaches, but
+    your step names and concepts come from your own incidents. What does the lesson recommend?
+  options:
+    - >-
+      Change the number of phases so the shape is no longer identical to the trainer's loop.
+    - >-
+      Keep your loop, credit the shape to the trainer and state what your evidence adds.
+    - >-
+      Drop your loop and teach the trainer's version, since theirs was published first.
+    - >-
+      Keep your loop without credit, since loops and methods are not protected by copyright.
+  correct: 1
+  explanation: >-
+    The shape is common and cannot be your contribution; credit it. What you add, with your own
+    names and evidence, is the original part. Legality is not the standard, honesty is.
+- id: q2
+  question: >-
+    Which item in your method is most clearly protected by copyright, as the lesson describes it?
+  options:
+    - >-
+      The idea that agent-written tests should not count as proof of correct work.
+    - >-
+      The four-step loop itself, since you designed its order and its outputs.
+    - >-
+      The written text and diagrams of your method page, as you expressed them.
+    - >-
+      The two-word name of your main concept, since you were the first to use it.
+  correct: 2
+  explanation: >-
+    Copyright covers expression, not ideas, procedures, methods or principles, and not words,
+    short phrases or names. A name may raise trademark questions instead.
+- id: q3
+  question: >-
+    MethodCheck borrowed reports zero open terms for your draft. What might the audit still miss?
+  options:
+    - >-
+      Terms from this course, because the checker only knows about external frameworks.
+    - >-
+      Generic industry terms, because the checker treats every one of them as borrowed.
+    - >-
+      Nothing important, because a clean word audit means the method is original.
+    - >-
+      A copied loop shape or diagram, and any framework that is not in the term list.
+  correct: 3
+  explanation: >-
+    The checker matches words you listed. Shape, diagrams, templates and examples need the manual
+    section of the audit, and a framework you never added is invisible to it.
+- id: q4
+  question: >-
+    You want to open your workshop with "cut cycle time 16% at my company", from your own
+    experiment at work. What should you do first?
+  options:
+    - >-
+      Get explicit permission, or anonymize so the company cannot be recognized.
+    - >-
+      Nothing, because you ran the experiment yourself and so you own its results.
+    - >-
+      Round it to "about 20%", so the number cannot be traced back to your employer.
+    - >-
+      Cite it as "an industry study", so that no specific company is ever named.
+  correct: 0
+  explanation: >-
+    Employer metrics need permission or anonymization past recognition. Rounding changes the
+    evidence and "an industry study" misdescribes it; both damage the credibility you are building.

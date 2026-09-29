@@ -1,0 +1,132 @@
+{
+  "_comment": "Fabrikam AI-agent architecture v0 (the draft that went to security review). Deliberately broken for 12.3/12.4.",
+  "name": "fabrikam-v0",
+  "policy": {
+    "residency": [
+      "eu"
+    ],
+    "maxRetentionDays": 30,
+    "teams": 8
+  },
+  "identities": [
+    {
+      "id": "dev-sso",
+      "kind": "human",
+      "auth": "sso-oidc",
+      "teams": [
+        "*"
+      ],
+      "lifetimeHours": 8,
+      "storedIn": "os-keychain"
+    },
+    {
+      "id": "gw-shared",
+      "kind": "gateway-key",
+      "auth": "static-key",
+      "teams": [
+        "*"
+      ],
+      "lifetimeHours": 8760,
+      "storedIn": "env-file",
+      "_note": "one key in the onboarding .env template"
+    },
+    {
+      "id": "ci-agent",
+      "kind": "workload",
+      "auth": "static-key",
+      "teams": [
+        "*"
+      ],
+      "lifetimeHours": 8760,
+      "storedIn": "ci-secret",
+      "_note": "org-level Actions secret used by every repo"
+    },
+    {
+      "id": "jira-bot",
+      "kind": "service",
+      "auth": "static-key",
+      "teams": [
+        "*"
+      ],
+      "lifetimeHours": 8760,
+      "storedIn": "ci-secret"
+    }
+  ],
+  "egress": {
+    "directProviderAccess": true,
+    "proxy": "https://egress.fabrikam.internal"
+  },
+  "routes": [
+    {
+      "id": "primary",
+      "role": "primary",
+      "provider": "hyperscaler-a",
+      "endpoint": "eu geographic inference profile",
+      "geo": "eu"
+    },
+    {
+      "id": "fallback",
+      "role": "fallback",
+      "provider": "vendor-api",
+      "endpoint": "api, default routing",
+      "geo": "global"
+    }
+  ],
+  "stores": [
+    {
+      "id": "gateway-log",
+      "kind": "gateway-log",
+      "geo": "eu",
+      "content": "raw",
+      "retentionDays": 365,
+      "immutable": false
+    },
+    {
+      "id": "otel-saas",
+      "kind": "telemetry",
+      "geo": "us",
+      "content": "metadata",
+      "retentionDays": 90
+    },
+    {
+      "id": "dev-transcripts",
+      "kind": "client-cache",
+      "geo": "eu",
+      "content": "raw",
+      "retentionDays": 30
+    },
+    {
+      "id": "provider-a",
+      "kind": "provider",
+      "geo": "eu",
+      "content": "raw",
+      "retentionDays": 30
+    }
+  ],
+  "mcpServers": [
+    {
+      "id": "jira",
+      "access": "write",
+      "identity": "shared-token",
+      "geo": "eu"
+    },
+    {
+      "id": "confluence",
+      "access": "read",
+      "identity": "shared-token",
+      "geo": "eu"
+    },
+    {
+      "id": "contoso-schema",
+      "access": "read",
+      "identity": "per-user-oauth",
+      "geo": "eu"
+    },
+    {
+      "id": "docs-search-saas",
+      "access": "read",
+      "identity": "per-user-oauth",
+      "geo": "us"
+    }
+  ]
+}

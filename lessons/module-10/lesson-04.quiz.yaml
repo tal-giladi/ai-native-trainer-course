@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    Your pipeline arm plans, runs the tests and gets a review; your single-agent arm just answers. The
+    pipeline wins by 12 points. Which extra arm tells you whether the gain comes from having several
+    agents?
+  options:
+    - >-
+      A second run of the pipeline, to check that the 12 points are not run-to-run noise.
+    - >-
+      A pipeline with a stronger model for the reviewer, to see if review quality drives it.
+    - >-
+      A single agent told to plan, run the tests and re-check its work in one context.
+    - >-
+      A single agent given twice the token budget, so both arms spend about the same.
+  correct: 2
+  explanation: >-
+    The compute-matched baseline does the same verification without extra agents. Plain vs verifying
+    single agent measures what checking buys; verifying single agent vs pipeline measures what several
+    agents buy. A bigger budget alone does not add the verification steps.
+- id: q2
+  question: >-
+    A report says the pipeline beat one agent on code tasks, "15 runs per arm, 95% CI +3 to +64 points".
+    The runs were 3 tasks x 5 trials. What is the main statistical problem?
+  options:
+    - >-
+      Fifteen runs is too few for a normal approximation, so a Wilson interval should be used.
+    - >-
+      The interval treats trials of the same task as independent; by task it is far wider.
+    - >-
+      The interval should be one-sided, because the claim is only that the pipeline is better.
+    - >-
+      Nothing: the interval excludes zero, so the result is significant at the 5% level.
+  correct: 1
+  explanation: >-
+    Trials of one task share its difficulty, so the task is the unit of sampling. With 3 tasks, the
+    task-level paired interval in the lab data is -43 to +109 points: the data cannot distinguish the arms.
+- id: q3
+  question: >-
+    On 24 tasks x 5 trials the pipeline and the single agent both pass 78%, paired interval -12 to +12
+    points; the pipeline costs 2.2x per passing trial. What should the report recommend?
+  options:
+    - >-
+      Adopt the pipeline, because equal quality with an independent review is the safer design.
+    - >-
+      Declare the two designs equivalent and let each team pick the one it prefers.
+    - >-
+      Run the pipeline on more tasks until its advantage becomes statistically significant.
+    - >-
+      Keep one agent: no detectable gain, at double the cost and latency, on these tasks.
+  correct: 3
+  explanation: >-
+    A tie on pass rate at twice the cost is a loss. "No detectable difference" is not equivalence either;
+    the report should say what size of effect the task set could have detected and when to re-test.
+- id: q4
+  question: >-
+    Which situation makes a planner -> worker -> reviewer pipeline most likely to beat one agent?
+  options:
+    - >-
+      Read-heavy work that splits into independent parts, with a reviewer that has information the worker lacks.
+    - >-
+      Short question tasks where one agent already answers correctly about nine times in ten.
+    - >-
+      Code changes fully covered by unit tests the single agent can already run itself.
+    - >-
+      Coupled changes to one service class, reviewed by the same model with the same context.
+  correct: 0
+  explanation: >-
+    Multi-agent designs pay off on decomposable work and genuinely independent checks. A strong baseline,
+    a deterministic check, coupled edits and a same-model reviewer are each conditions under which extra
+    agents tend to cost more for the same result.

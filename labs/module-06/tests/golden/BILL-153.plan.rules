@@ -1,0 +1,5 @@
+# Golden checks: plans/BILL-153.md (plan-feature).
+require@Touch | db/migrations/U005__\w+\.sql | | the undo script is in Touch
+require | (?i)backfill | | existing rows are backfilled (or given a DEFAULT)
+require | (?im)^- HUMAN:.*(backfill|existing) | | the backfill value is approved by a person
+forbid@Touch | InvoiceServiceTests\.cs | | existing tests stay untouched: use a trailing parameter with a default

@@ -1,0 +1,196 @@
+{
+  "version": "tasks-v1",
+  "repo": "Contoso Billing (labs/module-03/brownfield)",
+  "grading": "regex: case-insensitive; every 'must' matches and no 'mustNot' matches. tests: golden tests copied into the working copy must pass and only 'scope' paths may change. judge: an LLM judge applies the rubric; its verdicts come from 'EvalHarness judge'.",
+  "tasks": [
+    {
+      "id": "T01", "fact": "F1", "kind": "qa", "split": "dev", "tags": ["representative", "regression"],
+      "source": "tasks-v0 T01; stale Billing.sln in docs/ARCHITECTURE.md",
+      "prompt": "What is the exact command to run all tests for this repository? Reply with the command only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["dotnet test"], "mustNot": ["Billing\\.UnitTests", "(?<!Contoso\\.)\\bBilling\\.sln", "Test Explorer"] },
+      "reference": "dotnet test Contoso.Billing.sln",
+      "counterexamples": ["dotnet test Billing.sln", "Run all tests from Test Explorer in Visual Studio."]
+    },
+    {
+      "id": "T02", "fact": "F2", "kind": "qa", "split": "dev", "tags": ["representative", "regression"],
+      "source": "tasks-v0 T02; grader repaired after the M4 false negative (ListIssuedByCustomerAsync without the interface name)",
+      "prompt": "I need a query that loads one customer's issued invoices. Show only the C# signatures you would add (interface and implementation) and the SQL statement. No prose, no alternatives. Do not modify files.",
+      "grader": { "type": "regex", "must": ["Task\\s*<", "CancellationToken", "Status\\s*=|Status\\s+IN"], "mustNot": ["SqlHelper", "\\bDataSet\\b", "\\bDataTable\\b"] },
+      "reference": "Task<IReadOnlyList<Invoice>> ListIssuedByCustomerAsync(int customerId, CancellationToken ct);\npublic async Task<IReadOnlyList<Invoice>> ListIssuedByCustomerAsync(int customerId, CancellationToken ct)\nSELECT InvoiceId, CustomerId, Amount, IssuedUtc, DueUtc, Status FROM dbo.Invoice WHERE CustomerId = @customerId AND Status = 1",
+      "counterexamples": ["public DataSet LoadIssued(int customerId) => SqlHelper.ExecuteDataSet(cs, \"SELECT * FROM dbo.Invoice WHERE CustomerId = @c AND Status = 1\");", "Task<IReadOnlyList<Invoice>> ListIssuedByCustomerAsync(int customerId);\nSELECT * FROM dbo.Invoice WHERE CustomerId = @customerId"]
+    },
+    {
+      "id": "T03", "fact": "F3", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "tasks-v0 T03",
+      "prompt": "Show the single line of C# that new code in this repository uses to get the current time. Code only, no alternatives. Do not modify files.",
+      "grader": { "type": "regex", "must": ["UtcNow", "clock"], "mustNot": ["DateTime(Offset)?\\.(Now|UtcNow)\\b"] },
+      "reference": "var now = _clock.UtcNow;",
+      "counterexamples": ["var now = DateTimeOffset.UtcNow;", "var now = DateTime.Now;"]
+    },
+    {
+      "id": "T04", "fact": "F4", "kind": "qa", "split": "dev", "tags": ["golden", "regression"],
+      "source": "tasks-v0 T04; review rejects a V### without its U###",
+      "prompt": "I am adding a nullable column PoNumber nvarchar(50) to dbo.Invoice. List the file paths I create, one per line, nothing else. Do not modify files.",
+      "grader": { "type": "regex", "must": ["V005__\\w+\\.sql", "U005__\\w+\\.sql"], "mustNot": ["V004__"] },
+      "reference": "db/migrations/V005__add_po_number.sql\ndb/migrations/U005__add_po_number.sql",
+      "counterexamples": ["db/migrations/V005__add_po_number.sql", "db/migrations/V004__due_not_null.sql"]
+    },
+    {
+      "id": "T05", "fact": "F5", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "tasks-v0 T05",
+      "prompt": "Which SQL Server column type does this repository use for money amounts? Reply with the type only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["decimal\\s*\\(\\s*19\\s*,\\s*4\\s*\\)"], "mustNot": ["\\bfloat\\b", "\\bdouble\\b", "\\breal\\b"] },
+      "reference": "decimal(19,4)",
+      "counterexamples": ["money", "float"]
+    },
+    {
+      "id": "T06", "fact": "F6", "kind": "qa", "split": "dev", "tags": ["golden", "regression"],
+      "source": "tasks-v0 T06; production incident: an edited V### never re-ran",
+      "prompt": "V004__due_not_null.sql has a bug: the backfill should add 45 days, not 30. It is already merged and deployed to production. List the file paths I change or create, one per line, nothing else. Do not modify files.",
+      "grader": { "type": "regex", "must": ["V005__\\w+\\.sql"], "mustNot": ["V004__due_not_null\\.sql"] },
+      "reference": "db/migrations/V005__fix_due_backfill.sql\ndb/migrations/U005__fix_due_backfill.sql",
+      "counterexamples": ["db/migrations/V004__due_not_null.sql"]
+    },
+    {
+      "id": "T07", "fact": "F7", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "tasks-v0 T07",
+      "prompt": "In one line: what makes an invoice overdue in this codebase? Name the existing method that decides it. Do not modify files.",
+      "grader": { "type": "regex", "must": ["IsOverdue", "Issued", "Due"], "mustNot": ["DateTime\\.Now"] },
+      "reference": "InvoiceService.IsOverdue: the invoice is Issued and its DueUtc is before IClock.UtcNow.",
+      "counterexamples": ["An invoice is overdue when DueUtc < DateTime.Now."]
+    },
+    {
+      "id": "T08", "fact": "F8", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "tasks-v0 T08",
+      "prompt": "Which existing index supports a query on dbo.Invoice filtered by CustomerId and Status? Reply with the index name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["IX_Invoice_CustomerId_Status"], "mustNot": [] },
+      "reference": "IX_Invoice_CustomerId_Status",
+      "counterexamples": ["PK_Invoice"]
+    },
+    {
+      "id": "T09", "fact": "F9", "kind": "qa", "split": "dev", "tags": ["regression"],
+      "source": "tasks-v0 T09; the M4 'after' layer dropped the BILL-97 fact",
+      "prompt": "I am fixing a typo in a comment in src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs. Should I also migrate that class off SqlHelper in the same pull request? Answer yes or no, then name the ticket that owns that migration. Do not modify files.",
+      "grader": { "type": "regex", "must": ["\\bno\\b", "BILL-97"], "mustNot": ["^\\W*yes\\b"] },
+      "reference": "No. BILL-97 owns that migration.",
+      "counterexamples": ["Yes, migrate it while you are there.", "Yes. BILL-97 is open anyway, so no harm in doing it now."]
+    },
+    {
+      "id": "T10", "fact": "F10", "kind": "qa", "split": "dev", "tags": ["golden"],
+      "source": "tasks-v0 T10",
+      "prompt": "After my change, ConventionTests.No_code_reads_the_local_wall_clock fails. Do I change the test or my code? Answer with one word, then the fix in one line. Do not modify files.",
+      "grader": { "type": "regex", "must": ["\\bcode\\b", "IClock|UtcNow"], "mustNot": ["^\\W*(the\\s+)?test\\b"] },
+      "reference": "Code. Replace DateTime.Now with the injected IClock.UtcNow.",
+      "counterexamples": ["Test. Allow DateTime.Now in services; the convention is too strict."]
+    },
+    {
+      "id": "T11", "fact": "F2", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "new: architecture decision lookup",
+      "prompt": "Which file records the decision about how new data access is written in this repository? Reply with the path only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["0007"], "mustNot": ["ARCHITECTURE\\.md"] },
+      "reference": "docs/adr/0007-dapper-repositories.md",
+      "counterexamples": ["docs/ARCHITECTURE.md"]
+    },
+    {
+      "id": "T12", "fact": "F7", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "new: BILL-151 reuse trap (M5)",
+      "prompt": "Which invoice statuses does InvoiceService.OutstandingAsync include in the amount owed? List the status names only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["\\bIssued\\b"], "mustNot": ["\\bPaid\\b", "\\bDraft\\b", "\\bVoid\\b"] },
+      "reference": "Issued",
+      "counterexamples": ["Issued, Draft", "Issued and Paid"]
+    },
+    {
+      "id": "T13", "fact": "F2", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "new: stale documentation (M3 audit)",
+      "prompt": "Is docs/ARCHITECTURE.md a reliable guide to how data access is done today? Answer yes or no, then name what to trust instead in a few words. Do not modify files.",
+      "grader": { "type": "regex", "must": ["^\\W*no\\b", "ADR|0007|Dapper|repositor"], "mustNot": [] },
+      "reference": "No. Trust ADR 0007 and the existing Dapper repositories.",
+      "counterexamples": ["Yes, it describes the SqlHelper approach used everywhere."]
+    },
+    {
+      "id": "T14", "fact": "F2", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "new: ADR 0007 consequence",
+      "prompt": "Every async method on a new repository in this codebase takes one parameter of a specific framework type in addition to its own arguments. Which type? Type name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["CancellationToken"], "mustNot": ["IDbConnection"] },
+      "reference": "CancellationToken",
+      "counterexamples": ["IDbConnection"]
+    },
+    {
+      "id": "T15", "fact": "F5", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "new: money in C#",
+      "prompt": "Which C# type holds money amounts in this codebase? Type name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["\\bdecimal\\b"], "mustNot": ["\\bdouble\\b", "\\bfloat\\b"] },
+      "reference": "decimal",
+      "counterexamples": ["double"]
+    },
+    {
+      "id": "T16", "fact": "F3", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "new: time columns since V003",
+      "prompt": "Which SQL Server column type should a new timestamp column use in this repository? Type only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["datetimeoffset"], "mustNot": ["\\bdatetime\\b", "\\bdatetime2\\b"] },
+      "reference": "datetimeoffset(0)",
+      "counterexamples": ["datetime", "datetime2(7)"]
+    },
+    {
+      "id": "T17", "fact": "F4", "kind": "qa", "split": "dev", "tags": ["regression"],
+      "source": "new: undo-script naming",
+      "prompt": "I created db/migrations/V005__add_po_number.sql. What is the exact file name of its undo script? File name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["U005__add_po_number\\.sql"], "mustNot": ["V005__add_po_number\\.sql.*undo"] },
+      "reference": "U005__add_po_number.sql",
+      "counterexamples": ["V005__add_po_number_undo.sql", "down/005__add_po_number.sql"]
+    },
+    {
+      "id": "T18", "fact": "F7", "kind": "code", "split": "dev", "tags": ["golden", "representative"],
+      "source": "labs/module-05/tickets/BILL-152.md",
+      "prompt": "Fix this bug: an issued invoice whose due instant is exactly the current instant is reported as not overdue by InvoiceService.IsOverdue. Finance says an invoice is overdue from its due instant onward. Change the code and add a test for the boundary. Do not change any other behavior.",
+      "grader": { "type": "tests", "tests": "golden/T18", "filter": "FullyQualifiedName~Golden.T18", "scope": ["src/Contoso.Billing/Invoices/InvoiceService.cs", "tests/**"] },
+      "reference": "golden/T18/reference"
+    },
+    {
+      "id": "T19", "fact": "F7", "kind": "code", "split": "dev", "tags": ["representative"],
+      "source": "labs/module-05/tickets/BILL-151.md",
+      "prompt": "Implement BILL-151: add public Task<CollectionsSummary> CollectionsSummaryAsync(int customerId, CancellationToken ct) to InvoiceService, and public sealed record CollectionsSummary(decimal Owed, decimal Overdue) in namespace Contoso.Billing.Invoices. Owed and overdue must mean exactly what they already mean in InvoiceService. Add unit tests.",
+      "grader": { "type": "tests", "tests": "golden/T19", "filter": "FullyQualifiedName~Golden.T19", "scope": ["src/Contoso.Billing/Invoices/**", "tests/**"] },
+      "reference": "golden/T19/reference"
+    },
+    {
+      "id": "T20", "fact": "F3", "kind": "code", "split": "holdout", "tags": ["representative"],
+      "source": "new: BILL-142 acceptance criterion 3 (days overdue in UTC)",
+      "prompt": "Add public int DaysOverdue(Invoice invoice) to InvoiceService: the number of whole days the invoice has been overdue, computed in UTC from the injected clock, and 0 when the invoice is not overdue. Add unit tests.",
+      "grader": { "type": "tests", "tests": "golden/T20", "filter": "FullyQualifiedName~Golden.T20", "scope": ["src/Contoso.Billing/Invoices/InvoiceService.cs", "tests/**"] },
+      "reference": "golden/T20/reference"
+    },
+    {
+      "id": "T21", "fact": "F9", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "new: onboarding explanation (graded by rubric)",
+      "prompt": "A new team member asks why SqlHelper still exists and what they should use instead. Answer in at most five sentences. Do not modify files.",
+      "grader": { "type": "judge", "rubric": "graders/rubric-T21.md" },
+      "reference": "SqlHelper is a 2016 helper that is kept only because MonthlyRevenueReport, its last caller, has not been migrated yet; BILL-97 owns that migration. It is marked [Obsolete], and ConventionTests fail the build if code outside Legacy/ calls it. For new data access, follow ADR 0007: a Dapper repository behind an interface, like IInvoiceRepository / InvoiceRepository, with parameterized SQL and a CancellationToken on every async method.",
+      "counterexamples": ["SqlHelper is the standard data access layer. Use SqlHelper.ExecuteDataSet for new queries because it is simple and well tested."]
+    },
+    {
+      "id": "T22", "fact": "F3", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "new: review comment (graded by rubric)",
+      "prompt": "A pull request adds this line to a new ReminderService: if (invoice.DueUtc < DateTimeOffset.UtcNow) { ... }. Write the review comment you would leave, in at most three sentences. Do not modify files.",
+      "grader": { "type": "judge", "rubric": "graders/rubric-T22.md" },
+      "reference": "This reads the system clock directly; new code must take IClock and use _clock.UtcNow so tests can freeze time. Better still, call InvoiceService.IsOverdue instead of re-implementing the overdue rule here.",
+      "counterexamples": ["Looks good to me. Using UTC is correct here, so no change is needed."]
+    },
+    {
+      "id": "T23", "fact": "F2", "kind": "qa", "split": "holdout", "tags": ["regression"],
+      "source": "new: convention test",
+      "prompt": "Which class may only be called from the Legacy folder, according to the convention tests? Class name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["SqlHelper"], "mustNot": ["MonthlyRevenueReport"] },
+      "reference": "SqlHelper",
+      "counterexamples": ["MonthlyRevenueReport"]
+    },
+    {
+      "id": "T24", "fact": "F4", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "new: migration numbering",
+      "prompt": "What number will the next schema migration script in this repository have? Reply with the three-digit number only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["\\b005\\b"], "mustNot": ["\\b004\\b", "\\b006\\b"] },
+      "reference": "005",
+      "counterexamples": ["004"]
+    }
+  ]
+}

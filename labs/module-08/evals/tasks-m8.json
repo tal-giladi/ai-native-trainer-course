@@ -1,0 +1,39 @@
+{
+  "version": "tasks-m8",
+  "repo": "Contoso Billing (labs/module-03/brownfield) + labs/module-08/overlay, with the contoso-schema MCP server and the GitHub integration configured",
+  "grading": "regex: case-insensitive; every 'must' matches and no 'mustNot' matches. Merge these tasks into your tasks-v1 file (renumber if T25-T28 are taken).",
+  "tasks": [
+    {
+      "id": "T25", "fact": "F20", "kind": "qa", "split": "dev", "tags": ["golden", "regression"],
+      "source": "labs/module-08 break 08.3: stale schema snapshot still listed dbo.Invoice.Notes (dropped in V006)",
+      "prompt": "Which columns does dbo.Invoice have in the current database? Reply with the column names only, comma-separated. Do not modify files.",
+      "grader": { "type": "regex", "must": ["InvoiceId", "CustomerId", "Amount", "IssuedUtc", "DueUtc", "Status"], "mustNot": ["\\bNotes\\b"] },
+      "reference": "InvoiceId, CustomerId, Amount, IssuedUtc, DueUtc, Status",
+      "counterexamples": ["InvoiceId, CustomerId, Amount, IssuedUtc, DueUtc, Status, Notes", "InvoiceId, CustomerId, Amount, IssuedUtc, Status"]
+    },
+    {
+      "id": "T26", "fact": "F21", "kind": "qa", "split": "dev", "tags": ["representative", "regression"],
+      "source": "labs/module-08 overlay V006 (BILL-158) and ticket BILL-161",
+      "prompt": "BILL-161 needs the latest note of each of a customer's open invoices, with author and time. Which existing database object should the repository call? Reply with its schema-qualified name only. Do not modify files.",
+      "grader": { "type": "regex", "must": ["dbo\\.usp_InvoiceNote_LatestByCustomer"], "mustNot": ["\\bNotes\\b"] },
+      "reference": "dbo.usp_InvoiceNote_LatestByCustomer",
+      "counterexamples": ["dbo.Invoice (the Notes column)", "dbo.InvoiceNote"]
+    },
+    {
+      "id": "T27", "fact": "F21", "kind": "qa", "split": "holdout", "tags": ["representative"],
+      "source": "labs/module-08 break 08.3: the agent's BILL-161 query read dbo.Invoice.Notes",
+      "prompt": "Write only the SQL statement, or the stored procedure call, that a repository should use to read the latest note of each issued invoice of customer @customerId. No prose, no alternatives. Do not modify files.",
+      "grader": { "type": "regex", "must": ["InvoiceNote"], "mustNot": ["SELECT[^;]*\\bNotes\\b[^;]*FROM\\s+dbo\\.Invoice\\b(?!Note)", "\\bInvoice\\.Notes\\b"] },
+      "reference": "EXEC dbo.usp_InvoiceNote_LatestByCustomer @customerId = @customerId;",
+      "counterexamples": ["SELECT InvoiceId, Notes FROM dbo.Invoice WHERE CustomerId = @customerId AND Status = 1", "SELECT i.InvoiceId, i.Notes FROM dbo.Invoice i WHERE i.CustomerId = @customerId"]
+    },
+    {
+      "id": "T28", "fact": "F22", "kind": "qa", "split": "dev", "tags": ["representative"],
+      "source": "labs/module-08 lesson 08.2: the label exists only in the GitHub tracker (created by integration/import-tickets.sh), not in the repository",
+      "prompt": "Look in the issue tracker, not in this repository's files: which label marks the imported Contoso Billing tickets? Reply with the label name only. Do not create, edit or comment on anything.",
+      "grader": { "type": "regex", "must": ["^\\s*`?contoso-ticket`?\\s*$"], "mustNot": ["\\bbug\\b"] },
+      "reference": "contoso-ticket",
+      "counterexamples": ["bug", "I could not access the tracker, but tickets are in tickets/*.md"]
+    }
+  ]
+}

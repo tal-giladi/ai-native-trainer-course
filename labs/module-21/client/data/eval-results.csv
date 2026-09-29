@@ -1,0 +1,241 @@
+config,task,split,tags,trial,pass,reason,cost_usd,input_tokens,duration_ms,agent_version,model,layer_sha,tasks_sha
+before-ai-layer,T01,dev,representative;regression,1,1,,0.0430,30099,44292,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T02,dev,representative;regression,1,1,,0.0507,35490,31456,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T03,dev,representative,1,1,,0.0501,35070,16687,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T04,dev,golden;regression,1,0,illustrative failure,0.0414,28980,19082,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T05,holdout,representative,1,1,,0.0565,39550,20571,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T06,dev,golden;regression,1,1,,0.0525,36750,57646,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T07,dev,representative,1,1,,0.0479,33530,58931,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T08,holdout,representative,1,1,,0.0572,40040,28032,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T09,dev,regression,1,1,,0.0424,29680,28881,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T10,dev,golden,1,0,illustrative failure,0.0436,30520,41172,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T11,dev,representative,1,0,illustrative failure,0.0474,33180,39648,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T12,dev,representative,1,1,,0.0412,28840,24268,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T13,holdout,representative,1,0,illustrative failure,0.0486,34020,29136,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T14,dev,representative,1,1,,0.0491,34370,28489,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T15,dev,representative,1,1,,0.0540,37800,25984,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T16,holdout,representative,1,1,,0.0505,35350,54381,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T17,dev,regression,1,0,illustrative failure,0.0458,32060,59107,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T18,dev,golden;representative,1,1,,0.0484,33880,49071,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T19,dev,representative,1,1,,0.0498,34860,16764,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T20,holdout,representative,1,0,illustrative failure,0.0553,38710,40786,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T21,dev,representative,1,0,illustrative failure,0.0463,32410,46288,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T22,holdout,representative,1,1,,0.0516,36120,35529,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T23,holdout,regression,1,0,illustrative failure,0.0589,41230,36334,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T24,holdout,representative,1,0,illustrative failure,0.0412,28840,46567,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T01,dev,representative;regression,2,0,illustrative failure,0.0599,41930,51986,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T02,dev,representative;regression,2,1,,0.0477,33390,45089,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T03,dev,representative,2,1,,0.0492,34440,22562,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T04,dev,golden;regression,2,1,,0.0412,28840,49570,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T05,holdout,representative,2,1,,0.0450,31500,32592,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T06,dev,golden;regression,2,0,illustrative failure,0.0416,29120,35213,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T07,dev,representative,2,1,,0.0577,40390,51867,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T08,holdout,representative,2,0,illustrative failure,0.0456,31920,33688,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T09,dev,regression,2,1,,0.0577,40390,58097,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T10,dev,golden,2,1,,0.0435,30449,25438,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T11,dev,representative,2,1,,0.0497,34790,41510,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T12,dev,representative,2,1,,0.0401,28069,33852,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T13,holdout,representative,2,1,,0.0513,35910,57889,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T14,dev,representative,2,1,,0.0503,35210,42791,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T15,dev,representative,2,1,,0.0411,28770,55478,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T16,holdout,representative,2,0,illustrative failure,0.0575,40250,50904,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T17,dev,regression,2,0,illustrative failure,0.0480,33600,19659,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T18,dev,golden;representative,2,0,illustrative failure,0.0412,28840,18030,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T19,dev,representative,2,1,,0.0432,30240,30302,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T20,holdout,representative,2,1,,0.0400,28000,21806,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T21,dev,representative,2,1,,0.0473,33110,16147,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T22,holdout,representative,2,0,illustrative failure,0.0523,36610,21684,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T23,holdout,regression,2,1,,0.0469,32830,31387,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T24,holdout,representative,2,1,,0.0570,39900,59689,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T01,dev,representative;regression,3,0,illustrative failure,0.0497,34790,18864,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T02,dev,representative;regression,3,1,,0.0469,32830,26914,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T03,dev,representative,3,0,illustrative failure,0.0432,30240,16039,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T04,dev,golden;regression,3,0,illustrative failure,0.0506,35420,21597,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T05,holdout,representative,3,1,,0.0405,28350,38764,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T06,dev,golden;regression,3,0,illustrative failure,0.0573,40110,46328,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T07,dev,representative,3,1,,0.0473,33110,22516,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T08,holdout,representative,3,0,illustrative failure,0.0507,35490,50057,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T09,dev,regression,3,1,,0.0445,31150,51518,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T10,dev,golden,3,0,illustrative failure,0.0571,39970,51273,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T11,dev,representative,3,0,illustrative failure,0.0548,38360,25203,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T12,dev,representative,3,1,,0.0471,32970,16304,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T13,holdout,representative,3,1,,0.0456,31920,26662,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T14,dev,representative,3,1,,0.0591,41370,35125,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T15,dev,representative,3,0,illustrative failure,0.0598,41860,57975,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T16,holdout,representative,3,1,,0.0444,31080,25208,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T17,dev,regression,3,1,,0.0441,30870,43082,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T18,dev,golden;representative,3,0,illustrative failure,0.0568,39760,36576,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T19,dev,representative,3,0,illustrative failure,0.0560,39200,18815,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T20,holdout,representative,3,0,illustrative failure,0.0582,40740,50203,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T21,dev,representative,3,0,illustrative failure,0.0496,34720,23033,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T22,holdout,representative,3,0,illustrative failure,0.0467,32690,51037,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T23,holdout,regression,3,0,illustrative failure,0.0479,33530,33062,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T24,holdout,representative,3,0,illustrative failure,0.0545,38150,22650,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T01,dev,representative;regression,4,1,,0.0430,30099,55718,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T02,dev,representative;regression,4,0,illustrative failure,0.0429,30030,52192,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T03,dev,representative,4,0,illustrative failure,0.0531,37170,30768,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T04,dev,golden;regression,4,0,illustrative failure,0.0426,29820,15640,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T05,holdout,representative,4,0,illustrative failure,0.0530,37100,38696,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T06,dev,golden;regression,4,0,illustrative failure,0.0487,34090,54228,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T07,dev,representative,4,0,illustrative failure,0.0442,30940,26332,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T08,holdout,representative,4,1,,0.0448,31360,41389,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T09,dev,regression,4,1,,0.0484,33880,20898,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T10,dev,golden,4,0,illustrative failure,0.0471,32970,35617,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T11,dev,representative,4,1,,0.0581,40670,33928,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T12,dev,representative,4,0,illustrative failure,0.0500,35000,38932,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T13,holdout,representative,4,0,illustrative failure,0.0404,28280,34805,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T14,dev,representative,4,1,,0.0401,28069,50962,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T15,dev,representative,4,1,,0.0495,34650,47633,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T16,holdout,representative,4,1,,0.0465,32550,38325,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T17,dev,regression,4,0,illustrative failure,0.0557,38990,19774,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T18,dev,golden;representative,4,0,illustrative failure,0.0450,31500,27461,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T19,dev,representative,4,0,illustrative failure,0.0502,35140,40277,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T20,holdout,representative,4,0,illustrative failure,0.0582,40740,34946,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T21,dev,representative,4,0,illustrative failure,0.0501,35070,38047,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T22,holdout,representative,4,0,illustrative failure,0.0490,34300,38997,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T23,holdout,regression,4,1,,0.0588,41160,46464,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T24,holdout,representative,4,0,illustrative failure,0.0588,41160,26681,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T01,dev,representative;regression,5,0,illustrative failure,0.0589,41230,52799,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T02,dev,representative;regression,5,1,,0.0424,29680,34895,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T03,dev,representative,5,1,,0.0448,31360,18290,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T04,dev,golden;regression,5,0,illustrative failure,0.0557,38990,55366,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T05,holdout,representative,5,1,,0.0543,38010,44711,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T06,dev,golden;regression,5,1,,0.0577,40390,58539,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T07,dev,representative,5,1,,0.0591,41370,32921,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T08,holdout,representative,5,1,,0.0598,41860,52460,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T09,dev,regression,5,1,,0.0486,34020,38202,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T10,dev,golden,5,1,,0.0439,30730,29333,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T11,dev,representative,5,0,illustrative failure,0.0404,28280,39932,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T12,dev,representative,5,1,,0.0404,28280,29917,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T13,holdout,representative,5,0,illustrative failure,0.0502,35140,17893,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T14,dev,representative,5,0,illustrative failure,0.0558,39060,58726,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T15,dev,representative,5,1,,0.0453,31710,16781,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T16,holdout,representative,5,0,illustrative failure,0.0454,31780,20830,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T17,dev,regression,5,0,illustrative failure,0.0582,40740,51854,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T18,dev,golden;representative,5,1,,0.0430,30099,56362,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T19,dev,representative,5,0,illustrative failure,0.0540,37800,19025,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T20,holdout,representative,5,1,,0.0538,37660,34139,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T21,dev,representative,5,1,,0.0588,41160,43549,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T22,holdout,representative,5,0,illustrative failure,0.0417,29190,53530,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T23,holdout,regression,5,1,,0.0573,40110,35419,illustrative-agent 2.1,(agent default),none,illustrative
+before-ai-layer,T24,holdout,representative,5,1,,0.0511,35770,56700,illustrative-agent 2.1,(agent default),none,illustrative
+contoso-layer-v1,T01,dev,representative;regression,1,1,,0.0426,29820,38711,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T02,dev,representative;regression,1,1,,0.0422,29540,22265,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T03,dev,representative,1,1,,0.0440,30800,29039,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T04,dev,golden;regression,1,1,,0.0552,38640,28048,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T05,holdout,representative,1,1,,0.0436,30520,30615,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T06,dev,golden;regression,1,1,,0.0450,31500,15690,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T07,dev,representative,1,1,,0.0510,35700,23525,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T08,holdout,representative,1,1,,0.0587,41090,19782,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T09,dev,regression,1,0,illustrative failure,0.0486,34020,37275,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T10,dev,golden,1,0,illustrative failure,0.0479,33530,37800,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T11,dev,representative,1,1,,0.0596,41720,30421,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T12,dev,representative,1,1,,0.0541,37870,43618,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T13,holdout,representative,1,1,,0.0470,32900,17447,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T14,dev,representative,1,1,,0.0414,28980,48340,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T15,dev,representative,1,1,,0.0433,30310,18801,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T16,holdout,representative,1,0,illustrative failure,0.0574,40180,45174,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T17,dev,regression,1,1,,0.0448,31360,28187,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T18,dev,golden;representative,1,1,,0.0432,30240,35062,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T19,dev,representative,1,1,,0.0592,41440,58768,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T20,holdout,representative,1,1,,0.0449,31430,58455,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T21,dev,representative,1,1,,0.0471,32970,15048,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T22,holdout,representative,1,1,,0.0495,34650,37624,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T23,holdout,regression,1,1,,0.0501,35070,15222,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T24,holdout,representative,1,1,,0.0418,29259,32978,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T01,dev,representative;regression,2,1,,0.0404,28280,28691,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T02,dev,representative;regression,2,1,,0.0517,36190,38813,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T03,dev,representative,2,1,,0.0532,37240,47219,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T04,dev,golden;regression,2,0,illustrative failure,0.0478,33460,29676,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T05,holdout,representative,2,0,illustrative failure,0.0430,30099,47587,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T06,dev,golden;regression,2,1,,0.0409,28630,52588,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T07,dev,representative,2,1,,0.0525,36750,48023,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T08,holdout,representative,2,1,,0.0428,29960,38569,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T09,dev,regression,2,1,,0.0567,39690,51210,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T10,dev,golden,2,0,illustrative failure,0.0517,36190,55177,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T11,dev,representative,2,1,,0.0539,37730,25347,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T12,dev,representative,2,1,,0.0427,29890,31231,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T13,holdout,representative,2,1,,0.0567,39690,40133,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T14,dev,representative,2,1,,0.0525,36750,45629,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T15,dev,representative,2,1,,0.0401,28069,50896,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T16,holdout,representative,2,1,,0.0501,35070,39083,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T17,dev,regression,2,1,,0.0413,28910,48155,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T18,dev,golden;representative,2,1,,0.0415,29050,26950,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T19,dev,representative,2,0,illustrative failure,0.0441,30870,48292,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T20,holdout,representative,2,0,illustrative failure,0.0499,34930,32215,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T21,dev,representative,2,1,,0.0537,37590,49513,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T22,holdout,representative,2,1,,0.0529,37030,18486,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T23,holdout,regression,2,1,,0.0451,31570,48444,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T24,holdout,representative,2,1,,0.0514,35980,15561,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T01,dev,representative;regression,3,1,,0.0454,31780,45240,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T02,dev,representative;regression,3,1,,0.0535,37450,28088,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T03,dev,representative,3,1,,0.0493,34510,35985,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T04,dev,golden;regression,3,1,,0.0579,40530,23966,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T05,holdout,representative,3,0,illustrative failure,0.0587,41090,15787,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T06,dev,golden;regression,3,1,,0.0564,39480,58564,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T07,dev,representative,3,1,,0.0454,31780,24442,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T08,holdout,representative,3,0,illustrative failure,0.0442,30940,41166,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T09,dev,regression,3,1,,0.0505,35350,57873,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T10,dev,golden,3,1,,0.0564,39480,37893,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T11,dev,representative,3,0,illustrative failure,0.0541,37870,25412,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T12,dev,representative,3,0,illustrative failure,0.0497,34790,16117,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T13,holdout,representative,3,1,,0.0498,34860,35284,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T14,dev,representative,3,1,,0.0428,29960,30478,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T15,dev,representative,3,1,,0.0568,39760,15078,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T16,holdout,representative,3,0,illustrative failure,0.0568,39760,20401,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T17,dev,regression,3,0,illustrative failure,0.0543,38010,55570,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T18,dev,golden;representative,3,1,,0.0474,33180,32680,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T19,dev,representative,3,0,illustrative failure,0.0518,36260,31231,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T20,holdout,representative,3,1,,0.0455,31850,17172,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T21,dev,representative,3,1,,0.0567,39690,27853,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T22,holdout,representative,3,0,illustrative failure,0.0450,31500,26957,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T23,holdout,regression,3,1,,0.0438,30660,31800,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T24,holdout,representative,3,0,illustrative failure,0.0577,40390,51538,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T01,dev,representative;regression,4,1,,0.0583,40810,57331,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T02,dev,representative;regression,4,1,,0.0544,38080,17226,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T03,dev,representative,4,1,,0.0490,34300,48870,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T04,dev,golden;regression,4,1,,0.0457,31990,17203,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T05,holdout,representative,4,0,illustrative failure,0.0425,29750,36248,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T06,dev,golden;regression,4,1,,0.0460,32200,48256,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T07,dev,representative,4,0,illustrative failure,0.0452,31639,44519,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T08,holdout,representative,4,1,,0.0511,35770,32746,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T09,dev,regression,4,1,,0.0432,30240,24354,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T10,dev,golden,4,0,illustrative failure,0.0499,34930,24901,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T11,dev,representative,4,0,illustrative failure,0.0599,41930,35248,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T12,dev,representative,4,1,,0.0438,30660,19082,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T13,holdout,representative,4,1,,0.0418,29259,25760,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T14,dev,representative,4,1,,0.0514,35980,54926,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T15,dev,representative,4,1,,0.0483,33810,33624,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T16,holdout,representative,4,1,,0.0475,33250,30219,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T17,dev,regression,4,1,,0.0456,31920,58545,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T18,dev,golden;representative,4,1,,0.0501,35070,43333,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T19,dev,representative,4,0,illustrative failure,0.0443,31010,27195,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T20,holdout,representative,4,1,,0.0480,33600,35063,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T21,dev,representative,4,0,illustrative failure,0.0570,39900,54280,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T22,holdout,representative,4,1,,0.0406,28419,46928,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T23,holdout,regression,4,1,,0.0495,34650,41422,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T24,holdout,representative,4,1,,0.0478,33460,56707,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T01,dev,representative;regression,5,0,illustrative failure,0.0571,39970,58750,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T02,dev,representative;regression,5,1,,0.0422,29540,21947,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T03,dev,representative,5,1,,0.0536,37520,57367,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T04,dev,golden;regression,5,0,illustrative failure,0.0529,37030,49416,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T05,holdout,representative,5,1,,0.0510,35700,16779,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T06,dev,golden;regression,5,0,illustrative failure,0.0447,31289,56396,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T07,dev,representative,5,1,,0.0461,32270,20758,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T08,holdout,representative,5,1,,0.0527,36890,46436,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T09,dev,regression,5,1,,0.0414,28980,38599,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T10,dev,golden,5,1,,0.0478,33460,25061,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T11,dev,representative,5,1,,0.0402,28140,28568,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T12,dev,representative,5,1,,0.0592,41440,44005,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T13,holdout,representative,5,0,illustrative failure,0.0495,34650,25564,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T14,dev,representative,5,1,,0.0592,41440,46709,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T15,dev,representative,5,1,,0.0404,28280,37423,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T16,holdout,representative,5,1,,0.0484,33880,26576,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T17,dev,regression,5,1,,0.0585,40950,25205,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T18,dev,golden;representative,5,1,,0.0468,32760,33925,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T19,dev,representative,5,0,illustrative failure,0.0440,30800,50867,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T20,holdout,representative,5,0,illustrative failure,0.0501,35070,24234,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T21,dev,representative,5,0,illustrative failure,0.0462,32340,51900,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T22,holdout,representative,5,1,,0.0444,31080,49221,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T23,holdout,regression,5,1,,0.0590,41300,37309,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative
+contoso-layer-v1,T24,holdout,representative,5,1,,0.0445,31150,33766,illustrative-agent 2.1,(agent default),c0ffee21a1b2,illustrative

@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    After a teammate edits AGENTS.md, an agent implements a ticket with `SqlHelper` and a
+    `DataSet`, and the convention test fails. Which failure class best describes this?
+  options:
+    - >-
+      A hallucination, because the agent invented an API that the repository does not provide.
+    - >-
+      A reasoning failure, because the agent misunderstood what the ticket was asking for.
+    - >-
+      A tool failure, because the test runner rejected otherwise correct generated code.
+    - >-
+      Stale context delivered as an instruction, which the agent followed faithfully.
+  correct: 3
+  explanation: >-
+    `SqlHelper` exists and the agent did what the rules told it to. The defect is a rule that
+    describes an abandoned convention; the fix is in the rules file, backed by a check.
+- id: q2
+  question: >-
+    Which rules-file line passes all four tests (true, needed, actionable, right place) for
+    Contoso Billing?
+  options:
+    - >-
+      "Write clean, maintainable code that follows SOLID principles and avoids duplication."
+    - >-
+      "New migration = a `V###` script plus a matching `U###` undo script (ev: V003 script)."
+    - >-
+      "Here are the 40 steps to add a report endpoint, from controller to integration test."
+    - >-
+      "Money is stored as `decimal(19,4)`; the agent already gets this right in 5 of 5 probes."
+  correct: 1
+  explanation: >-
+    The migration rule is true (evidence cited), needed (most scripts lack undo files, so agents
+    imitate them), actionable and repo-wide. The others fail actionable, right place, or needed.
+- id: q3
+  question: >-
+    `AiLayerTool lint` reports 0 errors and 0 warnings on your rules file. What have you shown?
+  options:
+    - >-
+      That every backticked claim matches the repo, not that rules are needed or obeyed.
+    - >-
+      That the agent will follow every rule, since all of them are now grounded in evidence.
+    - >-
+      That the rules file is optimal in length, since the lint enforces the 200-line target.
+    - >-
+      That the conventions themselves are good, since the evidence shows the team chose them.
+  correct: 0
+  explanation: >-
+    The lint checks consistency with the repository: paths, commands, symbols, obsolete types,
+    evidence and size. Whether a rule is needed and obeyed needs probes; whether it is good needs judgment.
+- id: q4
+  question: >-
+    A correct, grounded rule sits on line 170 of a 290-line rules file and the agent keeps
+    ignoring it. What is the best first move?
+  options:
+    - >-
+      Mark every important rule in the file with "IMPORTANT" so the model weighs them all higher.
+    - >-
+      Copy the rule into two more places in the file so the agent encounters it more often.
+    - >-
+      Cut lines that fail the four tests and move the rule up, so it is no longer lost in the middle.
+    - >-
+      Switch to a model with a larger context window so the whole file fits more comfortably.
+  correct: 2
+  explanation: >-
+    Long files reduce adherence and middle positions are used less reliably. Shortening the file
+    helps every remaining rule; emphasis works on one line, not many, and duplicates invite drift.

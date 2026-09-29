@@ -1,0 +1,601 @@
+config,task,split,tags,trial,pass,reason,cost_usd,input_tokens,duration_ms,agent_version,model,layer_sha,tasks_sha
+single,T01,dev,representative;regression,1,1,,0.0522,36544,20178,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T02,dev,representative;regression,1,1,,0.0400,28012,24395,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T03,dev,representative,1,1,,0.0413,28910,24603,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T04,dev,golden;regression,1,1,,0.0405,28374,25002,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T05,holdout,representative,1,1,,0.0521,36477,24846,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T06,dev,golden;regression,1,1,,0.0514,35958,19896,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T07,dev,representative,1,1,,0.0500,35033,23324,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T08,holdout,representative,1,0,illustrative failure,0.0462,32359,22414,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T09,dev,regression,1,0,illustrative failure,0.0429,30037,23566,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T10,dev,golden,1,1,,0.0505,35339,26839,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T11,dev,representative,1,1,,0.0505,35329,27875,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T12,dev,representative,1,1,,0.0491,34353,20847,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T13,holdout,representative,1,0,illustrative failure,0.0578,40434,21670,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T14,dev,representative,1,1,,0.0559,39119,25332,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T15,dev,representative,1,1,,0.0573,40112,23294,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T16,holdout,representative,1,0,illustrative failure,0.0435,30423,21546,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T17,dev,regression,1,1,,0.0455,31817,26418,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T18,dev,golden;representative,1,0,illustrative failure,0.2788,195188,196366,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T19,dev,representative,1,1,,0.2474,173180,197858,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T20,holdout,representative,1,1,,0.2266,158602,153960,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T21,dev,representative,1,1,,0.0460,32231,19345,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T22,holdout,representative,1,1,,0.0511,35786,24886,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T23,holdout,regression,1,1,,0.0422,29518,20993,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T24,holdout,representative,1,1,,0.0483,33779,28013,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T01,dev,representative;regression,2,0,illustrative failure,0.0402,28174,20147,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T02,dev,representative;regression,2,0,illustrative failure,0.0445,31144,28219,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T03,dev,representative,2,1,,0.0467,32662,28366,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T04,dev,golden;regression,2,1,,0.0441,30903,26737,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T05,holdout,representative,2,1,,0.0456,31930,20408,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T06,dev,golden;regression,2,1,,0.0402,28107,27262,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T07,dev,representative,2,1,,0.0543,38021,24430,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T08,holdout,representative,2,1,,0.0478,33489,24257,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T09,dev,regression,2,1,,0.0510,35674,22655,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T10,dev,golden,2,1,,0.0491,34335,23712,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T11,dev,representative,2,1,,0.0428,29960,25347,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T12,dev,representative,2,0,illustrative failure,0.0476,33296,27538,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T13,holdout,representative,2,1,,0.0452,31642,21682,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T14,dev,representative,2,1,,0.0578,40474,20162,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T15,dev,representative,2,1,,0.0568,39750,22664,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T16,holdout,representative,2,0,illustrative failure,0.0502,35168,22927,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T17,dev,regression,2,1,,0.0424,29665,26478,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T18,dev,golden;representative,2,0,illustrative failure,0.2760,193173,157010,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T19,dev,representative,2,1,,0.2223,155639,191424,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T20,holdout,representative,2,1,,0.2368,165780,159536,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T21,dev,representative,2,0,illustrative failure,0.0498,34882,24576,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T22,holdout,representative,2,1,,0.0533,37277,22864,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T23,holdout,regression,2,1,,0.0483,33835,24312,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T24,holdout,representative,2,1,,0.0494,34582,20565,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T01,dev,representative;regression,3,1,,0.0432,30252,27195,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T02,dev,representative;regression,3,1,,0.0536,37503,26490,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T03,dev,representative,3,1,,0.0460,32184,21654,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T04,dev,golden;regression,3,1,,0.0445,31143,23714,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T05,holdout,representative,3,1,,0.0588,41161,24346,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T06,dev,golden;regression,3,1,,0.0417,29196,25666,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T07,dev,representative,3,1,,0.0455,31878,19806,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T08,holdout,representative,3,1,,0.0482,33742,21188,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T09,dev,regression,3,1,,0.0419,29350,22334,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T10,dev,golden,3,1,,0.0454,31747,27972,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T11,dev,representative,3,1,,0.0428,29925,19698,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T12,dev,representative,3,1,,0.0443,31005,25436,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T13,holdout,representative,3,1,,0.0540,37774,19407,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T14,dev,representative,3,1,,0.0528,36948,25065,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T15,dev,representative,3,1,,0.0451,31550,20072,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T16,holdout,representative,3,1,,0.0519,36318,24948,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T17,dev,regression,3,0,illustrative failure,0.0585,40963,26212,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T18,dev,golden;representative,3,0,illustrative failure,0.2730,191089,152245,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T19,dev,representative,3,0,illustrative failure,0.2570,179888,184319,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T20,holdout,representative,3,0,illustrative failure,0.2681,187641,147920,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T21,dev,representative,3,0,illustrative failure,0.0565,39566,28152,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T22,holdout,representative,3,0,illustrative failure,0.0531,37196,20428,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T23,holdout,regression,3,1,,0.0550,38526,23525,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T24,holdout,representative,3,1,,0.0596,41711,27012,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T01,dev,representative;regression,4,1,,0.0462,32341,22647,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T02,dev,representative;regression,4,1,,0.0451,31541,22115,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T03,dev,representative,4,1,,0.0527,36922,22615,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T04,dev,golden;regression,4,1,,0.0418,29249,22938,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T05,holdout,representative,4,1,,0.0437,30591,20202,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T06,dev,golden;regression,4,1,,0.0550,38477,22303,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T07,dev,representative,4,1,,0.0455,31861,25068,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T08,holdout,representative,4,1,,0.0447,31261,20797,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T09,dev,regression,4,1,,0.0579,40540,20504,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T10,dev,golden,4,1,,0.0460,32198,23952,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T11,dev,representative,4,1,,0.0434,30394,19460,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T12,dev,representative,4,0,illustrative failure,0.0516,36096,20426,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T13,holdout,representative,4,0,illustrative failure,0.0531,37175,19838,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T14,dev,representative,4,1,,0.0417,29169,22136,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T15,dev,representative,4,1,,0.0487,34091,26339,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T16,holdout,representative,4,1,,0.0406,28431,23894,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T17,dev,regression,4,1,,0.0529,37043,24365,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T18,dev,golden;representative,4,1,,0.2055,143865,146764,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T19,dev,representative,4,0,illustrative failure,0.2156,150927,144306,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T20,holdout,representative,4,1,,0.2421,169459,162563,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T21,dev,representative,4,1,,0.0404,28278,19714,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T22,holdout,representative,4,1,,0.0494,34575,21450,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T23,holdout,regression,4,1,,0.0418,29248,25740,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T24,holdout,representative,4,1,,0.0589,41261,23911,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T01,dev,representative;regression,5,1,,0.0441,30856,21198,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T02,dev,representative;regression,5,1,,0.0471,32962,24795,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T03,dev,representative,5,1,,0.0481,33703,21997,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T04,dev,golden;regression,5,1,,0.0494,34584,28323,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T05,holdout,representative,5,1,,0.0426,29818,27591,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T06,dev,golden;regression,5,1,,0.0531,37156,24456,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T07,dev,representative,5,1,,0.0440,30829,22673,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T08,holdout,representative,5,0,illustrative failure,0.0433,30336,25691,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T09,dev,regression,5,0,illustrative failure,0.0526,36788,26238,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T10,dev,golden,5,1,,0.0462,32371,20305,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T11,dev,representative,5,1,,0.0505,35328,20396,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T12,dev,representative,5,1,,0.0576,40348,25136,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T13,holdout,representative,5,1,,0.0498,34868,20337,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T14,dev,representative,5,1,,0.0497,34794,25499,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T15,dev,representative,5,1,,0.0451,31592,23456,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T16,holdout,representative,5,0,illustrative failure,0.0514,36002,27769,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T17,dev,regression,5,1,,0.0432,30212,23978,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T18,dev,golden;representative,5,0,illustrative failure,0.2593,181483,164163,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T19,dev,representative,5,1,,0.2978,208470,164513,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T20,holdout,representative,5,1,,0.2058,144049,186895,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T21,dev,representative,5,0,illustrative failure,0.0570,39900,22473,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T22,holdout,representative,5,0,illustrative failure,0.0483,33834,23462,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T23,holdout,regression,5,1,,0.0442,30969,20239,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single,T24,holdout,representative,5,1,,0.0550,38484,21234,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T01,dev,representative;regression,1,1,,0.0485,33950,19812,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T02,dev,representative;regression,1,1,,0.0447,31303,25215,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T03,dev,representative,1,1,,0.0478,33445,27909,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T04,dev,golden;regression,1,1,,0.0423,29639,20178,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T05,holdout,representative,1,1,,0.0582,40749,22820,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T06,dev,golden;regression,1,1,,0.0538,37637,21783,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T07,dev,representative,1,1,,0.0486,34025,21807,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T08,holdout,representative,1,1,,0.0406,28398,21975,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T09,dev,regression,1,1,,0.0436,30515,24574,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T10,dev,golden,1,1,,0.0530,37076,21083,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T11,dev,representative,1,1,,0.0509,35654,25142,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T12,dev,representative,1,1,,0.0545,38117,20673,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T13,holdout,representative,1,0,illustrative failure,0.0591,41389,23625,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T14,dev,representative,1,1,,0.0501,35053,24437,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T15,dev,representative,1,1,,0.0425,29732,25362,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T16,holdout,representative,1,1,,0.0408,28539,22334,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T17,dev,regression,1,0,illustrative failure,0.0552,38641,26643,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T18,dev,golden;representative,1,1,,0.2917,204172,186734,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T19,dev,representative,1,0,illustrative failure,0.2243,157037,165379,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T20,holdout,representative,1,1,,0.2303,161197,170049,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T21,dev,representative,1,1,,0.0494,34574,25900,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T22,holdout,representative,1,1,,0.0412,28843,20841,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T23,holdout,regression,1,1,,0.0570,39865,25245,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T24,holdout,representative,1,0,illustrative failure,0.0445,31118,23173,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T01,dev,representative;regression,2,1,,0.0487,34060,23793,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T02,dev,representative;regression,2,0,illustrative failure,0.0517,36201,25416,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T03,dev,representative,2,0,illustrative failure,0.0469,32799,24584,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T04,dev,golden;regression,2,1,,0.0519,36329,26973,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T05,holdout,representative,2,1,,0.0559,39100,25465,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T06,dev,golden;regression,2,1,,0.0524,36690,23487,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T07,dev,representative,2,1,,0.0421,29484,23884,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T08,holdout,representative,2,1,,0.0475,33219,26399,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T09,dev,regression,2,1,,0.0557,39001,20465,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T10,dev,golden,2,1,,0.0446,31227,28252,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T11,dev,representative,2,0,illustrative failure,0.0443,30987,27007,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T12,dev,representative,2,0,illustrative failure,0.0475,33273,19366,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T13,holdout,representative,2,1,,0.0422,29519,22503,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T14,dev,representative,2,0,illustrative failure,0.0535,37426,27864,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T15,dev,representative,2,0,illustrative failure,0.0563,39390,24303,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T16,holdout,representative,2,1,,0.0561,39279,23179,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T17,dev,regression,2,1,,0.0415,29016,27855,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T18,dev,golden;representative,2,1,,0.2085,145960,153965,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T19,dev,representative,2,0,illustrative failure,0.2575,180222,172354,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T20,holdout,representative,2,1,,0.2599,181901,145822,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T21,dev,representative,2,1,,0.0524,36656,27177,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T22,holdout,representative,2,1,,0.0401,28071,24411,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T23,holdout,regression,2,1,,0.0543,38029,25919,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T24,holdout,representative,2,1,,0.0490,34285,23785,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T01,dev,representative;regression,3,1,,0.0518,36252,21037,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T02,dev,representative;regression,3,1,,0.0403,28232,24962,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T03,dev,representative,3,1,,0.0524,36653,26386,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T04,dev,golden;regression,3,1,,0.0589,41261,23391,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T05,holdout,representative,3,1,,0.0591,41396,20112,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T06,dev,golden;regression,3,1,,0.0548,38342,24531,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T07,dev,representative,3,1,,0.0568,39788,23273,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T08,holdout,representative,3,0,illustrative failure,0.0499,34903,22957,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T09,dev,regression,3,0,illustrative failure,0.0547,38274,22469,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T10,dev,golden,3,1,,0.0568,39768,20660,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T11,dev,representative,3,0,illustrative failure,0.0509,35612,20301,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T12,dev,representative,3,1,,0.0434,30394,25071,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T13,holdout,representative,3,1,,0.0517,36170,21900,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T14,dev,representative,3,1,,0.0547,38317,20344,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T15,dev,representative,3,1,,0.0428,29951,22130,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T16,holdout,representative,3,1,,0.0503,35244,24388,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T17,dev,regression,3,1,,0.0579,40553,19505,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T18,dev,golden;representative,3,1,,0.2499,174957,156038,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T19,dev,representative,3,1,,0.2488,174133,172723,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T20,holdout,representative,3,1,,0.2810,196712,174334,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T21,dev,representative,3,1,,0.0552,38641,23089,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T22,holdout,representative,3,0,illustrative failure,0.0586,41054,25510,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T23,holdout,regression,3,1,,0.0413,28894,20097,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T24,holdout,representative,3,0,illustrative failure,0.0536,37524,24038,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T01,dev,representative;regression,4,1,,0.0449,31441,21780,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T02,dev,representative;regression,4,1,,0.0521,36494,21023,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T03,dev,representative,4,1,,0.0440,30827,19996,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T04,dev,golden;regression,4,1,,0.0404,28252,23498,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T05,holdout,representative,4,1,,0.0548,38351,24124,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T06,dev,golden;regression,4,1,,0.0552,38659,27861,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T07,dev,representative,4,1,,0.0493,34487,21060,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T08,holdout,representative,4,0,illustrative failure,0.0453,31720,27330,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T09,dev,regression,4,1,,0.0531,37202,20389,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T10,dev,golden,4,0,illustrative failure,0.0514,36011,26943,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T11,dev,representative,4,1,,0.0441,30896,27448,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T12,dev,representative,4,0,illustrative failure,0.0494,34557,20254,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T13,holdout,representative,4,1,,0.0572,40070,23074,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T14,dev,representative,4,1,,0.0509,35603,22458,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T15,dev,representative,4,1,,0.0574,40205,24682,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T16,holdout,representative,4,1,,0.0418,29273,26163,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T17,dev,regression,4,1,,0.0499,34917,25727,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T18,dev,golden;representative,4,1,,0.2798,195894,170272,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T19,dev,representative,4,0,illustrative failure,0.2981,208667,182046,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T20,holdout,representative,4,0,illustrative failure,0.2078,145462,138905,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T21,dev,representative,4,1,,0.0432,30258,22126,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T22,holdout,representative,4,0,illustrative failure,0.0463,32435,23987,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T23,holdout,regression,4,1,,0.0566,39641,22106,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T24,holdout,representative,4,1,,0.0543,37984,24069,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T01,dev,representative;regression,5,1,,0.0406,28393,23458,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T02,dev,representative;regression,5,0,illustrative failure,0.0544,38090,26544,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T03,dev,representative,5,1,,0.0535,37484,24466,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T04,dev,golden;regression,5,1,,0.0517,36214,25798,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T05,holdout,representative,5,1,,0.0437,30573,23746,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T06,dev,golden;regression,5,1,,0.0458,32062,24571,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T07,dev,representative,5,1,,0.0488,34137,20818,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T08,holdout,representative,5,1,,0.0595,41657,21272,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T09,dev,regression,5,0,illustrative failure,0.0426,29817,24966,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T10,dev,golden,5,1,,0.0470,32932,22353,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T11,dev,representative,5,1,,0.0508,35565,19582,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T12,dev,representative,5,1,,0.0570,39887,21811,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T13,holdout,representative,5,1,,0.0493,34516,27313,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T14,dev,representative,5,1,,0.0476,33286,28620,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T15,dev,representative,5,1,,0.0570,39926,24459,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T16,holdout,representative,5,0,illustrative failure,0.0564,39487,23874,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T17,dev,regression,5,1,,0.0566,39603,19957,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T18,dev,golden;representative,5,1,,0.2801,196061,138827,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T19,dev,representative,5,1,,0.2632,184225,202921,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T20,holdout,representative,5,0,illustrative failure,0.2800,196021,196674,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T21,dev,representative,5,1,,0.0518,36281,19294,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T22,holdout,representative,5,1,,0.0579,40503,24662,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T23,holdout,regression,5,1,,0.0446,31205,23999,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+single-aa,T24,holdout,representative,5,1,,0.0442,30923,25503,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T01,dev,representative;regression,1,1,,0.0625,43759,30355,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T02,dev,representative;regression,1,1,,0.0667,46689,32772,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T03,dev,representative,1,1,,0.0606,42448,35152,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T04,dev,golden;regression,1,1,,0.0494,34610,24049,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T05,holdout,representative,1,1,,0.0568,39742,31894,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T06,dev,golden;regression,1,1,,0.0552,38631,35530,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T07,dev,representative,1,1,,0.0562,39365,35264,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T08,holdout,representative,1,1,,0.0564,39499,25492,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T09,dev,regression,1,0,illustrative failure,0.0663,46421,30351,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T10,dev,golden,1,1,,0.0546,38200,31187,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T11,dev,representative,1,1,,0.0629,44026,34090,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T12,dev,representative,1,1,,0.0567,39671,25948,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T13,holdout,representative,1,1,,0.0619,43328,35501,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T14,dev,representative,1,1,,0.0550,38465,29547,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T15,dev,representative,1,1,,0.0469,32832,25759,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T16,holdout,representative,1,0,illustrative failure,0.0484,33912,30447,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T17,dev,regression,1,1,,0.0670,46872,31472,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T18,dev,golden;representative,1,1,,0.2837,198560,199076,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T19,dev,representative,1,1,,0.3372,236012,248465,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T20,holdout,representative,1,1,,0.2991,209368,234686,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T21,dev,representative,1,1,,0.0530,37103,29054,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T22,holdout,representative,1,0,illustrative failure,0.0632,44238,31711,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T23,holdout,regression,1,1,,0.0514,35969,28398,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T24,holdout,representative,1,1,,0.0587,41064,30901,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T01,dev,representative;regression,2,1,,0.0468,32750,24758,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T02,dev,representative;regression,2,1,,0.0557,39013,32457,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T03,dev,representative,2,1,,0.0560,39176,25605,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T04,dev,golden;regression,2,1,,0.0500,35007,24867,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T05,holdout,representative,2,1,,0.0502,35129,25172,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T06,dev,golden;regression,2,1,,0.0456,31902,32787,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T07,dev,representative,2,1,,0.0634,44395,29789,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T08,holdout,representative,2,1,,0.0614,43003,33377,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T09,dev,regression,2,0,illustrative failure,0.0577,40391,25300,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T10,dev,golden,2,1,,0.0519,36299,34206,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T11,dev,representative,2,1,,0.0666,46593,26890,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T12,dev,representative,2,1,,0.0522,36574,29766,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T13,holdout,representative,2,1,,0.0557,38994,31357,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T14,dev,representative,2,1,,0.0559,39133,28403,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T15,dev,representative,2,1,,0.0472,33008,31181,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T16,holdout,representative,2,1,,0.0660,46232,31138,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T17,dev,regression,2,1,,0.0506,35421,26029,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T18,dev,golden;representative,2,0,illustrative failure,0.3243,227004,249929,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T19,dev,representative,2,1,,0.3671,257002,240063,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T20,holdout,representative,2,1,,0.2751,192584,237182,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T21,dev,representative,2,1,,0.0628,43936,30330,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T22,holdout,representative,2,0,illustrative failure,0.0503,35208,30062,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T23,holdout,regression,2,0,illustrative failure,0.0621,43497,30128,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T24,holdout,representative,2,0,illustrative failure,0.0595,41650,33013,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T01,dev,representative;regression,3,1,,0.0624,43653,30195,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T02,dev,representative;regression,3,1,,0.0468,32779,33488,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T03,dev,representative,3,1,,0.0572,40028,26455,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T04,dev,golden;regression,3,1,,0.0588,41177,33731,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T05,holdout,representative,3,1,,0.0524,36657,31342,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T06,dev,golden;regression,3,1,,0.0486,34017,30769,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T07,dev,representative,3,1,,0.0531,37194,34848,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T08,holdout,representative,3,1,,0.0617,43172,31028,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T09,dev,regression,3,0,illustrative failure,0.0557,38991,27174,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T10,dev,golden,3,1,,0.0523,36588,27892,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T11,dev,representative,3,0,illustrative failure,0.0600,41965,35302,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T12,dev,representative,3,1,,0.0489,34200,29557,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T13,holdout,representative,3,1,,0.0585,40939,27347,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T14,dev,representative,3,1,,0.0450,31476,35250,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T15,dev,representative,3,1,,0.0467,32720,24441,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T16,holdout,representative,3,1,,0.0549,38438,28702,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T17,dev,regression,3,1,,0.0453,31678,25676,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T18,dev,golden;representative,3,1,,0.3055,213857,207573,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T19,dev,representative,3,1,,0.3390,237304,266511,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T20,holdout,representative,3,1,,0.2775,194225,246034,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T21,dev,representative,3,1,,0.0652,45664,24033,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T22,holdout,representative,3,1,,0.0628,43933,26700,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T23,holdout,regression,3,1,,0.0507,35496,32808,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T24,holdout,representative,3,1,,0.0652,45616,33148,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T01,dev,representative;regression,4,1,,0.0495,34636,25618,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T02,dev,representative;regression,4,0,illustrative failure,0.0570,39872,34453,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T03,dev,representative,4,1,,0.0652,45636,25349,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T04,dev,golden;regression,4,1,,0.0619,43298,32139,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T05,holdout,representative,4,1,,0.0587,41078,27388,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T06,dev,golden;regression,4,1,,0.0600,41992,28622,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T07,dev,representative,4,1,,0.0504,35264,24378,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T08,holdout,representative,4,0,illustrative failure,0.0530,37113,25507,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T09,dev,regression,4,0,illustrative failure,0.0495,34638,33561,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T10,dev,golden,4,1,,0.0641,44840,32713,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T11,dev,representative,4,0,illustrative failure,0.0528,36947,33171,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T12,dev,representative,4,1,,0.0540,37830,25328,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T13,holdout,representative,4,1,,0.0599,41926,28148,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T14,dev,representative,4,1,,0.0636,44526,25479,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T15,dev,representative,4,1,,0.0610,42675,26788,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T16,holdout,representative,4,0,illustrative failure,0.0658,46037,25813,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T17,dev,regression,4,1,,0.0646,45225,33882,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T18,dev,golden;representative,4,1,,0.3082,215710,210974,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T19,dev,representative,4,0,illustrative failure,0.3259,228164,259613,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T20,holdout,representative,4,1,,0.3424,239656,215263,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T21,dev,representative,4,1,,0.0489,34251,34377,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T22,holdout,representative,4,1,,0.0588,41136,31864,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T23,holdout,regression,4,1,,0.0636,44552,25255,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T24,holdout,representative,4,0,illustrative failure,0.0593,41526,29015,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T01,dev,representative;regression,5,1,,0.0580,40596,34901,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T02,dev,representative;regression,5,1,,0.0635,44479,27944,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T03,dev,representative,5,0,illustrative failure,0.0531,37138,25562,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T04,dev,golden;regression,5,0,illustrative failure,0.0543,37980,32615,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T05,holdout,representative,5,1,,0.0627,43881,26747,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T06,dev,golden;regression,5,1,,0.0537,37618,35437,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T07,dev,representative,5,1,,0.0456,31922,34509,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T08,holdout,representative,5,1,,0.0532,37252,33368,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T09,dev,regression,5,1,,0.0460,32181,28596,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T10,dev,golden,5,1,,0.0594,41555,26005,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T11,dev,representative,5,1,,0.0548,38381,26582,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T12,dev,representative,5,1,,0.0627,43901,32874,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T13,holdout,representative,5,1,,0.0469,32839,31104,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T14,dev,representative,5,0,illustrative failure,0.0584,40908,24960,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T15,dev,representative,5,1,,0.0619,43360,30530,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T16,holdout,representative,5,1,,0.0648,45340,29060,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T17,dev,regression,5,1,,0.0585,40978,34240,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T18,dev,golden;representative,5,1,,0.3232,226250,256635,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T19,dev,representative,5,1,,0.2935,205456,189823,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T20,holdout,representative,5,1,,0.2665,186546,212991,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T21,dev,representative,5,1,,0.0541,37896,34822,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T22,holdout,representative,5,1,,0.0516,36143,25380,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T23,holdout,regression,5,1,,0.0561,39240,24335,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+solo-verify,T24,holdout,representative,5,1,,0.0619,43357,35143,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T01,dev,representative;regression,1,1,,0.0898,62840,58181,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T02,dev,representative;regression,1,1,,0.1053,73696,54391,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T03,dev,representative,1,1,,0.0870,60865,58069,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T04,dev,golden;regression,1,1,,0.0892,62421,56475,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T05,holdout,representative,1,0,illustrative failure,0.1911,133790,95319,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T06,dev,golden;regression,1,0,illustrative failure,0.1962,137317,101711,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T07,dev,representative,1,1,,0.1039,72760,49878,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T08,holdout,representative,1,0,illustrative failure,0.1018,71255,52832,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T09,dev,regression,1,1,,0.0942,65963,61408,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T10,dev,golden,1,0,illustrative failure,0.0997,69765,49795,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T11,dev,representative,1,1,,0.0955,66857,58908,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T12,dev,representative,1,0,illustrative failure,0.2067,144697,90741,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T13,holdout,representative,1,1,,0.1038,72640,50282,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T14,dev,representative,1,0,illustrative failure,0.2008,140530,98953,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T15,dev,representative,1,1,,0.0951,66542,56637,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T16,holdout,representative,1,1,,0.0862,60345,56098,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T17,dev,regression,1,1,,0.0956,66886,48669,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T18,dev,golden;representative,1,1,,0.5566,389629,347536,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T19,dev,representative,1,1,,0.6195,433657,368104,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T20,holdout,representative,1,1,,0.3522,246508,233586,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T21,dev,representative,1,1,,0.1780,124570,100154,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T22,holdout,representative,1,1,,0.1094,76579,56542,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T23,holdout,regression,1,1,,0.1005,70350,50172,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T24,holdout,representative,1,1,,0.0981,68649,52290,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T01,dev,representative;regression,2,1,,0.1012,70848,54986,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T02,dev,representative;regression,2,1,,0.0937,65598,57283,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T03,dev,representative,2,1,,0.0952,66662,55458,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T04,dev,golden;regression,2,0,illustrative failure,0.1814,126985,99899,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T05,holdout,representative,2,1,,0.1046,73190,54207,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T06,dev,golden;regression,2,1,,0.0945,66166,53395,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T07,dev,representative,2,1,,0.1005,70364,58155,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T08,holdout,representative,2,0,illustrative failure,0.1011,70789,53713,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T09,dev,regression,2,1,,0.1097,76758,51088,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T10,dev,golden,2,1,,0.1085,75983,55063,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T11,dev,representative,2,1,,0.0933,65328,54085,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T12,dev,representative,2,0,illustrative failure,0.0935,65457,52923,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T13,holdout,representative,2,1,,0.0972,68022,54537,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T14,dev,representative,2,1,,0.0925,64731,55612,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T15,dev,representative,2,0,illustrative failure,0.1029,72024,52493,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T16,holdout,representative,2,1,,0.1915,134059,98326,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T17,dev,regression,2,1,,0.0977,68408,57508,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T18,dev,golden;representative,2,0,illustrative failure,0.5820,407434,379136,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T19,dev,representative,2,1,,0.5645,395183,366171,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T20,holdout,representative,2,1,,0.3390,237322,196419,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T21,dev,representative,2,0,illustrative failure,0.2043,143000,96482,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T22,holdout,representative,2,0,illustrative failure,0.2051,143540,99572,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T23,holdout,regression,2,0,illustrative failure,0.0937,65556,51815,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T24,holdout,representative,2,1,,0.0915,64031,50944,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T01,dev,representative;regression,3,1,,0.0973,68119,56215,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T02,dev,representative;regression,3,1,,0.0888,62149,50936,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T03,dev,representative,3,1,,0.1829,128002,105256,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T04,dev,golden;regression,3,0,illustrative failure,0.1014,70981,50611,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T05,holdout,representative,3,0,illustrative failure,0.1873,131083,98087,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T06,dev,golden;regression,3,1,,0.1083,75801,50760,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T07,dev,representative,3,1,,0.0873,61116,55598,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T08,holdout,representative,3,1,,0.1063,74424,50744,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T09,dev,regression,3,1,,0.1025,71729,53631,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T10,dev,golden,3,1,,0.0915,64018,51720,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T11,dev,representative,3,1,,0.1048,73337,52664,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T12,dev,representative,3,1,,0.1107,77455,55329,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T13,holdout,representative,3,1,,0.0950,66533,56717,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T14,dev,representative,3,1,,0.0992,69428,61486,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T15,dev,representative,3,1,,0.0952,66636,53451,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T16,holdout,representative,3,0,illustrative failure,0.0992,69428,61391,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T17,dev,regression,3,0,illustrative failure,0.1073,75103,53124,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T18,dev,golden;representative,3,1,,0.3817,267169,251693,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T19,dev,representative,3,1,,0.3479,243520,209149,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T20,holdout,representative,3,1,,0.3359,235141,253271,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T21,dev,representative,3,0,illustrative failure,0.0970,67874,60451,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T22,holdout,representative,3,1,,0.1929,135027,94615,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T23,holdout,regression,3,0,illustrative failure,0.1804,126275,105704,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T24,holdout,representative,3,0,illustrative failure,0.0966,67634,61861,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T01,dev,representative;regression,4,1,,0.0926,64843,51606,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T02,dev,representative;regression,4,1,,0.0970,67867,47077,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T03,dev,representative,4,0,illustrative failure,0.1751,122595,99381,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T04,dev,golden;regression,4,1,,0.0979,68551,51167,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T05,holdout,representative,4,1,,0.0951,66545,54469,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T06,dev,golden;regression,4,1,,0.1044,73074,54945,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T07,dev,representative,4,1,,0.1011,70802,58447,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T08,holdout,representative,4,1,,0.0977,68398,52749,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T09,dev,regression,4,1,,0.1017,71183,61591,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T10,dev,golden,4,1,,0.1045,73128,49358,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T11,dev,representative,4,1,,0.1068,74791,57381,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T12,dev,representative,4,1,,0.1786,125018,95188,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T13,holdout,representative,4,1,,0.1097,76758,47836,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T14,dev,representative,4,1,,0.1075,75284,54295,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T15,dev,representative,4,1,,0.1071,74972,54433,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T16,holdout,representative,4,0,illustrative failure,0.1823,127643,98479,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T17,dev,regression,4,1,,0.1041,72888,53939,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T18,dev,golden;representative,4,1,,0.3090,216304,212469,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T19,dev,representative,4,1,,0.3132,219206,243923,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T20,holdout,representative,4,1,,0.5559,389160,363687,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T21,dev,representative,4,0,illustrative failure,0.1844,129099,103935,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T22,holdout,representative,4,1,,0.0989,69222,50990,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T23,holdout,regression,4,1,,0.1883,131802,99568,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T24,holdout,representative,4,1,,0.0976,68294,55510,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T01,dev,representative;regression,5,1,,0.0947,66261,58312,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T02,dev,representative;regression,5,1,,0.1813,126889,98109,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T03,dev,representative,5,1,,0.1034,72351,50843,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T04,dev,golden;regression,5,1,,0.1059,74105,57353,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T05,holdout,representative,5,1,,0.0929,65057,51094,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T06,dev,golden;regression,5,1,,0.1037,72580,49737,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T07,dev,representative,5,1,,0.0963,67391,57368,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T08,holdout,representative,5,1,,0.0942,65933,54882,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T09,dev,regression,5,1,,0.1003,70185,54164,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T10,dev,golden,5,1,,0.0979,68514,53724,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T11,dev,representative,5,1,,0.0992,69430,51069,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T12,dev,representative,5,1,,0.1061,74272,61049,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T13,holdout,representative,5,1,,0.0886,61986,51632,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T14,dev,representative,5,1,,0.1002,70108,56414,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T15,dev,representative,5,1,,0.1025,71735,61633,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T16,holdout,representative,5,1,,0.1033,72283,58059,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T17,dev,regression,5,1,,0.1020,71417,50606,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T18,dev,golden;representative,5,1,,0.5657,395974,371889,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T19,dev,representative,5,1,,0.6469,452854,357344,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T20,holdout,representative,5,0,illustrative failure,0.5748,402336,377912,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T21,dev,representative,5,1,,0.1111,77782,55047,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T22,holdout,representative,5,1,,0.0950,66475,50378,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T23,holdout,regression,5,1,,0.0943,65983,52917,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+pwr,T24,holdout,representative,5,0,illustrative failure,0.1063,74439,51474,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T01,dev,representative;regression,1,0,illustrative failure,0.0671,46952,32834,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T02,dev,representative;regression,1,0,illustrative failure,0.0599,41929,30809,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T03,dev,representative,1,1,,0.0606,42391,29462,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T04,dev,golden;regression,1,1,,0.0600,41968,32606,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T05,holdout,representative,1,0,illustrative failure,0.0457,31996,31758,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T06,dev,golden;regression,1,0,illustrative failure,0.0613,42934,31016,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T07,dev,representative,1,1,,0.0528,36968,25591,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T08,holdout,representative,1,1,,0.0579,40549,33518,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T09,dev,regression,1,1,,0.0659,46121,25082,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T10,dev,golden,1,1,,0.0549,38455,25434,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T11,dev,representative,1,1,,0.0667,46694,28642,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T12,dev,representative,1,1,,0.0523,36624,27335,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T13,holdout,representative,1,1,,0.0601,42098,34140,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T14,dev,representative,1,1,,0.0659,46127,26845,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T15,dev,representative,1,1,,0.0586,41015,27931,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T16,holdout,representative,1,0,illustrative failure,0.0482,33720,34448,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T17,dev,regression,1,1,,0.0572,40017,29673,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T18,dev,golden;representative,1,1,,0.5304,371271,393198,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T19,dev,representative,1,0,illustrative failure,0.5718,400240,394535,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T20,holdout,representative,1,1,,0.5920,414367,370653,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T21,dev,representative,1,1,,0.0487,34058,27861,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T22,holdout,representative,1,0,illustrative failure,0.0540,37792,31517,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T23,holdout,regression,1,1,,0.0493,34526,34965,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T24,holdout,representative,1,1,,0.0478,33465,33941,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T01,dev,representative;regression,2,1,,0.0554,38802,32963,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T02,dev,representative;regression,2,1,,0.0531,37195,27942,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T03,dev,representative,2,1,,0.0653,45702,32429,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T04,dev,golden;regression,2,1,,0.0588,41157,32642,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T05,holdout,representative,2,1,,0.0647,45263,33606,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T06,dev,golden;regression,2,1,,0.0555,38846,31205,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T07,dev,representative,2,1,,0.0489,34227,25854,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T08,holdout,representative,2,0,illustrative failure,0.0452,31671,24522,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T09,dev,regression,2,1,,0.0671,47002,26464,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T10,dev,golden,2,1,,0.0537,37622,28158,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T11,dev,representative,2,1,,0.0495,34672,31635,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T12,dev,representative,2,1,,0.0671,46958,24265,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T13,holdout,representative,2,1,,0.0541,37836,34962,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T14,dev,representative,2,1,,0.0529,37018,33972,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T15,dev,representative,2,1,,0.0664,46507,34849,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T16,holdout,representative,2,0,illustrative failure,0.0456,31954,31522,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T17,dev,regression,2,1,,0.0662,46313,33909,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T18,dev,golden;representative,2,1,,0.3159,221102,221307,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T19,dev,representative,2,1,,0.5413,378875,402064,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T20,holdout,representative,2,1,,0.3810,266667,201038,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T21,dev,representative,2,1,,0.0520,36402,27173,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T22,holdout,representative,2,1,,0.0452,31658,25931,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T23,holdout,regression,2,1,,0.0506,35392,31836,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T24,holdout,representative,2,1,,0.0475,33258,29016,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T01,dev,representative;regression,3,0,illustrative failure,0.0463,32388,34382,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T02,dev,representative;regression,3,0,illustrative failure,0.0518,36243,35203,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T03,dev,representative,3,1,,0.0559,39163,24515,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T04,dev,golden;regression,3,1,,0.0488,34150,34262,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T05,holdout,representative,3,0,illustrative failure,0.0459,32152,33712,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T06,dev,golden;regression,3,1,,0.0581,40676,30849,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T07,dev,representative,3,1,,0.0561,39239,29256,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T08,holdout,representative,3,1,,0.0624,43677,35536,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T09,dev,regression,3,1,,0.0569,39825,35103,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T10,dev,golden,3,1,,0.0552,38634,27925,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T11,dev,representative,3,1,,0.0661,46251,34481,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T12,dev,representative,3,1,,0.0584,40903,24200,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T13,holdout,representative,3,1,,0.0649,45432,34107,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T14,dev,representative,3,1,,0.0651,45592,30925,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T15,dev,representative,3,1,,0.0620,43431,25864,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T16,holdout,representative,3,1,,0.0667,46708,33585,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T17,dev,regression,3,1,,0.0603,42211,25012,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T18,dev,golden;representative,3,0,illustrative failure,0.6101,427051,367015,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T19,dev,representative,3,1,,0.5807,406515,391303,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T20,holdout,representative,3,1,,0.6307,441521,369162,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T21,dev,representative,3,1,,0.0493,34508,24971,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T22,holdout,representative,3,0,illustrative failure,0.0523,36619,31780,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T23,holdout,regression,3,0,illustrative failure,0.0665,46543,25031,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T24,holdout,representative,3,0,illustrative failure,0.0611,42754,33387,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T01,dev,representative;regression,4,1,,0.0651,45554,31964,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T02,dev,representative;regression,4,1,,0.0650,45513,26375,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T03,dev,representative,4,0,illustrative failure,0.0666,46608,34293,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T04,dev,golden;regression,4,1,,0.0621,43458,35335,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T05,holdout,representative,4,1,,0.0636,44508,30808,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T06,dev,golden;regression,4,1,,0.0670,46916,34111,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T07,dev,representative,4,1,,0.0590,41318,35058,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T08,holdout,representative,4,1,,0.0652,45622,29567,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T09,dev,regression,4,0,illustrative failure,0.0511,35796,33388,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T10,dev,golden,4,0,illustrative failure,0.0525,36753,24341,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T11,dev,representative,4,1,,0.0634,44367,25999,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T12,dev,representative,4,0,illustrative failure,0.0448,31370,31010,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T13,holdout,representative,4,1,,0.0539,37732,35949,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T14,dev,representative,4,1,,0.0650,45468,32279,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T15,dev,representative,4,1,,0.0610,42668,35239,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T16,holdout,representative,4,1,,0.0563,39381,25679,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T17,dev,regression,4,1,,0.0476,33290,27714,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T18,dev,golden;representative,4,1,,0.2928,204938,212244,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T19,dev,representative,4,1,,0.5700,398970,351783,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T20,holdout,representative,4,1,,0.5885,411971,367333,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T21,dev,representative,4,1,,0.0535,37464,33150,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T22,holdout,representative,4,1,,0.0481,33655,35635,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T23,holdout,regression,4,1,,0.0577,40366,33348,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T24,holdout,representative,4,1,,0.0528,36961,34526,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T01,dev,representative;regression,5,1,,0.0539,37703,28862,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T02,dev,representative;regression,5,1,,0.0543,38036,30261,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T03,dev,representative,5,0,illustrative failure,0.0483,33818,31718,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T04,dev,golden;regression,5,0,illustrative failure,0.0638,44635,33344,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T05,holdout,representative,5,1,,0.0646,45186,30560,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T06,dev,golden;regression,5,1,,0.0468,32757,28947,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T07,dev,representative,5,1,,0.0672,47017,28145,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T08,holdout,representative,5,1,,0.0511,35792,30925,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T09,dev,regression,5,1,,0.0463,32381,27571,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T10,dev,golden,5,1,,0.0637,44569,35830,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T11,dev,representative,5,1,,0.0638,44680,27829,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T12,dev,representative,5,1,,0.0564,39502,34432,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T13,holdout,representative,5,1,,0.0474,33153,28579,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T14,dev,representative,5,1,,0.0492,34417,26428,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T15,dev,representative,5,1,,0.0545,38133,26260,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T16,holdout,representative,5,1,,0.0560,39169,28295,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T17,dev,regression,5,1,,0.0625,43721,33607,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T18,dev,golden;representative,5,1,,0.3235,226476,243401,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T19,dev,representative,5,1,,0.3376,236289,221458,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T20,holdout,representative,5,1,,0.5745,402157,395830,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T21,dev,representative,5,0,illustrative failure,0.0548,38393,25674,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T22,holdout,representative,5,1,,0.0516,36108,34193,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T23,holdout,regression,5,1,,0.0497,34808,25067,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative
+route,T24,holdout,representative,5,0,illustrative failure,0.0480,33589,34934,illustrative-agent 1.0,(agent default),41d7be0c93aa,illustrative

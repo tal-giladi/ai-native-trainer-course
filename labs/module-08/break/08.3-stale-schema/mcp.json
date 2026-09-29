@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "contoso-schema": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": [".claude/mcp/contoso-schema/ContosoSchema.Mcp.dll", "--source", "snapshot:.mcp-cache/catalog-nightly.json"]
+    }
+  }
+}

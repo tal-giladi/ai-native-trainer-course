@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    A client proposes a retainer of 2 days a month for 2,000, with unused days rolling over indefinitely.
+    Your floor is 1,500 a day. What is wrong with it?
+  options:
+    - >-
+      Nothing serious; rollover is a courtesy clients expect, and the fee covers both days at the floor.
+    - >-
+      Only the notice period is missing; add 30 days and the rest of the terms can stay as proposed.
+    - >-
+      The fee is 1,000 per capped day, below the floor, and endless rollover builds a debt of days.
+    - >-
+      The cap is too low; retainers should be sold as on-call availability so the client gets value.
+  correct: 2
+  explanation: >-
+    Price retainers per capped day, not per day used. Unused days that never expire let a client claim
+    months of days in one week; they must expire or be capped.
+- id: q2
+  question: >-
+    Delivery utilization rises from 71% to 90% while job variability stays the same. By roughly how much
+    does Kingman's approximation say the expected wait grows?
+  options:
+    - >-
+      By about a quarter, in proportion to the rise from 71% to 90% in utilization.
+    - >-
+      By about 3.6 times, because rho over one minus rho grows from about 2.5 to 9.
+    - >-
+      It does not change, because waiting depends on job variability rather than utilization.
+    - >-
+      By about 19 times, because each point of utilization adds a month of waiting time.
+  correct: 1
+  explanation: >-
+    The wait scales with rho/(1-rho): 0.71/0.29 is about 2.5 and 0.9/0.1 is 9. Waits explode near full
+    utilization, which is why the plan keeps a buffer and a "When full" rule.
+- id: q3
+  question: >-
+    Two students have the same demand and the same delivery days. One sells a productized pilot whose hours
+    vary little (CV 0.16); the other sells bespoke work whose hours vary a lot (CV 1.0). Whose clients wait longer?
+  options:
+    - >-
+      Neither; waiting depends only on utilization, which is the same for both students.
+    - >-
+      The productized student's, because standard work attracts more applications that queue.
+    - >-
+      Neither on average; variability only changes the worst case, never the expected wait.
+    - >-
+      The bespoke student's, roughly twice as long, because service variability enters the formula.
+  correct: 3
+  explanation: >-
+    Kingman's variability factor is (ca² + cs²)/2: about 0.51 for the productized pilot and 1.0 for bespoke
+    work, with random arrivals. Productizing shortens waits as well as hours.
+- id: q4
+  question: >-
+    A roadmap row reads "Month 3: grow the audience; exit signal: more followers". What does the lesson want
+    instead?
+  options:
+    - >-
+      A measurable exit signal with evidence, such as 15 paying members in a members file.
+    - >-
+      A longer description of the content strategy, so that the milestone explains how growth happens.
+    - >-
+      Nothing different; audience goals are inherently vague and are judged at the year-end review.
+    - >-
+      A revenue figure only, since followers are a vanity metric and money is the one real signal.
+  correct: 0
+  explanation: >-
+    Exit signals need a number or a check and a place where the evidence lives, so a milestone is either met
+    or not. Stop rules then say what happens when it is not.

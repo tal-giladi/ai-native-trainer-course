@@ -1,0 +1,165 @@
+- id: q1
+  question: >-
+    After three pilots at a fixed 18,000, your time log shows 132, 109 and 97 hours. Your floor is 1,500
+    a day at 8 hours. A peer says you should raise the price because every delivery paid below the floor.
+    What is the better reading?
+  options:
+    - >-
+      Raise the price to about 25,000 now, so that even a first-delivery overrun would pay at the floor.
+    - >-
+      Switch to a day rate, since hours that vary between deliveries mean a fixed fee cannot work at all.
+    - >-
+      Keep the price; hours are falling with standard assets, and the planned hours clear the floor.
+    - >-
+      Keep the price but drop the measurement step, which saves hours without changing the deliverables.
+  correct: 2
+  explanation: >-
+    The curve shows about an 82% learning rate and predicts about 90 hours next, which pays 1,600 a day.
+    The first delivery's overrun was the cost of learning; cutting the measurement changes the product.
+- id: q2
+  question: >-
+    Your service card has eight steps. Two are client-specific work, budgeted at 16 of 80 hours. A
+    reviewer says a real productized service should have no custom steps at all. How do you answer?
+  options:
+    - >-
+      Agree, and fold the custom hours into the standard steps so that the card looks fully standard.
+    - >-
+      Agree, and accept only clients whose needs fit the standard steps exactly, declining the rest.
+    - >-
+      Disagree, and raise the custom budget to 40% so that no client ever needs a change request.
+    - >-
+      Disagree; naming and budgeting custom work at 25% or less keeps the other steps standard.
+  correct: 3
+  explanation: >-
+    Every client differs somewhere. Putting that difference in one named, budgeted step keeps it visible
+    and bounded; hiding it inflates the standard steps, and anything beyond the budget is a change
+    request.
+- id: q3
+  question: >-
+    Your live workshop measured a normalized gain of 0.57. You plan a self-paced course from the same
+    outline and want to sell a team licence to a 300-person company. Which combination is honest and
+    complete?
+  options:
+    - >-
+      Report the course's own measured gain, and license named seats for a stated term, with no resale.
+    - >-
+      Report the workshop's 0.57 as the expected gain, and license unlimited seats with a perpetual term.
+    - >-
+      Report no learning figure at all, and license the course under CC BY-NC so the company cannot sell
+      it.
+    - >-
+      Report the workshop's gain with a warning, and let the company decide its own seats and term later.
+  correct: 0
+  explanation: >-
+    The room produced the workshop's gain; a course must measure its own. A team licence must state
+    seats, term, resale, attribution and updates, or it gives away more than you intend.
+- id: q4
+  question: >-
+    A student's course is a recording of a workshop delivered at a client, cut into videos, with the
+    client's slides as the workbook. Names were removed. What should happen?
+  options:
+    - >-
+      Keep selling it, since anonymization removes the confidentiality problem for all practical
+      purposes.
+    - >-
+      Take it down, tell the client, and rebuild the course from fictional material and rehearsal
+      recordings.
+    - >-
+      Keep selling it but add a credit line thanking the client, which satisfies the attribution rule.
+    - >-
+      Keep it but switch the licence to CC BY-NC, so no one can profit from the client's material again.
+  correct: 1
+  explanation: >-
+    The recording and slides were created under the client's SOW and confidentiality terms; anonymizing
+    does not make them yours to sell. Courses are built from brownfield-demo and your own rehearsals.
+- id: q5
+  question: >-
+    Your kit manifest lists the starter pack as "tested, works" and the Bound plan template as "5/6". A
+    buyer asks how reliable the templates are for people working alone. What does the lesson want you to
+    say?
+  options:
+    - >-
+      That both are reliable, since five of six and a working starter pack clear any sensible threshold.
+    - >-
+      That reliability cannot be known for templates, because each buyer's tickets are different.
+    - >-
+      That 5 of 6 is 83% and the starter pack is 100%, which together average above ninety percent.
+    - >-
+      That 5 of 6 has a Wilson interval of about 44% to 97%, so more dated stranger tests are needed.
+  correct: 3
+  explanation: >-
+    Small samples hide a lot; report k of n with a Wilson interval and the test date, and replace
+    "tested, works" with a real k of n. The reference plan uses the wide interval as a reason not to
+    subcontract yet.
+- id: q6
+  question: >-
+    Item analysis on 24 learners shows item q4 with p = 0.50 and D = -0.50: one of the top six answered
+    correctly and four of the bottom six. What do you do before the next workshop?
+  options:
+    - >-
+      Look for the reading under which a distractor is right, then fix or remove q4 and log it.
+    - >-
+      Keep it; an item that half the learners answer correctly has ideal difficulty for a test.
+    - >-
+      Swap the key to the option the top group chose, which turns the discrimination positive.
+    - >-
+      Nothing yet; 24 learners is too few for item statistics to tell you anything worth acting on.
+  correct: 0
+  explanation: >-
+    Negative discrimination usually means stronger learners found a reading you did not intend. Find the
+    cause, reword or remove, and record the change in the changelog; swapping keys blindly is a guess.
+- id: q7
+  question: >-
+    A client wants a retainer of "you on call, same-day answers, unused time rolls over" for 3,000 a
+    month. What do you propose instead?
+  options:
+    - >-
+      The same terms with a maximum of 10 rolled-over days, which caps the client's claim on your time.
+    - >-
+      The same terms at a higher fee, since on-call availability is worth more than scheduled days.
+    - >-
+      A day cap such as 1 day a month, unused days expiring monthly, 30 days of notice and a stated
+      scope.
+    - >-
+      A day rate billed as used, since retainers always turn into unpaid work in the end anyway.
+  correct: 2
+  explanation: >-
+    On-call is uncapped work at a capped price, and rollover without expiry becomes a debt of days. A
+    capped, expiring, scoped retainer priced per capped day at or above your floor is the safe version.
+- id: q8
+  question: >-
+    Your delivery allocation finishes 0.35 pilots a month. Demand is 0.25 a month, so utilization is 71%,
+    and Kingman's approximation gives a 3.7-month expected wait. You want to add a second retainer that
+    takes one delivery day. What happens to the wait, and why?
+  options:
+    - >-
+      It barely changes, because one day a month is small compared with the eight days of your cap.
+    - >-
+      It grows without limit: capacity falls to 0.25 pilots a month and utilization reaches 100%.
+    - >-
+      It shrinks, because retainer revenue lets you turn down pilot requests you would otherwise take.
+    - >-
+      It grows by about a third, in proportion to losing one of the three and a half delivery days.
+  correct: 1
+  explanation: >-
+    With 2.5 delivery days, capacity is 0.25 pilots a month, equal to demand. Waits grow with
+    rho/(1-rho), which has no finite value at 100%; near full utilization every added commitment costs
+    far more than it looks.
+- id: q9
+  question: >-
+    A plan's roadmap row says "Month 6: quit the job; exit signal: revenue replaces salary". There are no
+    stop rules. How should it be rewritten?
+  options:
+    - >-
+      Keep it, since a clear personal goal motivates the plan more than a list of numeric checks would.
+    - >-
+      Move the row to month 3, so that the plan has more time to recover if the goal is reached late.
+    - >-
+      A month-12 review with numeric exit signals and evidence, plus stop rules with numbers and dates.
+    - >-
+      Replace it with "grow product revenue", which is safer and does not commit to any specific number.
+  correct: 2
+  explanation: >-
+    Exit signals need a number or a check and an evidence file; stop rules say in advance what stops when
+    a milestone is missed. The reference plan checks the source path's exit signal at month 12 against
+    its own numbers.

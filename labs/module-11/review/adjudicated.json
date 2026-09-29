@@ -1,0 +1,14 @@
+{
+  "note": "Agent comments a reviewer re-examined after the fact and confirmed as real defects the human review missed. They join the ground truth.",
+  "defects": [
+    {
+      "id": "D14",
+      "pr": "PR-320",
+      "file": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+      "line": 55,
+      "category": "time",
+      "summary": "DateTime.Now (local clock) in the banner cut-off",
+      "found_by": "adjudicated (v1 comment, confirmed by @contoso/billing-leads)"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+- id: q1
+  question: >-
+    A PreToolUse guard hook throws an unhandled exception on a `Write` payload and exits with code 1.
+    What does Claude Code do with the `Write` call?
+  options:
+    - >-
+      It blocks the call, because any hook failure is treated as a deny decision.
+    - >-
+      It asks the user for permission, because the hook produced no decision at all.
+    - >-
+      It retries the hook once and blocks the call if the second attempt also fails.
+    - >-
+      It shows an error and lets the call proceed, since exit 1 is non-blocking.
+  correct: 3
+  explanation: >-
+    Only exit code 2 (or a JSON deny) blocks. Any other non-zero code is a non-blocking error and the tool
+    call proceeds, so an enforcement hook must catch its own errors and deny: fail closed.
+- id: q2
+  question: >-
+    You want the agent to learn that its new repository method uses a column that does not exist, so it
+    can repair the code. The check needs the file as written. Which hook fits?
+  options:
+    - >-
+      A PostToolUse hook on edits that exits 2 with the problem on stderr.
+    - >-
+      A PreToolUse hook on edits that returns `permissionDecision: "allow"`.
+    - >-
+      A SessionStart hook that loads the current schema into the context once.
+    - >-
+      A Stop hook that runs the full test suite before the turn is allowed to end.
+  correct: 0
+  explanation: >-
+    PostToolUse runs after the file is written, and exit 2 feeds stderr back to the model as something
+    to act on. A guard that returns `allow` skips the permission prompt; a SessionStart snapshot can go
+    stale; the unit tests in this lab never touch SQL.
+- id: q3
+  question: >-
+    Your guard takes 4.5 seconds per call because its command is `dotnet run --project tools/AgentHooks`.
+    A typical session makes 40 edits. What is the best change?
+  options:
+    - >-
+      Move the guard to the Stop hook, so it runs once per turn instead of once per edit.
+    - >-
+      Publish the guard once and run the compiled DLL, which takes about 0.2 seconds per call.
+    - >-
+      Raise the hook timeout to 600 seconds, so that slow runs no longer count as failures.
+    - >-
+      Match only `Edit`, so that `Write` and `MultiEdit` calls skip the guard entirely.
+  correct: 1
+  explanation: >-
+    Added time is roughly calls times latency: $40 \times 4.5 = 180$ s versus $40 \times 0.22 \approx 9$ s.
+    The cost is the build on every call, so publish once. Moving it to Stop loses the before-the-edit
+    guarantee, and narrowing the matcher opens exactly the hole from the break.
+- id: q4
+  question: >-
+    With the guard installed on `Edit|Write|MultiEdit`, the agent creates `BillingDbContext.cs` through a
+    `Bash` heredoc. What still catches it before the change is merged?
+  options:
+    - >-
+      The guard, because PreToolUse hooks inspect every file the session changes.
+    - >-
+      The audit hook, because it denies calls that write files outside of `Edit`.
+    - >-
+      The architecture gate in CI, which checks the repo whatever tool wrote it.
+    - >-
+      The permission rules, because `Bash` calls that write files are always denied.
+  correct: 2
+  explanation: >-
+    The guard only sees the tools its matcher names, and the audit hook records rather than blocks.
+    `LoopGate arch` in CI runs the same rules against the repository, so it is the wall; the hook is the
+    early warning.

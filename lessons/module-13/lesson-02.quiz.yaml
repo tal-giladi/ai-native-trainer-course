@@ -1,0 +1,70 @@
+- id: q1
+  question: >-
+    A prospect says: "GitHub's study proved Copilot makes developers 55% faster, so we expect that."
+    Which fact about that study matters most for their legacy .NET code base?
+  options:
+    - >-
+      It was randomized, so its result applies to any team that adopts a similar tool.
+    - >-
+      It was run by vendor-affiliated authors, so its result should simply be discarded.
+    - >-
+      It timed one small greenfield JavaScript task done by recruited freelancers.
+    - >-
+      Its interval of 21-89% shows the true effect is somewhere above 50% for most teams.
+  correct: 2
+  explanation: >-
+    Randomization makes the lab result causal for that task and population, not transferable to a
+    mature legacy code base. Affiliation belongs in the critique but is not a reason to discard it.
+- id: q2
+  question: >-
+    In METR's 2025 trial, experienced maintainers were measured 19% slower with AI allowed, yet
+    afterwards estimated they had been 20% faster. What does this imply for your own pilot?
+  options:
+    - >-
+      Ask developers at the end of the pilot, since they know their own work best.
+    - >-
+      Measure time from tracker events; treat self-reports as data about experience.
+    - >-
+      Assume AI slows experienced developers down, and exclude them from the pilot.
+    - >-
+      Average the measured and the perceived effect, to balance the two views fairly.
+  correct: 1
+  explanation: >-
+    Perceived and measured productivity can point in opposite directions. Self-reports are worth
+    collecting, but they measure experience; speed comes from timestamps.
+- id: q3
+  question: >-
+    One field study reports +26% completed tasks; a lab study reports 56% less time on a task. A
+    colleague writes "AI makes developers 26-56% faster". What is the main error?
+  options:
+    - >-
+      Two different metrics, output count and time on a task, are merged into one claim.
+    - >-
+      The range is too narrow, because the study intervals were wider than the estimates.
+    - >-
+      Field studies are less rigorous than lab studies, so only the 56% should be quoted.
+    - >-
+      Percentages from different years cannot be compared without adjusting for inflation.
+  correct: 0
+  explanation: >-
+    "Faster" fits a time metric; more completed PRs per week is output, which can rise while each
+    task takes as long. Mixing metrics makes the range meaningless.
+- id: q4
+  question: >-
+    A difference-in-differences study of repositories adopting an AI editor found lines added rose
+    sharply for two months, while static-analysis warnings and complexity rose and stayed up. What
+    is the most defensible reading?
+  options:
+    - >-
+      The tool made projects faster, and the warnings are the unavoidable price of speed.
+    - >-
+      Nothing can be concluded, because only randomized trials can say anything causal.
+    - >-
+      The tool made projects permanently more productive, since output rose after adoption.
+    - >-
+      An activity count rose briefly, while quality costs persisted and may slow work later.
+  correct: 3
+  explanation: >-
+    Lines added is an activity metric the tool inflates; the persistent rise in warnings and
+    complexity is the quality signal. Difference-in-differences supports causal claims under its
+    assumptions, so "nothing can be concluded" goes too far.

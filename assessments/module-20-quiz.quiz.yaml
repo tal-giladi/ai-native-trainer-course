@@ -1,0 +1,156 @@
+- id: q1
+  question: >-
+    A prospect asks you to guarantee a 30% productivity improvement before they sign. Your own experiment
+    found −16% cycle time (95% CI −25% to −5%) on one team, with a failed defect guardrail. What do you
+    reply, and what goes into the SOW?
+  options:
+    - >-
+      Guarantee 15%, inside your interval, and add a partial refund clause if the team falls short.
+    - >-
+      Decline the guarantee, give your result with its interval, and write a pre-registered measurement into the SOW.
+    - >-
+      Accept the 30% but define productivity so broadly in the SOW that some measure will reach it.
+    - >-
+      Decline the engagement, since a client who asks for a guarantee will always be a difficult client.
+  correct: 1
+  explanation: >-
+    Your evidence supports a range for one team, not a promise for theirs. The SOW's measurement section
+    (baseline, pre-registered outcomes, intervals, stop rule) replaces the guarantee, and a null result is a delivered result.
+- id: q2
+  question: >-
+    Your ladder has a workshop, a pilot, an implementation and a "Premium Implementation" that adds a
+    10x ROI guarantee at three times the price. Nobody has ever bought it, and you hope nobody does. What should you do?
+  options:
+    - >-
+      Keep it, since it anchors the buyer and makes the standard implementation look reasonable.
+    - >-
+      Keep it but remove the guarantee, so that it becomes an honest premium tier with more support.
+    - >-
+      Remove it: it is a decoy, and its guarantee is a claim your evidence cannot support.
+    - >-
+      Move it to the top of the page, so that buyers see the most ambitious option before the others.
+  correct: 2
+  explanation: >-
+    A rung that exists only to be rejected is a decoy, and a 10x guarantee is unsupported by any
+    measurement. Every rung should be one you would be glad to sell.
+- id: q3
+  question: >-
+    For one prospect team, your pricing worksheet gives a monthly net value of −4,800 to +5,300 (90%
+    interval, median near zero) and a 69% chance the client loses money over a year after your pilot fee.
+    What is the honest way to proceed?
+  options:
+    - >-
+      Remove the defect row, which is the main source of the losses, and rerun the worksheet.
+    - >-
+      Present the median of the scenario where everything goes well, since pilots are about potential.
+    - >-
+      Lower the fee below your day-rate floor until the median covers it, to win the first client.
+    - >-
+      Sell the pilot as a measurement for the rollout decision; say it may not pay back alone.
+  correct: 3
+  explanation: >-
+    One team's saving does not justify the fee, but the decision it informs does. Tuning inputs, cherry-picking
+    scenarios or pricing below your floor all trade honesty or sustainability for a signature.
+- id: q4
+  question: >-
+    A pricing sheet uses "55.8% faster (Peng et al. 2023)" as the client's expected effect, entered as a
+    single number. What is the main problem?
+  options:
+    - >-
+      It borrows one lab task's result from another study as this client's effect, with no interval.
+    - >-
+      The study is too old; a 2025 or 2026 study with a similar design would be acceptable instead.
+    - >-
+      The figure should be rounded down to 50% to allow for the difference between lab and real work.
+    - >-
+      It is fine as an effect, but the sheet should also add the vendor's own productivity claim.
+  correct: 0
+  explanation: >-
+    Peng et al. measured one controlled task with one tool. ROI may cite only your own measured numbers,
+    as an interval, widened for transfer to a new team; newer or rounded borrowed numbers have the same flaw.
+- id: q5
+  question: >-
+    An application scores 5 of 5 (incident, sponsor, approved budget, start in six weeks, weekly agent use),
+    and the conflict field says the company is a current customer of your employer. What next?
+  options:
+    - >-
+      Book the call, but ask them not to mention it to anyone at your employer.
+    - >-
+      Refer them elsewhere unless your employer has approved this client in writing.
+    - >-
+      Book the call, since the score is perfect and the conflict is only a flag for later.
+    - >-
+      Take it on at a discount as a free pilot, which does not count as outside paid work.
+  correct: 1
+  explanation: >-
+    A conflict routes to REFER regardless of score. Free work for your employer's customer is still outside
+    work for their customer; written permission is the only thing that changes the answer.
+- id: q6
+  question: >-
+    OfferCheck call on your first discovery call reports: you spoke 86% of the words, first mentioned your
+    offer at 00:00, and asked nothing about budget or timing. The prospect agreed to "get back to you".
+    What is the best reading?
+  options:
+    - >-
+      A good call, since the prospect heard the whole offer and did not say no.
+    - >-
+      A good call that needs one follow-up email to ask about budget and timing.
+    - >-
+      You learned almost nothing you need for a proposal; rerun the call from the script.
+    - >-
+      The tool's thresholds are for interviews, not sales calls, so the result can be ignored.
+  correct: 2
+  explanation: >-
+    Without the incident, the decision path, budget and timing, any proposal is a guess, and "I'll get
+    back to you" with no dated next step usually means no. The script's first two thirds are listening.
+- id: q7
+  question: >-
+    Your SOW lists the deliverable "AI layer" with the acceptance criterion "to the client's satisfaction",
+    and the scope says "ongoing support as needed". What is the risk?
+  options:
+    - >-
+      None; generous wording shows good faith, and clients rarely take advantage of it.
+    - >-
+      Only a pricing risk, which you can fix by raising the fixed fee by about a quarter.
+    - >-
+      Only a legal risk, which disappears if the client signs your master agreement too.
+    - >-
+      Nobody can check when you are done, and the fixed fee covers open-ended work.
+  correct: 3
+  explanation: >-
+    Acceptance must be checkable by a third person, and scope must be bounded. Otherwise "done" is the
+    client's mood and every request lands inside a fixed fee.
+- id: q8
+  question: >-
+    In week three the sponsor asks on a call for "just one more team" in the pilot. You agree, because
+    the relationship is good. Two weeks later there is still nothing in writing. What should have happened?
+  options:
+    - >-
+      A logged request and a written change request stating fee and schedule effects, approved first.
+    - >-
+      Nothing different; small requests from good sponsors do not need paperwork.
+    - >-
+      An invoice for the extra team at the end of the pilot, itemized on the final bill.
+    - >-
+      A polite refusal, since fixed-fee SOWs should never change once they are signed.
+  correct: 0
+  explanation: >-
+    Every out-of-scope request ends as a written change request, a logged concession, a deferral or a
+    decline. Silent work creates expectations; surprise invoices destroy the goodwill the silence bought.
+- id: q9
+  question: >-
+    Before your first external pitch, OfferCheck admin shows E1 (IP clause read) and E3 (employer's written
+    permission) as "no". Your first prospect wants to start next week. What do you do?
+  options:
+    - >-
+      Start next week and resolve E1 and E3 in parallel, since the contract is only a formality.
+    - >-
+      Start next week, since blockers matter only for clients who compete with your employer.
+    - >-
+      Read the clause, ask for written permission, and start only once both are cleared.
+    - >-
+      Start next week under a friend's company name, so your employment contract does not apply.
+  correct: 2
+  explanation: >-
+    E1 and E3 are blockers: an IP assignment or outside-work clause can make the work or its income your
+    employer's problem and yours. Routing it through someone else's company does not change what you agreed to.

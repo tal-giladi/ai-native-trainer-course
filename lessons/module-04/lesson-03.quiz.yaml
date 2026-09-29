@@ -1,0 +1,68 @@
+- id: q1
+  question: >-
+    In one long session the agent keeps proposing an approach you rejected an hour ago. After
+    `/clear` and the same request, it no longer does. Which pathology was this?
+  options:
+    - >-
+      Staleness, because a line in the rules file describes an approach the team abandoned.
+    - >-
+      Redundancy, because the same rule appears in several always-loaded files.
+    - >-
+      Pollution, because the rejected attempt was residue in this session's history.
+    - >-
+      Irrelevance, because the layer contains documentation for another stack.
+  correct: 2
+  explanation: >-
+    The problem disappeared with `/clear`, so it lived in the runtime history, not in the static
+    layer. That is pollution; the fix is session hygiene (clear, rewind, compact with a focus).
+- id: q2
+  question: >-
+    T02 fails in 2 of 5 identical runs. The failing answers use `SqlHelper`; the passing ones use
+    a Dapper repository. What should you check first?
+  options:
+    - >-
+      Whether two loaded instructions disagree, including directory-level files some runs read.
+    - >-
+      Whether the temperature is too high, since identical runs should give identical answers.
+    - >-
+      Whether the model is too small, since flipping answers mean the task exceeds its capability.
+    - >-
+      Whether the root rules are too short, since a longer file would make the rule more salient.
+  correct: 0
+  explanation: >-
+    Flipping between identical runs is a classic contradiction or trigger-timing symptom: runs that
+    read a file under a folder with its own rules saw different context. Check context before sampling.
+- id: q3
+  question: >-
+    `ContextLab audit` reports 46 stale leads and 2 contradictions for a layer. What is the right
+    way to use these numbers?
+  options:
+    - >-
+      Report all 48 as defects to the team, since each lead is a confirmed problem in the rules.
+    - >-
+      Treat them as leads, confirm each against the code, and prioritise by what they break.
+    - >-
+      Ignore the stale leads, since only contradictions can change what the agent does.
+    - >-
+      Fix the contradictions by adding "IMPORTANT" to the correct rule in each pair.
+  correct: 1
+  explanation: >-
+    The heuristics produce leads, some of them false (framework names, placeholders). A lead becomes
+    a finding after confirmation, and one confirmed contradiction on data access outranks dozens of cosmetic leads.
+- id: q4
+  question: >-
+    A rules file says "Use `DateTime.Now` for timestamps" and, 80 lines later, "The current time is
+    injected: use `IClock.UtcNow`". The audit tool reports no contradiction. Why?
+  options:
+    - >-
+      Because the second line appears later, so it silently overrides the first line.
+    - >-
+      Because both lines are correct in different folders, so there is nothing to report.
+    - >-
+      Because the tool only reports contradictions between files, never within a single file.
+    - >-
+      Because the lines name different symbols; this is a semantic contradiction the heuristic misses.
+  correct: 3
+  explanation: >-
+    The heuristic pairs the same backticked name used with opposite polarity. Two different names
+    for one decision need human (or evaluated LLM) review. Order does not reliably resolve a conflict.

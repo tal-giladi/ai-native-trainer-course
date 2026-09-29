@@ -1,0 +1,85 @@
+- id: q1
+  question: >-
+    Your experiment found cycle time −16% (95% CI −25% to −5%) and escaped defects +12.5 points
+    (95% CI 0 to +25). A CFO asks for "the ROI". Which answer follows the lesson?
+  options:
+    - >-
+      The ROI at the point estimates, 149%, because a single number is what a CFO can compare.
+    - >-
+      No figure at all, because any money estimate from one experiment is too uncertain to share.
+    - >-
+      The ROI at the best end of the interval, since that is what a well-run rollout should reach.
+    - >-
+      A range from both intervals, including defect cost, with the chance the client loses money.
+  correct: 3
+  explanation: >-
+    Money is a range built from your own intervals, with the failed guardrail's cost included, and the
+    probability of loss stated when it is material. A single figure hides both the uncertainty and the risk.
+- id: q2
+  question: >-
+    Why does the worksheet widen the ratio's high end past 1.0 for a new client, even though your
+    own interval ended at 0.95?
+  options:
+    - >-
+      Because Monte Carlo sampling needs the range to include 1.0 to produce valid percentiles.
+    - >-
+      Because the effect was measured on another team; on this one it may be zero or worse.
+    - >-
+      Because clients always overestimate their ticket volume, and this offsets their optimism.
+    - >-
+      Because intervals from small experiments are always too narrow by roughly ten percent.
+  correct: 1
+  explanation: >-
+    Your interval describes your team. Until the client's own pilot measures it, transfer is uncertain,
+    so the planning range must allow no effect. That is the pilot's reason to exist.
+- id: q3
+  question: >-
+    Corners give a monthly net of −15,700 to +17,800; the Monte Carlo 90% interval is −4,800 to +5,300.
+    What explains the difference?
+  options:
+    - >-
+      Corners take every input at worst or best together; Monte Carlo samples realistic mixes.
+    - >-
+      Monte Carlo ignores the defect row, which is why its interval is so much narrower.
+    - >-
+      Corners use the point estimates, while Monte Carlo uses the full interval for each input.
+    - >-
+      The Monte Carlo is wrong, because a fixed seed makes every draw produce the same value.
+  correct: 0
+  explanation: >-
+    Corners are a hard bound where every bad (or good) thing happens together. Monte Carlo propagates
+    each input's distribution (JCGM 101) and reports where most outcomes fall; a fixed seed only makes it reproducible.
+- id: q4
+  question: >-
+    For one team, your pilot's worksheet shows a median monthly net near zero and a 69% chance the
+    client loses money over a year after your fee. What do you do?
+  options:
+    - >-
+      Drop the defect row, since the pilot's own measurement will show whether defects really rise.
+    - >-
+      Cut the fee until the median covers it, even if that puts you below your day-rate floor.
+    - >-
+      Sell it as a measurement for the rollout decision; the proposal says it may not pay back.
+    - >-
+      Extend the horizon to five years, so that the median value eventually covers the fee.
+  correct: 2
+  explanation: >-
+    One team's saving does not justify the fee, but the decision it informs (expand or cut a six-team
+    rollout) does. Say so openly rather than tuning inputs or pricing below your floor.
+- id: q5
+  question: >-
+    A prospect offers you a success fee: 20% of the measured cycle-time saving. Your own experiment's
+    defect guardrail failed. Why does the lesson advise against it?
+  options:
+    - >-
+      Success fees are unlawful for consultants in most jurisdictions, so the contract would be void.
+    - >-
+      It pays you more the faster the team gets, the very trade-off the pilot must be free to detect.
+    - >-
+      It lowers your income on average, since most pilots measure no effect and pay nothing.
+    - >-
+      Clients never pay success fees in practice, so it is safer to insist on a day rate instead.
+  correct: 1
+  explanation: >-
+    A fee tied to speed rewards the risk your own data flagged (more escaped defects) and puts pressure on
+    the measurement you run. Fixed fees keep you neutral about the result.

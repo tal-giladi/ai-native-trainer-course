@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    After an incident, on-call adds "never edit merged migrations" to CLAUDE.md. Two weeks later a
+    context tidy-up deletes the line, every gate passes, and the incident recurs. What was missing?
+  options:
+    - >-
+      A regression task from the incident's wording, so deleting the rule fails the gate.
+    - >-
+      A longer rules file, because the tidy-up removed too many lines at once to review.
+    - >-
+      A security review, because every change to CLAUDE.md is a capability change.
+    - >-
+      A stronger model, because a better model would not need the rule to behave correctly.
+  correct: 0
+  explanation: >-
+    A rule without a test is protected only by memory. A regression task that failed before the fix
+    turns the rule's effect into part of the gate, so a later edit that removes it is blocked.
+- id: q2
+  question: >-
+    Contoso's golden task T06 kept passing while the agent twice edited a merged migration. Why?
+  options:
+    - >-
+      T06 was only run nightly, so it could not see changes merged during the day.
+    - >-
+      Golden tasks are excluded from the smoke suite, so T06 never ran on those PRs.
+    - >-
+      The agent version changed in between, which made the T06 results incomparable.
+    - >-
+      T06 is a bug-fix request; both incidents were phrased as harmless tidy-ups.
+  correct: 3
+  explanation: >-
+    The same rule can hold for one phrasing and fail for another. That is why the loop writes the
+    regression task from the incident's own wording and requires it to fail before the fix.
+- id: q3
+  question: >-
+    A PR adds a new MCP server and, in the same commit, fixes a typo in AGENTS.md. Which change class
+    and review apply?
+  options:
+    - >-
+      Class A, one owner, because most of the lines in the diff are a wording fix.
+    - >-
+      Class C, owner plus security, with a threat model update and the attack suite gate.
+    - >-
+      Class B, one owner plus the smoke gate, because the agent's behavior may change.
+    - >-
+      Class D, a full A/B comparison, because a new tool changes the agent platform.
+  correct: 1
+  explanation: >-
+    Adding a tool connection changes what the agent can do and read, a capability and trust change.
+    Mixed PRs take the highest class; otherwise a new server could ride in on a typo's review.
+- id: q4
+  question: >-
+    Your team uses the emergency path (merge without owner review, task within 24 hours) almost every
+    week. What does that most likely indicate?
+  options:
+    - >-
+      The team has many real incidents and the emergency path is working as intended.
+    - >-
+      The kill switch is misconfigured, so urgent fixes cannot wait for the normal process.
+    - >-
+      The normal path is too heavy, so people bypass it; simplify it and review overrides.
+    - >-
+      The regression tasks are too strict and should be removed from the smoke suite.
+  correct: 2
+  explanation: >-
+    An emergency path used weekly is the normal path in disguise. Governance should be light enough
+    that the reviewed path is the path of least resistance; the monthly review of overrides shows where it is not.

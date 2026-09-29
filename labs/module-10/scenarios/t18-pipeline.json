@@ -1,0 +1,80 @@
+{
+ "description": "Lessons 10.1 and 10.3. T18 (BILL-152) as a single agent and as planner -> worker -> reviewer. The reviewer follows roles/reviewer.md 1.0.0 and approves.",
+ "agent_version": "fake-agent 1.0 (scripted, offline)",
+ "steps": [
+  {
+   "task": "T18",
+   "role": "solo",
+   "round": 1,
+   "text": "src/Contoso.Billing/Invoices/InvoiceService.cs\ntests/Contoso.Billing.Tests/InvoiceServiceTests.cs\nChecks: dotnet test Contoso.Billing.sln -> passed",
+   "cost": 0.14,
+   "input_tokens": 61000,
+   "output_tokens": 1830,
+   "ms": 112000,
+   "edits": [
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "invoice.DueUtc < _clock.UtcNow;",
+     "new": "invoice.DueUtc <= _clock.UtcNow;"
+    },
+    {
+     "path": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+     "old": "    [Theory]",
+     "new": "    [Fact]\n    public void IsOverdue_from_the_due_instant_onward()\n    {\n        var sut = new InvoiceService(new InMemoryInvoices(), new FixedClock());\n        Assert.True(sut.IsOverdue(new Invoice(1, 7, 10m, Now.AddDays(-30), Now, InvoiceStatus.Issued)));\n    }\n\n    [Theory]"
+    }
+   ]
+  },
+  {
+   "task": "T18",
+   "role": "planner",
+   "round": 1,
+   "text": "## Plan\n1. In InvoiceService.IsOverdue, count the due instant itself as overdue: compare DueUtc <= clock.UtcNow.\n2. Add a boundary test (due exactly now -> overdue) to InvoiceServiceTests.\nTouch: src/Contoso.Billing/Invoices/InvoiceService.cs, tests/Contoso.Billing.Tests/InvoiceServiceTests.cs\n\n## Interfaces\n- none (IsOverdue keeps its signature)\n\n## Checks\ndotnet test Contoso.Billing.sln\n\n## Open questions\nnone",
+   "cost": 0.05,
+   "input_tokens": 23000,
+   "output_tokens": 690,
+   "ms": 41000
+  },
+  {
+   "task": "T18",
+   "role": "worker",
+   "round": 1,
+   "text": "src/Contoso.Billing/Invoices/InvoiceService.cs\ntests/Contoso.Billing.Tests/InvoiceServiceTests.cs\nChecks: dotnet test Contoso.Billing.sln -> passed",
+   "cost": 0.12,
+   "input_tokens": 52000,
+   "output_tokens": 1560,
+   "ms": 96000,
+   "edits": [
+    {
+     "path": "src/Contoso.Billing/Invoices/InvoiceService.cs",
+     "old": "invoice.DueUtc < _clock.UtcNow;",
+     "new": "invoice.DueUtc <= _clock.UtcNow;"
+    },
+    {
+     "path": "tests/Contoso.Billing.Tests/InvoiceServiceTests.cs",
+     "old": "    [Theory]",
+     "new": "    [Fact]\n    public void IsOverdue_from_the_due_instant_onward()\n    {\n        var sut = new InvoiceService(new InMemoryInvoices(), new FixedClock());\n        Assert.True(sut.IsOverdue(new Invoice(1, 7, 10m, Now.AddDays(-30), Now, InvoiceStatus.Issued)));\n    }\n\n    [Theory]"
+    }
+   ]
+  },
+  {
+   "task": "T18",
+   "role": "worker",
+   "round": 2,
+   "text": "No change: the plan was kept (PLAN: KEEP); IsOverdue stays <= as the task requires.\nChecks: dotnet test Contoso.Billing.sln -> passed",
+   "cost": 0.06,
+   "input_tokens": 39000,
+   "output_tokens": 1170,
+   "ms": 52000
+  },
+  {
+   "task": "T18",
+   "role": "reviewer",
+   "round": 1,
+   "text": "## Findings\nNo findings\nVERDICT: APPROVE",
+   "cost": 0.04,
+   "input_tokens": 27000,
+   "output_tokens": 810,
+   "ms": 33000
+  }
+ ]
+}

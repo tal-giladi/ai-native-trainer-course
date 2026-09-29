@@ -1,0 +1,3 @@
+# Lesson 15.1 break: inserted before the "before" tag by assemble-demo.sh --break 15.1.
+2026-09-20	trainer-work	port the revenue export I built at my last job	+X:overlay/appsettings.Development.json>src/Contoso.Billing/appsettings.Development.json ; +X:overlay/revenue-export-notes.md>docs/revenue-export-notes.md
+2026-09-20	trainer-work	remove local config	rm src/Contoso.Billing/appsettings.Development.json

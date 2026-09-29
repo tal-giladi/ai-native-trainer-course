@@ -1,0 +1,67 @@
+- id: q1
+  question: >-
+    The pilot's pooled medians say ai tickets were 23% faster. The pre-registered stratified estimate
+    is -8%, 95% interval -24% to +12%. What goes in the results table?
+  options:
+    - >-
+      -23% as the headline, since it is the observed difference in the tickets that were done.
+    - >-
+      -8% with its interval, status inconclusive, because the interval includes zero.
+    - >-
+      -8% with status improved, because the point estimate is on the good side of zero.
+    - >-
+      Nothing for cycle time, since an inconclusive result would confuse the sponsor.
+  correct: 1
+  explanation: >-
+    The pre-registered, size-stratified estimate is the result; the pooled median mixes sizes. An
+    interval that includes zero means inconclusive, and every pre-registered outcome is reported.
+- id: q2
+  question: >-
+    At handover, office hours are "run by the consultant, as needed", and the Billing tech lead owns
+    the AI layer but has never released a change without you. What is wrong?
+  options:
+    - >-
+      Nothing, as long as the follow-ups at 30, 60 and 90 days are booked in the calendar.
+    - >-
+      Only the office hours; the tech lead is an employee, so his ownership is already enough.
+    - >-
+      The handover is too early; the contract should be extended until usage is stable.
+    - >-
+      Neither is handed over: owners must be employees who have run it once without you.
+  correct: 3
+  explanation: >-
+    A handover to yourself is not a handover, and ownership that has never been exercised is untested.
+    Readiness, not the calendar or an extension, decides when you leave.
+- id: q3
+  question: >-
+    Platform has 6 developers and a baseline weekly active share of 75%. At the 60-day follow-up, 2
+    of 6 were active last week. What do you conclude?
+  options:
+    - >-
+      A real collapse, because the share has fallen by more than half from its baseline.
+    - >-
+      Not below the control limit of about 22%, so ask the owner and champion what changed.
+    - >-
+      Nothing can be said, because control limits never apply to groups under ten people.
+    - >-
+      Retrain the Platform team, because falling usage after handover means skills faded.
+  correct: 1
+  explanation: >-
+    $0.75 - 3\sqrt{0.75 \times 0.25/6} \approx 0.22$; 33% is inside the limit. Small teams give wide
+    limits, so the follow-up conversation, not the chart, finds slides like this one.
+- id: q4
+  question: >-
+    Which item belongs in the "What this does not show" section of the Contoso results?
+  options:
+    - >-
+      That the eval pass rate of the agent rose from 53% to 75% on the task set.
+    - >-
+      That 17 of 19 developers used the agent in the week of the 90-day follow-up.
+    - >-
+      That the delivery comparison cannot detect changes smaller than about 38%.
+    - >-
+      That the AI layer was built mostly by client developers rather than the consultant.
+  correct: 2
+  explanation: >-
+    The section states the limits of the evidence before someone else does: the small comparison, the
+    gap between conventions and throughput, the unmeasured teams. The other options are results.

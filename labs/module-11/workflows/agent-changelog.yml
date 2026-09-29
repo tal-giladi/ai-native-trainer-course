@@ -1,0 +1,80 @@
+# .github/workflows/agent-changelog.yml — lessons 11.3 and 11.4.
+# Weekly: draft the release-notes section for last week's merged PRs and open a DRAFT PR.
+# Idempotent: one branch per ISO week; if it exists the run exits without spending anything.
+# The agent may only edit CHANGELOG.md. The approval gate is the PR review (CODEOWNERS), never auto-merge.
+name: agent-changelog
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"           # Mondays 06:00 UTC. Public repos: GitHub disables schedules after 60 days without activity.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-changelog
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    if: vars.AGENTS_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      DISABLE_AUTOUPDATER: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Idempotency key = ISO week
+        id: key
+        run: |
+          week=$(date -u +%G-W%V)
+          echo "branch=agent/changelog-$week" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --heads origin "agent/changelog-$week" >/dev/null; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"; echo "Draft for $week already exists; nothing to do."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Nothing merged, nothing to write
+        if: steps.key.outputs.skip == 'false'
+        id: input
+        run: |
+          git log --since='7 days ago' --merges --pretty='- %s' origin/main > merged.txt
+          echo "count=$(wc -l < merged.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Install the pinned agent version
+        if: steps.key.outputs.skip == 'false' && steps.input.outputs.count != '0'
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Draft the section
+        if: steps.key.outputs.skip == 'false' && steps.input.outputs.count != '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          git switch -c "${{ steps.key.outputs.branch }}"
+          claude --bare -p "Add a section for this week at the top of CHANGELOG.md from the merged PR titles on stdin. Group as Added / Changed / Fixed. One line per PR, keep the PR number. Invent nothing that is not in the titles." \
+            --settings .github/agent-settings.json \
+            --permission-mode dontAsk --allowedTools "Read,Edit(./CHANGELOG.md)" \
+            --max-turns 6 --max-budget-usd 0.25 \
+            --output-format json --no-session-persistence < merged.txt > result.json || true
+          dotnet run --project tools/AgentOps -- result result.json --max-cost 0.25
+          # scope check: the agent may have changed CHANGELOG.md and nothing else
+          test "$(git diff --name-only)" = "CHANGELOG.md"
+
+      - name: Open the draft PR
+        if: steps.key.outputs.skip == 'false' && steps.input.outputs.count != '0'
+        run: |
+          git config user.name "agent-changelog[bot]"; git config user.email "agent-changelog@users.noreply.github.com"
+          git commit -am "Changelog draft ${{ steps.key.outputs.branch }}"
+          git push -u origin HEAD
+          gh pr create --draft --title "Changelog draft (${{ steps.key.outputs.branch }})" --body "Drafted by agent-changelog run ${{ github.run_id }} from merged PR titles. Edit freely; merge is a human decision."

@@ -1,0 +1,13 @@
+{
+  "_note": "Hand-written illustrative sample for practising ContextLab grade/report. Not real model output, not a measurement.",
+  "type": "result",
+  "is_error": false,
+  "result": "DataSet GetIssuedInvoices(int customerId);\npublic DataSet GetIssuedInvoices(int customerId) => SqlHelper.ExecuteDataSet(_cs, \"SELECT * FROM dbo.Invoice WHERE CustomerId = @c AND Status = 1\", new SqlParameter(\"@c\", customerId));",
+  "total_cost_usd": 0.063,
+  "usage": {
+    "input_tokens": 12,
+    "cache_read_input_tokens": 39500,
+    "cache_creation_input_tokens": 1988,
+    "output_tokens": 65
+  }
+}

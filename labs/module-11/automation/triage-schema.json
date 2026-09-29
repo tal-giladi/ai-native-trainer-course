@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "issue": { "type": "string", "pattern": "^[A-Z]+-[0-9]+$" },
+    "labels": {
+      "type": "array", "maxItems": 3,
+      "items": { "type": "string", "enum": ["bug", "feature", "question", "area:invoices", "area:payments", "area:reminders", "area:statements", "area:db", "area:docs"] }
+    },
+    "priority": { "type": "string", "enum": ["p0", "p1", "p2", "p3"] },
+    "duplicate_of": { "type": ["string", "null"] },
+    "needs_human": { "type": "boolean" },
+    "summary": { "type": "string", "maxLength": 280 }
+  },
+  "required": ["issue", "labels", "priority", "duplicate_of", "needs_human", "summary"],
+  "additionalProperties": false
+}

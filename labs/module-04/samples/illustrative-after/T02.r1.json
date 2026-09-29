@@ -1,0 +1,13 @@
+{
+  "_note": "Hand-written illustrative sample for practising ContextLab grade/report. Not real model output, not a measurement.",
+  "type": "result",
+  "is_error": false,
+  "result": "Task<IReadOnlyList<Invoice>> ListIssuedByCustomerAsync(int customerId, CancellationToken ct);\npublic async Task<IReadOnlyList<Invoice>> ListIssuedByCustomerAsync(int customerId, CancellationToken ct)\nSELECT InvoiceId, CustomerId, Amount, IssuedUtc, DueUtc, Status FROM dbo.Invoice WHERE CustomerId = @customerId AND Status = 1",
+  "total_cost_usd": 0.051,
+  "usage": {
+    "input_tokens": 12,
+    "cache_read_input_tokens": 32200,
+    "cache_creation_input_tokens": 1988,
+    "output_tokens": 65
+  }
+}

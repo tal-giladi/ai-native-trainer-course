@@ -1,0 +1,100 @@
+# .github/workflows/agent-fix.yml — lesson 11.1 (and 11.4 for the approval, kill switch and ledger).
+# A maintainer starts it by hand for one ticket. The agent works on a fresh branch with a fixed tool
+# surface and hard caps; deterministic gates decide; the result is a DRAFT pull request that a human reviews.
+# Never triggered by pull_request_target, issue text or comments: whoever starts it already has write access.
+name: agent-fix
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticket:
+        description: "Ticket id, e.g. BILL-172 (tickets/<id>.md must exist on main)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-fix-${{ inputs.ticket }}
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    if: vars.AGENTS_ENABLED == 'true'         # kill switch: set the repository variable to anything else to stop all agents
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: agents                        # required reviewer approves the run; the API key is an environment secret released only after approval
+    permissions:
+      contents: write                          # push the agent branch
+      pull-requests: write                     # open the draft PR
+    env:
+      DISABLE_AUTOUPDATER: "1"
+      AGENT_MAX_TURNS: "15"
+      AGENT_MAX_BUDGET_USD: "1.00"
+      TICKET: ${{ inputs.ticket }}             # inputs reach the shell through env, never interpolated into run:
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Validate the ticket id
+        run: |
+          [[ "$TICKET" =~ ^BILL-[0-9]+$ ]] || { echo "bad ticket id"; exit 1; }
+          test -f "tickets/$TICKET.md"
+
+      - name: Install the pinned agent version
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Branch
+        run: git switch -c "agent/$TICKET-${{ github.run_id }}"
+
+      - name: Run the agent (headless, capped, fixed tool surface)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # only this step sees the key
+        run: |
+          printf 'Implement %s as described in tickets/%s.md. Follow AGENTS.md. Run dotnet test before you finish. Do not touch files outside src/ and tests/.\n' "$TICKET" "$TICKET" > prompt.txt
+          claude --bare -p "$(cat prompt.txt)" \
+            --append-system-prompt-file AGENTS.md \
+            --settings .github/agent-settings.json \
+            --permission-mode dontAsk \
+            --allowedTools "Read,Grep,Glob,Edit(./src/**),Edit(./tests/**),Bash(dotnet build *),Bash(dotnet test *)" \
+            --max-turns "$AGENT_MAX_TURNS" --max-budget-usd "$AGENT_MAX_BUDGET_USD" \
+            --output-format json --no-session-persistence > result.json || true
+
+      - name: Classify the result (subtype, denials, cost)
+        run: dotnet run --project tools/AgentOps -- result result.json --max-cost "$AGENT_MAX_BUDGET_USD" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Gates decide, not the agent's summary
+        run: |
+          git diff --quiet && { echo "no changes"; exit 1; }
+          dotnet run --project tools/LoopGate -- all --repo . --rules gates/architecture.rules --min-tests 6
+
+      - name: Open a draft PR for human review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "agent-fix[bot]"; git config user.email "agent-fix@users.noreply.github.com"
+          git add src tests && git commit -m "$TICKET: agent draft (run ${{ github.run_id }})"
+          git push -u origin HEAD
+          gh pr create --draft --title "$TICKET (agent draft)" --body "Headless run ${{ github.run_id }}. Result and cost in the job summary. Review like any other PR."
+
+      - name: Ledger line
+        if: always()
+        run: |
+          [ -f result.json ] || exit 0
+          jq -c --arg job agent-fix --arg run "${{ github.run_id }}" --argjson attempt "${{ github.run_attempt }}" \
+            '{ts: (now|todate), job: $job, run_id: $run, subtype, num_turns, cost_usd: .total_cost_usd, duration_ms, outcome: "pending", attempt: $attempt}' \
+            result.json > ledger.jsonl || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-fix-${{ github.run_id }}
+          path: |
+            result.json
+            ledger.jsonl
+          retention-days: 30

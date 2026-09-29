@@ -1,0 +1,96 @@
+# .github/workflows/agent-review.yml — lesson 11.2.
+# Propose -> filter -> post. The agent has read-only tools and returns JSON that matches review/review-schema.json.
+# A deterministic step applies the policy that was tuned and measured on historical PRs (severity >= medium,
+# no style/naming/docs, at most 3 per PR) and only then posts. The agent itself holds no GitHub write tool.
+# Same-repository PRs only: GitHub withholds secrets from fork PRs, and we never use pull_request_target here.
+name: agent-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+    paths:
+      - "src/**"
+      - "db/**"
+      - "tests/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: >-
+      vars.AGENTS_ENABLED == 'true' &&
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write          # used only by the final, deterministic "post" step
+    env:
+      DISABLE_AUTOUPDATER: "1"
+      MIN_SEVERITY: medium          # the policy measured in review/report.md; change it only with a new measurement
+      MAX_PER_PR: "3"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install the pinned agent version
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Diff to review
+        run: git diff "origin/${{ github.base_ref }}...HEAD" > pr.diff
+
+      - name: Propose review comments (read-only agent, structured output)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude --bare -p "$(cat .github/review/review-v2.md)" \
+            --append-system-prompt-file AGENTS.md \
+            --settings .github/agent-settings.json \
+            --permission-mode dontAsk \
+            --allowedTools "Read,Grep,Glob" \
+            --json-schema "$(cat .github/review/review-schema.json)" \
+            --max-turns 12 --max-budget-usd 0.75 \
+            --output-format json --no-session-persistence < pr.diff > result.json || true
+          dotnet run --project tools/AgentOps -- result result.json | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Apply the measured policy
+        run: |
+          jq --arg min "$MIN_SEVERITY" --argjson max "$MAX_PER_PR" '
+            def rank: {"nit":0,"low":1,"medium":2,"high":3}[.];
+            [.structured_output.comments[]
+              | select((.severity|rank) >= ($min|rank))
+              | select(.category as $c | ["style","naming","docs"] | index($c) | not)
+              | select((.evidence|length) > 0)]
+            | sort_by(-(.severity|rank)) | .[:$max]' result.json > comments.json
+          echo "posting $(jq length comments.json) of $(jq '.structured_output.comments|length' result.json) proposed comments" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Post (deterministic)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          [ "$(jq length comments.json)" -gt 0 ] || exit 0
+          jq --arg sha "$SHA" '{commit_id: $sha, event: "COMMENT",
+              body: "Agent review (measured policy: severity >= medium, max 3). React with a thumbs-down on a comment that is not useful.",
+              comments: [.[] | {path: .file, line: .line, side: "RIGHT", body: ("**" + .severity + "** " + .body + "\n\nEvidence: " + .evidence)}]}' \
+            comments.json > review.json
+          gh api "repos/${{ github.repository }}/pulls/$PR/reviews" --input review.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-review-${{ github.event.pull_request.number }}-${{ github.run_attempt }}
+          path: |
+            result.json
+            comments.json
+          retention-days: 90          # kept for the monthly precision/recall review (11.2, 11.5)

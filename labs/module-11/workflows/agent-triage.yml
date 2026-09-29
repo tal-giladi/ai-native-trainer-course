@@ -1,0 +1,94 @@
+# .github/workflows/agent-triage.yml — lesson 11.3.
+# Propose (no write token, no tools) -> validate (AgentOps triage + policy) -> apply (deterministic, issues: write).
+# Issue text is untrusted input (Module 9): it reaches the agent as a file on stdin, never interpolated into a
+# shell command, and the agent cannot act on it — it can only fill a schema whose values the validator re-checks.
+name: agent-triage
+
+on:
+  issues:
+    types: [opened]
+  schedule:
+    - cron: "30 5 * * 1-5"      # weekday sweep of untriaged issues (GitHub runs schedules from the default branch only)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-triage
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    if: vars.AGENTS_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: read
+    env:
+      DISABLE_AUTOUPDATER: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the pinned agent version
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash -s "${{ vars.CLAUDE_CODE_VERSION }}"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Select issues (idempotent: skip anything already labelled 'triaged'; at most 20 per run)
+        run: |
+          gh issue list --state open --search 'no:label' --limit 20 --json number,title,body > issues.json
+          jq length issues.json
+      - name: Propose triage for each issue
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          mkdir -p proposals
+          jq -c '.[]' issues.json | while read -r issue; do
+            n=$(jq -r .number <<<"$issue")
+            jq -r '"Issue BILL-\(.number): \(.title)\n\n\(.body)"' <<<"$issue" > "issue-$n.txt"
+            claude --bare -p "$(cat .github/triage/triage-prompt.md)" \
+              --settings .github/agent-settings.json \
+              --permission-mode dontAsk --tools "" \
+              --json-schema "$(cat .github/triage/triage-schema.json)" \
+              --max-turns 3 --max-budget-usd 0.10 \
+              --output-format json --no-session-persistence < "issue-$n.txt" > "proposals/$n.json" || true
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: triage-proposals-${{ github.run_id }}
+          path: proposals/
+          retention-days: 30
+
+  apply:
+    needs: propose
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - uses: actions/download-artifact@v4
+        with:
+          name: triage-proposals-${{ github.run_id }}
+          path: proposals/
+      - name: Validate and apply (rejections go to a human, never to a retry)
+        run: |
+          shopt -s nullglob
+          for f in proposals/*.json; do
+            n=$(basename "$f" .json)
+            if dotnet run --project tools/AgentOps -- triage "$f" --policy .github/triage/triage-policy.json > verdict.txt; then
+              labels=$(jq -r '.structured_output.labels | join(",")' "$f")
+              prio=$(jq -r '.structured_output.priority' "$f")
+              gh issue edit "$n" --add-label "$labels,priority:$prio,triaged"
+            else
+              gh issue edit "$n" --add-label "needs-human,triaged"
+            fi
+            cat verdict.txt >> "$GITHUB_STEP_SUMMARY"
+          done

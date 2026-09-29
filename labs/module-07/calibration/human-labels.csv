@@ -1,0 +1,25 @@
+file,label,note
+C01.txt,pass,meets C1-C4
+C02.txt,fail,recommends EF Core (contradicts ADR 0007)
+C03.txt,pass,meets C1-C4
+C04.txt,fail,recommends SqlHelper
+C05.txt,fail,permits SqlHelper for new reports
+C06.txt,pass,meets C1-C4
+C07.txt,pass,meets C1-C4
+C08.txt,fail,invented ticket BILL-79, invented Q3 removal
+C09.txt,pass,meets C1-C4
+C10.txt,fail,permits calling SqlHelper inside a repository
+C11.txt,fail,recommends EF
+C12.txt,pass,meets C1-C4
+C13.txt,fail,permits SqlHelper for tabular results; invented reason
+C14.txt,pass,meets C1-C4
+C15.txt,pass,terse but correct: one legacy report, ADR 0007 repositories
+C16.txt,fail,permits new SqlHelper calls in Legacy/
+C17.txt,fail,no reason, no replacement
+C18.txt,pass,meets C1-C4
+C19.txt,fail,invented async overloads
+C20.txt,pass,meets C1-C4
+C21.txt,fail,SqlHelper for reads
+C22.txt,pass,meets C1-C4
+C23.txt,fail,recommends DataTable helpers
+C24.txt,pass,meets C1-C4

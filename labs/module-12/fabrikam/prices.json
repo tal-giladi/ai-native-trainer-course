@@ -1,0 +1,9 @@
+{
+  "_comment": "Illustrative prices per million tokens, not a quote. Replace with your contract's rates. 'large' and 'small' stand for two model tiers.",
+  "currency": "USD",
+  "perMTok": {
+    "large": { "input": 5.00, "cache_write": 6.25, "cache_read": 0.50, "output": 25.00 },
+    "small": { "input": 1.00, "cache_write": 1.25, "cache_read": 0.10, "output": 5.00 }
+  },
+  "headcount": { "billing": 48, "payments": 64, "identity": 36, "lending": 72, "mobile": 56, "data": 40, "platform": 34, "web": 50 }
+}

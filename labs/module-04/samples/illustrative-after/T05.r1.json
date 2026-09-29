@@ -1,0 +1,13 @@
+{
+  "_note": "Hand-written illustrative sample for practising ContextLab grade/report. Not real model output, not a measurement.",
+  "type": "result",
+  "is_error": false,
+  "result": "decimal(19,4)",
+  "total_cost_usd": 0.051,
+  "usage": {
+    "input_tokens": 12,
+    "cache_read_input_tokens": 33100,
+    "cache_creation_input_tokens": 1988,
+    "output_tokens": 80
+  }
+}

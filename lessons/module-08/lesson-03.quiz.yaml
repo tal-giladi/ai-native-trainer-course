@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    Your stdio MCP server works when you pipe requests in by hand, but one host drops the connection
+    during startup with a parse error. The server uses the default console logger. What is the most
+    likely cause?
+  options:
+    - >-
+      The host needs the HTTP transport, because stdio is only meant for testing servers.
+    - >-
+      Log lines are written to stdout, which the protocol reserves for MCP messages.
+    - >-
+      The tool descriptions are too long, so the host rejects the tools/list response.
+    - >-
+      The server did not declare the logging capability, so the host refuses any logs.
+  correct: 1
+  explanation: >-
+    On stdio the server must not write anything to stdout that is not a valid MCP message. The default
+    console logger writes to stdout; send logs to stderr. Some clients skip a stray line, others fail,
+    so keep stdout clean by construction.
+- id: q2
+  question: >-
+    The schema server's `describe_table` reads a snapshot that is at V005 while the branch has V006.
+    Which response design makes the agent most likely to act on the problem?
+  options:
+    - >-
+      Return the V005 columns with a header line that says the status is STALE.
+    - >-
+      Return the V005 columns and log a warning to stderr for the developer to see.
+    - >-
+      Return a tool error that refuses the data and names the migration file to read.
+    - >-
+      Return an empty column list, so the agent cannot use any outdated information.
+  correct: 2
+  explanation: >-
+    A header or warning is metadata the model can skim past, and stderr never reaches it. A tool error
+    with `isError: true` is a result it has to handle, and naming `V006__invoice_note_table.sql` tells it
+    how to recover. An empty list looks like a real answer and invites guessing.
+- id: q3
+  question: >-
+    Which SQL Server identity fits a server whose tools only describe tables and procedures?
+  options:
+    - >-
+      A login with `db_datareader`, so it can check column contents while it describes a table.
+    - >-
+      The application's own login, so the server sees exactly what the running service sees.
+    - >-
+      A login with `VIEW DEFINITION` only, which sees object metadata but cannot read rows.
+    - >-
+      The `sa` login restricted in code, because the tools themselves never run a SELECT.
+  correct: 2
+  explanation: >-
+    Least privilege belongs at the credential layer: `VIEW DEFINITION` makes definitions visible in the
+    catalog views without granting access to data. Restrictions in code protect nothing once the code
+    changes or the server is compromised.
+- id: q4
+  question: >-
+    BILL-161's repository reads `dbo.Invoice.Notes`, a column dropped in V006. Its unit tests pass. Why
+    did the tests not catch the bug?
+  options:
+    - >-
+      The tests use a fake repository, so no test runs the SQL against the real schema.
+    - >-
+      The tests were written by the agent, which is why they can never detect its mistakes.
+    - >-
+      The tests run on .NET 8, while the database schema was created on a newer version.
+    - >-
+      The tests were not repeated enough times to detect a failure that happens rarely.
+  correct: 0
+  explanation: >-
+    A fake repository replaces the only code that touches SQL, so the tests check service logic and never
+    see a column name. The fix is an oracle for SQL: a check against a fresh schema at edit time (08.4)
+    and an integration test against the lab database.

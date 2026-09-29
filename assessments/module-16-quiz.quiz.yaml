@@ -1,0 +1,154 @@
+- id: q1
+  question: >-
+    Your mini-workshop's feedback averages 4.8 out of 5, but post-test scores didn't move: the
+    normalized gain is 0.08. The plan was a story, a polished 15-minute live demo and Q&A. What
+    happened, and what do you change?
+  options:
+    - >-
+      The post-test must be flawed, since a session this well received cannot teach nothing.
+    - >-
+      The demo was too short to sink in, so extend it and add a recap slide at the end.
+    - >-
+      Learners enjoyed watching but never practised; replace demo time with do and reflect.
+    - >-
+      The audience was too junior for the concept, so run it next time for senior engineers.
+  correct: 2
+  explanation: >-
+    Reaction (level 1) and learning (level 2) are different. A fluent, passive session feels like
+    learning and builds little; the fix is time spent deciding, searching and writing, then a reflection.
+- id: q2
+  question: >-
+    A colleague's session plan lists the objective "Participants will understand agent context
+    limits" and tests it with "What is a context window?" What single change fixes the most?
+  options:
+    - >-
+      Add a second recall question so that the objective is measured by more than one item.
+    - >-
+      Keep the objective and test it with a longer essay question marked by a rubric instead.
+    - >-
+      Keep the item, since a definition question is the fairest way to check understanding.
+    - >-
+      Rewrite the objective as an observable task and test it with an item that asks for it.
+  correct: 3
+  explanation: >-
+    "Understand" is not observable, and a definition item tests recall only. An objective such as
+    "given a failing run, decide whether missing context caused it" can be tested at its own level.
+- id: q3
+  question: >-
+    Your opening slide introduces eight terms from your method, although the session's objectives
+    need two of them. Learners look lost by minute four. What is the best diagnosis?
+  options:
+    - >-
+      Extraneous load: terms no objective needs crowd working memory, so cut them.
+    - >-
+      Intrinsic load: the concept is too complex for a 30-minute session and must be split.
+    - >-
+      Low motivation: the audience does not see why the method matters to its daily work.
+    - >-
+      Missing prerequisites: learners should have read the method before the session.
+  correct: 0
+  explanation: >-
+    Load created by the design rather than the material is extraneous and removable. Keep the two
+    needed terms and introduce them one per step, next to the example that uses them.
+- id: q4
+  question: >-
+    In a mixed room, the senior engineers finish the pair exercise in two minutes while two QA
+    analysts are still stuck on the first diff. What should your plan have included?
+  options:
+    - >-
+      A single fixed pace, with the seniors asked to help the room by answering questions.
+    - >-
+      Entry points, an extension task, and pairs of novice and expert with the novice writing.
+    - >-
+      Separate sessions for seniors and QA, since mixed rooms cannot meet any objectives.
+    - >-
+      A longer worked example for everyone, so that the slowest learners can catch up first.
+  correct: 1
+  explanation: >-
+    One pace fails both ends (expertise reversal). Entry points in the fading sequence, a ceiling
+    task and role-based pairs let each learner work at the right level in the same room.
+- id: q5
+  question: >-
+    A skeptic says "Show me the numbers. How often does this actually happen?" Your concept card
+    records 4 of 7 eligible runs, with a 95% Wilson interval of 25% to 84%. What do you say?
+  options:
+    - >-
+      "It happens a lot in my experience; I see it every week," then continue with the plan.
+    - >-
+      "About 57% of the time," since that is the best single estimate the data can give.
+    - >-
+      "Four of seven runs in my notes, somewhere between a quarter and most; try it on your repo."
+    - >-
+      "The exact number does not matter, since even one shadow rule is too many in billing."
+  correct: 2
+  explanation: >-
+    Answer with the evidence and its uncertainty, then offer a test on their code. A point estimate
+    without the interval overclaims, and an appeal to experience is exactly what they doubted.
+- id: q6
+  question: >-
+    Pre-test average 30%, post-test average 65%. The write-up says "learning improved by 117%." What
+    should it report instead?
+  options:
+    - >-
+      A 35-point improvement, since raw gains are clearer than any ratio for managers.
+    - >-
+      A 117% improvement is correct, but it should also mention the number of learners.
+    - >-
+      A normalized gain of 0.35, since that is the share of the full 100 points gained.
+    - >-
+      A normalized gain of 0.50, with its interval and the number of matched learners.
+  correct: 3
+  explanation: >-
+    $\langle g \rangle = (65 - 30)/(100 - 30) = 0.50$. The 117% is relative change, which grows as
+    the pre-test gets worse; report $\langle g \rangle$ with its bootstrap interval and $n$.
+- id: q7
+  question: >-
+    A learner joined 6 minutes late, missed the pre-test and scored 100% on the post-test. Including
+    them raises the post-test average from 79% to 82%. How should they be handled?
+  options:
+    - >-
+      Excluded from the gain, since only learners with both a pre and a post test are matched.
+    - >-
+      Included, since they attended most of the session and their score reflects the teaching.
+    - >-
+      Included with an assumed pre-test score equal to the class average, to keep the group whole.
+    - >-
+      Included, but their post-test score halved to allow for the minutes that they missed.
+  correct: 0
+  explanation: >-
+    A gain needs a before and an after for the same person. Averaging unmatched learners into one
+    side changes the result for reasons that have nothing to do with learning.
+- id: q8
+  question: >-
+    Three of your eight items were answered correctly by at least 83% of learners on the pre-test,
+    and all three reached 100% afterwards. How should they be treated in the results?
+  options:
+    - >-
+      As the session's strongest evidence, since every learner answered them right afterwards.
+    - >-
+      As ceiling items that could not show learning, to be replaced for the next delivery.
+    - >-
+      As proof that the pre-test was too hard, since learners should score low before teaching.
+    - >-
+      As items to delete from both tests now, and the gain recomputed without mentioning them.
+  correct: 1
+  explanation: >-
+    An item most people already get right cannot show learning. Report the informative items, say
+    that three were at ceiling, and write harder parallel items before the next delivery.
+- id: q9
+  question: >-
+    Your live step starts an agent run of about three minutes. Last time you filled the wait with the
+    history of your method and cameras went off. What do you plan instead?
+  options:
+    - >-
+      Skip the live run and show slides of its output, since waiting always loses remote rooms.
+    - >-
+      Keep talking about the method, but with more energy and a few jokes to hold attention.
+    - >-
+      A prediction question everyone answers in chat before the plan appears, then check it.
+    - >-
+      Open the floor for general questions, since the agent does not need you meanwhile.
+  correct: 2
+  explanation: >-
+    A prediction question turns watching into generating an answer, and the result doubles as a
+    check for understanding. It uses the wait instead of filling it.

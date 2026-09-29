@@ -1,0 +1,72 @@
+- id: q1
+  question: >-
+    A rollout reports 400 seats assigned and 88% activated. Weekly use among activated developers is
+    55%, and 50% of weekly users have sessions on three or more days. About how many developers use
+    the agent as a habit?
+  options:
+    - >-
+      About 352, because activation is the stage that decides whether people use the agent.
+    - >-
+      About 220, because weekly use is the only stage that measures a real habit.
+    - >-
+      About 200, because half of the seats end up used on three or more days a week.
+    - >-
+      About 97, because each stage multiplies what is left after the stage before it.
+  correct: 3
+  explanation: >-
+    The funnel multiplies: $400 \times 0.88 \times 0.55 \times 0.50 \approx 97$. Activation headlines
+    hide the later stages, and the weakest stage (here weekly use) is where effort pays most.
+- id: q2
+  question: >-
+    A director proposes making agent usage an objective in every developer's performance review to
+    reach "100% adoption". Which response is best supported by the lesson?
+  options:
+    - >-
+      Agree, since social influence is one of the UTAUT determinants and a mandate is strong influence.
+    - >-
+      Decline; a mandate yields logins rather than habit and ties telemetry to individual performance.
+    - >-
+      Agree, but only after the first wave so that pilot teams can set a realistic usage target first.
+    - >-
+      Decline, because mandates are illegal in every country where developers have a works council.
+  correct: 1
+  explanation: >-
+    A mandate acts on usage directly instead of on usefulness, effort or facilitating conditions, and
+    individual targets turn adoption data into performance monitoring, which in Germany needs the
+    works council. It is not illegal everywhere; it is ineffective and costly in trust.
+- id: q3
+  question: >-
+    The CISO says an agent with repository and Jira access is an exfiltration path. Which answer
+    follows the concede, evidence, boundary shape?
+  options:
+    - >-
+      "The vendor is certified, so the tool itself is safe and the risk you describe does not apply."
+    - >-
+      "That risk exists for every tool; our developers are trained and will not paste secrets."
+    - >-
+      "Agreed; that is why we have per-team keys, a gateway and an attack suite; see the review."
+    - >-
+      "Security reviews slow rollouts down; let us start with the pilot teams and review later."
+  correct: 2
+  explanation: >-
+    The CISO is right, so concede it, then point to evidence they can open (ADRs, the attack suite,
+    the security review) and give them a role. Certifications and training do not answer an
+    injection path, and deferring review is the late-veto failure mode.
+- id: q4
+  question: >-
+    Fabrikam employs developers in Germany, the Netherlands and Israel. Its weekly usage dashboard
+    can show sessions per developer. When should the works council be involved?
+  options:
+    - >-
+      Before go-live, because a system able to monitor performance falls under co-determination.
+    - >-
+      After the first quarter, once the dashboard shows whether the data is actually sensitive.
+    - >-
+      Only if a developer complains, because the platform already passed the security review.
+    - >-
+      Never, because usage telemetry measures a tool, not the employees who happen to use it.
+  correct: 0
+  explanation: >-
+    In Germany, introducing technical systems designed to monitor behaviour or performance is subject
+    to works council co-determination (BetrVG section 87(1) no. 6). Team-level data and a stated
+    purpose are negotiated before the dashboard exists, not after.

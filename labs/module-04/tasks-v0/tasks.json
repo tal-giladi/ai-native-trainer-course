@@ -1,0 +1,77 @@
+{
+  "version": "tasks-v0",
+  "repo": "Contoso Billing (labs/module-03/brownfield)",
+  "grading": "Case-insensitive regular expressions. A run passes when every 'must' pattern matches and no 'mustNot' pattern matches.",
+  "tasks": [
+    {
+      "id": "T01",
+      "fact": "F1",
+      "prompt": "What is the exact command to run all tests for this repository? Reply with the command only. Do not modify files.",
+      "must": ["dotnet test"],
+      "mustNot": ["Billing\\.UnitTests", "(?<!Contoso\\.)\\bBilling\\.sln", "Test Explorer"]
+    },
+    {
+      "id": "T02",
+      "fact": "F2",
+      "prompt": "I need a query that loads one customer's issued invoices. Show only the C# signatures you would add (interface and implementation) and the SQL statement. No prose, no alternatives. Do not modify files.",
+      "must": ["IInvoiceRepository|InvoiceRepository", "CancellationToken", "Status\\s*=|Status\\s+IN"],
+      "mustNot": ["SqlHelper", "\\bDataSet\\b", "\\bDataTable\\b"]
+    },
+    {
+      "id": "T03",
+      "fact": "F3",
+      "prompt": "Show the single line of C# that new code in this repository uses to get the current time. Code only, no alternatives. Do not modify files.",
+      "must": ["UtcNow", "clock"],
+      "mustNot": ["DateTime(Offset)?\\.(Now|UtcNow)\\b"]
+    },
+    {
+      "id": "T04",
+      "fact": "F4",
+      "prompt": "I am adding a nullable column PoNumber nvarchar(50) to dbo.Invoice. List the file paths I create, one per line, nothing else. Do not modify files.",
+      "must": ["V005__\\w+\\.sql", "U005__\\w+\\.sql"],
+      "mustNot": ["V004__"]
+    },
+    {
+      "id": "T05",
+      "fact": "F5",
+      "prompt": "Which SQL Server column type does this repository use for money amounts? Reply with the type only. Do not modify files.",
+      "must": ["decimal\\s*\\(\\s*19\\s*,\\s*4\\s*\\)"],
+      "mustNot": ["\\bfloat\\b", "\\bdouble\\b", "\\breal\\b"]
+    },
+    {
+      "id": "T06",
+      "fact": "F6",
+      "prompt": "V004__due_not_null.sql has a bug: the backfill should add 45 days, not 30. It is already merged and deployed to production. List the file paths I change or create, one per line, nothing else. Do not modify files.",
+      "must": ["V005__\\w+\\.sql"],
+      "mustNot": ["V004__due_not_null\\.sql"]
+    },
+    {
+      "id": "T07",
+      "fact": "F7",
+      "prompt": "In one line: what makes an invoice overdue in this codebase? Name the existing method that decides it. Do not modify files.",
+      "must": ["IsOverdue", "Issued", "Due"],
+      "mustNot": ["DateTime\\.Now"]
+    },
+    {
+      "id": "T08",
+      "fact": "F8",
+      "prompt": "Which existing index supports a query on dbo.Invoice filtered by CustomerId and Status? Reply with the index name only. Do not modify files.",
+      "must": ["IX_Invoice_CustomerId_Status"],
+      "mustNot": []
+    },
+    {
+      "id": "T09",
+      "fact": "F9",
+      "prompt": "I am fixing a typo in a comment in src/Contoso.Billing/Legacy/MonthlyRevenueReport.cs. Should I also migrate that class off SqlHelper in the same pull request? Answer yes or no, then name the ticket that owns that migration. Do not modify files.",
+      "must": ["\\bno\\b", "BILL-97"],
+      "mustNot": ["^\\W*yes\\b"]
+    },
+    {
+      "id": "T10",
+      "fact": "F10",
+      "prompt": "After my change, ConventionTests.No_code_reads_the_local_wall_clock fails. Do I change the test or my code? Answer with one word, then the fix in one line. Do not modify files.",
+      "must": ["\\bcode\\b", "IClock|UtcNow"],
+      "mustNot": ["^\\W*(the\\s+)?test\\b"]
+    }
+  ]
+}
