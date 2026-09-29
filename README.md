@@ -4,7 +4,10 @@ A practitioner-first course that turns an experienced .NET engineer who already 
 
 ## Who this is for
 
-A senior C#/.NET engineer and technical leader: GitHub, SQL Server, APIs, Docker, cloud, architecture and security concepts, daily coding-agent use. The course never teaches programming, Git, Docker or HTTP. It does teach LLM mechanics, context engineering, evaluation of stochastic systems, agent security, experimental design, instructional design, change management, consulting and sales.
+A senior software engineer or technical leader who uses coding agents daily and is comfortable with GitHub, APIs, Docker, cloud, architecture and security concepts. The course never teaches programming, Git, Docker or HTTP.
+
+> [!NOTE]
+> C#/.NET and SQL Server are needed only for the hands-on labs, which run on a small .NET + SQL Server practice app with C# checking tools. You can learn the full course — every lesson, quiz, simulation and the teaching, consulting and business modules — without them. It does teach LLM mechanics, context engineering, evaluation of stochastic systems, agent security, experimental design, instructional design, change management, consulting and sales.
 
 ## Shape of the course
 
