@@ -49,7 +49,7 @@
     - >-
       Tell plan-feature to research again whenever it cannot find a brief in the conversation.
     - >-
-      Have prime write research/<id>.md, and plan-feature read it and stop if it is missing.
+      Have prime write `research/<id>.md`, and plan-feature read it and stop if it is missing.
   correct: 3
   explanation: >-
     Resets and compaction are part of the loop, so chained skills must hand off through files a
