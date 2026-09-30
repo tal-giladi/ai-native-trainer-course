@@ -86,12 +86,12 @@ where $s$ is the sample standard deviation across tasks and $t_{T-1}$ the t crit
 
 ```mermaid
 flowchart TD
-    Q{What do you need?} -->|one success is enough,<br/>a verifier picks it| PA[pass@k]
-    Q -->|every run must succeed,<br/>unattended| PH[pass^k]
-    Q -->|a rate with honest error| W[Wilson interval<br/>+ task-clustered interval]
+    Q{What do you need?} -->|"one success is enough,<br/>a verifier picks it"| PA["pass@k"]
+    Q -->|"every run must succeed,<br/>unattended"| PH["pass^k"]
+    Q -->|"a rate with honest error"| W["Wilson interval<br/>+ task-clustered interval"]
     W --> N{Interval too wide?}
-    N -->|each task has < 3 trials| MT[More trials per task]
-    N -->|each task has ≥ 3–5| MK[More tasks]
+    N -->|"each task has fewer than 3 trials"| MT[More trials per task]
+    N -->|"each task has 3–5 or more"| MK[More tasks]
 ```
 
 [Simulation: Evaluation — trials vs interval width](../../simulations/evaluation/index.html?preset=one-run)
