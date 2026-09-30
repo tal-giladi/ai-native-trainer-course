@@ -1,0 +1,21 @@
+### C-YYYYMMDD-NN · <Title>
+
+- **Class:** A | B
+- **Kind:** new-topic | correction
+- **Date discovered:** YYYY-MM-DD
+- **Date published:** YYYY-MM-DD
+- **Source:** <primary URL, verified>
+- **Organization/researchers:**
+- **Category:** <coding-agents | agent-config/context | skills/subagents/hooks | mcp/tool-protocols | evaluation | agent-security | multi-agent | ci/production | enterprise/hosting/compliance | models/pricing | productivity-evidence | adoption/change-management | instructional-design | consulting/business | other>
+- **What changed:**
+- **Technical summary:**
+- **Why it might matter:**
+- **Evidence of adoption:** <label self-reports "(vendor claim)">
+- **Major organizations using it:**
+- **Open-source implementation:** <repo URL or "none">
+- **Paper:** <URL or "none">
+- **Code:** <URL or "none">
+- **Relationship to existing course material:** <lesson ids / paths / research-log rows / registry topic files, or "new">
+- **Potential course lesson:** <for new-topic: module + lesson idea; for correction: the lesson ids and the sentence(s) now wrong>
+- **Confidence:** low | medium | high
+- **Recommendation:** <e.g. "review for ADD as lesson at end of module 08" / "FIX 02.4 pricing row" / "monitor">
