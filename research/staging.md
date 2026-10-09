@@ -71,3 +71,25 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** possible second case-study bullet for 09.1/09.4 alongside C-20261008-01, framed as "even the eval-methodology org you're already citing had an agent prompted into revealing its own key" — but secondary-only sourcing (primary blocked) means this should wait for the primary post to be read directly, or for a reviewer with working access to metr.org.
 - **Confidence:** medium — the core narrative (fail-open bug, $600K, agent prompted to reveal key) is consistent across five independent outlets, but none of them is METR's own page, which this session could not reach, and dollar-amount/detail framing varies slightly outlet to outlet (consumed vs. notional list-price value).
 - **Recommendation:** monitor; re-fetch metr.org/blog/2026-08-31-security-update/ directly when network access allows, then decide ADD vs skip.
+
+### C-20261009-01 · DORA ships a dedicated "ROI of AI-assisted Software Development" report (J-curve, capacity-not-headcount framing)
+
+- **Class:** B
+- **Kind:** new-topic
+- **Date discovered:** 2026-10-09
+- **Date published:** unclear — the Google Cloud resource page carries no visible date and secondary mentions place it as early as April 2026; this is a newly-discovered-by-me item, not a newly-published one
+- **Source:** https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development (primary — **could not be fetched**; cloud.google.com is blocked by this session's egress proxy, same restriction as dora.dev itself and as platform.claude.com/metr.org in prior days' runs). Searched via aggregated snippets only; no independent secondary outlet found that quotes the report's actual numbers.
+- **Organization/researchers:** DORA (Google Cloud) — the same research group the course already cites for the 2024/2025 State of AI-assisted Software Development reports
+- **Category:** productivity-evidence
+- **What changed:** Beyond the annual State of DevOps/AI-assisted-development surveys the course already cites (module 01, 13, 17, 19, 21), DORA has published a standalone "ROI of AI-assisted Software Development" report with an accompanying interactive ROI calculator at dora.dev/ai/roi. Per the (secondary-sourced) page description, its framing is: (1) a **J-curve** — budget for an early learning-period cost before returns appear; (2) **capacity, not headcount** — returns come mainly from reduced rework freeing engineering time, not from needing fewer engineers; (3) a bridge from DORA's delivery metrics to financial outcomes for an audience of technology *and* finance leaders.
+- **Technical summary:** n/a — this is a framework/report, not a technical change. I have no primary-sourced statistic to cite; everything above is the search tool's paraphrase of the Google Cloud resource page, not a quote I verified myself.
+- **Why it might matter:** Module 13 (lesson 13.02) already warns students that "every client meeting about AI eventually produces a number someone read: '55% faster', '26% more output', '19% slower'" and teaches them to demand the transparent methodology behind such numbers; module 01 and module 19/21 cite DORA's AI Capabilities Model and adoption-strategy pieces. A report that explicitly separates "coding-speed gains" from "bottom-line ROI" and names rework-reduction as the actual lever is on-topic for exactly the skepticism module 13 is trying to instill, and the J-curve/capacity framing could sharpen 13.02's "demand the methodology" argument or 19.x's adoption-strategy material — *if* its own methodology holds up once read directly.
+- **Evidence of adoption:** n/a (report, not a tool)
+- **Major organizations using it:** n/a
+- **Open-source implementation:** none
+- **Paper:** https://dora.dev/ai/roi (not fetchable this session)
+- **Code:** none
+- **Relationship to existing course material:** lessons/module-01/lesson-01.md, lesson-02.md; lessons/module-13/lesson-02.md ("every client meeting..." methodology-skepticism passage); lessons/module-17/lesson-03.md; lessons/module-19/lesson-01.md–lesson-04.md; lessons/module-21/lesson-02.md (all existing DORA citations, none yet reference this specific report); references/research-log.md DORA rows
+- **Potential course lesson:** possible ADD of a short citation/callout to 13.02 or module 19 once the report's actual methodology and numbers can be verified directly (not through secondary paraphrase) — premature to recommend specifics until a reviewer with access to dora.dev/cloud.google.com confirms publish date, sample, and findings.
+- **Confidence:** low — every detail above traces back to search-engine paraphrase of a single resource page, not a source I fetched myself; I could not determine a publish date, author list, methodology, or any numeric finding. Flag for re-fetch, not for action.
+- **Recommendation:** monitor; a reviewer with working access to cloud.google.com or dora.dev should fetch the report directly before deciding ADD vs skip. Do not cite any figure from this record in a lesson — none has been verified against a primary source.
