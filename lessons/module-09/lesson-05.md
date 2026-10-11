@@ -17,9 +17,13 @@ sources:
     url: https://code.claude.com/docs/en/permissions
   - title: "Claude Code docs — Hooks (PreToolUse deny, exit code 2, fail closed)"
     url: https://code.claude.com/docs/en/hooks
+  - title: "Claude Code security advisory GHSA-5j29-h97v-84ch (write-time symlink TOCTOU, fixed 2.1.129)"
+    url: https://github.com/anthropics/claude-code/security/advisories/GHSA-5j29-h97v-84ch
+  - title: "Claude Code security advisory GHSA-fg94-h982-f3mm (pre-approved huggingface.co WebFetch exfiltration, fixed 2.1.163)"
+    url: https://github.com/anthropics/claude-code/security/advisories/GHSA-fg94-h982-f3mm
   - title: "Google — Defeating Prompt Injections by Design (CaMeL)"
     url: https://arxiv.org/abs/2503.18813
-last_verified: "2026-09-28"
+last_verified: "2026-10-11"
 ---
 
 # 09.5 · Layered defenses
@@ -155,7 +159,7 @@ Fail-open is the classic security bug in home-grown controls. The deeper lesson 
 
 **Don't** rely on any single layer — not a prompt, not a deny rule, not one hook. **Don't** write a guard that fails open. **Don't** over-gate: if every action needs approval, people stop reading the prompts.
 
-**Limitations.** Layering reduces risk, it does not eliminate it; a determined adaptive attacker may still find a path, and the sandbox is unavailable in some environments (native Windows without WSL2). Provable approaches like CaMeL exist but cost capability and are not yet the default. Treat the stack as raising cost and bounding damage, and keep measuring (09.6).
+**Limitations.** Layering reduces risk, it does not eliminate it; a determined adaptive attacker may still find a path, and the sandbox is unavailable in some environments (native Windows without WSL2). The boundary is itself software, and it has had bugs. Claude Code's own security advisories include a write-time symlink race (TOCTOU): the target path was checked against the project directory when the edit was approved, then resolved again without a check when the file was written, so swapping in a symlink between the two steps sent an approved edit outside the project (disclosed 2026-10, fixed in 2.1.129, [GHSA-5j29-h97v-84ch](https://github.com/anthropics/claude-code/security/advisories/GHSA-5j29-h97v-84ch)). Another advisory shows the allowlist trap: `huggingface.co` was pre-approved for WebFetch as a bare hostname, so every path on it, including repositories an attacker controls, was fetched without a prompt, and the requests themselves became a covert exfiltration channel (fixed in 2.1.163, [GHSA-fg94-h982-f3mm](https://github.com/anthropics/claude-code/security/advisories/GHSA-fg94-h982-f3mm)). Two habits follow: keep the agent on auto-update so boundary fixes reach you, and treat every domain you allow as an outbound channel if anyone else can publish content on it. Provable approaches like CaMeL exist but cost capability and are not yet the default. Treat the stack as raising cost and bounding damage, and keep measuring (09.6).
 
 ## Reflect
 
@@ -168,4 +172,6 @@ Fail-open is the classic security bug in home-grown controls. The deeper lesson 
 - [Claude Code docs — Sandboxing](https://code.claude.com/docs/en/sandboxing) — OS-level filesystem and network isolation; `allowedDomains`, `denyRead`; WSL2 on Windows.
 - [Claude Code docs — Permissions](https://code.claude.com/docs/en/permissions) — deny→ask→allow precedence; a Bash rule matches command text and isn't a program boundary.
 - [Claude Code docs — Hooks](https://code.claude.com/docs/en/hooks) — PreToolUse exit code 2 blocks; write hooks to fail closed.
+- [Claude Code security advisory GHSA-5j29-h97v-84ch](https://github.com/anthropics/claude-code/security/advisories/GHSA-5j29-h97v-84ch) — write-time symlink following (TOCTOU) let an approved write land outside the project; CVE-2026-103435, fixed in 2.1.129, published 2026-10-05.
+- [Claude Code security advisory GHSA-fg94-h982-f3mm](https://github.com/anthropics/claude-code/security/advisories/GHSA-fg94-h982-f3mm) — bare-hostname pre-approval of huggingface.co auto-approved every path; covert exfiltration channel; CVE-2026-54316, fixed in 2.1.163, published 2026-06-13.
 - [Debenedetti et al. — Defeating Prompt Injections by Design (CaMeL)](https://arxiv.org/abs/2503.18813) — separate control from data, enforce capabilities at the tool; 77% of AgentDojo with provable security.

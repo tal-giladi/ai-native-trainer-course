@@ -5,4 +5,7 @@ Every topic the weekly review has decided on, so nothing is reconsidered without
 
 | Status | Topic | Next review | Course change | Last decision |
 |---|---|---|---|---|
-| — | (no topics yet) | | | |
+| WAIT | [Coding agents in CI: zero-privilege issue/PR text reaching runner secrets](research/deferred/coding-agent-ci-untrusted-issue-secrets.md) | 2026-11-22 | none as a topic (the Claude Code advisory GHSA-fg94-h982-f3mm was used as evidence in the 2026-W41 FIX to lessons/module-09/lesson-05.md) | 2026-10-11 |
+| WAIT | [DORA — ROI of AI-assisted Software Development report](research/deferred/dora-roi-of-ai-assisted-development.md) | 2026-11-22 | none | 2026-10-11 |
+| WAIT | [METR incident: agent prompted to reveal its own provider API key](research/deferred/metr-agent-api-key-theft-incident.md) | 2026-11-22 | none | 2026-10-11 |
+| REJECT | [GuardFall: command-text denylists bypassed by shell rewriting](research/rejected/guardfall-shell-denylist-bypass.md) | on new evidence | none | 2026-10-11 |

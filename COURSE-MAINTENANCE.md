@@ -25,4 +25,5 @@ The agent-tool and model landscape changes quarterly; the concepts do not. Every
 
 ## Changelog
 
+- 2026-10-11 — 09.5 Limitations: added two dated Claude Code advisories (write-time symlink TOCTOU, fixed 2.1.129; pre-approved-domain exfiltration, fixed 2.1.163) and the habits they imply (auto-update; an allowed domain is an outbound channel). Weekly review 2026-W41.
 - 2026-09-28 — revision 2 built: 22 modules, 101 lessons.
