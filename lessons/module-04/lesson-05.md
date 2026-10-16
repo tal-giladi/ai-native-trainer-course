@@ -33,7 +33,9 @@ This is the module's project and the first deliverable in the course that looks 
 The last part is what separates an audit from an opinion. Anyone can delete 700 lines. The question the team will ask is "how do you know you didn't delete the line that mattered?" The answer is a **fixed task set**, run before and after in fresh sessions, with the same agent and model. Research backs the caution in both directions: an evaluation of repository context files found they did not generally improve task success and raised cost by over 20% (Gloaguen et al., 2026) — and Module 3 showed a single missing fact can break a ticket. You measure because both are true.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four buckets, before/after on a fixed task set, ablation, cost per passing answer. **Implementation**: `ContextLab`, `run-tasks` with `claude -p --output-format json` (as of 2026-09).
+> The core ideas in this lesson will stay true for years. Every fact goes into one of four buckets: must always know, retrieve when needed, generate on request, or never load. You measure the agent before and after a change on the same fixed set of tasks. Ablation means removing one fact at a time to see which one mattered. And the number that counts is the cost of each passing answer.
+>
+> The tool details that will go out of date are the course's `ContextLab` tool and the `run-tasks` script, which runs Claude Code without its interactive screen using `claude -p --output-format json`. Both are as of September 2026.
 
 ## How it works
 

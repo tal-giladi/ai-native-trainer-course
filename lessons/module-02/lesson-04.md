@@ -33,7 +33,9 @@ Every coding agent you use — Claude Code, Copilot's agent mode, Cursor, Codex-
 This lesson has you build that loop in C#, then break it four ways that every production agent has to survive: malformed arguments, failing tools, infinite loops, and a model that asks for a file it should never see.
 
 > [!NOTE]
-> Content tags: **concept** — the loop, tool contracts, where authorization lives, token growth. **Implementation** — the exact JSON shapes (`tool_use`, `tool_result`, `is_error`, `strict`), which differ between providers and change over time. The lab uses the Anthropic Messages API; the OpenAI shape is described alongside.
+> The core ideas in this lesson will stay true for years. In the agent loop, the model asks for a tool, your code runs it, the result goes back, and the cycle repeats. A tool contract is the name, description and input format that define a tool. Decisions about what the agent is allowed to do live in your code, not in the model. And the number of tokens sent grows with every turn.
+>
+> What will go out of date are the exact JSON message formats (`tool_use`, `tool_result`, `is_error`, `strict`). They differ between providers and change over time. The lab uses Anthropic's Messages API, and the lesson describes OpenAI's format alongside it.
 
 ## How it works
 

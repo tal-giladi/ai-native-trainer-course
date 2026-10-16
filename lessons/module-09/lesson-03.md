@@ -29,7 +29,9 @@ last_verified: "2026-09-28"
 Module 8 connected MCP servers and taught scoped tokens and least-privilege tools ([08.1](../module-08/lesson-01.md), [08.3](../module-08/lesson-03.md)). This lesson looks at what happens when a *tool itself* is the attacker — either because a third-party server is malicious, or because a trusted one changes under you, or because the agent invents a dependency that does not exist. OWASP groups these as LLM03 Supply Chain and ASI04 Agentic Supply Chain, and they matter because they bypass the one control you were counting on: your review. You approve a server once; its description can change later. You read the agent's code; you do not re-verify every package name it added.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): tool poisoning, rug pull, shadowing, package hallucination as a supply-chain class. **Implementation** (as of 2026-09): `CanaryCheck pin`, NuGet package-source mapping, the lab's clean/poisoned notes server.
+> The core ideas in this lesson will stay true for years: tool poisoning (hidden instructions in a tool's description), the rug pull (a tool that changes after you approved it), shadowing (one tool's description changing how the agent uses another tool), and package hallucination (the agent inventing a package name that an attacker can then register) as a supply-chain risk.
+>
+> The tool details will go out of date. As of September 2026 these are the `CanaryCheck pin` command, NuGet package-source mapping, and the lab's clean and poisoned notes servers.
 
 ## How it works
 

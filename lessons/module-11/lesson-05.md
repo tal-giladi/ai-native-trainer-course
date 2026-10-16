@@ -31,7 +31,9 @@ Module 3 made the AI layer a citizen of the repository: versioned, reviewed, own
 The career path this course grew from asks for exactly that as a one-page "system evolution" policy: "what happens on your team when the agent gets something wrong" — who updates the rules, how, and who reviews it. Without it, two failures recur. Either nobody owns the layer and it rots (the wiki rules of Module 3), or everything needs a committee and people route around it with "quick fixes" that nobody tests. This lesson's break is the second one, and it costs Contoso the same incident twice.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): ownership, change classes, the system-evolution loop, the enforcement ladder, cadence, overrides and deactivation. **Implementation** (as of 2026-09): CODEOWNERS and branch protection, `AgentOps evolution`, `ai-layer-governance.yml`.
+> The core ideas in this lesson will stay true for years: who owns the AI layer, change classes (grouping changes by risk so review effort matches it), the system-evolution loop (turning each agent mistake into a test, a fix and a logged change), the enforcement ladder (moving a rule from a sentence the model may ignore toward an automatic check), how often to review, and how to handle overrides and switch rules off.
+>
+> The tool details are current as of September 2026 and will change: CODEOWNERS and branch protection on GitHub, the `AgentOps evolution` command, and `ai-layer-governance.yml`.
 
 ## How it works
 

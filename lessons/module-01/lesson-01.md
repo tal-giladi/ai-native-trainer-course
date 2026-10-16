@@ -33,7 +33,11 @@ The market is noisy. In the 2025 Stack Overflow survey, 84% of respondents use o
 This lesson answers two questions before you invest months in the rest of the course. **Which job are you training for?** And **in what order do you earn the right to do it?** Get the order wrong and you arrive at a client with slides and no answer to their first hard question.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the three roles, the flywheel, the proof chain, stage-skipping failure. **Implementation**: none. The survey and study figures are dated (2024–2025) and will be superseded.
+> The core ideas in this lesson will stay true for years: the three roles, the flywheel (a cycle where each step feeds the next), the proof chain (how each piece of evidence supports the next claim), and what goes wrong when you skip a stage.
+>
+> Nothing here depends on a specific tool, so there are no tool details to go out of date.
+>
+> The survey and study figures are from 2024–2025 and will be replaced by newer data.
 
 ## How it works
 

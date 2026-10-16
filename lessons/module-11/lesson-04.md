@@ -33,7 +33,9 @@ By now Contoso runs five agent jobs: fix-on-request, PR review, triage, the week
 Then one Monday someone makes the dependency fixer hourly, "until the build is green", with a retry loop. Tuesday costs $137 instead of the usual $2, and nobody notices until the invoice. This lesson is the operations manual that would have caught it at 10 a.m.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): approval by reversibility and blast radius, versioned rollback and kill switches, shadow runs, cost per useful outcome, ceilings at three levels, failure classes and retry cost. **Implementation** (as of 2026-09): GitHub environments, `gh workflow disable`, Claude Code OpenTelemetry, `AgentOps ledger`, `budget-guard.yml`.
+> The core ideas in this lesson will stay true for years: deciding who must approve a job based on how easily its changes can be undone and how much they could damage (the blast radius), rolling back any versioned part of a job, kill switches, shadow runs (running a new version alongside the old one without letting it act), cost per useful outcome, spending limits at three levels (per run, per job and per day), and handling failures by type, including what retries really cost.
+>
+> The tool details are current as of September 2026 and will change: GitHub environments, `gh workflow disable`, Claude Code's OpenTelemetry (a standard for collecting usage and performance data), the `AgentOps ledger` command, and `budget-guard.yml`.
 
 ## How it works
 

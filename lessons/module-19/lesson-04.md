@@ -37,7 +37,9 @@ The tempting answers are all wrong in the same way. "Retrain everyone" assumes t
 This lesson gives you the measurement to tell those stories apart, the statistics to tell a real drop from noise, and the mechanisms that make a drop visible in a week instead of a quarter, owned by people who are still there.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): reach–habit–outcome metrics, aggregation and privacy, control limits, step vs decay, cohorts, the diagnosis order, anti-regression mechanisms, handover criteria. **Implementation** (as of 2026-09): vendor metric definitions and OpenTelemetry attribute names, `AdoptCheck plan` and `usage`.
+> The core ideas in this lesson will stay true for years: metrics for reach, habit and outcome, combining data across people so no individual is exposed, control limits (the band within which a number normally moves, so you can tell a real change from noise), telling a sudden step down from a slow decay, cohorts (groups of people who started at the same time), the order in which to diagnose a drop, mechanisms that stop adoption sliding back, and the criteria for handing the program over.
+>
+> Some details will go out of date. As of September 2026, these include each vendor's metric definitions, the OpenTelemetry attribute names (OpenTelemetry is a common standard for collecting usage data), and `AdoptCheck plan` and `usage`.
 
 ## How it works
 

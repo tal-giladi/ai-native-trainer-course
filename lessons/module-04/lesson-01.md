@@ -39,7 +39,9 @@ The problem this solves is a familiar one. A team's agent does something wrong; 
 **Context engineering** is the practice of curating the smallest set of tokens that lets the agent do the task — across system instructions, tools, external data and message history (Anthropic, 2025). Prompt engineering is about one message; context engineering is about everything the model sees on every turn.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the budget equation, per-request resending, nominal vs effective context. **Implementation** (as of 2026-09): Claude Code's `/context` categories, cache multipliers, window sizes, example prices.
+> The core ideas in this lesson will stay true for years. The budget equation shows how much of the context window is left for your actual task. Everything in the request is sent again on every turn. And the context size a model advertises is larger than the amount it can use well.
+>
+> The details that will go out of date are as of September 2026. They are the categories Claude Code shows in its `/context` command, the price discounts for cached input (input the provider has already seen and stored), the window sizes and the example prices.
 
 ## How it works
 

@@ -31,7 +31,9 @@ This is the module's project and the source of the only productivity number you 
 A good report is short, dull and hard to argue with. It says what was planned, what happened, the estimate with its interval, what happened to quality, and — in a section most reports leave out — what the result does **not** show. METR's 2025 paper is a model of that last habit: next to a surprising headline, it lists explicitly the conclusions its data does not support.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): running an experiment without peeking, reporting flow and exclusions, the claims ladder, money as a range. **Implementation**: the `ImpactStats` commands and the report template's layout.
+> The core ideas in this lesson will stay true for years: running an experiment without peeking at results early, reporting how many people went in and who was excluded and why, the claims ladder (matching how strong a claim you make to how strong your evidence is), and stating money savings as a range rather than a single number.
+>
+> The tool details may change: the `ImpactStats` commands and the layout of the report template.
 
 ## How it works
 

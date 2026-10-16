@@ -31,7 +31,9 @@ The lab's student delivered the reference plan, the one that produced a normaliz
 A session plan is a program; the room is the runtime. Engineers who teach tend to prepare the content carefully and improvise the people, which is backwards: the content is the part you already know. This lesson turns the room into something you prepare for, with a few protocols you can rehearse. None of them are about charisma.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): question triage, wait time, psychological safety, mixed levels and expertise reversal, handling skeptics with evidence and boundaries, think-pair-share. **Implementation**: remote-room mechanics (breakouts, chat, polls, co-host), which change with the video tool (as of 2026-09).
+> The core ideas in this lesson will stay true for years: sorting questions by when and how to answer them, wait time (pausing after a question so people can think), psychological safety, teaching a room with mixed levels and expertise reversal (support that helps beginners can slow down experts), handling skeptics with evidence and clear boundaries, and think-pair-share (think alone, discuss with a partner, then share with the room).
+>
+> The remote-room mechanics are current as of September 2026 and change with the video tool you use: breakout rooms, chat, polls and co-hosts.
 
 ## How it works
 

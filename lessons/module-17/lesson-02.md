@@ -33,7 +33,9 @@ At 0:36, Hands-on 1 began. Of fourteen laptops, one was on .NET 7, one could not
 None of those failures is about teaching, and none is rare. A talk fails when *your* laptop fails. A hands-on workshop fails when *any* of fifteen laptops fails, on networks, policies and accounts you do not control. The materials exist to move those failures out of the room: to the day before (a setup check), to a fallback that costs seconds (an offline feed, a catch-up tag, a paper path), or to the break (a fix you have tested).
 
 > [!NOTE]
-> Content tags. **Concept** (stable): failure absorbers for a hands-on room, exercise specs, catch-up states, evidence-based troubleshooting, the room as one customer of a rate limit. **Implementation**: NuGet local feeds, `dotnet-install`, provider rate-limit rules and the setup-check scripts (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the materials that absorb failures in a hands-on room (so a broken laptop does not stop the class), exercises written as precise specs, catch-up states (a saved point a learner can jump to if they fall behind), troubleshooting from evidence rather than guesses, and treating the whole room as a single customer of a rate limit (the cap a provider puts on how many requests you can make).
+>
+> The tool details will go out of date: NuGet local feeds (a package source on your own disk instead of the internet), the `dotnet-install` script, each provider's rate-limit rules, and the setup-check scripts are all as of September 2026.
 
 ## How it works
 

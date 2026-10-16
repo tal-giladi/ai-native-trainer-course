@@ -37,7 +37,11 @@ Those answers are decided by the **hosting option**, long before anyone compares
 This module follows one hypothetical company, **Fabrikam**: 400 .NET developers in eight teams, EU-only data policy, one primary cloud. Its brief is in [`labs/module-12/fabrikam/brief.md`](../../labs/module-12/fabrikam/brief.md). By the end of the module you will have its reference architecture, seven ADRs and answers to a 30-question security review.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four hosting models, constraints-then-cost, cost per successful task with fixed cost. **Implementation** (as of 2026-09, re-verify quarterly): which providers offer which geographies, endpoint types and price premiums, and which API features each platform supports. Prices and pass rates in the lab are illustrative.
+> The core ideas in this lesson will stay true for years: the four ways to host the model (the vendor's own API, a model hosted by a cloud provider, a private deployment run by a provider, or open-weights models you run yourself), ruling options out by your hard constraints before comparing cost, and cost per successful task once fixed costs are included.
+>
+> The provider details are current as of September 2026 and should be checked again every three months: which providers offer which regions, the types of endpoint and their price premiums, and which API features each platform supports.
+>
+> The prices and pass rates in the lab are made-up examples, not real figures.
 
 ## How it works
 

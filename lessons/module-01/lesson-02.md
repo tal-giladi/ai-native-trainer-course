@@ -35,7 +35,11 @@ Hype is not your enemy: board pressure often decides who has budget this quarter
 The data says the gap between excitement and experience is wide. In 2025, 84% of Stack Overflow respondents used or planned to use AI tools, yet 66% named "almost right, but not quite" output as their top frustration. 45% said debugging AI-generated code takes longer. The 2024 DORA report associated more AI adoption with faster code review, but also with *lower* delivery stability. Those frustrations are pains. "Our AI strategy" is not one yet.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four tests, the workaround signal, buyer / user / champion / blocker, effort vs flow, pain sizing with a capacity bound. **Implementation**: the T-SQL and `gh` queries in the lab. Survey figures are dated.
+> The core ideas in this lesson will stay true for years. They are the four tests that separate a real pain from a passing complaint, and the strong signal you get when people have already built a workaround. They also include the four people around any purchase: the buyer who pays, the users who live with the problem, the champion who pushes for a fix, and the blocker who can stop it.
+>
+> Two more ideas last as well. Effort (hours of someone's work) and flow (how long things sit waiting) are measured separately. And when you size a pain in hours, you check that the total is not more than the team actually has.
+>
+> The tool details that will go out of date are the T-SQL and `gh` (the GitHub command-line tool) queries in the lab. The survey figures come from a particular year and will be replaced by newer data.
 
 ## How it works
 

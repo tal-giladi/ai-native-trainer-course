@@ -35,7 +35,11 @@ Most published multi-agent wins share a confound: the multi-agent arm spends mor
 This lesson is the module project: design that comparison, run it on tasks-v1 with the Module 7 harness, and write the report.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the compute-matched baseline, pairing, deciding against a pre-written rule, the conditions under which multi-agent is worse. **Implementation** (as of 2026-09): `AgentTeam` topologies and roles, `claude -p` flags, EvalHarness commands. Numbers in Show me are illustrative (simulated); yours come from your runs.
+> The core ideas in this lesson will stay true for years: comparing several agents against one agent given the same amount of work and checking, comparing results task by task, deciding by a rule you wrote down before seeing the results, and the conditions under which several agents do worse than one.
+>
+> The tool details will go out of date. As of September 2026 these are the arrangements and roles in the course's `AgentTeam` tool, the `claude -p` flags, and the EvalHarness commands.
+>
+> The numbers in Show me are simulated examples. Yours will come from your own runs.
 
 ## How it works
 

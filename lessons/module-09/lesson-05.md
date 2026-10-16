@@ -35,7 +35,11 @@ The previous lessons ended the same way: no single control stops prompt injectio
 There is even a research direction toward *provable* injection resistance: Google's CaMeL separates the trusted control flow from untrusted data and enforces capability policies at the tool boundary, solving 77% of AgentDojo tasks with provable security versus 84% undefended ([Debenedetti et al.](https://arxiv.org/abs/2503.18813)). You will not build CaMeL here, but its principle is exactly this lesson's: put the boundary in the *architecture* (what the tools will do), not in the prompt (what you hope the model won't do).
 
 > [!NOTE]
-> Content tags. **Concept** (stable): defense in depth, why boundaries live in tools/network not prompts, fail-closed vs fail-open. **Implementation** (as of 2026-09): Claude Code permission precedence, the sandbox, PreToolUse/PostToolUse hooks. Other agents (Cursor, Copilot) have analogous but differently-named controls.
+> The core ideas in this lesson will stay true for years: defense in depth (several independent layers, so one failure is not enough), why real limits belong in tools and the network rather than in the prompt, and deciding whether a broken control should block everything or let everything through.
+>
+> The tool details will go out of date. As of September 2026 these are the order in which Claude Code applies permission rules, its sandbox, and its PreToolUse and PostToolUse hooks.
+>
+> Other agents, such as Cursor and Copilot, have similar controls under different names.
 
 ## How it works
 

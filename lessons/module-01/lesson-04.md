@@ -35,7 +35,9 @@ It is one of the best-replicated findings in psychology: **the question shapes t
 Done well, a discovery interview gives you what nothing else in this course can: **verbatim evidence from strangers** about what hurts. Those quotes become your workshop's hooks, your eval tasks and your first case for a pilot. They fill the one row of the proof chain ([01.1](lesson-01.md)) you can finish this month.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the three rules, the evidence ladder, question defects, how many interviews, keep/change/kill. **Implementation**: the `TranscriptLint` heuristics and the worksheet formats.
+> The core ideas in this lesson will stay true for years. They are the three rules for interviewing potential customers and the evidence ladder (a ranking of answers, from polite compliments at the bottom up to real commitments at the top). They also cover the common question mistakes that push people toward weaker answers, how many interviews you need, and deciding afterwards what to keep, change or kill.
+>
+> The tool details that may change are the checks built into the course's `TranscriptLint` tool and the exact layout of the worksheets.
 
 ## How it works
 

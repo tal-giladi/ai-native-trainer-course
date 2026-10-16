@@ -42,7 +42,9 @@ Teams that treat agent instructions as "a prompt someone wrote once" hit three p
 The fix is not a new tool. It is applying the engineering discipline you already use for code — versioning, review, testing, ownership, change management — to a new kind of file.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the five properties and why they matter. **Implementation** (changes quarterly): the exact file names each tool reads and GitHub's settings screens. Implementation details below are as of 2026-09.
+> The core ideas in this lesson will stay true for years. They are the five properties that make an AI layer (the rules and files that steer the agent) trustworthy: versioning, review, testing, ownership and change management. The lesson also explains why each one matters.
+>
+> What will go out of date, often within a few months, are the exact file names each tool reads and the layout of GitHub's settings screens. These details are as of September 2026.
 
 ## How it works
 

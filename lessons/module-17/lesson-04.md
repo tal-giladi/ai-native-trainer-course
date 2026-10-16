@@ -31,7 +31,9 @@ On the day, the hands-on steps took the minutes the agenda gave them, because fo
 A rehearsal is a measurement. Rehearsing alone measures some things well (how long you talk, whether each fallback plays) and cannot measure others at all (how long fifteen people take to write a brief, what the room asks, whether your notes are readable when you are nervous). This lesson is the protocol: three rehearsals, each designed to measure something different, logged, scored by people who are not you, and judged against a standard written before you start.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): deliberate practice with feedback, rehearsals as measurements, drift decomposition, anchored rubrics and observer agreement, an exit standard. **Implementation**: `KitCheck rehearsal` and the log format; `DemoCheck drill` from Module 15.
+> The core ideas in this lesson will stay true for years: deliberate practice with feedback, treating each rehearsal as a measurement, splitting timing drift (the gap between planned and actual minutes) into the parts you control and the parts you only estimated, scoring with an anchored rubric (one where each score has a written description) and checking whether two observers agree, and setting a standard in advance for when the workshop is ready.
+>
+> The tool details will go out of date: `KitCheck rehearsal` and its log format, and `DemoCheck drill` from Module 15.
 
 ## How it works
 

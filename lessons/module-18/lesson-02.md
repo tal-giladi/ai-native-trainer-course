@@ -35,7 +35,11 @@ That chain is not hypothetical. A study of 462 university press releases about h
 There is also a floor below which honesty is not optional. In US advertising, an objective claim needs a "reasonable basis" before it is made, and a claim like "studies show" needs at least the level of support it names (FTC substantiation policy). Once you sell workshops, your posts are part of how you sell them. Write every one as if a skeptical staff engineer and a regulator were both reading it.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the claims ladder for public writing, source-in-sentence, intervals, hype propagation, substantiation, disclosure, plain language. **Implementation**: `PostCheck claims` and its word lists (as of 2026-09). This lesson is not legal advice; for your jurisdiction's rules, ask a lawyer.
+> The core ideas in this lesson will stay true for years: the claims ladder (a ranking of how strong a claim the evidence can support) applied to public writing, naming the source in the same sentence as the claim, giving ranges instead of single numbers, how hype spreads as a claim is repeated, backing up what you say, disclosing your interests, and plain language.
+>
+> The tool details will go out of date: `PostCheck claims` and its word lists are as of September 2026.
+>
+> This lesson is not legal advice. For the rules where you live and work, ask a lawyer.
 
 ## How it works
 

@@ -29,7 +29,9 @@ Up to now you have built evidence: an AI layer, an experiment with an interval (
 This lesson fixes both. Positioning narrows who you are for and which problem you solve, in words the buyer already uses. The offer ladder gives every buyer a small, safe first step and a clear next one, where each rung produces the evidence the next rung needs. The trainer whose business this course studied sells private workshops gated by an application form and capped per month; the cap is part of the offer, and it is only honest if it is real.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): jobs to be done, positioning, the evidence-producing ladder, honest scarcity, decoys. **Implementation**: the `OfferCheck ladder` rules and the example prices (USD, as of 2026-09), which are placeholders, not market advice.
+> The core ideas in this lesson will stay true for years: jobs to be done (what the client is really trying to get done), positioning, an offer ladder in which each step produces the evidence the next step needs, honest scarcity, and decoys (options added only to make another option look better).
+>
+> The tool details will go out of date: the rules that `OfferCheck ladder` checks, and the example prices (in US dollars, as of September 2026). The prices are placeholders, not advice about what the market will pay.
 
 ## How it works
 

@@ -36,7 +36,9 @@ That advice is sound, and it hides three traps. First, a recording is not a cour
 > **Licensing content is orientation only and jurisdiction-dependent.** Copyright, contract and consumer law differ by country, and your employment contract and client SOWs may already decide who owns what (20.5, 14.4). The licences named here are widely used public licences, described by their own publishers; they are not advice for your situation. Before you sell a course or a team licence, have a lawyer where you work look at your terms.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): what each format carries, revenue per live day, licence layers, team-licence terms, community rules. **Implementation**: the `ScaleCheck catalog` rules, the licence versions (MIT, CC BY 4.0) and the example prices (USD, as of 2026-09).
+> The core ideas in this lesson will stay true for years: what each format (live, recorded, written and so on) can deliver, revenue per day you teach live, licences that cover different layers of the material, the terms of a team licence, and rules for a community.
+>
+> The tool details will go out of date: the rules that `ScaleCheck catalog` checks, the licence versions used (MIT and CC BY 4.0), and the example prices (in US dollars, as of September 2026).
 
 ## How it works
 

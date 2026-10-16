@@ -37,7 +37,11 @@ Three things change when the human leaves:
 3. **The job is a trust boundary.** The job's secrets and token are exactly what a prompt injection ([09.2](../module-09/lesson-02.md)) wants. What code and text reach the job is now a security design question.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the run contract, result classification, deterministic verification, untrusted triggers, what can and cannot be pinned. **Implementation** (as of 2026-09): Claude Code `-p` flags, result subtypes, GitHub Actions triggers. Other agents have equivalents (Codex `exec`, Copilot coding agent, Cursor background agents); the contract is the same, the flag names differ.
+> The core ideas in this lesson will stay true for years: the run contract (the fixed set of settings every unattended agent run uses), sorting each run's result into a clear category, checking the agent's work with tests that give the same answer every time, treating anything that can trigger a run as untrusted, and knowing which sources of variation you can lock down and which you can only contain.
+>
+> The tool details are current as of September 2026 and will change: Claude Code's `-p` flags, its result subtypes, and the GitHub Actions triggers.
+>
+> Other agents have their own equivalents, such as Codex `exec`, the Copilot coding agent and Cursor background agents. The contract is the same; only the flag names differ.
 
 ## How it works
 

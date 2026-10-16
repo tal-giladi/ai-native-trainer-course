@@ -35,7 +35,9 @@ By week 16 the network had failed in three ways at once. Priya, the billing cham
 The pilot measured the people who wanted it. Rolling out means reaching the people who did not volunteer, through peers they trust, on as few tools as you can justify. This lesson is about both.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): adopter categories, opinion leaders and homophily, champion role and sanction, team-level adoption, fragmentation costs, concentration and effective number. **Implementation** (as of 2026-09): AGENTS.md support across tools, DORA's AI capabilities, `AdoptCheck champions`.
+> The core ideas in this lesson will stay true for years: adopter categories (from early enthusiasts to late holdouts), opinion leaders and homophily (people are most influenced by peers who are like them), the role of a champion and the official backing that role needs, adoption team by team rather than person by person, the costs of letting every team use a different tool, and how to measure that spread with a concentration index and the effective number of tools.
+>
+> Some details will go out of date. As of September 2026, these include which tools support AGENTS.md (a shared instructions file for coding agents), the AI capabilities DORA (a long-running research program on software delivery) describes, and `AdoptCheck champions`.
 
 ## How it works
 

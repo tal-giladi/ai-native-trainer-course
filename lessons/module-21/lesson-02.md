@@ -31,7 +31,9 @@ The audit has the mirror problem. A client's wiki describes the system as someon
 This lesson is the second and third gates: an audit grounded in executable evidence, and a baseline captured before the build starts, including the number that tells the sponsor what this engagement can and cannot show.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the evidence ladder applied to a client, baseline timing, metric definitions, guardrails, team-level measurement, minimum detectable effect, pre-registration. **Implementation**: `AiLayerTool scan`, `ImpactStats describe` and `power`, `EvalHarness stats`, `EngageCheck baseline`, and the illustrative Contoso data.
+> The core ideas in this lesson will stay true for years: the evidence ladder (a ranking of how strong a claim the evidence can support) applied to a client, when to take the baseline (the before-measurement), clear definitions for each metric, guardrails (metrics such as quality that must not get worse), measuring by team rather than by person, the minimum detectable effect (the smallest change your data could reliably show), and pre-registration (writing down what you will measure and how before you look at the results).
+>
+> The tool details will go out of date: `AiLayerTool scan`, `ImpactStats describe` and `power`, `EvalHarness stats`, `EngageCheck baseline`, and the Contoso data, which is illustrative.
 
 ## How it works
 

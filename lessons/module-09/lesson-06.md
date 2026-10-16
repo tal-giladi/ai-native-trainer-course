@@ -31,7 +31,9 @@ Security is not a state you reach; it is a loop you run. A hardened config that 
 It also teaches honesty about what "it held" means. Zero breaches in five trials is not proof of safety; it is weak evidence with a wide interval. The professional skill is to run the cycle, quantify the residual risk with a number and an interval, write it down, and have someone accept it — not to declare victory after one clean run.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the attack→observe→mitigate→retest→residual cycle, regression suites for security, the rule of three, residual-risk acceptance. **Implementation** (as of 2026-09): `CanaryCheck check` → `results.csv`, EvalHarness `gate --golden-min 1.0`.
+> The core ideas in this lesson will stay true for years: the cycle of attack, observe, fix, test again and measure what risk is left, keeping a regression suite for security, the rule of three (if an attack failed in all n tries, its true success rate could still be as high as about 3 in n), and formally accepting the risk that remains.
+>
+> The tool details will go out of date. As of September 2026 these are the `CanaryCheck check` command and the `results.csv` file it writes, and the EvalHarness command `gate --golden-min 1.0`.
 
 ## How it works
 

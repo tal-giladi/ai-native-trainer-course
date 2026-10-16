@@ -39,7 +39,11 @@ The real fix is **layering**: keep the knowledge, but decide *when* each piece e
 This is the same idea as a well-designed codebase: not everything is global. Module 3 gave you the components ([03.2](../module-03/lesson-02.md)); this lesson gives you the placement rule — and the failure it creates when the trigger for a layer fires too late.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four layers, triggers, pointers, progressive disclosure, "decision before trigger". **Implementation** (as of 2026-09): Claude Code `paths:` rules and nested-file loading, Cursor `globs`, Copilot `applyTo`, skills.
+> The core ideas in this lesson will stay true for years. Context sits in four layers: always loaded, loaded on demand, generated when needed, and never loaded. A trigger is what causes something to load. A pointer is a short line telling the agent where to find more. Progressive disclosure means giving the agent detail only when it needs it.
+>
+> One rule ties these together, called "decision before trigger". If the agent needs a fact before it would open the file that loads it, the fact has to be loaded up front.
+>
+> The tool details that will go out of date are as of September 2026. They are Claude Code's `paths:` rules and the way it loads files in subfolders, Cursor's `globs`, Copilot's `applyTo`, and skills.
 
 ## How it works
 

@@ -33,7 +33,9 @@ This is not a hypothetical failure of amateurs. When OpenAI had 93 professional 
 Your task set has the same two enemies at a smaller scale: bad tasks, and tasks whose answers the system under test has already seen. Module 4's `tasks-v0` had no written reference answers and one grader that rejected a correct answer. This lesson turns it into `tasks-v1`, a dataset you can defend.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): task anatomy, the three kinds of task, validity checks, holdout, contamination. **Implementation** (as of 2026-09): the `tasks.json` schema and `EvalHarness validate` / `leak`.
+> The core ideas in this lesson will stay true for years: what a good evaluation task is made of, the three kinds of task (representative, golden and regression), checks that a task really tests what it claims to, keeping a holdout set (tasks you never tune against, so you can spot overfitting), and contamination (answers leaking into what the agent can see).
+>
+> The tool details will go out of date. As of September 2026 these are the `tasks.json` file format and the `EvalHarness validate` and `leak` commands.
 
 ## How it works
 

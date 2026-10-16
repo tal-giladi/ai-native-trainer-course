@@ -39,7 +39,9 @@ That is not bad luck; it is one of the best-replicated findings in education res
 This matters more for you than for a school teacher, because your whole business rests on one claim: *people who spend time with me get better at something that matters to their company*. Module 13 taught you not to trust a productivity claim without a controlled comparison. This module applies the same discipline to your own teaching. It starts with how learning works, so that the design choices in 16.2–16.4 are mechanisms, not tips.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): Kirkpatrick's levels, reaction vs learning, working memory and prior knowledge, ICAP, retrieval, the fluency illusion, learning claims. **Implementation**: `LearnCheck gain` and `feedback` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: Kirkpatrick's levels (four levels of training evaluation, from how people felt to what changed in their work), the difference between enjoying a session and learning from it, working memory and prior knowledge, ICAP (a scale of engagement from passive to active, constructive and interactive), retrieval practice (recalling material from memory), the fluency illusion (feeling you understand because the material looked easy), and what you can honestly claim about learning.
+>
+> The tool details are current as of September 2026 and will change: the `LearnCheck gain` and `feedback` commands.
 
 ## How it works
 

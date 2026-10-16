@@ -37,7 +37,9 @@ It is also the first time the agent can change something that other people see. 
 Most teams' first integration is set up in five minutes with whatever token was at hand and every tool the server offers. This lesson is the other thirty minutes: the same integration, set up so that a misread prompt cannot close a ticket, merge a PR or post in your name.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): action classes (read, reversible write, visible write, destructive), identity choice (personal versus bot), layered permissions, allowlists over denylists, eval tasks that require the integration. **Implementation** (as of 2026-09, volatile): the GitHub MCP server's remote URL, read-only header and toolsets; fine-grained token settings; the Atlassian Rovo MCP endpoint and its tool names; Claude Code permission rule syntax.
+> The core ideas in this lesson will stay true for years: sorting actions by risk (reading, changes you can undo, changes other people can see, and changes that destroy data), choosing whether the agent acts as you or as a separate bot account, stacking several layers of permission, listing what is allowed rather than what is forbidden, and writing evaluation tasks that can only pass if the integration works.
+>
+> The tool details will go out of date quickly. As of September 2026 these are the GitHub MCP server's remote address, its read-only header and its tool groups, the settings for fine-grained access tokens, the Atlassian Rovo MCP address and its tool names, and Claude Code's permission rule syntax.
 
 ## How it works
 

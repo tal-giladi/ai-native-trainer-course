@@ -31,7 +31,9 @@ What turns evidence into something teachable is a small vocabulary. The career p
 Two traps sit on either side. The first is **reselling**: teaching the words you learned — including this course's own working names — as if they were yours. [05.1](../module-05/lesson-01.md) warned you that research → plan → implement → validate were working names, and that you would name your own loop from your own evidence. That is this module. The second trap is the **tool tutorial**: writing your method as a list of clicks in today's agent. It feels concrete, and it expires with the next release.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the seven parts of a methodology, names as handles, semantic diffusion, the concept/implementation split and the tool-change test. **Implementation**: the `MethodCheck tooldep` command and its word list (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the seven parts of a methodology, names as handles that people use to grab an idea, semantic diffusion (a name losing its meaning as more people use it loosely), the split between lasting ideas and tool-specific details, and the tool-change test (checking how much of your material would break if the tool changed).
+>
+> The tool details are current as of September 2026 and will change: the `MethodCheck tooldep` command and its word list.
 
 ## How it works
 

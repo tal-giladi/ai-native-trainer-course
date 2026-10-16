@@ -33,7 +33,9 @@ Two numbers from the same survey show how much the choice matters. DORA's 2024 r
 Your `NOTES.md` from [05.4](../module-05/lesson-04.md) already holds minutes, defects, rework and resets for a dozen tickets. This lesson turns those columns into definitions a team can agree on and a skeptic cannot reinterpret.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): metric definitions, clock events, skewed distributions, the log scale, quality-adjusted throughput, cost per successful task. **Implementation**: `ImpactStats describe` and `import-gh`, the T-SQL example, the `gh` CLI export.
+> The core ideas in this lesson will stay true for years: defining metrics precisely, the clock events that mark when a measured period starts and stops, skewed distributions (where a few very large values pull the average up), the log scale, throughput adjusted for quality, and cost per successful task.
+>
+> The tool details may change: the `ImpactStats describe` and `import-gh` commands, the T-SQL example, and the export using the `gh` command-line tool.
 
 ## How it works
 

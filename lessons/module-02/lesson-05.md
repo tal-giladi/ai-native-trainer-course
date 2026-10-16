@@ -33,7 +33,9 @@ last_verified: "2026-09-28"
 This lesson closes Module 2 by turning the mechanisms you have seen — tokens and position (02.1), sampling (02.2), instruction channels (02.3), and the tool loop (02.4) — into two working instruments: a failure taxonomy you apply to transcripts, and a selection matrix you fill with measurements. Both become permanent parts of your practice and your workshop.
 
 > [!NOTE]
-> Content tags: **concept** — the taxonomy, cost per successful task, constraints-before-weights. **Implementation** — model names, prices and benchmark scores, which rot within months. Every number you put in a matrix carries a date.
+> The core ideas in this lesson will stay true for years. There is a fixed list of ways an agent can fail. What matters is the cost of each successful task, not the cost of each attempt. And when choosing a model, you first rule out any that miss a hard requirement, and only then compare the rest with weighted scores.
+>
+> What will go out of date are model names, prices and benchmark scores, which change within months. Every number you put in a comparison table should carry the date you took it.
 
 ## How it works
 

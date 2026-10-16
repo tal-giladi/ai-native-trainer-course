@@ -29,7 +29,9 @@ Two homework items from the career path carry this lesson. The first: "Record yo
 Both are about the same gap: between what you *know* your layer does and what it does when you are not steering. In your own hands the layer works because you fill its holes without noticing — a nudge here, a re-prompt there, the setup command you ran months ago. An edited video hides those nudges from the audience; your presence hides them from you. The unedited recording shows you your nudges. The stranger shows you the holes.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): unedited runs as data, the watch-back rubric, think-aloud testing, what counts as help, how many testers. **Implementation**: the timeline format, `DemoCheck timeline`, recording tools (as of 2026-09).
+> The core ideas in this lesson will stay true for years: treating unedited recordings of your runs as data, the rubric for watching them back, think-aloud testing (watching someone try the material while they say what they are thinking), deciding what counts as helping the tester, and how many testers you need.
+>
+> The tool details are current as of September 2026 and will change: the timeline format, the `DemoCheck timeline` command, and the recording tools.
 
 ## How it works
 

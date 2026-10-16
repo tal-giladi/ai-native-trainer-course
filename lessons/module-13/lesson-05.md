@@ -33,7 +33,9 @@ In [07.4](../module-07/lesson-04.md) every outcome was pass or fail, and the Wil
 This lesson gives you four tools that make almost no assumptions about the shape of the data — the log scale, the bootstrap, the permutation test and effect sizes — and one discipline that no tool supplies: deciding in advance how large an effect has to be to matter.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): bootstrap, permutation tests, effect sizes, practical vs statistical significance, blocking, correlation vs causation. **Implementation**: `ImpactStats compare` options.
+> The core ideas in this lesson will stay true for years: the bootstrap (estimating uncertainty by resampling your own data many times), permutation tests (checking whether a difference could be chance by shuffling group labels), effect sizes, the difference between a result that matters in practice and one that is merely statistically significant, blocking, and the difference between correlation and causation.
+>
+> The tool details may change: the options of the `ImpactStats compare` command.
 
 ## How it works
 

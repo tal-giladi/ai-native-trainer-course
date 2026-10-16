@@ -35,7 +35,11 @@ Two published observations frame the arithmetic. Anthropic reported that in its 
 This lesson gives you the equations, a tool that evaluates them (`AgentTeam estimate`), and the trace you read when the numbers go wrong.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): expected cost and rounds, critical path, $\prod p_i$, the reviewer equation, trace-based debugging. **Implementation** (as of 2026-09): `AgentTeam estimate/trace`, the OpenTelemetry GenAI agent-span conventions (status: Development). Prices below are illustrative; use your own from traces.
+> The core ideas in this lesson will stay true for years: estimating the expected cost and number of rounds, the critical path (the longest chain of steps that sets the total time), the fact that a chain only succeeds if every stage does (multiply the stages' success rates together), the formula for when a reviewer helps more than it hurts, and debugging from traces (step-by-step records of what each agent did).
+>
+> The tool details will go out of date. As of September 2026 these are the `AgentTeam estimate` and `trace` commands, and the OpenTelemetry conventions for recording agent steps, which are still marked as in development.
+>
+> The prices below are examples only. Use your own, taken from your traces.
 
 ## How it works
 

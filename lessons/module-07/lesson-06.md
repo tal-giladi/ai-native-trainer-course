@@ -33,7 +33,9 @@ Module 3 made the AI layer a citizen of the repository: owned, reviewed, changel
 It also closes the loop that the career path this course grew from calls "system evolution": when the agent gets something wrong, someone updates the layer, reviewed by someone, and the mistake becomes a test so it cannot quietly come back.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): gate policy, per-task floors vs averages, smoke vs full runs, incidents → regression tasks, baseline management. **Implementation** (as of 2026-09): GitHub Actions syntax, Claude Code install and auto-update settings, `EvalHarness gate`.
+> The core ideas in this lesson will stay true for years: writing a policy for what blocks a change, setting a minimum for each critical task instead of relying on an average, running a quick small test on every change and the full suite on a schedule, turning every incident into a new regression task, and managing the stored baseline you compare against.
+>
+> The tool details will go out of date. As of September 2026 these are the GitHub Actions file syntax, Claude Code's install and auto-update settings, and the `EvalHarness gate` command.
 
 ## How it works
 

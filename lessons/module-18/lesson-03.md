@@ -29,7 +29,9 @@ The career path this course grew from says it simply: publish one piece every on
 Formats also differ in what they cost you and what they prove about you. A post costs an hour and proves you can explain one idea. An unedited video on your public demo repository costs a day and proves you can do it, live, on code a stranger can clone. A case-study piece costs weeks of real work and someone else's consent, and proves that the method helped someone who was not you. Your calendar needs all three kinds of proof, in that order.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): format by job and proof, one concept per short piece, video length and engagement, captions, problem-first openings, repurposing. **Implementation**: `PostCheck format`, speaking-rate constants, platform limits (as of 2026-09).
+> The core ideas in this lesson will stay true for years: choosing a format by the job it has to do and the proof it can carry, one idea per short piece, how video length affects how many people watch to the end, captions, opening with the problem, and reusing one piece in several formats.
+>
+> The tool details will go out of date: `PostCheck format`, the speaking-rate figures it uses, and each platform's limits are as of September 2026.
 
 ## How it works
 

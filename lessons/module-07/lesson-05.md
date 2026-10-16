@@ -33,7 +33,9 @@ Most comparisons you will see in the wild change more than one thing: B ran on a
 This lesson is the design that prevents that — hold everything else fixed, pair by task, interleave, check with an A/A run — and it is the module's project: you re-score the Module 4 context reduction ([04.5](../module-04/lesson-05.md)), which you could then only call "held" or "clearly improved", as a proper comparison report.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): one treatment at a time, paired differences, interleaving, A/A checks. **Implementation** (as of 2026-09): Claude Code version pinning and auto-update settings, `--model`, `EvalHarness compare` and its manifest checks.
+> The core ideas in this lesson will stay true for years: changing only one thing at a time, comparing the two versions task by task rather than as overall averages, alternating the runs of the two versions so time-based drift hits both equally, and running the same version against itself first (an A/A check) to make sure the measuring setup does not invent a difference.
+>
+> The tool details will go out of date. As of September 2026 these are Claude Code's version pinning and auto-update settings, the `--model` flag, and the `EvalHarness compare` command with its checks that both runs used the same setup.
 
 ## How it works
 

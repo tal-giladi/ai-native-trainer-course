@@ -37,7 +37,9 @@ A **skill** turns a repeated procedure into a versioned file the agent loads whe
 The catch is the word *advisory*. A skill is a program whose interpreter is probabilistic: the model decides whether to load it, reads its steps as text, and may skip one. Writing a skill is therefore designing a small interface: when it fires, what it takes, what it promises, and which steps are too important to leave to the model.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four parts, progressive disclosure, deterministic versus model steps, trigger recall and false-trigger rate, context cost. **Implementation** (as of 2026-09): Claude Code's `SKILL.md` fields (`disable-model-invocation`, `allowed-tools`, `${CLAUDE_SKILL_DIR}`, `!` command injection), the Agent Skills format limits, and the course's `SkillCheck` tool.
+> The core ideas in this lesson will stay true for years: the four parts of a skill (trigger, inputs, output contract and steps), progressive disclosure (the agent loads a skill's details only when it needs them), the difference between steps a script runs the same way every time and steps the model decides, how often a skill loads when it should and when it should not, and how much of the agent's context window a skill uses up.
+>
+> The tool details will go out of date. As of September 2026 these are Claude Code's `SKILL.md` fields (`disable-model-invocation`, `allowed-tools`, `${CLAUDE_SKILL_DIR}` and `!` command injection), the size limits of the Agent Skills format, and the course's `SkillCheck` tool.
 
 ## How it works
 

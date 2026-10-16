@@ -33,7 +33,9 @@ Your agent reads instructions from at least six places: its vendor's training, t
 Most engineers assume there is a precedence table somewhere, like CSS specificity or configuration layering in ASP.NET, and that the agent consults it. There isn't. There is a *trained tendency* to weigh some channels above others, pushed around by position, specificity and wording. Knowing that is what lets you put each instruction in the right place, stop writing policy in READMEs, and recognise the day a document starts giving your agent orders — which is exactly what prompt injection is (Module 9).
 
 > [!NOTE]
-> Content tags: **concept** — layers, chain of command, persuasion vs enforcement. **Implementation** — how a specific tool delivers its rules file (Claude Code, AGENTS.md-reading agents, Copilot and Cursor each differ, and change).
+> The core ideas in this lesson will stay true for years. A model receives instructions in layers, from the vendor's training down to the files it reads. A chain of command says which layer should win when they disagree. And persuasion (text that makes a behavior more likely) is different from enforcement (code that blocks the wrong behavior outright).
+>
+> What will go out of date is how each tool delivers its rules file to the model. Claude Code, agents that read AGENTS.md, Copilot and Cursor each do it differently, and they keep changing.
 
 ## How it works
 

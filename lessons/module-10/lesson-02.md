@@ -35,7 +35,9 @@ The MAST study of more than 1,600 annotated traces from seven multi-agent framew
 This lesson turns the module's required break into a lab: three workers, three Contoso tickets, one `InvoiceService.cs`.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): handoff contracts, ownership, merge policies, precedence. **Implementation** (as of 2026-09): `AgentTeam parallel`, Claude Code worktrees and `isolation: worktree`, the agent-team task list.
+> The core ideas in this lesson will stay true for years: handoff contracts (what each agent must pass to the next), giving every file a single owner, rules for combining work done in parallel, and a fixed order of which source wins when agents disagree.
+>
+> The tool details will go out of date. As of September 2026 these are the `AgentTeam parallel` command, Claude Code worktrees (separate working copies of the repository) and the `isolation: worktree` setting, and the agent-team task list.
 
 ## How it works
 

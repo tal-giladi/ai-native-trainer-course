@@ -35,7 +35,9 @@ last_verified: "2026-09-28"
 Each of those is **lossy**. A summary keeps what the summarizer thinks matters. If the thing that mattered was a sentence you typed an hour ago — "migrations in this task are V010, the lower numbers are reserved" — it may not be in the summary, and the agent will carry on confidently without it. This lesson is about deciding what must survive and putting it where it will.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): compression vs summarization vs reset; durable vs conversational constraints; handoff notes. **Implementation** (as of 2026-09, volatile): Claude Code's `/compact`, `/clear`, compact instructions, what it re-injects after compaction, `SessionStart` hooks, the API's compaction beta.
+> The core ideas in this lesson will stay true for years. Compression makes new input smaller before it goes in. Summarization writes a short account of where things stand. A reset starts again with an empty history. Durable constraints are kept in a file and survive, while conversational ones are only said in chat and can be lost. A handoff note is a short written note that lets a fresh session pick up the work.
+>
+> The tool details change often and are as of September 2026. They include Claude Code's `/compact` and `/clear` commands, compact instructions, and what it reloads after compaction (when it replaces older conversation with a summary). They also include `SessionStart` hooks (scripts that run when a session starts) and the compaction feature in the API, which is still in beta.
 
 ## How it works
 

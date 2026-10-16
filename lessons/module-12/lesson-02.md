@@ -35,7 +35,9 @@ A **model gateway** is the component that sits between agent clients and model p
 It is also a new piece of critical infrastructure. If it goes down, every agent stops. This lesson is about getting both halves right: what to centralise, and how not to make the centre the weakest link.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): gateway responsibilities, token buckets, quota sizing, noisy neighbours, serial and parallel availability, attribution coverage. **Implementation** (as of 2026-09): Claude Code's gateway variables, provider rate-limit semantics, and the example gateway products (an open-source proxy, a cloud API-management gateway, the vendor's own self-hosted gateway).
+> The core ideas in this lesson will stay true for years: what a gateway (a single front door that all model traffic passes through) is responsible for, token buckets (a simple way to limit how fast each team can send requests), sizing each team's quota, noisy neighbours (one team's heavy use slowing everyone else down), how availability adds up when services sit in a chain or side by side, and attribution coverage (how much of the spend you can trace back to a team).
+>
+> The tool details are current as of September 2026 and will change: Claude Code's gateway settings, how each provider's rate limits work, and the example gateway products (an open-source proxy, a cloud API-management gateway, and the vendor's own self-hosted gateway).
 
 ## How it works
 

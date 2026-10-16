@@ -42,7 +42,9 @@ last_verified: "2026-09-28"
 Every client meeting about AI eventually produces a number someone read: "55% faster", "26% more output", "19% slower". Your credibility as a trainer depends on two things at once: knowing where each number came from, and refusing to let any single one stand in for your client's situation. The course's principle is blunt — ROI claims may cite only your own measured numbers. This lesson is why: the published evidence is real, useful and **contradictory**, and the contradictions are the most informative part.
 
 > [!NOTE]
-> Content tags. **Implementation** (review annually): the specific studies and their numbers, current as of 2026-09; new studies appear every quarter. **Concept** (stable): the evidence ladder, the reasons studies disagree, the critique checklist.
+> The specific studies and their numbers are current as of September 2026 and should be reviewed every year, because new studies appear every quarter.
+>
+> The core ideas in this lesson will stay true for years: the evidence ladder (ranking kinds of evidence from weakest to strongest), the reasons studies reach different answers, and the checklist for critiquing a study.
 
 ## How it works
 

@@ -37,7 +37,9 @@ Those two minutes did more damage than any failed demo. A demo that breaks and i
 Hard questions are predictable. The same five categories come up in almost every room that pays for a workshop on AI in engineering, and you already have most of the evidence to answer them: your notes, your experiment, your security lab, your objections FAQ from [14.3](../module-14/lesson-03.md). This lesson turns that into a bank of rehearsed, one-minute answers.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): categories, the answer shape, the evidence order, the claims ladder in Q&A, wait-time triage. **Implementation**: the specific studies and OWASP entries cited, which will be superseded (as of 2026-09); the `KitCheck questions` rules.
+> The core ideas in this lesson will stay true for years: sorting questions into categories, a fixed shape for your answers, the order in which you reach for evidence, using the claims ladder (a ranking of how strong a claim the evidence can support) when answering questions, and deciding which questions to take while the agent is working.
+>
+> Some details will go out of date: the specific studies and OWASP entries (a widely used list of security risks) cited here will be replaced by newer ones, as of September 2026. The rules that `KitCheck questions` checks are also tool-specific.
 
 ## How it works
 

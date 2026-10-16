@@ -38,7 +38,9 @@ A defect in a phased loop has two kinds of location:
 Fix only the code and the next ticket repeats the defect, because the origin (how research is done) and the escapes (what the checkpoints check) are unchanged. This is the loop-level version of the primary-cause / escape-cause split from [02.5](../module-02/lesson-05.md), and it is the skill that turns a pile of agent incidents into a method.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): origin vs escape phases, walking back the artifacts, escape probability across gates, fixing at the origin. **Implementation** (as of 2026-09): Claude Code sub-agent loading behavior and the course's `LoopGate`.
+> The core ideas in this lesson will stay true for years. Every defect has a phase where it was born and a phase where it slipped past the checks. You find both by walking back through the documents each phase left behind. You can estimate how likely a defect is to get past a series of checks. And you fix the problem where it started, not only where it was caught.
+>
+> The tool details that will go out of date are as of September 2026. They are the way Claude Code loads sub-agents and the course's `LoopGate` tool.
 
 ## How it works
 

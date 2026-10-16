@@ -42,7 +42,9 @@ That is the enterprise version of what Module 9 taught for one machine. There yo
 > The lab's prompt log contains **fake** credentials in the shapes of real ones (including AWS's documented example key id). If you adapt the redaction exercise to real logs, work on a copy inside your organisation's approved environment, never paste real log lines into a chat or ticket, and treat every credential you find as leaked: rotate it.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four identities, per-team short-lived credentials, blast radius and exposure window, separation of duties, network as a layer under identity, redact-before-write, append-only audit. **Implementation** (as of 2026-09): Claude Code's `apiKeyHelper`, managed settings keys, OpenTelemetry flags, proxy and mTLS variables; GitHub Actions OIDC.
+> The core ideas in this lesson will stay true for years: the four identities in an agent platform (the developer, the agent session, the workload and the tool), credentials issued per team that expire quickly, blast radius (how much a leaked credential can reach) and exposure window (how long it stays usable), separation of duties, the network as an extra layer of protection beneath identity, removing secrets before anything is written to a log, and an audit trail that can only be added to, never edited.
+>
+> The tool details are current as of September 2026 and will change: Claude Code's `apiKeyHelper`, its managed settings keys, its OpenTelemetry flags, its proxy and mTLS (two-way certificate checking) settings, and GitHub Actions OIDC (short-lived login tokens issued to a workflow).
 
 ## How it works
 

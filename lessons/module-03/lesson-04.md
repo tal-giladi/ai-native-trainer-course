@@ -36,7 +36,9 @@ The root rules file (`AGENTS.md`, `CLAUDE.md`, Copilot's `copilot-instructions.m
 The first costs tokens and attention. The second is actively harmful: the agent follows it. The third is the only reason the file exists. A **grounded** rules file keeps only the third kind and makes every line prove it belongs: each line points at evidence in the repository that a person — or a script — can re-check.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): line anatomy, grounding, the four tests, lint + probes. **Implementation**: size guidance quoted from tool docs (as of 2026-09) and the course's `AiLayerTool lint`.
+> The core ideas in this lesson will stay true for years. A good rules line says what to do, where it applies, and what evidence backs it up. Each line is grounded in something you can check, and it must pass four tests. Rules are checked in two ways: a lint (a script that checks the file automatically) and probes (test runs of the agent).
+>
+> What will go out of date is the size guidance quoted from tool documentation, which is as of September 2026, and the details of the course's `AiLayerTool lint`.
 
 ## How it works
 

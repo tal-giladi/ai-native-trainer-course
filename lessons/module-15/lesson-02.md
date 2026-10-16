@@ -28,7 +28,9 @@ A repository is not a company. What makes a demo "feel like a real company, not 
 The second half of the lesson is the argument the demo makes. Every AI-native demo is a before/after: here is the agent without the layer, here it is with. That is a comparison, and [Module 13](../module-13/lesson-04.md) taught you what happens to comparisons with confounds. If the "after" also has a fixed doc, a better model or a rehearsed branch, the audience is watching a difference you did not claim — and the sharpest person in the room will find it in `git log`.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): company scaffolding, the before/after as a controlled comparison, what one run shows. **Implementation**: tags, worktrees, `gh`, `DemoCheck before` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: company scaffolding (the handbook, team, tickets and other material around the code that make a demo feel like a real company), treating the before and after as a controlled comparison where only one thing changes, and being honest about what a single run can and cannot show.
+>
+> The tool details are current as of September 2026 and will change: git tags, worktrees, the `gh` command-line tool, and the `DemoCheck before` command.
 
 ## How it works
 

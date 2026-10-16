@@ -29,7 +29,9 @@ The source career path is explicit that the cap is the point. Private work "caps
 You need three tools for that: an allocation that fits the cap with a buffer, retainers that are capped and expire, and a way to see how long a new client will wait at the utilization you are planning. The third is where a little queueing theory pays for itself.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): capacity caps, allocation, capped retainers, utilization and waiting, revenue mix as ranges, exit signals and stop rules. **Implementation**: `ScaleCheck plan` and the example numbers (USD, as of 2026-09). Worker-status and employment points are **orientation only** (20.5).
+> The core ideas in this lesson will stay true for years: capping how much work you take on, deciding how to divide your time, retainers with a cap on hours, how a fully booked calendar creates waiting, planning your mix of revenue as ranges, and the signals and rules that tell you when to stop doing something.
+>
+> The tool details will go out of date: `ScaleCheck plan` and the example numbers (in US dollars, as of September 2026). The points about worker status and employment are for orientation only (see 20.5).
 
 ## How it works
 

@@ -37,7 +37,11 @@ That is the lab break for this module. `prime` and `plan-feature` 1.0.0 passed B
 The same gap shows up at team scale as the question every AI-layer consultant eventually gets: *"We have 40 skills and nobody knows which ones fire."* Both are the same problem. Skills are code whose interpreter is a model, and code without tests, versions and failure analysis rots. This lesson gives you the test levels, the numbers, the versioning rule and the diagnostic sequence.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): test levels, trigger precision and recall, representative ticket sets, SemVer for procedures, the trigger → context → contract diagnosis. **Implementation** (as of 2026-09): `context: fork` / `agent: Explore` in Claude Code, the fact that built-in Explore skips CLAUDE.md, and the course's `SkillCheck` and `run-triggers` scripts. Module 7 turns these tests into a proper evaluation harness with confidence intervals.
+> The core ideas in this lesson will stay true for years: testing a skill at several levels, measuring how often it loads when it should and how often it loads by mistake, testing against a realistic set of tickets, versioning procedures the way you version software (major, minor and patch numbers), and diagnosing a failure by checking, in order, whether the skill loaded, whether it had the right context, and whether its output met the agreed contract.
+>
+> The tool details will go out of date. As of September 2026 these are the `context: fork` and `agent: Explore` settings in Claude Code, the fact that the built-in Explore agent does not read CLAUDE.md, and the course's `SkillCheck` and `run-triggers` scripts.
+>
+> Module 7 turns these tests into a full evaluation setup with proper margins of error.
 
 ## How it works
 

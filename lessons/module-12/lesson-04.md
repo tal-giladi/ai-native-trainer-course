@@ -40,7 +40,9 @@ This lesson is about that list. Residency, retention and training terms are wher
 > This lesson is orientation, not legal advice. Regulations and provider terms are jurisdiction-specific and change; every compliance conclusion for a real organisation belongs to its legal and data-protection functions. Your deliverable is an accurate data inventory and architecture they can reason about.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the data inventory, inference versus storage geography, the "every path" rule, training and retention terms as contract facts, the orientation frameworks. **Implementation** (as of 2026-09, re-verify quarterly): which providers offer which geographies, retention periods, client defaults and flags, the AI Act dates.
+> The core ideas in this lesson will stay true for years: keeping an inventory of what data goes where, the difference between where the model runs and where data is stored, the rule that data residency (keeping data inside a given region) must hold for every route data can take and not just the main one, treating training and retention terms as facts you confirm in the contract, and the frameworks that help you find your way around the rules.
+>
+> The details are current as of September 2026 and should be checked again every three months: which providers offer which regions, how long data is kept, the default settings and flags in each client, and the EU AI Act deadlines.
 
 ## How it works
 

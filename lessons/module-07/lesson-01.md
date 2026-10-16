@@ -33,7 +33,11 @@ That is the **improve-without-measuring trap**. It is not laziness; it is what h
 You have already built the minimal fix. Module 4's context audit ran a fixed 10-task set 3 times before and after a cut ([04.5](../module-04/lesson-05.md)). This module turns that check into an **evaluation harness**: more and better tasks, graders you have tested, repeated trials, intervals instead of point scores, paired comparisons, and a gate in CI. It is the instrument that lets you say "this change helped" to an engineering manager — and, later in the course, to a client — without bluffing.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the eval vocabulary, qualitative vs quantitative evaluation, capability vs regression suites, the one-run trap. **Implementation** (as of 2026-09): `EvalHarness`, driving Claude Code with `claude -p --output-format json`. This module measures the *agent system*. Measuring *business impact* (cycle time, defects, productivity) is Module 13.
+> The core ideas in this lesson will stay true for years: the basic vocabulary of evaluation, the difference between reading transcripts to learn why something failed and scoring many runs to learn how often it fails, the difference between test sets that push what the agent can do and test sets that guard what already works, and the mistake of judging a change from a single run.
+>
+> The tool details will go out of date. As of September 2026 these are the course's `EvalHarness` tool and running Claude Code from a script with `claude -p --output-format json`.
+>
+> This module measures the agent setup itself. Measuring the effect on the business, such as cycle time, defects and productivity, is Module 13.
 
 ## How it works
 

@@ -43,7 +43,11 @@ The published evidence points both ways, and a trainer who quotes one side will 
 These are the same mechanism applied to differently shaped work. This lesson gives you the shapes, what each buys, and the task properties that decide between them; 10.2–10.4 cover coordination, cost, and a measured comparison on your own tasks.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the four mechanisms, six topologies, choosing by task properties, implicit decisions. **Implementation** (as of 2026-09): Claude Code subagents and agent teams, `AgentTeam` topologies. Module 6 ([06.3](../module-06/lesson-03.md)) covered the one-level case, a single delegated sub-agent; this module is about systems of several.
+> The core ideas in this lesson will stay true for years: the four things extra agents can buy you (a clean context, parallel work, an independent check, and different tools or permissions per step), the six common ways to arrange agents, choosing an arrangement from the shape of the task, and implicit decisions (choices an agent makes silently, such as a name, that other agents cannot see).
+>
+> The tool details will go out of date. As of September 2026 these are Claude Code's subagents and agent teams, and the arrangements built into the course's `AgentTeam` tool.
+>
+> Module 6 ([06.3](../module-06/lesson-03.md)) covered the simplest case, a single sub-agent doing one delegated job. This module is about systems of several agents.
 
 ## How it works
 

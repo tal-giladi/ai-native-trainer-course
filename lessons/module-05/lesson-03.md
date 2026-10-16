@@ -34,7 +34,9 @@ That sentence is a claim, not evidence. Claude Code's own documentation puts the
 In [02.5](../module-02/lesson-05.md) this is failure class 10, **verification failure**: success claimed without checking, or an available check skipped. This lesson makes validation something that happens to the change whether or not the agent chooses it, and adds the second decision that validation forces: when a step keeps failing, do you keep going in this session or start over?
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the gate ladder, independence from self-report, test-integrity invariants, the reset-versus-continue calculation. **Implementation** (as of 2026-09): Claude Code Stop hooks and checkpoints, .NET analyzer settings, `SET NOEXEC`, and the course's `LoopGate`.
+> The core ideas in this lesson will stay true for years. The gate ladder runs cheap automatic checks first and costly human review last. A check only counts if it runs whether or not the agent decides to run it, rather than trusting the agent's own report. The tests themselves must be guarded too, so skipped or deleted tests count as failures. And a simple calculation tells you when to start a fresh session instead of continuing a failing one.
+>
+> The tool details that will go out of date are as of September 2026. They are Claude Code's Stop hooks (scripts that run when the agent tries to finish) and checkpoints, the .NET analyzer settings, SQL Server's `SET NOEXEC`, and the course's `LoopGate` tool.
 
 ## How it works
 

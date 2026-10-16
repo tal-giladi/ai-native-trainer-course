@@ -39,7 +39,9 @@ Every line is reasonable, and none of it can be reviewed. Which table, with whic
 A plan worth reviewing is an artifact with a checkable goal, decisions tied to evidence, explicit boundaries, small verifiable steps and named human checkpoints. It is saved in the repository next to the change, so the reviewer can compare what was planned with what was done.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the seven criteria, boundaries as a contract, checkpoints at decisions, plan-as-artifact. **Implementation** (as of 2026-09): plan mode in Claude Code and Cursor, and the course's `LoopGate plan-lint` / `scope`.
+> The core ideas in this lesson will stay true for years. A good plan meets seven criteria. Its list of files to touch and not touch works as a contract. Human checkpoints go at the important decisions, not at every small step. And the plan is a written document you keep and review, not just a message in the chat.
+>
+> The tool details that will go out of date are as of September 2026. They are plan mode in Claude Code and Cursor, and the course's `LoopGate plan-lint` and `scope` commands.
 
 ## How it works
 

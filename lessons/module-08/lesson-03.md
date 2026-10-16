@@ -37,7 +37,9 @@ A small custom server fixes the inference: "what columns does `dbo.Invoice` have
 This lesson builds the server (four read-only tools, under 600 lines of C# including the command-line extras), then breaks it the way real servers break, and fixes it with the one design rule that matters most for data tools: **every answer says where it came from and how old it is, and stale answers are refused, not decorated.**
 
 > [!NOTE]
-> Content tags. **Concept** (stable): narrow read-only tools, least privilege at the data source, provenance and freshness, metadata versus errors, testing a server at two levels. **Implementation** (as of 2026-09, volatile): the `ModelContextProtocol` 2.2.0 NuGet package and its attributes, SQL Server catalog views and `VIEW DEFINITION`, Claude Code's `.mcp.json`.
+> The core ideas in this lesson will stay true for years: building small read-only tools, giving the agent the fewest rights possible at the data source itself, telling the agent where each answer came from and how fresh it is, returning missing data as information rather than as an error, and testing a server both on its own and through the agent.
+>
+> The tool details will go out of date quickly. As of September 2026 these are version 2.2.0 of the `ModelContextProtocol` NuGet package and its attributes, SQL Server's catalog views and the `VIEW DEFINITION` permission, and Claude Code's `.mcp.json` file.
 
 ## How it works
 

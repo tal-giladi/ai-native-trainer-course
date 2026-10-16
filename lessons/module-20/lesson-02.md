@@ -31,7 +31,9 @@ last_verified: "2026-09-28"
 This course's rule, stated since Module 13, is that ROI claims may cite only your own measured numbers, and money is always a range ([13.6](../module-13/lesson-06.md)). This lesson turns that rule into a price. You will compute what one client could gain from your measured effect, with its interval, the cost of the quality guardrail that failed, the share of tickets that will actually use the method, and the tool spend, and you will find, as the reference student does, that for one team the honest answer is "about break-even, with a real chance of loss". That finding does not kill the sale. It changes what you are selling.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): cost floor, market reference and value ceiling; pricing models; value and ROI as intervals; corners vs Monte Carlo; pricing a measurement. **Implementation**: `OfferCheck price`, the example rates and tool spend (USD, as of 2026-09).
+> The core ideas in this lesson will stay true for years: setting a price between your cost floor, the market reference and the value ceiling (what the work is worth to the client), the different pricing models, giving value and return on investment as ranges rather than single numbers, checking those ranges at the extreme cases versus with a Monte Carlo simulation (many random trial runs), and how to price a measurement.
+>
+> The tool details will go out of date: `OfferCheck price`, the example rates and the tool spend (in US dollars, as of September 2026).
 
 ## How it works
 

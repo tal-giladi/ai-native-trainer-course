@@ -33,7 +33,11 @@ That is not a hypothetical. In 2025 researchers showed a public GitHub issue cou
 This module is **defensive**. You are securing your own setup, not attacking anyone. And the first defensive skill is not a firewall rule — it is threat modeling: drawing where trust ends, who is acting with whose authority, and which combinations turn a bad instruction into real damage. Get the model right and the defenses in 09.5 become obvious; get it wrong and you will armor the wrong wall.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): trust boundaries, identities, the lethal trifecta / Rule of Two, the OWASP threat lists. **Implementation** (as of 2026-09): the `CanaryCheck trifecta` audit and the specific ids (LLM01–LLM10, ASI01–ASI10). All lab work runs only in the local `security-lab`.
+> The core ideas in this lesson will stay true for years: trust boundaries (the lines where data from outside meets your systems), which identity the agent acts as, the lethal trifecta and the Rule of Two (an agent becomes dangerous when it can read untrusted input, reach sensitive data and send data out all at once, so allow at most two of those), and the OWASP lists of top threats.
+>
+> The tool details will go out of date. As of September 2026 these are the `CanaryCheck trifecta` audit and the specific threat numbers in the OWASP lists (LLM01 to LLM10 and ASI01 to ASI10).
+>
+> All lab work runs only in the local `security-lab`.
 
 ## How it works
 

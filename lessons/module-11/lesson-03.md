@@ -33,7 +33,9 @@ Two things go wrong. The first is economic: an automation whose proposals are re
 This lesson gives you one pattern for all of them — propose, validate, apply — and one number to decide whether each is worth building.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): net value and break-even acceptance, propose/validate/apply, idempotency, untrusted inputs in automation. **Implementation** (as of 2026-09): `--json-schema`, `AgentOps triage`, GitHub Actions `schedule`, the four lab workflows.
+> The core ideas in this lesson will stay true for years: net value and the break-even acceptance rate (how often people must accept the automation's output for it to be worth running), the propose, validate, apply pattern, idempotency (running the same job twice does no extra harm), and treating any input to an automation as untrusted.
+>
+> The tool details are current as of September 2026 and will change: the `--json-schema` flag, the `AgentOps triage` command, the GitHub Actions `schedule` trigger, and the four lab workflows.
 
 ## How it works
 

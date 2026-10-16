@@ -31,7 +31,9 @@ The first is leaking. "We cut PR review time 60% at a fintech in Tel Aviv with 1
 This lesson is the last phase: a one-page case study written from the record, anonymized until the client cannot be recognized, saying what a reader can generally expect, and approved in writing before anyone else sees it.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): tracing claims to the record, identifiability and bands, typical versus best-case results, limitations as a section, written approval. **Implementation**: `EngageCheck casestudy` and the Contoso reference. The legal material is orientation only; your SOW's publicity clause and your jurisdiction decide.
+> The core ideas in this lesson will stay true for years: tracing every claim back to the project record, protecting the client's identity and reporting numbers in bands rather than exact figures, presenting typical results rather than the best case, a dedicated section for limitations, and getting the client's written approval.
+>
+> The tool details will go out of date: `EngageCheck casestudy` and the Contoso reference. The legal material is for orientation only; the publicity clause in your SOW (statement of work, the contract document that defines the job) and the law where you work decide what you may publish.
 
 ## How it works
 

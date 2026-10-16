@@ -33,7 +33,9 @@ After the redesign, the lab's student delivered the session again, to the paymen
 You have met this pattern before. Module 13 was about productivity claims that look positive and are confounded; your own teaching is not exempt. A client who pays for training will eventually ask what people learned, and "they loved it" is a level 1 answer to a level 2 question (16.1). This lesson gives you the instruments for levels 1–3, the one piece of math the module needs, and the list of mistakes that make a pre/post comparison say whatever you hoped. It ends with the field assignment: run your mini-workshop for real, and report it honestly.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): matched pre/post designs, normalized gain and change, effect size, bootstrap intervals, measurement threats, reading feedback against learning, behaviour follow-up. **Implementation**: `LearnCheck gain`, `feedback`, `followup` and the CSV formats (as of 2026-09).
+> The core ideas in this lesson will stay true for years: matched before and after tests for the same people, normalized gain (how much of the possible improvement each learner actually made) and raw change, effect size, bootstrap intervals (ranges of uncertainty estimated by resampling your data), threats to accurate measurement, reading feedback scores alongside actual learning, and following up later to see whether behaviour changed.
+>
+> The tool details are current as of September 2026 and will change: the `LearnCheck gain`, `feedback` and `followup` commands and their CSV formats.
 
 ## How it works
 

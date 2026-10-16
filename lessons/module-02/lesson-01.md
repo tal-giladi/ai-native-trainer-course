@@ -39,7 +39,9 @@ Every strange thing a coding agent does has a mechanical explanation, and most o
 You need this for two jobs. As a practitioner, it tells you what to measure (tokens, not characters; effective context, not the number on the pricing page). As a trainer, it is the difference between "the AI got confused" and "the fact sat in the middle of 180,000 tokens of competing notes, and attention is a shared budget" — the second sentence is the one that earns a room of senior engineers' trust.
 
 > [!NOTE]
-> Content tags: **concept** — tokenization, attention, logits, context degradation (stable for years). **Implementation** — specific tokenizers, window sizes, prices (rot quarterly; every number marked "as of 2026-09").
+> The core ideas in this lesson will stay true for years. Tokenization is how text is split into small pieces called tokens. Attention is how the model decides which earlier text matters for the next token. Logits are the raw scores the model gives every possible next token. And models use information in a long input less reliably than in a short one.
+>
+> The details that will go out of date are the specific tokenizers, the context window sizes (how much text a model can take in at once) and the prices. These change every few months, and every number in the lesson is marked as of September 2026.
 
 ## How it works
 

@@ -39,7 +39,9 @@ This is the mistake engineers recognize fastest once it is named: it is a test s
 The second half of this lesson is about load. Even an aligned session fails if the step that teaches the hardest objective also introduces nine new terms, three windows and a stored procedure nobody has seen.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): backward design, constructive alignment, observable objectives and levels, cognitive load, worked and faded examples, expertise reversal, misconception items. **Implementation**: the session-plan format and `LearnCheck align` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: backward design (starting from what learners must be able to do and planning back from there), constructive alignment (making objectives, activities and assessments match), objectives you can observe and their levels, cognitive load (how much a learner can hold in mind at once), worked and faded examples (fully solved examples that gradually leave more steps to the learner), expertise reversal (support that helps beginners can slow down experts), and questions designed to expose common misconceptions.
+>
+> The tool details are current as of September 2026 and will change: the session-plan format and the `LearnCheck align` command.
 
 ## How it works
 

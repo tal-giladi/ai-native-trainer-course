@@ -35,7 +35,11 @@ The evidence cuts both ways, and you need both halves when you teach this. Anthr
 Both are right about different work. This lesson gives you the mechanism that explains when each is right, and a four-question test you can apply to any proposed agent in a client's repository.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): context isolation, the four questions, the delegation contract, context saved versus tokens spent, "sub-agents cannot ask". **Implementation** (as of 2026-09): Claude Code's `.claude/agents/*.md` format, the `tools` allowlist, built-in Explore and Plan agents. Multi-agent topologies and coordination at scale are Module 10.
+> The core ideas in this lesson will stay true for years: context isolation (a sub-agent starts with a clean memory and only sees what you hand it), the four questions for deciding whether to delegate, the delegation contract (what you must tell a sub-agent up front), the trade between context you save and tokens you spend, and the fact that a sub-agent cannot stop to ask you a question.
+>
+> The tool details will go out of date. As of September 2026 these are Claude Code's `.claude/agents/*.md` file format, the `tools` allowlist, and the built-in Explore and Plan agents.
+>
+> Setups with many agents working together, and how to coordinate them at scale, are covered in Module 10.
 
 ## How it works
 

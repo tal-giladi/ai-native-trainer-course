@@ -32,7 +32,9 @@ The usual answer is a toy: a to-do API generated last night, one commit, an agen
 The career path this course grew from puts it in one line: build an app with "enough history, mess, and undocumented conventions that a 'make it AI-native' demo is credible, not staged." This lesson is about what *credible* means in checkable terms, how to pick the one ticket you will run in front of people, and how to make sure the repository is safe to publish — in every commit, not only the last one.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the six properties, choosing a demo ticket on evidence, confidentiality as a property of the whole history. **Implementation**: `assemble-demo.sh` and `DemoCheck credibility` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the six properties that make a demo on an existing codebase believable rather than staged, choosing the demo ticket based on evidence, and the fact that confidentiality applies to the whole history of the repository, not just its current files.
+>
+> The tool details are current as of September 2026 and will change: the `assemble-demo.sh` script and the `DemoCheck credibility` command.
 
 ## How it works
 

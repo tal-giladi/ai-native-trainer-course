@@ -33,7 +33,9 @@ A randomized design (13.3) removes the biggest threat — selection — but not 
 The fictional post in `labs/module-13/claims/claim-b-cto-post.md` is typical: a pilot team's median cycle time "halved in one quarter" while other teams got slightly slower. By the end of this lesson you will show, with the same data, that the pilot team simply returned to normal.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): threats to internal, construct and external validity; regression to the mean; difference-in-differences and placebo tests; intention to treat. **Implementation**: `ImpactStats did` and `compare --where/--exclude`.
+> The core ideas in this lesson will stay true for years: the threats that can make a result wrong (something other than the change caused it, you measured the wrong thing, or it will not hold elsewhere), regression to the mean (unusually bad periods tend to be followed by more normal ones anyway), difference-in-differences (comparing how much each group changed, not just where it ended up) and placebo tests, and intention to treat (counting everyone as originally assigned, even those who did not follow through).
+>
+> The tool details may change: the `ImpactStats did` command and the `--where` and `--exclude` options of `compare`.
 
 ## How it works
 

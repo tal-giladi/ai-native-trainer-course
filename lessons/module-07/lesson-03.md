@@ -33,7 +33,9 @@ You have met both kinds of mistake already. In Module 4, T02's regex failed a co
 This lesson ranks the grader types, measures a grader's error rate as precision and recall, shows how that error distorts every score you report, and calibrates a judge until its "pass" can be trusted.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the grader hierarchy, grader error as precision/recall, the observed-rate correction, judge biases and calibration. **Implementation** (as of 2026-09): `EvalHarness judge` and `calibrate`, Claude Code as the judge runtime.
+> The core ideas in this lesson will stay true for years: the order in which to prefer graders (automated checks first, then text checks, then an AI judge, then a person), treating a grader's mistakes as missed failures and false alarms, correcting a measured pass rate for those known mistakes, and the biases of AI judges and how to calibrate them against human labels.
+>
+> The tool details will go out of date. As of September 2026 these are the `EvalHarness judge` and `calibrate` commands, and the use of Claude Code to run the judge.
 
 ## How it works
 

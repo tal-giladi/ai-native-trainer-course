@@ -31,7 +31,9 @@ Engineers get this wrong in two opposite ways. Some never publish, because nothi
 This lesson treats your content as an engineering system with a purpose, inputs and a measured output. The input is your method from Module 14: concepts with dated evidence. The output you measure is not likes. It is the moment someone who did not know you reads a piece, uses the idea and comes back with a follow-up question on their own. That is the module's exit test, and it is the first honest sign that the funnel works.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the funnel stages, audience research, credibility as a track record, participation inequality, signal vs attention, $1-(1-p)^n$. **Implementation**: `PostCheck calendar`, platform names and what they count (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the stages of the funnel (the path from first hearing of you to becoming a client), researching your audience, credibility as a track record you build over time, participation inequality (the fact that most people read and only a few ever respond), the difference between real signal and mere attention, and the formula $1-(1-p)^n$ for how many pieces it takes before you are likely to see that signal.
+>
+> The tool details will go out of date: `PostCheck calendar`, and the names of the platforms and what each one counts, are as of September 2026.
 
 ## How it works
 

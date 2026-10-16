@@ -33,7 +33,9 @@ Narrow feels risky. It is the opposite. Your examples match the prospect's code,
 The wedge also decides much of your course. The stack inventory you write today is what you integrate in [Module 8](../module-08/lesson-02.md), what your demo repository imitates later in the course, and what your eval tasks ([Module 7](../module-07/lesson-02.md)) are drawn from. A vague wedge means you build a generic lab and teach a generic workshop.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): stack × audience × pain, the five criteria, the reachability funnel, tool-agnostic anchoring. **Implementation**: survey shares and product lifecycle dates (as of 2026-09).
+> The core ideas in this lesson will stay true for years. You describe your niche as a combination of tech stack, audience and pain, and you score it against five criteria. The reachability funnel counts how many people you can actually get a conversation with. And you anchor your niche on the tech stack rather than on any one AI tool, because tools change much faster.
+>
+> The details that will go out of date are the survey percentages and the product support dates. Both are as of September 2026.
 
 ## How it works
 

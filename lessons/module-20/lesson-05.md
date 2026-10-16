@@ -36,7 +36,9 @@ The fastest way to end this career before it starts is not a bad workshop. It is
 The second half is people. Most clients are reasonable; a few push scope, pay late, move goalposts after the fact, want a guarantee in week five, or ask you to do something you should not (rank developers by the telemetry, say). Every document you built in this module exists partly for those moments. This lesson connects them.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the questions to ask about employer conflicts, IP, status, liability, payment and difficult clients. **Implementation**: the specific statutes and guidance cited (as of 2026-09) and `OfferCheck admin`.
+> The core ideas in this lesson will stay true for years: the questions to ask about conflicts with your employer, who owns the intellectual property, your employment status, liability, getting paid, and difficult clients.
+>
+> The details will go out of date: the specific laws and official guidance cited (as of September 2026) and `OfferCheck admin`.
 
 ## How it works
 

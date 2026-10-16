@@ -39,7 +39,11 @@ The agent is not careless. It is working from what is in its context, and a past
 Research is the phase that fills those three gaps *before* any code is written, while being wrong is still cheap. It is also the phase people skip, because paste-and-go *feels* faster. Be careful with that feeling: in a randomized controlled trial with 16 experienced open-source developers working in their own repositories (246 tasks), developers using AI tools took 19% longer, while estimating afterwards that they had been about 20% faster (Becker et al., 2025). That study does not tell you what will happen on your team (Module 13 takes it apart), but it is a good reason to time your tickets instead of trusting your impression. This lesson starts that log.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the three blind spots, the four research outputs, read-only delegated exploration, the research stopping rule. **Implementation** (as of 2026-09): Claude Code's plan mode and built-in Explore sub-agent, and the course's `LoopGate` tool. The phase names research → plan → implement → validate are a common shape (Anthropic's docs call it explore → plan → implement → commit); they are the course's working names, and in Module 14 you will name your own loop from your own evidence.
+> The core ideas in this lesson will stay true for years. A pasted ticket leaves the agent with three blind spots: code it could reuse, rules it must follow, and what else its change will affect. Research must produce four outputs. It is done read-only and handed to a separate agent, so the main session stays clean. And a clear rule tells you when to stop researching.
+>
+> The tool details that will go out of date are as of September 2026. They are Claude Code's plan mode, its built-in Explore sub-agent (a helper agent that only reads), and the course's `LoopGate` tool.
+>
+> The phase names research → plan → implement → validate are a common pattern, not a standard. Anthropic's documentation calls them explore → plan → implement → commit. They are this course's working names, and in Module 14 you will name your own loop based on your own evidence.
 
 ## How it works
 

@@ -31,7 +31,9 @@ Engagements rarely fail on technology. They fail on a person nobody talked to. I
 This lesson is the first gate of the engagement: **discovery and kickoff**. You interview the people who matter before the kickoff meeting, map them, turn the SOW into a working agreement with named acceptors and dated access, and run a premortem so the risks have owners before they become excuses.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the engagement phases, stakeholder mapping, past-event interviews, acceptance by named client roles, the working agreement, the premortem, measurement instead of targets. **Implementation**: the `EngageCheck kickoff` rules and the Contoso dry run, which is fictional.
+> The core ideas in this lesson will stay true for years: the phases of an engagement, mapping the stakeholders (the people affected by or able to block the work), interviews about what actually happened in the past, acceptance by named people in the client's organisation, the working agreement, the premortem (imagining the project has failed and asking why, before it starts), and agreeing to measure rather than promising targets.
+>
+> The tool details will go out of date: the rules that `EngageCheck kickoff` checks. The Contoso dry run is a fictional example.
 
 ## How it works
 

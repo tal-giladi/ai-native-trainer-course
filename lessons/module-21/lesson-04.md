@@ -31,7 +31,9 @@ Week 12, the handover. The contract ends on 23 December. If the office hours, th
 This lesson covers the last four phases: enable the other teams, measure honestly, hand over to owners who have already done the work without you, and follow up until you can see it holding.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): enablement with owners, intervals and statuses, the claims ladder, "what this does not show", readiness-style handover, dated follow-ups, per-team control limits. **Implementation**: `ImpactStats`, `EvalHarness`, `AdoptCheck`, `EngageCheck handover` and the illustrative Contoso data.
+> The core ideas in this lesson will stay true for years: enablement work with named owners, reporting results as ranges with a clear status, the claims ladder (a ranking of how strong a claim the evidence can support), a section on what the results do not show, a handover modelled on a readiness review (a formal check that the client can run it without you), follow-ups with dates, and control limits for each team (the band within which a number normally moves).
+>
+> The tool details will go out of date: `ImpactStats`, `EvalHarness`, `AdoptCheck`, `EngageCheck handover`, and the Contoso data, which is illustrative.
 
 ## How it works
 

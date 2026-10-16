@@ -33,7 +33,9 @@ By now you own a pile of useful files: a Ground brief and a Bound plan you fill 
 Two things make this harder for AI-native material than for ordinary templates. The tools change every quarter: a starter pack whose setup check passed in February may fail in September because the agent's command-line tool or the SDK changed. And a kit assembled "from what was on the laptop" is the most common way employer and client material leaks into public, as a template copied from a team wiki with the company name still in it. Assessments add a third problem: a ten-question quiz sold as "certification" makes a claim about people that the quiz cannot support.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): a kit as a versioned product, stranger tests as evidence, item difficulty and discrimination, what a score may claim. **Implementation** (hence the lesson's volatility): the `ScaleCheck kit` and `items` rules, the Keep a Changelog format, and the tool versions a kit is verified against.
+> The core ideas in this lesson will stay true for years: treating a kit as a product with version numbers, tests with strangers as evidence that it works without you, item difficulty and discrimination (how well a question separates people who know the material from those who do not), and what a score is allowed to claim.
+>
+> The tool details will go out of date, which is why this lesson will need updating more often: the rules that `ScaleCheck kit` and `items` check, the Keep a Changelog format (a common convention for release notes), and the tool versions a kit has been verified against.
 
 ## How it works
 

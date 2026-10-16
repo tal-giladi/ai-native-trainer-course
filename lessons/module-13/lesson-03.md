@@ -31,7 +31,9 @@ The most common "study" of AI productivity inside a company goes like this: *dev
 In [07.5](../module-07/lesson-05.md) you held everything fixed except the treatment and paired by task. You could do that because you owned the task set and could rerun it. Here you cannot run the same ticket twice, and you do not choose which tickets arrive. What you *can* control is **who decides which ticket gets the agent** — and the answer must be "a random number generator, within blocks you chose in advance".
 
 > [!NOTE]
-> Content tags. **Concept** (stable): control groups, randomization, blocking, units of randomization, power, pre-registration. **Implementation**: `ImpactStats assign`, `balance`, `power`.
+> The core ideas in this lesson will stay true for years: control groups, random assignment, blocking (grouping similar people or teams before assigning them, so the groups stay balanced), choosing what to randomize (people, teams or tasks), statistical power (whether the experiment is big enough to detect a real effect), and writing down your plan and success measures before you start.
+>
+> The tool details may change: the `ImpactStats assign`, `balance` and `power` commands.
 
 ## How it works
 

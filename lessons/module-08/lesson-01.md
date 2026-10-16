@@ -43,7 +43,9 @@ The **Model Context Protocol** (MCP) is the standard way to give an agent those 
 A team that installs "the Jira MCP" with a personal admin token has handed a probabilistic program write access to production tickets under a human's name. This lesson gives you the vocabulary to see that before it happens, and a checklist to prevent it.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): host / client / server, the three primitives and who controls them, stdio versus HTTP credentials, the three permission layers, MCP versus API versus CLI. **Implementation** (as of 2026-09): protocol revision 2026-07-28 (stateless, `server/discover`) and its predecessor 2025-11-25 (`initialize` handshake); Claude Code's `.mcp.json`, tool search and permission rule syntax; the course's `McpCheck` tool.
+> The core ideas in this lesson will stay true for years: the three pieces of MCP (the host app, the client inside it, and the server that offers tools), the three things a server can offer (tools, resources and prompts) and who decides when each is used, how credentials differ between a local server and a remote one, the three layers of permission, and when to use MCP rather than a direct API call or a command-line tool.
+>
+> The tool details will go out of date. As of September 2026 these are the protocol version dated July 2026 (which needs no session setup and uses `server/discover`) and the earlier November 2025 version (which starts with an `initialize` handshake), Claude Code's `.mcp.json` file, its tool search and its permission rule syntax, and the course's `McpCheck` tool.
 
 ## How it works
 

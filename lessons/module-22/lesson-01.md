@@ -29,7 +29,9 @@ The source career path this course studies puts it bluntly: private workshops "d
 The failure this lesson targets is the most common one: calling consulting a "package". A price that starts "from", a scope that is "tailored to you", and hours that rise with every delivery is consulting with a nicer page. It carries all the risk of a fixed fee and none of the leverage.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): consulting vs productized service vs product, scope risk, standard assets, the custom step, effective day rate, learning curves and delivery variability. **Implementation**: the `ScaleCheck service` rules and thresholds, and the example prices (USD, as of 2026-09), which are placeholders.
+> The core ideas in this lesson will stay true for years: the differences between consulting, a productized service (a fixed package sold at a fixed price) and a product, the risk that the scope grows, reusable standard assets, the one step you keep custom for each client, your effective day rate (what you actually earn per day worked), learning curves, and how much the effort varies from one delivery to the next.
+>
+> The tool details will go out of date: the rules and thresholds that `ScaleCheck service` checks, and the example prices (in US dollars, as of September 2026), which are placeholders.
 
 ## How it works
 

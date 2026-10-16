@@ -31,7 +31,9 @@ Prompt injection is ranked LLM01 â€” the number-one risk for LLM applications â€
 Greshake and colleagues gave this its name in 2023, showing that attackers can compromise LLM-integrated applications by planting instructions in the *data the system retrieves*, with no access to the user interface at all ([Greshake et al.](https://arxiv.org/abs/2302.12173)). Two years later NIST's evaluators found that when red-teamers tailored injections to an agent's behavior rather than reusing generic ones, task-hijacking success rose from **11% to 81%** ([NIST, 2025](https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations)). This is not a solved problem you can filter away; it is a structural property you must design around.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the data/instruction boundary, direct vs indirect injection, why prompt-only defenses are not boundaries, success as a probability. **Implementation** (as of 2026-09): the `security-lab` attacks A01/A02 and how to observe their sinks.
+> The core ideas in this lesson will stay true for years: the agent cannot reliably tell data apart from instructions, the difference between an attacker typing instructions directly and hiding them in content the agent reads (a ticket, a web page, a file), why warnings in the prompt are not a real defense, and treating an attack's success as a likelihood rather than a yes or no.
+>
+> The tool details will go out of date. As of September 2026 these are the `security-lab` attacks A01 and A02 and how to see where their output ends up.
 
 ## How it works
 

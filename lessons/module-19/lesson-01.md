@@ -39,7 +39,9 @@ Nothing in the architecture broke. What broke was everything around it: a works 
 Adoption failure is not a mystery or a matter of "culture". It has mechanisms you can name, predict and plan for, and the first one is that every developer decides for themselves.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): individual acceptance factors, the adoption funnel, rollout failure modes, stakeholder mapping, the objection answer shape. **Implementation** (as of 2026-09): the survey figures and DORA estimates, the legal specifics for Germany, `AdoptCheck stakeholders`.
+> The core ideas in this lesson will stay true for years: what makes an individual accept a new tool, the adoption funnel (the steps from having access to using it every day), the common ways a rollout fails, mapping the stakeholders (the people affected by or able to block the rollout), and a fixed shape for answering objections.
+>
+> Some details will go out of date. As of September 2026, these include the survey figures and the DORA estimates (DORA is a long-running research program on software delivery), the legal specifics for Germany, and `AdoptCheck stakeholders`.
 
 ## How it works
 

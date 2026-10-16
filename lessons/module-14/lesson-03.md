@@ -33,7 +33,9 @@ The career path this course grew from asks for two artifacts here: your own diag
 The diagram is the part people remember. In a workshop, the loop diagram stays on screen for two hours and ends up photographed on phones. It is worth drawing as carefully as the concepts are written.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): diagram rules, semantic versioning applied to a method, retire-never-delete, evolution triggers, the objections FAQ. **Implementation**: Mermaid syntax and `MethodCheck diff` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the rules for clear diagrams, semantic versioning applied to a method (numbering versions so the number tells people how big a change is), retiring old parts instead of deleting them, the signals that a method needs to change, and the FAQ that answers common objections.
+>
+> The tool details are current as of September 2026 and will change: Mermaid syntax (a text format for drawing diagrams) and the `MethodCheck diff` command.
 
 ## How it works
 

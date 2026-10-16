@@ -31,7 +31,9 @@ The lab's student followed it to the letter. They took the 50-minute demo block 
 Module 16 showed that a 30-minute session can teach (a normalized gain of 0.67 with the redesigned plan). Two hours is not that session four times over, and it is not the demo stretched. This lesson is about the shape in between: an arc that keeps the recipe's jobs, built from blocks in which you show one step live and the room immediately does the same step on its own copy of the repository.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the workshop arc, show-do blocks, wait-time plans, buffers and cut order, cue-card notes. **Implementation**: the `KitCheck agenda` rules and thresholds, the slash commands in the example (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the overall arc of a workshop, show-do blocks (you show one step live, then the room does the same step on its own copy), plans for what to do while the agent is working, time buffers and the order in which you cut material when you run late, and short cue-card notes for the instructor.
+>
+> The tool details will go out of date: the rules and thresholds that `KitCheck agenda` checks, and the slash commands used in the example, are as of September 2026.
 
 ## How it works
 

@@ -31,7 +31,9 @@ Contoso's tech lead told you why in the interview: in 2024 an external contracto
 The build phase has one gate that matters more than the layer's quality: **the team wrote most of it.** This lesson shows how to plan for that, how to measure it from the PR log, and what to do when the numbers say you are building for them instead of with them.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): recommend vs decide, the enabling stance, the fading scaffold, review as knowledge transfer, client-authored share, truck factor. **Implementation**: `EngageCheck build`, the `prs.csv` format, and the illustrative Contoso PR log.
+> The core ideas in this lesson will stay true for years: the difference between recommending and deciding, a stance that enables the client's team rather than doing the work for them, the fading scaffold (support you deliberately reduce over the weeks), code review as a way to transfer knowledge, the share of changes the client's own people wrote, and the truck factor (how many people could leave before no one understands the code).
+>
+> The tool details will go out of date: `EngageCheck build`, the `prs.csv` file format, and the Contoso pull-request log, which is illustrative.
 
 ## How it works
 

@@ -31,7 +31,9 @@ The lab's student now had aligned objectives and good items. Then they worried: 
 That plan would have repeated the 16.1 result with better slides. The objectives and the test say what learners must do; this lesson is about the minutes in between, where they do it. The recipe is old and well supported: show a little, let them do it with support, then without, then make them say what they learned. The craft is in the details engineers get wrong when they teach: live coding that shows keystrokes instead of decisions, agent wait-time filled with talk, exercises without a finish line, and reflections that are really a recap slide.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the show-do-reflect sequence, modelling and guided practice, fading, desirable difficulties, retrieval at the end, pacing limits. **Implementation**: the live agent step, checkpoints with git tags, `LearnCheck align` time checks (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the show, do, reflect sequence, modelling a skill and then guiding practice, fading (gradually removing support), desirable difficulties (challenges that feel harder but improve long-term learning), recalling material at the end of a session, and the limits on pacing.
+>
+> The tool details are current as of September 2026 and will change: the live agent step, checkpoints made with git tags, and the time checks in `LearnCheck align`.
 
 ## How it works
 

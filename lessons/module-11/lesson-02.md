@@ -33,7 +33,9 @@ The failure is not that the bot is wrong. It is that it is *right too rarely for
 So this lesson does for the CI reviewer what 07.3 did for the LLM judge ([07.3](../module-07/lesson-03.md)): measure it against humans, as precision and recall, before you let it speak.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): precision, recall and volume for review comments, the base-rate ceiling, ground truth and adjudication, dev/holdout tuning, effective false positives. **Implementation** (as of 2026-09): `AgentOps review`, `--json-schema`, the review workflow.
+> The core ideas in this lesson will stay true for years: precision (how many of the reviewer's comments are right), recall (how many real problems it catches) and volume (how many comments it posts), the base-rate ceiling (when most pull requests have no defect, a reviewer that comments a lot cannot be mostly right), ground truth and how to settle disagreements about it, tuning on one set of examples and testing on a separate held-back set, and effective false positives (comments that developers saw and did nothing about).
+>
+> The tool details are current as of September 2026 and will change: the `AgentOps review` command, the `--json-schema` flag, and the review workflow file.
 
 ## How it works
 

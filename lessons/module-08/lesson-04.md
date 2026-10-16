@@ -33,7 +33,9 @@ Hooks are how you turn "the agent should" into "the agent cannot", at the moment
 They are also code that runs on every tool call, with your user's rights, written quickly by people who test it once. This lesson's break is the most common hook bug there is: a guard that crashes and, by design of the exit-code contract, lets the edit through.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): enforcement versus validation versus audit hooks, fail closed versus fail open, testing hooks with recorded payloads, the latency budget, what a local log can and cannot prove. **Implementation** (as of 2026-09, volatile): Claude Code's hook events, matchers, exit codes, `permissionDecision` output and `${CLAUDE_PROJECT_DIR}`; the course's `AgentHooks` tool.
+> The core ideas in this lesson will stay true for years: the three jobs a hook can do (block an action, check a result after the fact, or keep a record), deciding whether a broken hook should block everything or let everything through, testing hooks with saved sample inputs, keeping hooks fast enough that nobody turns them off, and what a log kept on a developer's own machine can and cannot prove.
+>
+> The tool details will go out of date quickly. As of September 2026 these are Claude Code's hook events, matchers, exit codes, the `permissionDecision` output and `${CLAUDE_PROJECT_DIR}`, plus the course's `AgentHooks` tool.
 
 ## How it works
 

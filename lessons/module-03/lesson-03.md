@@ -30,7 +30,9 @@ That gap is where most brownfield agent failures come from. In a 10-year-old .NE
 The audit is how you find those gaps before the agent does. It also decides what does **not** go into the rules file. Research on repository context files found that, across several agents and models, they did not generally improve task success and increased inference cost by over 20% on average; the authors concluded that such files should describe only minimal requirements (Gloaguen et al., 2026). Anthropic's CLAUDE.md guidance says the same from the other direction: for each line, ask whether removing it would cause mistakes. The audit produces the evidence for that question.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the five passes, the evidence ladder, the inference filter. **Implementation**: the `AiLayerTool scan` helper is lab code for this course, not an industry tool.
+> The core ideas in this lesson will stay true for years. They are the five passes for studying an unfamiliar codebase, in order. They also include the evidence ladder (a ranking of sources, from tests and recent code at the top down to people's memory at the bottom) and the inference filter (only write a rule if the agent would get it wrong without being told).
+>
+> The one tool-specific part is the `AiLayerTool scan` helper. It was written for this course's lab and is not a tool used in the industry.
 
 ## How it works
 

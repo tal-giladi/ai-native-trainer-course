@@ -43,7 +43,9 @@ Ask five engineers what "the AI layer" contains and you will get five lists: "th
 There is also a commercial reason. The organizations you will train rarely standardize on one agent. The backend team uses Claude Code, the front-end team uses Cursor, the enterprise license covers GitHub Copilot. If your method only works in one tool, it is a tool tutorial. If you can say "this is a *fact* the agent must always know, so it goes in the always-loaded layer — here is where each of your three tools reads it", you are teaching architecture.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the three axes and the decision rule. **Implementation** (changes quarterly): every file name and front-matter key in the tables. All tool details are as of 2026-09; re-check each tool's docs before teaching them.
+> The core ideas in this lesson will stay true for years. You place any part of the AI layer by asking three questions: when it loads, whether it only advises or actually enforces, and how widely it applies. A simple rule then tells you which kind of part to use.
+>
+> What will go out of date, often within a few months, is every file name and front-matter key (a setting in the block at the top of a file) in the tables. All tool details are as of September 2026, so check each tool's documentation before you teach them.
 
 ## How it works
 

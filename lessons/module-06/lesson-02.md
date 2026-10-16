@@ -33,7 +33,11 @@ Five skills cover the procedure points of that loop: **prime** (load the ticket 
 The design question in this lesson is not what each skill says. It is how they connect. A chain of skills is a pipeline, and a pipeline is only as reliable as its handoffs.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): skills as pipeline stages, handoff through artifacts, invocation chosen by side effects, a contract check at every boundary. **Implementation** (as of 2026-09): the Claude Code skill fields used below, `!` command injection, and the course tools `LoopGate` and `SkillCheck`. The five names come from the source material; your team may call them something else.
+> The core ideas in this lesson will stay true for years: skills as stages in a pipeline, passing work from one stage to the next through files rather than conversation, choosing how a skill is started based on what it changes in the world, and checking the agreed inputs and outputs at every handover.
+>
+> The tool details will go out of date. As of September 2026 these are the Claude Code skill fields used below, `!` command injection, and the course tools `LoopGate` and `SkillCheck`.
+>
+> The five stage names come from the source material. Your team may call them something else.
 
 ## How it works
 

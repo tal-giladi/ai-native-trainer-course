@@ -33,7 +33,11 @@ Since Module 2 the course has told you to say "held" or "clearly improved" and t
 None of it is exotic. It is the statistics of coin flips, plus one correction that most published agent evals still skip: trials of the same task are not independent, so "100 trials" is often much less evidence than it sounds.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): binomial variation, Wilson intervals, pass@k and pass^k, sample size, clustering by task. **Implementation**: `EvalHarness stats` and `runs`. Bootstrap and permutation tests for engineering metrics come in Module 13.
+> The core ideas in this lesson will stay true for years: how pass rates vary from run to run by chance, Wilson intervals (a margin of error that stays honest with few runs), the difference between pass@k (at least one of k tries succeeds) and pass^k (all k tries succeed), how many runs you need, and grouping results by task so repeated runs of the same task are not counted as independent evidence.
+>
+> The tool details are the course's `EvalHarness stats` and `runs` commands, which may change.
+>
+> More advanced statistical tests for engineering metrics come in Module 13.
 
 ## How it works
 

@@ -35,7 +35,9 @@ Underneath, the channel collected about fourteen complaints a week ("it keeps ed
 Enablement is not an event. It is a small set of recurring mechanisms (training paths, practice time, office hours, a feedback loop, ownership), each with an owner, a cadence and an output, that together keep effort expectancy low and facilitating conditions in place (19.1). You designed a workshop in Module 17; this lesson places it in the system that makes it matter.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): role-based paths, practice time, measuring beyond reaction, office hours, the feedback loop and its queue, ownership that survives the handover. **Implementation** (as of 2026-09): the AI Act's literacy obligation and its enforcement dates, DORA's estimates, managed settings, `AdoptCheck enablement`.
+> The core ideas in this lesson will stay true for years: learning paths by role, protected time to practise, measuring more than whether people liked the training, office hours, a feedback loop and the queue of requests it creates, and ownership that keeps working after you hand the program over.
+>
+> Some details will go out of date. As of September 2026, these include the EU AI Act's requirement that staff have AI literacy and the dates it is enforced, DORA's estimates (DORA is a long-running research program on software delivery), managed settings (configuration an administrator sets centrally for everyone), and `AdoptCheck enablement`.
 
 ## How it works
 

@@ -31,7 +31,9 @@ Most engineers who start selling make the same two mistakes. They say yes to eve
 Qualification is the honest middle. An application form asks, before anyone spends an hour, whether there is a real problem, someone who can decide, money that can move, a reason to act now, and no conflict with your employer. A discovery call then does, for a buyer, what Module 1's customer interviews did for your wedge ([01.4](../module-01/lesson-04.md)): it asks about past events, listens, and ends with a decision both sides understand, including "not me". The course calls this professional qualification, and it has no manipulative tactics in it, because the moment you use one you have stopped finding out whether you can help.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): qualification criteria, data minimization, past-event questions, expectation resets, the ethics of pressure. **Implementation**: `OfferCheck qualify` and `call` rules and thresholds; the GDPR as one example of a data-protection law (orientation only, jurisdiction-dependent).
+> The core ideas in this lesson will stay true for years: the criteria for deciding whether a prospect is a good fit, collecting only the data you need, asking about what actually happened in the past rather than what people think they would do, resetting the client's expectations, and the ethics of putting pressure on a buyer.
+>
+> The tool details will go out of date: the rules and thresholds that `OfferCheck qualify` and `call` check. The GDPR (the EU's data-protection law) is used only as one example of such a law, for orientation; what applies to you depends on where you and your clients are.
 
 ## How it works
 

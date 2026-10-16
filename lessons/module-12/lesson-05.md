@@ -31,7 +31,9 @@ Four lessons produced four sets of decisions for Fabrikam: EU cloud-hosted model
 Two artifacts carry it. **Architecture decision records** keep the *why*: the forces, the options you rejected, what you gave up. The **reference architecture** keeps the *what*: boxes, arrows and trust boundaries, each traceable to a decision. Together they answer the enterprise security review, the 30 questions every architect, CISO and data-protection officer will ask in some form. This is also the portfolio artifact for the stage: the `enterprise-architecture` repository ([scaffold](../../projects/enterprise-architecture/README.md)).
 
 > [!NOTE]
-> Content tags. **Concept** (stable): ADR structure and immutability, supersession, context and container views, trust boundaries, evidence-backed review answers, traceability. **Implementation**: the course's ADR template, the `ArchCheck adr` and `review` checks, mermaid for diagrams.
+> The core ideas in this lesson will stay true for years: how an ADR (architecture decision record, a short document that records one design decision and why it was made) is structured and why it is never edited after it is accepted, replacing an old ADR with a new one, context and container diagrams (a view of the system and its surroundings, and a view of its main running parts), trust boundaries, answering review questions with evidence, and tracing each decision to what it affects.
+>
+> The course-specific details may change in later versions: the ADR template, the `ArchCheck adr` and `review` checks, and the use of Mermaid (a text format for drawing diagrams).
 
 ## How it works
 

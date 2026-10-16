@@ -33,7 +33,9 @@ A ticket that your agent completes correctly 7 times out of 10 is the most commo
 This lesson gives you that arithmetic. It explains where variation comes from (sampling, and — less famously — the inference server itself), why an agent trajectory multiplies small per-step risks into large per-task ones, and why "make it deterministic" is the wrong goal. The right goal is a high, *measured* success rate plus a verifier that catches the rest. Every evaluation idea in Module 7 grows from this.
 
 > [!NOTE]
-> Content tags: **concept** — softmax, temperature, top-p, compounding probability, sources of non-determinism. **Implementation** — which parameters a given provider or model still exposes (this changes; see "as of 2026-09" notes).
+> The core ideas in this lesson will stay true for years. Softmax turns the model's raw scores into probabilities. Temperature controls how strongly the top choice wins. Top-p limits the choice to the most likely options. Small chances of error multiply over the many steps an agent takes. And there are several separate reasons the same prompt can give different answers.
+>
+> What will go out of date is which of these settings each provider or model still lets you change. That keeps shifting, and the lesson marks those details as of September 2026.
 
 ## How it works
 

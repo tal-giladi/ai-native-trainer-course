@@ -32,7 +32,9 @@ A live agent demo is a stochastic, multi-step system running on shared infrastru
 What the room remembers is not whether it broke but what you did next. A presenter who freezes, apologizes for a minute and retries the same thing three times teaches the room that agents are fragile and that you do not know why. A presenter who says what happened, switches to a prepared fallback inside a minute and uses the failure to explain something true about agents in real work often gives the most useful minute of the talk. That difference is preparation, and this lesson is the preparation. The outline's lab asks you to cause a failure on purpose during a recorded run and recover on camera — so that the first time it happens is not in front of a client.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): failure classes, $P(\text{clean})$ as a product, live vs recorded vs pre-baked, the recovery pattern, failure as teaching. **Implementation**: API error codes, `/rewind`, `DemoCheck runsheet` and `drill` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: the types of failure, the chance of a clean run being the product of each step's chance of success (so it shrinks with every step), choosing between live, recorded and pre-baked (prepared in advance) segments, the pattern for recovering on stage, and using a failure as a teaching moment.
+>
+> The tool details are current as of September 2026 and will change: API error codes, the `/rewind` command, and the `DemoCheck runsheet` and `drill` commands.
 
 ## How it works
 

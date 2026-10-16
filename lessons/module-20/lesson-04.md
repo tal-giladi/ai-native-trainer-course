@@ -29,7 +29,9 @@ The sample question for this module is the moment it all comes together: *a pros
 Most consulting disputes are not about quality. They are about scope: what was included, what "done" meant, who was supposed to provide access, and whether the extra team, the weekend and the MCP server someone asked for on a call were part of the fixed fee. A good SOW makes those questions boring, because the answers are written down. Scope control then becomes a habit: every request that is not in the SOW goes into a log and ends as a change request, a logged concession, a deferral or a no.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): proposal structure, results-based deliverables, acceptance criteria, exclusions, change control, measurement instead of a guarantee. **Implementation**: `OfferCheck proposal`, `sow` and `changes`, the reference documents and their example terms. Legal clauses in a SOW are orientation only (20.5).
+> The core ideas in this lesson will stay true for years: how a proposal is structured, deliverables defined by results, acceptance criteria (the agreed test for when a piece of work is done), exclusions, change control (an agreed process for changing the scope), and offering a measurement instead of a guarantee.
+>
+> The tool details will go out of date: `OfferCheck proposal`, `sow` and `changes`, and the reference documents with their example terms. The legal clauses in a SOW (statement of work, the contract document that defines the job) are for orientation only (see 20.5).
 
 ## How it works
 

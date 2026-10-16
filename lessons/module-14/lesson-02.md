@@ -31,7 +31,9 @@ It is also what separates a concept from a slogan. "Agents need context" is true
 This lesson is the mining step. You have been collecting the ore since Module 5: the failure-diagnosis log, the AI-layer changelog's incidents (Module 11), the experiment report (Module 13). Most of it will not become a concept. Two or three things will, and they will carry your method.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): clustering by mechanism, falsifiable bounded claims, evidence strength and status, name tests, the paraphrase test. **Implementation**: the concept card format and `MethodCheck trace` (as of 2026-09).
+> The core ideas in this lesson will stay true for years: grouping practices by the mechanism that makes them work, claims that are bounded and could be proved wrong, rating the strength and status of evidence, the tests for a good name, and the paraphrase test (asking a non-engineer to explain the idea back in their own words).
+>
+> The tool details are current as of September 2026 and will change: the concept card format and the `MethodCheck trace` command.
 
 ## How it works
 

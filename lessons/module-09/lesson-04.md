@@ -29,7 +29,9 @@ last_verified: "2026-09-28"
 Injection is how an attacker sends instructions; **excessive agency** is how much damage those instructions can do. OWASP LLM06 defines it as the harm from an agent that can take more consequential actions than the task needs ([OWASP LLM06](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)). Two agents can be equally gullible; the one with `Bash(*)`, write-enabled MCP tools and open egress turns a planted sentence into a breach, while the one scoped to read a schema and edit `src/` turns the same sentence into nothing. This lesson is about shrinking the blast radius before an injection ever lands, and about a second, quieter risk: the code the agent *writes* can be insecure even when no one is attacking it.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the three root causes of excessive agency, exfiltration channels, generated-code vulnerability, approval gates as blast-radius control. **Implementation** (as of 2026-09): the lab attacks A03/A06, the .NET analyzer CA2100.
+> The core ideas in this lesson will stay true for years: the three reasons an agent ends up with too much power (too many tools, too broad permissions, and too little human checking), the ways data can leak out, security holes in code the agent writes, and approval steps as a way to limit how much damage one mistake can do.
+>
+> The tool details will go out of date. As of September 2026 these are the lab attacks A03 and A06 and the .NET code analyzer rule CA2100.
 
 ## How it works
 

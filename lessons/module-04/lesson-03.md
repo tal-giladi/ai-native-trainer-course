@@ -34,7 +34,9 @@ When an agent gets something wrong, the reflex is to blame the model or to add a
 You will need this vocabulary as a trainer too. A client says "our agent is unreliable on the billing module". The first thing you do is not a new prompt; it is a context audit that names what is wrong in terms the team can act on.
 
 > [!NOTE]
-> Content tags. **Concept** (stable): the five pathologies, symptom-to-cause mapping, confirmation by ablation. **Implementation**: `ContextLab audit` heuristics, Claude Code nested-file loading (as of 2026-09).
+> The core ideas in this lesson will stay true for years. Context goes bad in five ways: it gets polluted, stale, contradictory, redundant or irrelevant. You learn to trace a symptom in the agent's output back to its cause. Then you confirm the cause by ablation, which means removing one item, rerunning, and seeing whether the behavior changes.
+>
+> The tool details that will go out of date are the checks used by the course's `ContextLab audit` tool and the way Claude Code loads files in subfolders, both as of September 2026.
 
 ## How it works
 
