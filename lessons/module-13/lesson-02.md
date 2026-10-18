@@ -32,7 +32,13 @@ sources:
     url: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report
   - title: "Stack Overflow — 2025 Developer Survey, AI section"
     url: https://survey.stackoverflow.co/2025/ai
-last_verified: "2026-09-28"
+  - title: "Shen and Tamkin (2026) — How AI Impacts Skill Formation"
+    url: https://arxiv.org/abs/2601.20245
+  - title: "Anthropic (2026-01-29) — How AI assistance impacts the formation of coding skills"
+    url: https://www.anthropic.com/research/AI-assistance-coding-skills
+  - title: "Bastani et al. (2025) — Generative AI without guardrails can harm learning: Evidence from high school mathematics (PNAS)"
+    url: https://doi.org/10.1073/pnas.2422633122
+last_verified: "2026-10-18"
 ---
 
 # 13.2 · The evidence base on AI productivity
@@ -76,6 +82,8 @@ flowchart TB
 | Butler et al. (2024) | RCT + diary study | Developers at a multinational software company | perceptions, practices | perceived usefulness and enjoyment rose with use; trust in AI-generated code did not change |
 | DORA 2024 and 2025 | Large surveys with modelled associations | ~5,000 respondents in 2025; 90% use AI at work | self-reported delivery performance | 2024: AI adoption associated with lower throughput and stability; 2025: now positively associated with throughput, still associated with **higher instability**; "AI is an amplifier" |
 | Stack Overflow 2025 | Survey | 84% using or planning to use AI tools | trust, frustrations | 46% distrust AI accuracy vs 33% who trust it; 66% name "almost right, but not quite" as their biggest frustration |
+| Shen and Tamkin (2026, Anthropic) | Lab RCT | 52 mostly junior Python developers learning an unfamiliar async library (Trio); chat assistant | quiz on the library right after the task; time | AI group scored **50% vs 67%** (Cohen's d 0.74, p = 0.01), largest gap on debugging questions; about two minutes faster, not significant |
+| Bastani et al. (2025, PNAS) | Field RCT | about 1,000 high-school maths students in Turkey; GPT-4 as plain chat or as a tutor with learning safeguards | practice scores, then an exam without AI | plain chat: practice +48%, exam **−17%** vs no AI; safeguarded tutor: practice +127%, exam about the same as no AI |
 
 ### Why they disagree
 
@@ -87,6 +95,12 @@ flowchart TB
 6. **Perception vs measurement.** METR's developers believed they were 20% faster while measured 19% slower. Ziegler et al. found perceived productivity tracks how often suggestions are accepted. Self-reports are data about experience, not about throughput.
 7. **Quality is usually missing.** Most speed studies do not follow code for weeks. The two that watch quality at scale — DORA's instability findings and He et al.'s warnings and complexity — both see a cost.
 8. **Who ran it.** Several authors of the Copilot studies worked at Microsoft or GitHub; METR is an independent non-profit. Affiliation is not evidence of error, but it belongs in the critique, and so does publication of the full method.
+
+### Speed is not learning
+
+Every study above measures work getting done. The last two rows measure something else: what people can do **afterwards, without the tool**. Both found a cost when learners let the assistant do the thinking. In Shen and Tamkin's trial the AI group did not get a significant speed-up and understood the library less, especially when it came to debugging. Their qualitative analysis splits AI users by how they worked. Those who handed over the code generation, or kept asking the AI to fix errors, averaged below 40%. Those who asked conceptual questions, or generated code and then asked for an explanation, averaged 65% or more. Bastani et al. found the same shape in a different population, with independent authors: unrestricted chat raised practice scores and lowered exam scores, while a tutor that gave hints rather than answers removed most of the harm.
+
+Treat this as a warning, not a measured effect size. Both trials are short-term. Shen and Tamkin's sample is small and its subgroups have 2–7 people each. The interaction-pattern split is correlational, and the authors (an AI vendor's researchers) note that agentic tools may make the effect stronger. Two consequences follow for you. First, when a client says "juniors ship faster with the agent", ask what they can still debug without it: speed and competence are separate outcomes, and 13.3 can measure both. Second, the exercises in your own workshops are learning tasks. Use the agent so that learners predict, read and explain its output ([16.3](../module-16/lesson-03.md)), not so that it does the exercise for them.
 
 ### The critique checklist
 
@@ -168,7 +182,7 @@ Put the table from this lesson in the appendix, with links.
 
 **Use** the evidence base to set expectations ("somewhere between a small loss and a large gain, depending on task and developer"), to choose metrics and guardrails for your own experiment, and to design it (METR's per-task randomization is the template for 13.3).
 
-**Don't** forecast a client's effect from any published study. **Don't** cite surveys (DORA, Stack Overflow) as measurements of productivity: they are measurements of what people report and of associations. **Don't** slide into "nobody knows, so anything goes": the literature supports specific, conditional statements, and it supports measuring.
+**Don't** read a speed-up as a skill gain: the two learning trials above found AI help can lower what people can do on their own. **Don't** forecast a client's effect from any published study. **Don't** cite surveys (DORA, Stack Overflow) as measurements of productivity: they are measurements of what people report and of associations. **Don't** slide into "nobody knows, so anything goes": the literature supports specific, conditional statements, and it supports measuring.
 
 **Limitations.**
 
@@ -195,3 +209,6 @@ Put the table from this lesson in the appendix, with links.
 - [Butler et al. (2024) — Dear Diary](https://arxiv.org/abs/2410.18334) — RCT and diary study; perceived usefulness and enjoyment up, trust unchanged.
 - [Google Cloud blog — Announcing the 2025 DORA report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — ~5,000 respondents; 90% use AI; AI positively associated with throughput, negatively with stability; AI as amplifier.
 - [Stack Overflow — 2025 Developer Survey, AI](https://survey.stackoverflow.co/2025/ai) — 84% use or plan to use AI; 46% distrust accuracy vs 33% trust; 66% frustrated by "almost right" output.
+- [Shen and Tamkin (2026) — How AI Impacts Skill Formation](https://arxiv.org/abs/2601.20245) — RCT, 52 developers learning Trio; AI use lowered conceptual understanding, code reading and debugging, with no significant speed gain.
+- [Anthropic (2026-01-29) — How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/AI-assistance-coding-skills) — the authors' summary: 50% vs 67% quiz scores, the six interaction patterns and their scores, and stated limitations (small sample, immediate quiz only, chat rather than agentic tool).
+- [Bastani et al. (2025) — Generative AI without guardrails can harm learning (PNAS)](https://doi.org/10.1073/pnas.2422633122) — field RCT with about 1,000 high-school students: plain GPT-4 chat raised practice scores and cut exam scores 17%; a safeguarded tutor largely removed the drop.
