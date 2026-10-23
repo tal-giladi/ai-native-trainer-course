@@ -27,3 +27,25 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** Not a new lesson. Candidate for a short real-world case-study addition at the next FIX-eligible opportunity: a sentence or callout in lessons/module-08/lesson-01.md's "Security best practices" bullet list (around line 97–99) naming this CVE as a concrete example of a *client-side* confused-deputy failure (the mirror of the server-side token-passthrough case already taught), and/or as a citable example in module-09's MCP security material.
 - **Confidence:** high (primary GitHub advisory read directly; CVE/CVSS/version ranges confirmed)
 - **Recommendation:** monitor for the next weekly review; likely a small FIX/addition to lessons/module-08/lesson-01.md (and possibly module-09) rather than a new lesson — low cost, concrete, primary-sourced example that extends (does not contradict) current teaching.
+
+### C-20261023-01 · GitLab Duo AI-agent instruction-injection → command execution as another user (CVE-2026-96893)
+
+- **Class:** A
+- **Kind:** new-topic
+- **Date discovered:** 2026-10-23
+- **Date published:** 2026-10-13
+- **Source:** https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/96xxx/CVE-2026-96893.json (primary CVE record, fetched this session; GitLab's own advisory/patch-release pages at docs.gitlab.com/about.gitlab.com could not be reached from this environment — DNS failures on every gitlab.com subdomain tried, unlike github.com which resolved fine in the same session)
+- **Organization/researchers:** GitLab (vendor-disclosed via its own security-release process; CWE-1427 "Improper Neutralization of Input Used for LLM Prompting")
+- **Category:** agent-security
+- **What changed:** GitLab EE has a flaw in how Duo (GitLab's AI coding/chat agent) builds AI conversation context. Under certain conditions an authenticated user can inject crafted content into the agent's instructions, which can trigger command execution attributed to a *different* user — i.e. one user's injected text makes the agent act with another user's authority.
+- **Technical summary:** CVSS 3.1 7.3 High, `AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N`. Affects GitLab EE 19.1 before 19.2.8, 19.3 before 19.3.5, 19.4 before 19.4.2; fixed in 19.2.8 / 19.3.5 / 19.4.2 (GitLab.com already patched). No KEV listing or public PoC found.
+- **Why it might matter:** It is a concrete, vendor-confirmed instance of exactly the pattern module-09/lesson-01 already teaches generically (untrusted text reaching an agent that then acts with someone else's authority/privilege — the identity/trust-boundary half of the lethal-trifecta model) but in a second major, real-world coding-agent product (GitLab Duo) rather than Claude Code, GitHub Copilot or the GitHub MCP server, which are the only products the lesson currently cites (Invariant Labs' GitHub MCP case, line 31; Claude Code CVE-2026-103435/CVE-2026-54316 in 09.5 per `references/research-log.md` rows 162–163). Widens the "this happens to every vendor, not just one" point the lesson is making.
+- **Evidence of adoption:** N/A (vulnerability disclosure, not a product claim)
+- **Major organizations using it:** GitLab Duo ships to all GitLab.com and self-managed EE customers with Duo enabled; GitLab is one of the two dominant Git hosting/CI platforms this course's audience is likely to use.
+- **Open-source implementation:** GitLab EE is source-available; fix landed in the 19.2.8/19.3.5/19.4.2 patch releases (gitlab.com/gitlab-org/gitlab).
+- **Paper:** none
+- **Code:** https://gitlab.com/gitlab-org/gitlab/-/work_items/607968 (referenced by the CVE record; not independently fetched — gitlab.com unreachable from this session)
+- **Relationship to existing course material:** lessons/module-09/lesson-01.md (trust boundaries, identity, lethal trifecta/Rule-of-Two, OWASP LLM01/ASI01 mapping — cites the Invariant Labs GitHub MCP case as its one worked real-world example); lessons/module-09/lesson-05.md (security advisories as case studies, per research-log rows 162–163). `lookup "GitLab"` / `"GitLab Duo"` / `"CVE-2026-96893"` / `"command execution attributed"` all returned no match — new to the registry.
+- **Potential course lesson:** Not a new lesson. Candidate for a one- or two-sentence addition to module-09/lesson-01.md's real-world-example paragraph (around line 31, alongside the Invariant Labs GitHub MCP case) naming this as a second, different-vendor instance of the same identity/trust-boundary failure, and/or a line in lesson-05's advisory case-study material.
+- **Confidence:** medium-high (CVE record read directly from the official CVE List V5 GitHub mirror, which mirrors cve.org; GitLab's own advisory page could not be independently fetched this session due to DNS resolution failures on gitlab.com domains)
+- **Recommendation:** monitor for the next weekly review; likely a small FIX/addition to lessons/module-09/lesson-01.md and/or lesson-05.md rather than a new lesson.
