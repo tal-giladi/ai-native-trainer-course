@@ -6,6 +6,28 @@ candidates here (full records); the weekly review evaluates them, archives this 
 
 ## Candidates
 
+### C-20261025-01 · Visual Studio / SQL Server Management Studio Copilot RCE via prompt injection (CVE-2026-103572)
+
+- **Class:** A
+- **Kind:** new-topic
+- **Date discovered:** 2026-10-25
+- **Date published:** 2026-10-13
+- **Source:** https://msrc.microsoft.com/csaf/advisories/2026/msrc_cve-2026-103572.json (primary MSRC CSAF advisory record, fetched this session); advisory page https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-103572 (JS-rendered, header only reachable directly, CSAF JSON used instead)
+- **Organization/researchers:** Microsoft (vendor advisory, October 2026 Patch Tuesday). Secondary coverage (securityonline.info, toolnavs.com, rocket-boys.co.jp — not independently verified against MSRC's own text) attributes discovery/disclosure to independent researcher Johann Rehberger on 2026-10-13; MSRC's own CSAF record does not name a researcher in what this session could fetch.
+- **Category:** agent-security
+- **What changed:** A path-validation bypass in a Copilot component shared by Visual Studio and SQL Server Management Studio let Copilot be induced, via prompt injection, to write to files outside its intended scope (secondary coverage specifies MCP configuration and Visual Studio settings files), leading to code execution. MSRC's own FAQ text (fetched this session): an attacker can remotely send a malicious prompt with no prior access; a user must interact with Copilot; the injection causes execution of attacker-controlled instructions, which can become remote code execution when backend components/integrated tools run the unintended commands.
+- **Technical summary:** CWE-94 (Improper Control of Generation of Code / Code Injection). CVSS 3.1 8.8 High (base), 7.7 (temporal): `AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C`. Affected: Visual Studio 2022 version 17.14 before 17.14.42; Visual Studio 2026 version 18.10 before 18.10.4. Fixed in 17.14.42 and 18.10.4 (shipped 2026-10-13 Patch Tuesday). Not publicly disclosed/exploited per MSRC at time of fix. The "trailing dot bypasses path validation in `Microsoft.VisualStudio.Copilot.Core.dll`, fix normalizes the path" mechanism is reported consistently across secondary sources but is not the text this session could pull directly from MSRC's CSAF JSON, so it is recorded as secondary-sourced, not primary-confirmed.
+- **Why it might matter:** A concrete, vendor-patched, high-severity (8.8) case of indirect prompt injection escalating to code execution in a major non-Anthropic IDE/dev-tool family (Visual Studio, SSMS) that this course's .NET-background audience is likely to use directly — a third distinct vendor/product (after Claude Code's own advisories and GitLab Duo, already staged as C-20261023-01) for module-09's "this happens to every vendor, not just one" argument, and the path-validation-bypass mechanism echoes the symlink/write-outside-scope pattern already taught via Claude Code's GHSA-5j29-h97v-84ch.
+- **Evidence of adoption:** N/A (vulnerability disclosure, not a product claim).
+- **Major organizations using it:** Visual Studio 2022/2026 and SQL Server Management Studio with Copilot enabled — Microsoft's primary IDE and database-tooling products; very broad .NET-developer install base.
+- **Open-source implementation:** none (closed-source Visual Studio/SSMS component).
+- **Paper:** none.
+- **Code:** https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-103572
+- **Relationship to existing course material:** lessons/module-09/lesson-01.md line 31 (Invariant Labs GitHub MCP case as the lesson's one worked real-world example of untrusted text reaching an agent that then acts with more authority than intended); lessons/module-09/lesson-05.md lines 179–180 (Claude Code advisory case-study list: CVE + fix version + publish date, for GHSA-5j29-h97v-84ch and GHSA-fg94-h982-f3mm). `lookup "Copilot"` shows extensive existing coverage of GitHub Copilot's agent mode, rules files and MCP endpoint across modules 01–20, but no mention of Visual Studio Copilot or this CVE; `lookup "CVE-2026-103572"` / `"Visual Studio"` / `"Semantic Kernel"` return no matches — new to the registry.
+- **Potential course lesson:** Not a new lesson. Candidate for a one-line addition to lesson-05's advisory list (third vendor, same CVE/fix/date format) and/or a second sentence in lesson-01's real-world-example paragraph.
+- **Confidence:** medium-high — CVSS vector, CWE, affected/fixed version ranges and the prompt-injection-to-RCE FAQ description are read directly from Microsoft's own CSAF advisory record; the specific "trailing dot" mechanism and researcher attribution rest on secondary coverage only.
+- **Recommendation:** monitor for next weekly review; likely a small FIX/addition to lessons/module-09/lesson-05.md (and/or lesson-01.md) rather than a new lesson.
+
 ### C-20261020-01 · MCP TypeScript SDK OAuth client credential-exposure vulnerability (CVE-2026-104850 / GHSA-6qxp-vccf-f47h)
 
 - **Class:** A
