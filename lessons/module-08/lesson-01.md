@@ -25,6 +25,8 @@ sources:
     url: https://code.claude.com/docs/en/mcp
   - title: "Anthropic Engineering — Writing effective tools for AI agents (2025)"
     url: https://www.anthropic.com/engineering/writing-tools-for-agents
+  - title: "MCP TypeScript SDK security advisory GHSA-6qxp-vccf-f47h (OAuth client sent credentials to a server-chosen authorization server, fixed 1.31.0 / 2.2.0)"
+    url: https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-6qxp-vccf-f47h
 last_verified: "2026-09-28"
 ---
 
@@ -96,6 +98,7 @@ This is the part most teams get wrong, so be precise.
 
 - **stdio servers** do not use the protocol's authorization at all. The specification says they **SHOULD NOT** follow it and should retrieve credentials from the environment. In practice: an environment variable, set by you, inherited by the subprocess. The server acts with whatever that credential can do.
 - **HTTP servers** use OAuth 2.1. The MCP server is an OAuth *resource server*; it publishes Protected Resource Metadata (RFC 9728) that tells the client which authorization server to use. The client **MUST** send a `resource` parameter (RFC 8707) naming the server it wants a token for, and the server **MUST** check that a token was issued for *it* (audience). A server **MUST NOT** accept or pass through tokens issued for anything else: "token passthrough" turns the server into a confused deputy whose downstream calls cannot be attributed or rate-limited.
+- **The client's side of the same rule.** Because the server's metadata names the authorization server, a malicious or compromised MCP server can name *its own*. A client that does not remember which authorization server issued each stored credential will then send that server a refresh token or client secret from an earlier, legitimate sign-in, with no prompt. The official MCP TypeScript SDK had exactly this flaw until September 2026 (CVE-2026-104850, fixed in `@modelcontextprotocol/sdk` 1.31.0 and `@modelcontextprotocol/client` 2.2.0, [GHSA-6qxp-vccf-f47h](https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-6qxp-vccf-f47h)), and upgrading alone was not enough: saved credentials had to record their issuer, and non-interactive providers needed an explicit `expectedIssuer`. The rule for any client library: bind every credential to the authorization server that issued it and never send it anywhere else. A *new* interactive sign-in still goes wherever the server says, so complete sign-ins only for servers you trust.
 - **Scopes** should start minimal and grow by step-up: a 403 with `error="insufficient_scope"` names the scope needed for the operation that was refused.
 
 ### Three permission layers
@@ -268,3 +271,4 @@ $M tools break/08.1-overbroad/contoso-ops-tools.json --expect read-only
 - [Model Context Protocol — Tools](https://modelcontextprotocol.io/specification/latest/server/tools) — model-controlled tools; human in the loop SHOULD; `tools/list`, `tools/call`, `isError`; annotations untrusted; servers must validate inputs and rate-limit; clients should log tool usage.
 - [Claude Code docs — Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp) — scopes and `.mcp.json`; `${VAR}` expansion; approval for project servers; tool search by default; 10,000-token warning and 25,000-token default limit for results; `mcp__server__tool` names (as of 2026-09).
 - [Anthropic Engineering — Writing effective tools for AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) — few thoughtful tools rather than wrapping every endpoint; namespacing; token-efficient responses; evaluate tools with realistic tasks.
+- [MCP TypeScript SDK security advisory GHSA-6qxp-vccf-f47h](https://github.com/modelcontextprotocol/typescript-sdk/security/advisories/GHSA-6qxp-vccf-f47h) — a malicious MCP server could name its own authorization server and receive stored refresh tokens or client secrets without user interaction; credentials were not bound to their issuer; CVE-2026-104850, CVSS 3.1 7.5, fixed in `@modelcontextprotocol/sdk` 1.31.0 and `@modelcontextprotocol/client` 2.2.0, published 2026-09-30.

@@ -6,10 +6,12 @@ Every topic the weekly review has decided on, so nothing is reconsidered without
 | Status | Topic | Next review | Course change | Last decision |
 |---|---|---|---|---|
 | ADD | [AI assistance and skill formation (learning-outcome RCTs)](research/accepted/ai-assistance-and-skill-formation.md) | n/a | lessons/module-13/lesson-02.md (two evidence-table rows, "Speed is not learning" subsection, one Use/don't-use line, three sources; no new lesson) | 2026-10-18 |
+| ADD | [MCP clients must bind OAuth credentials to their issuer](research/accepted/mcp-client-oauth-issuer-binding.md) | n/a | lessons/module-08/lesson-01.md ("Where credentials enter": one bullet on the client side of credential binding, one source; no new lesson, quiz unchanged) | 2026-10-25 |
 | WAIT | [Anthropic Claude Frontier Academy / Frontier Deployed Engineer credential](research/deferred/anthropic-frontier-deployed-engineer-credential.md) | 2026-12-13 | none | 2026-10-18 |
 | WAIT | [Claude Code idle-triggered automatic compaction](research/deferred/claude-code-idle-compaction.md) | 2026-11-15 | none | 2026-10-18 |
 | WAIT | [Claude Code plugin marketplace and "Claude Mods"](research/deferred/claude-code-plugin-marketplace-mods.md) | 2026-11-29 | none | 2026-10-18 |
 | WAIT | [Coding agents in CI: zero-privilege issue/PR text reaching runner secrets](research/deferred/coding-agent-ci-untrusted-issue-secrets.md) | 2026-11-22 | none as a topic (the Claude Code advisory GHSA-fg94-h982-f3mm was used as evidence in the 2026-W41 FIX to lessons/module-09/lesson-05.md) | 2026-10-11 |
 | WAIT | [DORA — ROI of AI-assisted Software Development report](research/deferred/dora-roi-of-ai-assisted-development.md) | 2026-11-22 | none | 2026-10-11 |
 | WAIT | [METR incident: agent prompted to reveal its own provider API key](research/deferred/metr-agent-api-key-theft-incident.md) | 2026-11-22 | none | 2026-10-11 |
+| WAIT | [Prompt-injection CVEs in other vendors' coding agents (case-study pool)](research/deferred/cross-vendor-coding-agent-injection-cves.md) | 2026-11-22 | none | 2026-10-25 |
 | REJECT | [GuardFall: command-text denylists bypassed by shell rewriting](research/rejected/guardfall-shell-denylist-bypass.md) | on new evidence | none | 2026-10-11 |

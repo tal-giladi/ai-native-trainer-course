@@ -4,6 +4,14 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-W43 (2026-10-25)
+
+- **Extended** [08.1 MCP architecture, authentication and authorization](../lessons/module-08/lesson-01.md) — "Where credentials enter" now
+  covers the client's side: because the server names the authorization server, a client must bind each
+  stored credential to the server that issued it, or a malicious MCP server can collect your refresh
+  tokens (the official TypeScript SDK's CVE-2026-104850, fixed 1.31.0 / 2.2.0).
+  [Weekly report](weekly/2026-W43.md).
+
 ## 2026-W42 (2026-10-18)
 
 - **Extended** [13.2 The evidence base on AI productivity](../lessons/module-13/lesson-02.md) — two
