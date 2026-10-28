@@ -49,3 +49,25 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** not a new lesson; candidate one-paragraph addition to 09.2 or 08.1 noting text-based scanners can be bypassed by non-text injection carriers decoded mid-pipeline.
 - **Confidence:** low-medium — single preprint, 24-payload attack set, no independent replication, code link unverified.
 - **Recommendation:** monitor; verify the code/data link and look for independent replication or a vendor response (e.g. an MCP SDK advisory) before considering a course addition.
+
+### C-20261028-01 · Third real-world recurrence of the write-time symlink TOCTOU pattern in Claude Code (Edit tool, macOS sandbox escape)
+
+- **Class:** B
+- **Kind:** correction (new evidence for an existing lesson, not a wrong fact)
+- **Date discovered:** 2026-10-28
+- **Date published:** 2026-10-26
+- **Source:** https://github.com/anthropics/claude-code/security/advisories/GHSA-5xjx-9qx6-jcrv (fetched and verified this session)
+- **Organization/researchers:** Anthropic (advisory published by maintainer `ddworken`); reported by Sunder Singh (hackerone.com/mahoraga007)
+- **Category:** agent-security (cross-cutting with coding-agents)
+- **What changed:** A second, distinct CVE (CVE-2026-88968, CVSS v4.0 7.7) in the same vulnerability *class* that lessons/module-09/lesson-05.md already teaches by name via GHSA-5j29-h97v-84ch (CVE-2026-103435, fixed 2.1.129, published 2026-10-05): time-of-check/time-of-use (TOCTOU) symlink following around a file write. This new one is scoped to the Edit tool specifically and to a sandbox-escape attack path on macOS, not the general path-validation bug the first advisory fixed.
+- **Technical summary:** Claude Code validated the Edit tool's target path (resolving symlinks) at check time but did not bind that check to the underlying directory inode/file descriptor. Inside Claude Code's Bash sandbox, a process from a malicious repo or dependency script can atomically swap an in-workspace parent directory for a symlink after validation but before the write; the unsandboxed Edit implementation then follows the symlink and overwrites an attacker-chosen, user-writable file outside the workspace. CWE-59 (link following) + CWE-367 (TOCTOU race). Affected < 2.1.251; fixed in 2.1.251.
+- **Why it might matter:** 09.5's further-reading list already cites two CVEs as its running example of "a layer that looked sufficient had a gap a different layer should have covered" (GHSA-5j29 symlink TOCTOU; GHSA-fg94 bare-hostname pre-approval). A *third*, independent instance of the identical symlink-TOCTOU root cause — nine-plus months after the first was fixed, in a different tool path (Edit) and a different attack surface (sandbox escape, not general path validation) — is good evidence for the lesson's own thesis that this is a structural, recurring risk category in agentic file-editing tools, not a one-off bug. `lookup "TOCTOU"` / `"symlink"` confirm only the first CVE is currently cited.
+- **Evidence of adoption:** N/A — this is a disclosed-and-patched vulnerability in Claude Code itself, not a third-party tool or technique with an adoption question.
+- **Major organizations using it:** N/A.
+- **Open-source implementation:** N/A (vulnerability advisory, not a tool).
+- **Paper:** none.
+- **Code:** fix shipped in `@anthropic-ai/claude-code` 2.1.251 (npm); advisory has no public PoC.
+- **Relationship to existing course material:** lessons/module-09/lesson-05.md lines ~20-23 and ~176-180 (sandboxing/defense-in-depth further reading, cites GHSA-5j29-h97v-84ch and GHSA-fg94-h982-f3mm as the two running examples); `last_verified: 2026-10-11` predates this advisory.
+- **Potential course lesson:** not a new lesson; candidate one-line addition to 09.5's further-reading list as a third bullet (same format as the existing two), and bump `last_verified`. Strengthens, does not contradict, the existing "use every layer together" argument.
+- **Confidence:** high — primary GitHub Security Advisory, directly fetched and verified this session, with CVE, CVSS, affected/fixed versions and a dated attack-scenario writeup.
+- **Recommendation:** review for a small FIX/addition to 09.5 (third bullet + `last_verified` bump); not a new topic and not urgent enough to be A on its own.
