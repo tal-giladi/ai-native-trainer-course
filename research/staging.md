@@ -71,3 +71,25 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** not a new lesson; candidate one-line addition to 09.5's further-reading list as a third bullet (same format as the existing two), and bump `last_verified`. Strengthens, does not contradict, the existing "use every layer together" argument.
 - **Confidence:** high — primary GitHub Security Advisory, directly fetched and verified this session, with CVE, CVSS, affected/fixed versions and a dated attack-scenario writeup.
 - **Recommendation:** review for a small FIX/addition to 09.5 (third bullet + `last_verified` bump); not a new topic and not urgent enough to be A on its own.
+
+### C-20261029-01 · Claude Code plugin commit-SHA pin bypass via same-named branch (CVE-2026-86063)
+
+- **Class:** A
+- **Kind:** new-topic (also strengthens the deferred "Claude Code plugin marketplace and Mods" topic and qualifies the "pin and verify" principle in 09.3)
+- **Date discovered:** 2026-10-29
+- **Date published:** 2026-10-09
+- **Source:** https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv (fetched and verified this session)
+- **Organization/researchers:** Anthropic (advisory published by maintainer `ddworken`); reported by Or Nevo Michrowski of Air Security
+- **Category:** skills/subagents/hooks (cross-cutting with agent-security supply-chain)
+- **What changed:** A confirmed, patched vulnerability in Claude Code's plugin install flow shows that "pin to a commit hash" — the exact mitigation 09.3 teaches generically (pin and detect drift) — is not self-verifying: the install code checked out the pinned 40-char SHA with `git checkout <SHA>` but never confirmed the resulting HEAD actually equalled that SHA.
+- **Technical summary:** An attacker who controls a plugin's upstream git repo can create a branch whose name is the identical 40-character string as the SHA a user pinned to. `git checkout` resolves a SHA-shaped ref ambiguously; here it silently resolved to the attacker's branch tip instead of the immutable commit, so a user who diligently pinned to a reviewed hash still got attacker-controlled code with no warning. CWE-494 (Download of Code Without Integrity Check) + CWE-829 (Inclusion of Functionality from Untrusted Control Sphere). CVSS v4 7.7 (High). Affected `@anthropic-ai/claude-code` npm < 2.1.179; fixed 2.1.179.
+- **Why it might matter:** Lessons/module-09/lesson-03.md teaches "pin and detect" (pinned snapshots of MCP tool descriptions, DRIFT checks) as the general supply-chain defense pattern, and `last_verified: 2026-09-28` predates this advisory. This CVE is a different instance of the same *class* of gap one level up the stack: pinning a plugin to a commit hash is also presented in the ecosystem as sufficient, and here it demonstrably was not, because the verification step (confirm HEAD == pin) was missing, not the pin itself. It also directly extends `research/deferred/claude-code-plugin-marketplace-mods.md`, which is WAITing specifically for "first-party docs that define... how marketplaces are trusted" — this advisory is exactly that kind of first-party evidence about plugin-install trust. `lookup "plugin install"` / `"pinned commit hash plugin"` confirm neither this mechanism nor any correction is yet recorded.
+- **Evidence of adoption:** N/A — disclosed-and-patched vulnerability in Claude Code itself, not a third-party tool with an adoption question. Standard auto-update users already had the fix before public disclosure; manual-update users needed to upgrade to >= 2.1.179.
+- **Major organizations using it:** N/A.
+- **Open-source implementation:** N/A (vulnerability advisory, not a tool).
+- **Paper:** none.
+- **Code:** fix shipped in `@anthropic-ai/claude-code` 2.1.179 (npm); advisory has no public PoC.
+- **Relationship to existing course material:** lessons/module-09/lesson-03.md ("pin and detect" principle, `last_verified: 2026-09-28`); `research/deferred/claude-code-plugin-marketplace-mods.md` (WAIT, next review 2026-11-29, explicitly wants first-party trust-model evidence like this).
+- **Potential course lesson:** not a new lesson; candidate for (a) a short addition to 09.3's "pin and detect" section making explicit that a pin must be *verified after the fact*, not just specified at checkout time, citing this CVE as the concrete case, and (b) feeding it into the plugin-marketplace deferred topic's evidence list ahead of its 2026-11-29 review.
+- **Confidence:** high — primary GitHub Security Advisory, directly fetched and verified this session, with CVE, CVSS, precise mechanism, affected/fixed versions and credited researcher.
+- **Recommendation:** review for a small FIX/addition to 09.3 (pin-verification nuance + `last_verified` bump) and attach as new evidence to the plugin-marketplace deferred topic; not large enough alone to justify a new lesson.
