@@ -367,6 +367,7 @@
 - **Review loop (evaluator-optimizer)** — A worker produces a result, a reviewer approves or requests changes, and the worker revises until approval or a stop condition ([lesson 10.1](lessons/module-10/lesson-01.md))
 - **Reviewer equation** — One review round changes success by (1 - p) r p_fix - p f d: rescued wrong results minus correct results broken by rework after false alarms ([lesson 10.3](lessons/module-10/lesson-03.md))
 - **Rework** — Fix commits on the same files within a fixed window after a merge (21 days in this course), counted per ticket ([lesson 13.1](lessons/module-13/lesson-01.md))
+- **Rogan–Gladen correction** — Correcting an observed pass rate for a grader's known error rates, $p = (q - \text{FPR})/(\text{TPR} - \text{FPR})$; its confidence interval must include the noise in TPR and FPR from the calibration labels ([lesson 7.3](lessons/module-07/lesson-03.md))
 - **rug pull (MCP)** — A server changing its tool descriptions after the user approved it, so a one-time trust decision no longer holds ([lesson 9.3](lessons/module-09/lesson-03.md))
 - **rule of three** — The approximation that zero events in n trials gives a 95% upper bound on the true rate of about 3/n; used to report residual risk honestly ([lesson 9.6](lessons/module-09/lesson-06.md))
 - **Rules file** — An always-loaded instruction file for a coding agent, such as AGENTS.md, CLAUDE.md or copilot-instructions.md ([lesson 3.2](lessons/module-03/lesson-02.md))

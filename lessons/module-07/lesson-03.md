@@ -1,13 +1,13 @@
 ---
 id: "07.3"
 module: 7
-minutes: 16
+minutes: 19
 practice_minutes: 75
 prerequisites: ["07.2", "02.3"]
 objectives:
   - Choose between a deterministic check, a rubric, a human reviewer and an LLM judge for a task, preferring the outcome check wherever one exists.
   - Explain grader false positives and false negatives as precision and recall, and compute both from a confusion matrix against human labels.
-  - Correct an observed pass rate for known grader error with $p = (q - \text{FPR}) / (\text{TPR} - \text{FPR})$ and explain why a weak grader squashes every system toward the same score.
+  - Correct an observed pass rate for known grader error with $p = (q - \text{FPR}) / (\text{TPR} - \text{FPR})$, put a confidence interval on the corrected rate, and explain why a weak grader squashes every system toward the same score.
   - Design an LLM judge that resists verbosity and position bias, and calibrate it against 24 human-labelled answers before it grades anything that matters.
 volatility: concept
 sources:
@@ -19,6 +19,8 @@ sources:
     url: https://arxiv.org/abs/2305.17926
   - title: "Anthropic Engineering — Demystifying evals for AI agents"
     url: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+  - title: "Lee et al. (ICML 2026) — How to Correctly Report LLM-as-a-Judge Evaluations"
+    url: https://proceedings.mlr.press/v306/lee26bl.html
 last_verified: "2026-09-28"
 ---
 
@@ -84,6 +86,20 @@ $$q = \text{TPR}\cdot p + \text{FPR}\cdot(1-p) \quad\Longrightarrow\quad p = \fr
 *Implementation.* `EvalHarness calibrate human-labels.csv verdicts.csv` prints the matrix, the three rates, Cohen's kappa (agreement beyond chance) and the correction formula with your grader's numbers.
 
 *Interpretation.* The denominator $\text{TPR} - \text{FPR}$ is how much signal the grader carries. When it approaches 0, every system scores about the same and no comparison can detect anything — the grader, not the agent, has become the bottleneck. Notice too that v1's *aggregate* bias on the calibration set is only +4 points (54% vs 50%): a grader can get the average right while being nearly random on each answer. That is why you check the matrix, not the average.
+
+### How sure is the corrected number?
+
+*Intuition.* The correction uses TPR and FPR, and you measured both on a small calibration set. So the corrected $p$ carries two kinds of noise: the usual noise from the $n$ test trials the judge graded, and the noise in TPR and FPR from your few human labels. If you report the corrected number, report both. This formula is old. Epidemiologists use it to correct a disease rate for an imperfect diagnostic test (Rogan and Gladen, 1978). Lee and colleagues show how to apply it to LLM judges and how to put an interval on the result ([Lee et al., ICML 2026](https://proceedings.mlr.press/v306/lee26bl.html)).
+
+*Equation.* Let $m_1$ be the human-pass labels (they estimate TPR) and $m_0$ the human-fail labels (they estimate FPR). The approximate variance of the corrected rate is
+
+$$\text{Var}(p) \approx \frac{\dfrac{q(1-q)}{n} + p^2\,\dfrac{\text{TPR}(1-\text{TPR})}{m_1} + (1-p)^2\,\dfrac{\text{FPR}(1-\text{FPR})}{m_0}}{(\text{TPR} - \text{FPR})^2}$$
+
+and a 95% interval is $p \pm 1.96\sqrt{\text{Var}(p)}$. The same denominator appears again: a weak grader makes every source of noise bigger.
+
+*Tiny example.* Use judge v2 (TPR = 11/12, FPR = 1/12, so $m_1 = m_0 = 12$) on $n = 100$ trials, and say it observes $q = 0.75$. The corrected rate is $p = 0.80$. The three terms are $0.75 \times 0.25 / 100 = 0.0019$ (test set), $0.64 \times 0.0764 / 12 = 0.0041$ (TPR) and $0.04 \times 0.0764 / 12 = 0.0003$ (FPR). Divide their sum by $0.833^2$, take the square root, and the 95% interval is $80\% \pm 19$ points, about 61–99%. Without the calibration terms it would be $\pm 10$. Even with unlimited test trials it stays $\pm 15$. The 12 passing labels are the bottleneck. The paper recommends a small-sample version (add one pass and one fail to each calibration count before computing), and here it gives an even wider interval of about 59–100%.
+
+*Interpretation.* Twenty-four labels are enough to reject a bad judge. They are not enough to give a judged score tight error bars. At these rates, and with many test trials, you need about 115 labels per class to get to $\pm 5$ points. The paper also shows that you can label more of one class than the other to tighten the interval for the same labelling budget. Lee and colleagues also show that the correction stays unbiased when the test set has a different pass rate from the calibration set. That holds only if the judge's TPR and FPR are the same on both, so recalibrate when the task or the judge changes.
 
 ### Designing a judge that can be calibrated
 
@@ -193,6 +209,7 @@ Judge v1 is not "a bad model"; it is a good model asked the wrong question. "Tho
 - [ ] You have labelled all 24 answers yourself and explained every disagreement with `human-labels.csv`.
 - [ ] Your judge for T21 reaches precision ≥ 0.9 and recall ≥ 0.8 and shows no length bias, and you know its trial-to-trial flip count.
 - [ ] You can compute, for your judge's TPR and FPR, the observed score of a system whose true pass rate is 50%.
+- [ ] Any corrected pass rate you report comes with a 95% interval that includes the calibration-set noise, and you know how many labels would make it narrow enough.
 - [ ] `graders/calibration.md` is committed with the matrix, the date, the judge model and the recalibration triggers.
 
 ## Use / don't use
@@ -203,7 +220,7 @@ Judge v1 is not "a bad model"; it is a good model asked the wrong question. "Tho
 
 **Limitations.**
 
-- 24 labels estimate precision roughly: 11/12 has a 95% interval of about 65–99% (07.4). Grow the set for gates that matter.
+- 24 labels estimate precision roughly: 11/12 has a 95% interval of about 65–99% (07.4). That uncertainty carries into every corrected score (about ±19 points in the example above). Grow the set for gates that matter, and report the corrected rate with its interval.
 - Human labels are not ground truth either; two humans disagree too. Label a subset twice.
 - A judge's behaviour changes when its model changes. Recalibrate on every judge-model upgrade.
 
@@ -219,3 +236,4 @@ Judge v1 is not "a bad model"; it is a good model asked the wrong question. "Tho
 - [Dubois et al. (2024) — Length-Controlled AlpacaEval](https://arxiv.org/abs/2404.04475) — length bias in automatic evaluators; length control raises Spearman correlation with Chatbot Arena from 0.94 to 0.98.
 - [Wang et al. (2023) — Large Language Models are not Fair Evaluators](https://arxiv.org/abs/2305.17926) — position bias: Vicuna-13B "beats" ChatGPT on 66 of 80 queries by reordering; balanced-position calibration.
 - [Anthropic Engineering — Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — code-based, model-based and human graders and their trade-offs; model graders need calibration; read transcripts and grades.
+- [Lee et al. (ICML 2026) — How to Correctly Report LLM-as-a-Judge Evaluations](https://proceedings.mlr.press/v306/lee26bl.html) — the Rogan–Gladen correction of a judged score for the judge's sensitivity and specificity; a confidence interval that includes both test-set and calibration-set noise; uneven label allocation for tighter intervals; unbiased under a shift in pass rate if the judge's error rates do not change. Code: [LLM-judge-reporting](https://github.com/UW-Madison-Lee-Lab/LLM-judge-reporting).

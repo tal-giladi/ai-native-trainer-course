@@ -65,3 +65,22 @@
   explanation: >-
     Verbosity bias is a documented property of LLM judges. Calibrate against human labels and
     compare pass rates by length at equal human label before crediting the skill change.
+- id: q5
+  question: >-
+    Your calibrated judge has TPR 11/12 and FPR 1/12, measured on 24 human labels. It grades 2,000
+    trials and you report a corrected pass rate of 80%. A client asks how precise that number is.
+    What is the honest answer?
+  options:
+    - >-
+      Within about one point, because 2,000 graded trials make the sampling error negligible.
+    - >-
+      Exact, because the correction formula already removes the judge's error from the score.
+    - >-
+      Roughly plus or minus 15 points, because the 24 calibration labels dominate the uncertainty.
+    - >-
+      It cannot be estimated at all without human labels for every one of the 2,000 trials.
+  correct: 2
+  explanation: >-
+    The corrected rate inherits the noise in TPR and FPR, which here come from only 12 labels each.
+    With many test trials the interval is still about 80% plus or minus 15 points. Labelling more
+    answers narrows it; grading more trials does not.

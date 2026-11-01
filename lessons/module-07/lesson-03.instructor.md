@@ -6,6 +6,8 @@
 
 **Common misconception.** "The judge matches the human pass rate, so it's fine." Show judge v1: 54% vs 50% on the set, kappa 0.08. An accurate average can hide near-random verdicts. Always look at the matrix.
 
+**Second misconception.** "We corrected the score, so it is exact." The correction moves the centre; it does not remove the uncertainty in TPR and FPR. Work the lesson's example on the board: judge v2 on 100 trials gives 80% ± 19 points, and still ± 15 with unlimited trials. Ask how many labels they would need for ± 5 (about 115 per class). That number is usually what convinces a team to invest in labelling.
+
 **Key analogy.** A smoke detector that goes off whenever you cook and also when there is a fire. Its "alarm rate" might match the fire rate on some weekends, but the alarm tells you nothing. TPR − FPR is the part of the signal that is about fire.
 
 **Common failure in the exercise.** Students peek at `human-labels.csv` before labelling. Insist on labelling first; the disagreements are the most useful output of the lesson. Second: "fixing" the rubric by adding the calibration answers' specifics (for example "BILL-79 is wrong"), which is answer leakage from 07.2 in grader form. The rubric may state ground truth ("the ticket is BILL-97"), not the list of wrong answers.

@@ -4,6 +4,18 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-W44 (2026-11-01)
+
+- **Extended** [07.3 Graders](../lessons/module-07/lesson-03.md) — new subsection "How sure is the corrected
+  number?": a pass rate corrected for the judge's TPR and FPR also inherits the noise from the few
+  human labels that measured them. With the lesson's 24-label calibration set the interval is about
+  ±19 points, so report the interval and size the label set to the precision you need (Lee et al.,
+  ICML 2026). New quiz question q5. [Weekly report](weekly/2026-W44.md).
+- **Corrected** [09.5 Layered defenses](../lessons/module-09/lesson-05.md) — Limitations adds a second
+  symlink race, this time in the Edit tool: code inside the Bash sandbox could redirect the unsandboxed
+  Edit tool outside the workspace (fixed 2.1.251). The sandbox confines commands, not the agent's own
+  file tools. [Weekly report](weekly/2026-W44.md).
+
 ## 2026-W43 (2026-10-25)
 
 - **Extended** [08.1 MCP architecture, authentication and authorization](../lessons/module-08/lesson-01.md) — "Where credentials enter" now

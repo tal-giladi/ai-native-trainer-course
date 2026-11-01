@@ -25,6 +25,7 @@ The agent-tool and model landscape changes quarterly; the concepts do not. Every
 
 ## Changelog
 
+- 2026-11-01 — 07.3: new subsection "How sure is the corrected number?": a 95% interval for the TPR/FPR-corrected pass rate that includes calibration-set noise (worked example: judge v2 on 100 trials, 80% ± 19 points), citing Lee et al. (ICML 2026); new quiz question q5, glossary entry. 09.5 Limitations: added a third Claude Code advisory, GHSA-5xjx-9qx6-jcrv (CVE-2026-88968, fixed 2.1.251): sandboxed code raced the unsandboxed Edit tool with a symlink swap. Weekly review 2026-W44.
 - 2026-10-25 — 08.1 Where credentials enter: added the client-side rule (bind every stored OAuth credential to its issuing authorization server; a malicious MCP server can otherwise name its own and collect refresh tokens), citing the MCP TypeScript SDK advisory GHSA-6qxp-vccf-f47h (CVE-2026-104850). Weekly review 2026-W43.
 - 2026-10-18 — 13.2: added two learning-outcome RCTs (Shen and Tamkin 2026; Bastani et al. 2025, PNAS) to the evidence table and a short "Speed is not learning" subsection: AI help can lower what learners can do on their own; speed and competence are separate outcomes. Weekly review 2026-W42.
 - 2026-10-11 — 09.5 Limitations: added two dated Claude Code advisories (write-time symlink TOCTOU, fixed 2.1.129; pre-approved-domain exfiltration, fixed 2.1.163) and the habits they imply (auto-update; an allowed domain is an outbound channel). Weekly review 2026-W41.
