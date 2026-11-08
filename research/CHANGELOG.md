@@ -4,6 +4,14 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-W45 (2026-11-08)
+
+- **Extended** [08.1 MCP architecture, authentication and authorization](../lessons/module-08/lesson-01.md) — "Where credentials enter"
+  adds the server-side check: do not assume your SDK enforces token audience. The official MCP TypeScript SDK's
+  bearer-auth helper accepted tokens issued for other services until an opt-in fix (CVE-2026-111771, fixed sdk
+  1.32.0 / server 2.3.0); test your server with a token for another service and expect 401.
+  [Weekly report](weekly/2026-W45.md).
+
 ## 2026-W44 (2026-11-01)
 
 - **Extended** [07.3 Graders](../lessons/module-07/lesson-03.md) — new subsection "How sure is the corrected
