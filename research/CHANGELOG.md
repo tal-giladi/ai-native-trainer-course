@@ -11,6 +11,7 @@ Paths and quiz ids never change. "No curriculum changes this week" is a normal e
   owner, lead time as the critical path, and agent setup across repositories. New lab
   `labs/module-10/cross-service` with the `ContractCheck` tool, template
   `templates/cross-service-change.md`, and module 10 quiz question q10.
+
 ## 2026-W45 (2026-11-08)
 
 - **Extended** [08.1 MCP architecture, authentication and authorization](../lessons/module-08/lesson-01.md) — "Where credentials enter"
