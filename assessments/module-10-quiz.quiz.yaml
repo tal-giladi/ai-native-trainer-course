@@ -161,3 +161,22 @@
   explanation: >-
     The rule fails on both conditions, so the recommendation follows as written. "No detectable difference"
     is not equivalence; the report states what the task set could have detected and when to re-test.
+- id: q10
+  question: >-
+    One Claude Code session started in `billing-api` with `--add-dir` for the ledger and notifier
+    repositories has drafted a correct expand-migrate-contract plan. The team now wants that same
+    session to make all four pull requests. What do you recommend?
+  options:
+    - >-
+      Let it make all four, since it found every reader and already holds the full context.
+    - >-
+      Let it make all four, but merge them together so the rollout stays consistent.
+    - >-
+      Start one session per repository, inside it, with the manifest and contract as the handoff.
+    - >-
+      Let it make billing's two phases and ask the other teams to write theirs by hand.
+  correct: 2
+  explanation: >-
+    `--add-dir` grants file access but does not load the added repositories' `.claude/` configuration, so
+    the other teams' rules, hooks and permissions would not apply. A session per repository keeps them;
+    the manifest and contract carry what the coordinating session learned.

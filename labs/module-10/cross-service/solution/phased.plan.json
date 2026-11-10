@@ -1,0 +1,10 @@
+{
+  "change": "BILL-412 expand, migrate, contract",
+  "start": { "billing-api": "v1", "ledger-worker": "v1", "notifier": "v1" },
+  "steps": [
+    { "service": "billing-api",   "to": "v2-expand",   "pr": "billing#212" },
+    { "service": "ledger-worker", "to": "v2",          "pr": "ledger#87" },
+    { "service": "notifier",      "to": "v2",          "pr": "notifier#41" },
+    { "service": "billing-api",   "to": "v3-contract", "pr": "billing#219" }
+  ]
+}

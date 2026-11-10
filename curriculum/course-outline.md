@@ -143,7 +143,7 @@ Required failure scenarios, and where each lives:
 | | 7 | Agent Evaluation | 6 | 90 m | 6 h | 2, 6 |
 | **E — Tools, integration, security** | 8 | MCP, APIs and Hooks | 4 | 60 m | 5 h | 2, 3, 7 |
 | | 9 | Agent Security | 6 | 100 m | 7 h | 7, 8 |
-| | 10 | Multi-Agent Systems | 4 | 60 m | 5 h | 6, 7 |
+| | 10 | Multi-Agent Systems | 5 | 75 m | 6.5 h | 6, 7 |
 | | 11 | Agents in CI and Production | 5 | 75 m | 5 h | 6, 7, 9 |
 | **F — Enterprise architecture** | 12 | Enterprise AI-Agent Architecture | 5 | 80 m | 5 h | 8, 9, 11 |
 | **G — Measurement** | 13 | Measuring AI Engineering Impact | 6 | 100 m | 6 h + 3–6 weeks data | 5, 7 |
@@ -158,7 +158,7 @@ Required failure scenarios, and where each lives:
 | | 22 | Productization and Scaling | 4 | 60 m | 4 h | 21 |
 | | — | Capstone | — | — | 6–10 weeks | all |
 
-**Total: 22 modules · 101 lessons · ~26 hours instruction · ~100+ hours practice.**
+**Total: 22 modules · 102 lessons · ~26 hours instruction · ~100+ hours practice.**
 
 **Dependency rule checked:** no lesson uses a concept introduced later. Where an early module needs a later tool, it gets a minimal version and the later module formalizes it (M4 uses a fixed 10-task pass/fail check → M7 turns it into a proper harness with statistics; M5 starts `NOTES.md` → M13 turns it into a controlled experiment; M7 introduces binomial confidence intervals → M13 extends to comparisons of engineering metrics).
 
@@ -385,7 +385,7 @@ Adversarial thinking, not "don't leak secrets." All attacks run in the local `se
 **Sample quiz.** *Your agent reads public GitHub issues and can push to branches. Draw the attack path and list defenses in the order you'd implement them.*
 
 #### Module 10 — Multi-Agent Systems *(new)*
-*4 lessons · 60 min · practice 5 h*
+*5 lessons · 75 min · practice 6.5 h*
 
 Most importantly: when multi-agent is worse than one agent.
 
@@ -396,6 +396,7 @@ Most importantly: when multi-agent is worse than one agent.
 2. Coordination: handoffs, shared state, synchronization, conflicting outputs (C + I)
 3. Cost, latency, failure propagation and debugging — math: expected cost = Σ calls × tokens × price; end-to-end success ≈ Πpᵢ; tracing multi-agent runs (C, math)
 4. When multi-agent is worse: running the comparison (I)
+5. Changes that cross services and teams: the mixed-version window, expand → migrate → contract, contract checks across the seam, one change owner, lead time as the critical path; one coordinating agent plus one agent per repository (C + I)
 
 **Project.** Implement planner/worker/reviewer and a single-agent baseline on the same `agent-evals` tasks; compare pass rate, cost, latency with intervals.
 **Break.** Two workers edit the same file / reviewer and planner disagree indefinitely.

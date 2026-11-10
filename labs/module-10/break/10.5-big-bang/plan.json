@@ -1,0 +1,9 @@
+{
+  "change": "BILL-412 send invoice amounts as integer minor units plus currency",
+  "start": { "billing-api": "v1", "ledger-worker": "v1", "notifier": "v1" },
+  "steps": [
+    { "service": "billing-api",   "to": "v2", "pr": "billing#212" },
+    { "service": "ledger-worker", "to": "v2", "pr": "ledger#87" },
+    { "service": "notifier",      "to": "v2", "pr": "notifier#41" }
+  ]
+}

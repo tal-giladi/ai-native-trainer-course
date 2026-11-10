@@ -11,7 +11,7 @@ A senior software engineer or technical leader who uses coding agents daily and 
 
 ## Shape of the course
 
-- 11 stages · 22 modules · 101 lessons · ~26 hours of instruction · ~75–100 hours of labs, projects and field work over ~6–9 months part-time.
+- 11 stages · 22 modules · 102 lessons · ~26 hours of instruction · ~75–100 hours of labs, projects and field work over ~6–9 months part-time.
 - Progression: use agents → systematize → integrate → evaluate → measure → develop a methodology → teach → sell → deliver → productize.
 - Every lesson runs the loop **Learn → See → Do → Break → Diagnose → Fix → Verify → Reflect**, ends with a knowledge check, and every module ships a portfolio artifact.
 - Nine portfolio repositories (see [projects](projects/README.md)), six [simulations](simulations/README.md), a [template library](templates/README.md) and a [capstone](assessments/capstone.md).

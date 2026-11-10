@@ -1,0 +1,73 @@
+- id: q1
+  question: >-
+    An agent opens three pull requests that rename a field in a message and update its two readers. All
+    three pipelines are green, and the team plans to merge them in the same minute "so the change is
+    atomic". What is the main risk?
+  options:
+    - >-
+      The merges may conflict with each other, because three branches change the same message type.
+    - >-
+      The services still deploy separately, so for a while old readers get the new message shape.
+    - >-
+      Green pipelines prove each repository works, but the agent may have skipped the linting step.
+    - >-
+      Merging in the same minute overloads the shared CI runners and some deploys may time out.
+  correct: 1
+  explanation: >-
+    Merging together is not deploying together. Each service rolls out on its own pipeline, and during a
+    rolling deploy old and new versions run side by side, so there is a mixed-version window in which
+    readers on v1 receive messages without the field they need.
+- id: q2
+  question: >-
+    Billing must replace `amount` with `amountMinor` and `currency` in a message read by two other
+    teams. Which rollout keeps every step safe while the previous version is still live?
+  options:
+    - >-
+      Readers move to the new fields first, then billing switches to the new shape in one deploy.
+    - >-
+      Billing switches to the new shape first, then each reader updates as soon as it can.
+    - >-
+      Billing sends both shapes, the readers move over, then billing stops sending `amount`.
+    - >-
+      All three deploy in one maintenance window with the queue paused and then resumed.
+  correct: 2
+  explanation: >-
+    Expand, migrate, contract. Readers first breaks because they ask for fields nobody sends yet;
+    producer first breaks the old readers. A paused queue still holds old-shape messages and needs every
+    team in one window, which is the coordination the phased change avoids.
+- id: q3
+  question: >-
+    In a three-team change, each repository's owners review their own pull request and its tests pass.
+    What does that NOT verify?
+  options:
+    - >-
+      That the code in each repository is correct and follows that team's own rules.
+    - >-
+      That each repository's tests still pass after the agent updated its fixtures.
+    - >-
+      That each team's reviewers have seen the changes in the code they own.
+    - >-
+      That what the producer sends still satisfies every reader at every step of the rollout.
+  correct: 3
+  explanation: >-
+    Each repository tests itself against its own fixtures, often updated by the same agent. The seam
+    between services needs its own check, such as a consumer-driven contract test in the producer's
+    pipeline, plus a change owner for the order and the gate.
+- id: q4
+  question: >-
+    A parallel change has expand 1 day, reader migrations of 3 days (Finance) and 9 days (Comms, mostly
+    waiting for a sprint slot), a 1-day gate and a 1-day contract. Agents halve every team's coding
+    time. What happens to the lead time?
+  options:
+    - >-
+      It stays near 12 days, because the critical path is Comms's wait, not its coding.
+    - >-
+      It halves to about 6 days, because every phase now takes half as long.
+    - >-
+      It drops to about 7.5 days, because only the two migration phases get faster.
+    - >-
+      It stays at 15 days, because the phases run one after another and their sum is unchanged.
+  correct: 0
+  explanation: >-
+    The lead time is the longest path, 1 + max(3, 9) + 1 + 1 = 12 days, and the 9 days are mostly
+    queueing. Faster coding barely moves it; shortening the slowest reader's queue does.

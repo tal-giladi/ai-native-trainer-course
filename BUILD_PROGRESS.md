@@ -98,3 +98,4 @@ Units total: 22 modules + foundations + 6 simulations + templates + projects + c
 - topology.md line 13 fixed by me (Tal authorized). Verifying M11 with one run.
 - M11 re-run passes ($0.20); run-headless.sh jq dependency removed. All known issues fixed.
 - 2026-09-29: published https://github.com/tal-giladi/ai-native-trainer-course → https://tal-giladi.github.io/ai-native-trainer-course/ (ai-native-trainer-path.html gitignored: third-party workshop teardown).
+- 2026-11-10: added lesson 10.5 (Changes that cross services and teams) + ContractCheck tool + cross-service lab + template + module quiz q10. check.py 0/0; Academy dry-run 102 lessons, 0 problems.

@@ -4,6 +4,13 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-11-10 — new lesson
+
+- **Added** [10.5 Changes that cross services and teams](../lessons/module-10/lesson-05.md) — the
+  mixed-version window, expand → migrate → contract, contract checks across the seam, one change
+  owner, lead time as the critical path, and agent setup across repositories. New lab
+  `labs/module-10/cross-service` with the `ContractCheck` tool, template
+  `templates/cross-service-change.md`, and module 10 quiz question q10.
 ## 2026-W45 (2026-11-08)
 
 - **Extended** [08.1 MCP architecture, authentication and authorization](../lessons/module-08/lesson-01.md) — "Where credentials enter"

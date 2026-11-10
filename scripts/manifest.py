@@ -72,7 +72,8 @@ MODULES = [
         "Multi-agent topologies",
         "Coordination: handoffs, shared state and conflicts",
         "Cost, latency and failure propagation",
-        "When multi-agent is worse"]),
+        "When multi-agent is worse",
+        "Changes that cross services and teams"]),
     ("Agents in CI and Production", [
         "Headless agents",
         "CI review: signal vs noise",

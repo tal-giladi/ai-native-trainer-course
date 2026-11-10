@@ -25,6 +25,7 @@ The agent-tool and model landscape changes quarterly; the concepts do not. Every
 
 ## Changelog
 
+- 2026-11-10 — added 10.5 Changes that cross services and teams (lesson, quiz, instructor notes, `ContractCheck` tool and `cross-service` lab, cross-service change template, module quiz question q10). Gap found against a 2026-11 industry webinar on the AI-native SDLC.
 - 2026-11-08 — 08.1 Where credentials enter: added a server-side bullet — do not assume the SDK checks token audience; the MCP TypeScript SDK's bearer-auth helper accepted tokens issued for other services until an opt-in fix (GHSA-rvq5-wwqv-78pq, CVE-2026-111771, fixed sdk 1.32.0 / server 2.3.0); test with a token for another service and expect 401. Weekly review 2026-W45.
 - 2026-11-01 — 07.3: new subsection "How sure is the corrected number?": a 95% interval for the TPR/FPR-corrected pass rate that includes calibration-set noise (worked example: judge v2 on 100 trials, 80% ± 19 points), citing Lee et al. (ICML 2026); new quiz question q5, glossary entry. 09.5 Limitations: added a third Claude Code advisory, GHSA-5xjx-9qx6-jcrv (CVE-2026-88968, fixed 2.1.251): sandboxed code raced the unsandboxed Edit tool with a symlink swap. Weekly review 2026-W44.
 - 2026-10-25 — 08.1 Where credentials enter: added the client-side rule (bind every stored OAuth credential to its issuing authorization server; a malicious MCP server can otherwise name its own and collect refresh tokens), citing the MCP TypeScript SDK advisory GHSA-6qxp-vccf-f47h (CVE-2026-104850). Weekly review 2026-W43.

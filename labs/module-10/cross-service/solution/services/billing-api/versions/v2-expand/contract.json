@@ -1,0 +1,6 @@
+{
+  "owner": "Billing",
+  "emits": {
+    "invoice.issued": { "invoiceId": "string", "customerId": "string", "amount": "number", "amountMinor": "integer", "currency": "string", "issuedAt": "string" }
+  }
+}

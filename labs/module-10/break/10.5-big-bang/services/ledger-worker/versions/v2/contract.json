@@ -1,0 +1,9 @@
+{
+  "owner": "Finance Platform",
+  "reads": {
+    "invoice.issued": { "invoiceId": "string", "amountMinor": "integer", "currency": "string" }
+  },
+  "emits": {
+    "ledger.posted": { "invoiceId": "string", "postedAt": "string" }
+  }
+}

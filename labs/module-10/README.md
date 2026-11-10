@@ -1,6 +1,6 @@
 # Module 10 labs — Multi-agent systems
 
-Everything the Module 10 labs need. Lessons: [10.1](../../lessons/module-10/lesson-01.md) · [10.2](../../lessons/module-10/lesson-02.md) · [10.3](../../lessons/module-10/lesson-03.md) · [10.4](../../lessons/module-10/lesson-04.md).
+Everything the Module 10 labs need. Lessons: [10.1](../../lessons/module-10/lesson-01.md) · [10.2](../../lessons/module-10/lesson-02.md) · [10.3](../../lessons/module-10/lesson-03.md) · [10.4](../../lessons/module-10/lesson-04.md) · [10.5](../../lessons/module-10/lesson-05.md).
 
 The labs run single- and multi-agent topologies on **Contoso Billing** ([`labs/module-03/brownfield`](../module-03/README.md)) against the Module 7 task set ([`labs/module-07/tasks-v1`](../module-07/tasks-v1/README.md)), and grade and compare them with **EvalHarness** ([`labs/module-07`](../module-07/README.md)). The role prompts are derived from the Module 6 `researcher` and `reviewer` agents ([`labs/module-06/layer/.claude/agents`](../module-06/README.md)).
 
@@ -23,7 +23,9 @@ The labs run single- and multi-agent topologies on **Contoso Billing** ([`labs/m
 | `scenarios/` | Scripted runs for the offline agent: `t18-pipeline`, `t18-deadlock`, `specialists-t19`, `clobber`, and `make_scenarios.py` that wrote them. |
 | `pipelines/` | Inputs for `estimate`: a code task and a question task (illustrative numbers). |
 | `samples/` | **Illustrative** results and traces for the comparison (simulated, not measurements). See `samples/README.md`. |
-| `break/` | The four breaks, indexed in `break/README.md`. |
+| `tools/ContractCheck/` | Dependency-free C# tool for 10.5: `rollout` checks every message contract at every step of a deploy plan, with old and new versions live together; `owners` lists who approves each step. Runs offline. |
+| `cross-service/` | 10.5 lab: three Contoso services with versioned message contracts; `solution/` has the phased plan and a wrong consumers-first plan. |
+| `break/` | The five breaks, indexed in `break/README.md`. |
 
 ## Quick start (offline, no API key)
 
@@ -88,6 +90,9 @@ Run from `labs/module-10` with the offline agent and .NET SDK 10.0.400. Costs an
 | `estimate pipelines/qa-task.json` | single 0.880 / $0.050; pipeline 0.856 / $0.118 |
 | `EvalHarness compare samples/…/results.csv --a single --b pwr` | 78% vs 78%, paired 95% CI −11.9 to +11.9 pts |
 | `efficiency samples/…/results.csv --a single --b pwr` | cost 2.18×, latency 2.23× |
+| `ContractCheck rollout break/10.5-big-bang/services break/10.5-big-bang/plan.json` | 8 broken readers; exit 1 |
+| `ContractCheck rollout cross-service/solution/services cross-service/solution/phased.plan.json` | every step OK, both live and after; exit 0 |
+| `ContractCheck rollout … consumers-first.plan.json` | 16 broken readers; exit 1 |
 | `EvalHarness grade` on the four T18 run folders | pass, pass, fail (`the run reported an error`), pass |
 
 ## Lab sequence
@@ -96,12 +101,14 @@ Run from `labs/module-10` with the offline agent and .NET SDK 10.0.400. Costs an
 2. **10.2 — Coordination.** Parallel T18/T19/T20 under four merge policies; read handoff files; write a handoff contract and a precedence rule. *Break:* naive merge keeps 1 of 3 changes and CI stays green.
 3. **10.3 — Cost, latency, failure propagation.** `estimate` with sensitivity to reviewer recall; `trace` on 120 pipeline traces; budget and stall stops. *Break:* planner and reviewer disagree until the budget runs out.
 4. **10.4 — When multi-agent is worse (project).** single vs solo-verify vs pwr vs route on tasks-v1, interleaved, paired, with an A/A run; write `reports/multi-vs-single.md`. *Break:* the vendor slide.
+5. **10.5 — Changes that cross services and teams.** A coordinating agent drafts a change manifest and rollout plan for BILL-412 across three services; `ContractCheck rollout` proves every step safe; `owners` lists approvals. *Break:* the agent's big-bang plan, green CI in every repository.
 
 ## Artifacts to commit to `agent-evals`
 
 - `designs/<workflow>.md` — one filled [multi-agent design template](../../templates/multi-agent-design.md)
 - `harness/AgentTeam/` and `roles/` (versioned like skills: changelog, owner)
 - `reports/multi-vs-single.md` ([benchmark template](../../templates/benchmark.md)) with `results.csv`, every `manifest.json`, and a sample of traces
+- `designs/BILL-412.md` — a filled [cross-service change manifest](../../templates/cross-service-change.md) and its `plan.json`
 - `NOTES.md`: the trace diagnosis from 10.3 and the recommendation from 10.4
 
 See the portfolio scaffold: [agent-evals](../../projects/agent-evals/README.md).

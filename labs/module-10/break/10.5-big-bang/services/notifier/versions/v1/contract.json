@@ -1,0 +1,7 @@
+{
+  "owner": "Customer Comms",
+  "reads": {
+    "invoice.issued": { "invoiceId": "string", "customerId": "string", "amount": "number" },
+    "ledger.posted": { "invoiceId": "string" }
+  }
+}

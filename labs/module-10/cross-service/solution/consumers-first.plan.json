@@ -1,0 +1,9 @@
+{
+  "change": "BILL-412 consumers first, then the producer",
+  "start": { "billing-api": "v1", "ledger-worker": "v1", "notifier": "v1" },
+  "steps": [
+    { "service": "ledger-worker", "to": "v2", "pr": "ledger#87" },
+    { "service": "notifier",      "to": "v2", "pr": "notifier#41" },
+    { "service": "billing-api",   "to": "v3-contract", "pr": "billing#212" }
+  ]
+}

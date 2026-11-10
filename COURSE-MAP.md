@@ -1,6 +1,6 @@
 # Course map
 
-22 modules in 11 stages, 101 lessons. Each module depends only on earlier ones; where an early module needs a later tool it gets a minimal version first (Module 4's fixed 10-task check becomes Module 7's harness; Module 5's `NOTES.md` becomes Module 13's controlled experiment).
+22 modules in 11 stages, 102 lessons. Each module depends only on earlier ones; where an early module needs a later tool it gets a minimal version first (Module 4's fixed 10-task check becomes Module 7's harness; Module 5's `NOTES.md` becomes Module 13's controlled experiment).
 
 | Stage | # | Module | Lessons |
 |---|---|---|---|
@@ -13,7 +13,7 @@
 |  | 7 | [Agent Evaluation](lessons/module-07/lesson-01.md) | 6 |
 | Stage E | 8 | [MCP, APIs and Hooks](lessons/module-08/lesson-01.md) | 4 |
 |  | 9 | [Agent Security](lessons/module-09/lesson-01.md) | 6 |
-|  | 10 | [Multi-Agent Systems](lessons/module-10/lesson-01.md) | 4 |
+|  | 10 | [Multi-Agent Systems](lessons/module-10/lesson-01.md) | 5 |
 |  | 11 | [Agents in CI and Production](lessons/module-11/lesson-01.md) | 5 |
 | Stage F | 12 | [Enterprise AI-Agent Architecture](lessons/module-12/lesson-01.md) | 5 |
 | Stage G | 13 | [Measuring AI Engineering Impact](lessons/module-13/lesson-01.md) | 6 |
