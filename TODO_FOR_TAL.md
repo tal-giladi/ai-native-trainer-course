@@ -16,4 +16,4 @@ Dropped as unverifiable: SecondTalent "+135.8% prompt-engineering roles", the "M
 - llm-evals-course: 10.3 "the bar depends on what the answer does next"; quiz q5 replaced by q6. Academy check: 0 problems.
 - ai-transformation-field-course: 04.6 and references/laws-and-guidance.md (Art 4 / Art 50(2) wording), 13.4 (McKinsey data-barrier figures), 14.4 (three oversight levels; quiz q3 replaced by q6). Academy check: 0 problems.
 - Skipped: frontier LLM research course (no fit); ai-security-course (already covers it; has someone's uncommitted work in progress); capstone portfolio items (already in the capstone).
-- Open question: ai-security-course lesson 36 is titled "OWASP LLM Top 10 2026", but the latest OWASP LLM Top 10 is the 2025 edition (the 2026 list is the Agentic Applications one). Worth checking.
+- Open issue: the OWASP LLM Top 10 2026 edition exists (v1.0, August 2026). ai-security-course already teaches it; ai-native-org (09.1, 09.4, 09.6) and ai-transformation-field-course (04.5, 14.4) still present the 2025 list as current.
