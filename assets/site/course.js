@@ -194,18 +194,29 @@
     });
   }
 
-  // Docsify turns every relative link into a #/ route, so links to repo files that are not
-  // markdown pages (lab code, folders, data files) 404. Point them at the real file instead.
-  function fixFileLinks(root) {
-    var base = (current.file || '').replace(/[^/]*$/, '');
-    root.querySelectorAll('a[href^="#/"]').forEach(function (a) {
-      var src = a.getAttribute('href').replace(/^#\//, '').replace(/\?.*$/, '');
-      if (/\.md$/.test(src) || !(/\.[a-z0-9]+$/i.test(src) || /\/$/.test(src))) return;
-      var parts = (base + src).split('/'), outp = [];
-      parts.forEach(function (p) { if (p === '..') outp.pop(); else if (p !== '.') outp.push(p); });
-      a.setAttribute('href', outp.join('/'));
-      a.target = '_blank'; a.rel = 'noopener';
-    });
+  // Course links are relative to the file they are in (the Academy import contract), but docsify
+  // reads them as relative to the site root, so they 404. Resolve them against the current file
+  // before docsify renders: markdown pages become site-root routes, other files (lab code,
+  // folders, data) become direct links to the file.
+  function resolveLinks(md, file) {
+    var base = (file || '').replace(/[^/]*$/, '');
+    var site = location.origin + location.pathname.replace(/[^/]*$/, '');
+    var link = /(!?)\[((?:[^\[\]\n]|\[[^\]\n]*\])*)\]\(([^)\s]+)((?:\s+"[^"]*")?)\)/g;
+    return md.split(/(^```[\s\S]*?^```)/m).map(function (chunk, i) {
+      if (i % 2) return chunk; // fenced code
+      return chunk.replace(link, function (all, bang, text, href, title) {
+        if (bang || /^([a-z][a-z0-9+.-]*:|#|\/)/i.test(href)) return all;
+        var hash = href.indexOf('#') >= 0 ? href.slice(href.indexOf('#')) : '';
+        var path = href.slice(0, href.length - hash.length);
+        var outp = [];
+        (base + path).split('/').forEach(function (p, j, arr) {
+          if (p === '..') outp.pop(); else if (p !== '.' && (p !== '' || j === arr.length - 1)) outp.push(p);
+        });
+        var res = outp.join('/');
+        var to = /\.md$/i.test(path) ? '/' + res + hash : site + res + hash;
+        return '[' + text + '](' + to + title + ')';
+      });
+    }).join('');
   }
 
   window.CourseShellPlugin = function (hook, vm) {
@@ -213,7 +224,7 @@
       current.file = vm.route.file;
       var parts = splitFrontMatter(md);
       current.fm = parts.fm;
-      var body = alerts(parts.body);
+      var body = alerts(resolveLinks(parts.body, vm.route.file));
       if (parts.fm && parts.fm.id) {
         // Put the header right after the H1.
         body = body.replace(/^(# .+\n)/m,'$1\nLESSONMETAHEADER\n');
@@ -234,7 +245,6 @@
       }
       if (file === 'README.md') resumeBox(section);
       embedSimulations(section);
-      fixFileLinks(section);
       var qurl = quizUrlFor(file);
       if (qurl) {
         fetch(qurl).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {

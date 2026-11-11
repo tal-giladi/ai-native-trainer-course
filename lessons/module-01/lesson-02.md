@@ -110,13 +110,19 @@ The buyer and the users often describe *different* problems. That is normal. It 
 
 *Intuition.* A pain that costs 2 engineer-hours a month isn't worth a workshop. One that costs 200 might be. But calendar delay and human effort are different things. A pull request that waits 26 hours for review doesn't cost 26 hours of anyone's work. It costs the author a context switch when the review finally arrives, and it costs the *customer* a day of lead time.
 
-*Equation.* Effort, in engineer-hours per month, is summed over the ways the pain costs work. Each term has a count $n$, a frequency $f$ per month and a time per occurrence $t$, carried as a range:
+*Equation.* Effort, in engineer-hours per month, is summed over the ways the pain costs work. Each term has three parts, each carried as a range:
+
+- $n$ is **how many** people (or teams, or services) the pain hits.
+- $f$ is **how often** it hits *each one* of them, per month.
+- $t$ is **how long** it costs each time it happens.
+
+So $n \cdot f$ is the total number of times it happens in a month, and $n \cdot f \cdot t$ is the time it eats. Keeping $n$ and $f$ apart matters when you ask questions: "how many of you hit this?" and "how often does it hit you?" are separate questions, and people answer the second one much better than "how often does it happen on the team?".
 
 $$H_{\text{effort}} = \sum_k n_k \, f_k \, t_k \qquad H_{\text{effort}} \le \text{team capacity} = \text{developers} \times \text{productive hours per month}$$
 
 Flow is reported separately, as a duration distribution (median and p90 of hours to first review), never multiplied into effort.
 
-*Tiny example.* One PR a week waits over two days, and each costs the author 20–60 minutes to reload context: $1 \times 4.3 \times [20, 60]$ min ≈ 1.4–4.3 engineer-hours a month. It's small as effort. It's large as flow if that PR was a customer fix.
+*Tiny example.* Four developers ($n = 4$) each have about one PR a month ($f = 1$) that waits over two days, and each time it costs the author 20–60 minutes to reload context ($t$): $4 \times 1 \times [20, 60]$ min = 80–240 min ≈ 1.3–4 engineer-hours a month. It's small as effort. It's large as flow if that PR was a customer fix.
 
 *Implementation.* You don't need a survey to get the flow number. The data already sits in the team's pull-request history. The lab file [`labs/module-01/sql/review-wait.sql`](../../labs/module-01/sql/review-wait.sql) is a read-only SQL Server query for teams that copy their GitHub or Azure DevOps pull requests into a reporting database. For every PR merged in a date range, it measures how long the PR sat before the first review arrived. If nobody reviewed it, the wait runs until the merge. It then returns four numbers:
 
