@@ -1,7 +1,7 @@
 ---
 id: "10.3"
 module: 10
-minutes: 16
+minutes: 17
 practice_minutes: 75
 prerequisites: ["10.2", "07.4", "02.2"]
 objectives:
@@ -21,7 +21,7 @@ sources:
     url: https://arxiv.org/abs/2310.01798
   - title: "OpenTelemetry — Semantic conventions for GenAI agent spans (Development)"
     url: https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/gen-ai-agent-spans.md
-last_verified: "2026-09-28"
+last_verified: "2026-11-11"
 ---
 
 # 10.3 · Cost, latency and failure propagation
@@ -78,6 +78,10 @@ A reviewer adds a way to *recover*, and a way to *break*. Let $p$ be the worker'
 $$P_1 = \underbrace{p(1-f)}_{\text{approved right}} + \underbrace{p\,f\,(1-d)}_{\text{flagged, survives rework}} + \underbrace{(1-p)\,r\,p_\text{fix}}_{\text{caught and fixed}}$$
 
 so the reviewer changes success by $(1-p)\,r\,p_\text{fix} - p\,f\,d$: rescues minus damage.
+
+### Is that number good enough? Ask what the output does
+
+The arithmetic gives you a probability. Whether it is acceptable depends on what happens to the output, not on the number. Three stages at 80% each succeed $0.8^3 \approx 0.51$ of the time. Half right is fine for a draft that a person edits before it goes anywhere, unacceptable for an action that moves money (an automated refund, a merge to `main`), and debatable for an internal recommendation someone may act on without checking. Before you quote an end-to-end success rate to a client, write next to it what the output is allowed to do. If the rate is too low for the action, you have three levers: raise $p_i$ at the weakest stage, add a reviewer that pays for itself by the equation above, or lower the output's authority (draft instead of act), which is the oversight choice in [11.4](../module-11/lesson-04.md).
 
 *Tiny example.* $p = 0.65$, $r = 0.7$, $f = 0.15$, $d = 0.1$, $p_\text{fix} = 0.6$: $P_1 = 0.553 + 0.088 + 0.147 = 0.787$, a gain of about 14 points. Now a question task where one agent already succeeds 88% of the time, the reviewer is the same model and catches little ($r = 0.35$), and rewriting a terse correct answer often breaks it ($d = 0.35$): gain $= 0.12 \times 0.35 \times 0.5 - 0.88 \times 0.15 \times 0.35 = 0.021 - 0.046 = -2.5$ points. The reviewer makes it worse.
 

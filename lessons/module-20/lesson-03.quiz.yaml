@@ -66,3 +66,18 @@
   explanation: >-
     Every minute you talk is a minute you are not finding out whether you can help. Pitching first also bends
     everything the prospect says next toward your offer instead of their problem.
+- id: q5
+  question: >-
+    A discovery call with an engineering manager goes well: real pain, budget, a date. When you ask what
+    could make it impossible, she says the privacy team "will probably want to look at it at some point".
+    What do you do?
+  options:
+    - Send the proposal now and offer to answer privacy questions once the contract is signed.
+    - Ask who owns AI risk, and propose a short call with them before you send the proposal.
+    - Lower the price so the deal stays under the threshold that needs a privacy review.
+    - Mark the lead as nurture until the privacy team contacts you directly with its questions.
+  correct: 1
+  explanation: >-
+    AI governance usually sits with privacy, legal or IT, and an owner who first sees the plan at
+    signature can stop it. Meeting them early de-risks the deal and often reveals a governance need
+    you can also serve.

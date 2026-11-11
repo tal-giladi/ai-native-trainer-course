@@ -1,7 +1,7 @@
 ---
 id: "10.1"
 module: 10
-minutes: 15
+minutes: 16
 practice_minutes: 60
 prerequisites: ["06.3", "02.4"]
 objectives:
@@ -25,6 +25,10 @@ sources:
     url: https://arxiv.org/abs/2503.13657
   - title: "Claude Code docs — Orchestrate teams of Claude Code sessions (agent teams)"
     url: https://code.claude.com/docs/en/agent-teams
+  - title: "Microsoft — Microsoft Agent Framework version 1.0 (3 April 2026)"
+    url: https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/
+  - title: "AutoGen repository README (archived; successor Microsoft Agent Framework)"
+    url: https://github.com/microsoft/autogen
 last_verified: "2026-09-28"
 ---
 
@@ -137,6 +141,21 @@ The middle question does most of the work in a .NET shop. Compilation and tests 
 | Any topology, deterministic | A **headless pipeline in code**: each agent is a `claude -p` session with its own role prompt and permissions, and ordinary code decides who runs next | any CLI agent |
 
 The last row is what `labs/module-10/tools/AgentTeam` is: orchestration in C#, one `claude -p` call per agent, a trace line per call, and output in EvalHarness's format so Module 7's `grade` and `compare` work unchanged. Orchestration in code is less clever than letting a lead model decide, and much easier to evaluate and debug, which is why this module uses it.
+
+### Frameworks you will meet at clients (versions checked 2026-11-11)
+
+Data and platform teams often build agents with a framework rather than a coding agent. You do not need to master them, but you should recognise each one in a client's repository and know which topology it expresses:
+
+| Framework | Latest release (PyPI) | Shape it encourages |
+|---|---|---|
+| LangGraph | 1.2.20 | explicit graph of nodes and edges with shared state; any topology, deterministic or model-routed |
+| CrewAI | 1.15.39 | role-based "crews" of agents with tasks; hierarchical or sequential |
+| Microsoft Agent Framework | 1.25.0 (1.0 GA April 2026) | successor to AutoGen and Semantic Kernel; agents plus graph-based workflows |
+| OpenAI Agents SDK | 0.24.0 | handoffs between agents, guardrails, tracing |
+| Google Agent Development Kit (ADK) | 2.14.0 | hierarchical agents with sequential, parallel and loop workflow agents |
+| Claude Agent SDK | 0.2.180 | the Claude Code agent loop as a library; subagents |
+
+AutoGen itself is archived: its last release is 0.7.5 (September 2025) and Microsoft points users to Agent Framework. If a client's system is built on AutoGen, plan the migration before you add features. Whatever the framework, the questions in this module do not change: which topology, what it costs, how failures propagate (10.3), and how you evaluate it (Module 7).
 
 [Simulation: Multi-agent — topologies side by side](../../simulations/multi-agent/index.html?preset=topologies)
 
@@ -257,6 +276,9 @@ The fix is cheaper than the break ($0.22 vs $0.26) and 43 seconds slower. That t
 
 ## Sources
 
+- [Microsoft DevBlogs — Microsoft Agent Framework version 1.0](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) — 1.0 GA on 3 April 2026; successor to AutoGen and Semantic Kernel.
+- [AutoGen on GitHub](https://github.com/microsoft/autogen) — README: archived, no longer actively maintained; last release 0.7.5 (30 September 2025).
+- PyPI release pages, checked 2026-11-11: [langgraph](https://pypi.org/project/langgraph/) 1.2.20, [crewai](https://pypi.org/project/crewai/) 1.15.39, [agent-framework](https://pypi.org/project/agent-framework/) 1.25.0, [openai-agents](https://pypi.org/project/openai-agents/) 0.24.0, [google-adk](https://pypi.org/project/google-adk/) 2.14.0, [claude-agent-sdk](https://pypi.org/project/claude-agent-sdk/) 0.2.180.
 - [Anthropic Engineering — Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) — prompt chaining, routing, parallelization (sectioning, voting), orchestrator-workers, evaluator-optimizer; start simple and add complexity only when it demonstrably improves outcomes.
 - [Anthropic Engineering — How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) — 90.2% over single-agent on an internal research eval; about 15× chat tokens; poor fit where agents share context or have many dependencies, most coding less parallelizable; early versions spawned 50 subagents for simple queries.
 - [Cognition — Don't Build Multi-Agents](https://cognition.com/blog/dont-build-multi-agents) — actions carry implicit decisions; agents that do not share context produce conflicting parts.

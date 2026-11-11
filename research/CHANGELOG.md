@@ -4,6 +4,29 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-11-11 — industry signals and stale law wording
+
+Source: KDnuggets, "Data Scientists Are Becoming AI Managers, Not Model Builders" (2026-07-06), every
+figure re-checked at its primary source; notes in `curriculum/research-notes/2026-11-11-ai-managers-factcheck.md`.
+
+- **Extended** [01.2](../lessons/module-01/lesson-02.md) — reading market numbers: interest, forecast,
+  adoption, outcome (Gartner, McKinsey). Quiz q5.
+- **Extended** [01.3](../lessons/module-01/lesson-03.md) — audiences beyond developers (Lightcast, PwC 2026,
+  McKinsey); data and analytics teams as a wedge.
+- **Extended** [10.1](../lessons/module-10/lesson-01.md) — agent frameworks you will meet at clients, PyPI
+  versions as of 2026-11-11; AutoGen archived, successor Microsoft Agent Framework.
+- **Extended** [10.3](../lessons/module-10/lesson-03.md) — whether an end-to-end rate is good enough
+  depends on what the output may do. Quiz q5.
+- **Extended** [11.4](../lessons/module-11/lesson-04.md) — three oversight levels (log, sample, gate),
+  sizing a sampled review, the supervision/autonomy tension (MIT SMR and BCG, MIT Sloan, McKinsey). Quiz q5.
+- **Extended** [20.3](../lessons/module-20/lesson-03.md) — find the AI-governance owner early (IAPP and
+  Credo AI 2025). Quiz q5.
+- **Fixed** [12.4](../lessons/module-12/lesson-04.md) — high-risk deadlines were attributed to "a 2025
+  amendment package"; now the AI Omnibus, Regulation (EU) 2026/1744 (OJ 24 July 2026), with the new
+  2 December 2026 prohibition date.
+- **Fixed** [19.3](../lessons/module-19/lesson-03.md) — Article 4 AI literacy wording updated to the
+  Omnibus text (support the development of AI literacy; no specific level mandated).
+
 ## 2026-11-10 — new lesson
 
 - **Added** [10.5 Changes that cross services and teams](../lessons/module-10/lesson-05.md) — the

@@ -1,11 +1,12 @@
 ---
 id: "11.4"
 module: 11
-minutes: 16
+minutes: 18
 practice_minutes: 60
 prerequisites: ["11.2", "11.3", "07.6"]
 objectives:
   - Choose an approval mechanism for each agent job from its reversibility and blast radius (none, draft PR with code owners, environment reviewers), and never let an agent merge to the default branch.
+  - Assign each agent action an oversight level (log only, sampled review, gate) and size a sampled review from the failure rate it must catch.
   - Define rollback for every versioned part of an agent job (agent version, model, layer, prompt, policy) and operate a kill switch and a shadow run.
   - Instrument agent jobs with a per-run ledger and OpenTelemetry, and compute cost per useful outcome.
   - Bound spend at three levels (run, job, day), and handle failures by class, including the expected cost of retries.
@@ -21,7 +22,13 @@ sources:
     url: https://sre.google/workbook/canarying-releases/
   - title: "NIST AI RMF 1.0 — Core functions (GOVERN, MAP, MEASURE, MANAGE)"
     url: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
-last_verified: "2026-09-28"
+  - title: "MIT SMR and BCG — The Emerging Agentic Enterprise (2025)"
+    url: https://web-assets.bcg.com/dc/c5/1bcbfdc0405c85fb14972a57c20a/the-emerging-agentic-enterprise-how-leaders-must-navigate-a-new-age-of-ai.pdf
+  - title: "MIT Sloan — How to navigate the age of agentic AI"
+    url: https://mitsloan.mit.edu/ideas-made-to-matter/how-to-navigate-age-agentic-ai
+  - title: "McKinsey — Building the foundations for agentic AI at scale"
+    url: https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale
+last_verified: "2026-11-11"
 ---
 
 # 11.4 · Operating agents: approval, rollback, observability and cost
@@ -51,6 +58,20 @@ Then one Monday someone makes the dependency fixer hourly, "until the build is g
 Environments do two things at once: the job waits until a required reviewer approves, and the environment's secrets are released only "after any configured rules (for example, required reviewers) pass" ([GitHub environments](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment)). Turn on "prevent self-review" so whoever triggered the run cannot approve it. `agent-fix.yml` from 11.1 uses an `agents` environment for exactly this.
 
 Approval fatigue is real: if every run needs a click, clicks become reflexes. Approve policies and gates once, with evidence; approve individual runs only where the output is irreversible.
+
+### Three levels of oversight: log, sample, gate
+
+The table above is about one question: must a person approve this run before it acts? There is a level in between that most teams skip. For each action an agent can take, pick one of three:
+
+| Level | When a person looks | Use it for |
+|---|---|---|
+| **Log only** | after the fact, when something looks wrong | cheap, reversible actions: labels, comments |
+| **Sampled review** | on a schedule, at a random sample of finished runs | reversible actions whose quality drifts slowly: summaries, triage, draft PRs that get merged with a light review |
+| **Gate** | before the action runs, every time | irreversible or environment-wide actions |
+
+Sampled review catches what per-run approval misses and costs far less. Suppose a failure shows up in 5% of runs. If someone reads 20 random runs each week, the chance they see at least one is $1 - 0.95^{20} pprox 0.64$; with 40 runs it is $1 - 0.95^{40} pprox 0.87$. Pick the sample size from the failure rate you need to notice, write it in the job's policy, and record what the reviewer found in the run ledger.
+
+Calibrating this is a trade-off, not a safety default. The MIT Sloan Management Review and BCG survey of 2,102 executives (November 2025) found leaders expect agents to take on more decision authority. MIT Sloan's write-up of it puts the tension plainly: too much supervision cancels the benefit of autonomy, and too little creates compliance and reputation risk. McKinsey (April 2026) describes the same shift from the other side: human roles move from doing the work to supervising and orchestrating it. Designing these three levels is that supervision work, and it is a skill you can teach.
 
 ### Rollback: what is the "version" of an agent job?
 
@@ -183,6 +204,7 @@ The per-run cap did its job and the incident happened anyway, because incidents 
 ## How do I know it works?
 
 - [ ] Each agent job has an approval level matched to its reversibility, and no agent can merge to `main`.
+- [ ] Every agent action has an oversight level (log, sample, gate) in the job's policy, and sampled reviews have a size and a schedule.
 - [ ] Every versioned part of each job can be rolled back with a known command, and the kill switch drill passed this month.
 - [ ] Every run writes a ledger line; you can state cost per useful outcome per job.
 - [ ] Spend is bounded per run, per job run and per day, and the day-level breaker has been tested.
@@ -214,3 +236,6 @@ The per-run cap did its job and the incident happened anyway, because incidents 
 - [Claude Code docs — How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — `max_turns` and `max_budget_usd` end the run with `error_max_turns` / `error_max_budget_usd`; subagent spend counts toward the budget.
 - [Google SRE Workbook — Canarying releases](https://sre.google/workbook/canarying-releases/) — canarying as a partial, time-limited deployment compared against a control population.
 - [NIST AI RMF — Core (GOVERN, MANAGE)](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — MANAGE 2.4: mechanisms and responsibilities to supersede, disengage or deactivate AI systems.
+- [MIT SMR and BCG — The Emerging Agentic Enterprise (18 November 2025)](https://web-assets.bcg.com/dc/c5/1bcbfdc0405c85fb14972a57c20a/the-emerging-agentic-enterprise-how-leaders-must-navigate-a-new-age-of-ai.pdf) — survey of 2,102 executives in 116 countries; tensions of agentic AI, including supervision versus autonomy.
+- [MIT Sloan — How to navigate the age of agentic AI (6 January 2026)](https://mitsloan.mit.edu/ideas-made-to-matter/how-to-navigate-age-agentic-ai) — write-up of the report; excessive supervision can negate the benefits of autonomy.
+- [McKinsey — Building the foundations for agentic AI at scale (2 April 2026)](https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale) — human roles shift from execution to supervision and orchestration.

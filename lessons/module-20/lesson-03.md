@@ -1,7 +1,7 @@
 ---
 id: "20.3"
 module: 20
-minutes: 16
+minutes: 17
 practice_minutes: 90
 prerequisites: ["20.1", "20.2", "01.4"]
 objectives:
@@ -19,7 +19,9 @@ sources:
     url: https://arxiv.org/abs/1907.07032
   - title: "FTC (2022) — FTC Report Shows Rise in Sophisticated Dark Patterns Designed to Trick and Trap Consumers"
     url: https://www.ftc.gov/news-events/news/press-releases/2022/09/ftc-report-shows-rise-sophisticated-dark-patterns-designed-trick-trap-consumers
-last_verified: "2026-09-28"
+  - title: "IAPP and Credo AI — AI Governance Profession Report 2025"
+    url: https://iapp.org/resources/article/ai-governance-profession-report/
+last_verified: "2026-11-11"
 ---
 
 # 20.3 · Qualification and discovery calls
@@ -89,6 +91,12 @@ Three habits distinguish an honest call from a sales pitch:
 1. **You speak less than half the words.** The tool warns above 45%. Every minute you talk is a minute you are not learning whether you can help.
 2. **You say a limit out loud.** What you cannot promise, what you do not do, or that they do not need you. It is the sentence that makes the rest believable, and it disqualifies clients who would have become difficult (20.5).
 3. **You reset expectations early and once.** A guarantee request gets your measured result with its interval and population, and the offer to measure theirs. Not a counter-promise and not a lecture.
+
+### Find the AI-governance owner early
+
+The answer to "What would make it impossible?" is often a person you have not met: whoever owns AI governance. In the IAPP and Credo AI survey of 671 organisations (April 2025), 77% were working on AI governance, and the function sat mostly with privacy (22%), legal and compliance (22%) or IT (17%), rarely with engineering. Nearly a quarter (23.5%) said finding qualified AI-governance people was a challenge, and only 1.5% expected to need no more of them within a year.
+
+Two consequences for qualification. First, ask in the call who owns AI risk and whether they have seen the plan; a deal that the privacy or legal lead hears about at signature can die there. Second, that owner is not only a blocker. A team that must show who approved what an agent did, and how it was evaluated, has a need you can meet: the oversight levels of [11.4](../module-11/lesson-04.md) and the governance loop of [11.5](../module-11/lesson-05.md) are teachable content for them. Some of your best clients will be the governance lead, not the engineering manager.
 
 ### What pressure looks like, so you can hear yourself
 
@@ -205,6 +213,7 @@ The call has five errors and ten warnings: the student spoke 86% of the words; p
 
 ## Sources
 
+- [IAPP and Credo AI — AI Governance Profession Report 2025 (16 April 2025)](https://iapp.org/resources/article/ai-governance-profession-report/) — n=671 in 45 countries and territories; 77% of organisations working on AI governance; primary owner privacy 22%, legal and compliance 22%, IT 17%; 23.5% cite finding qualified AI-governance professionals as a challenge; 1.5% expect no further staffing need in 12 months.
 - [Rob Fitzpatrick — The Mom Test](https://www.momtestbook.com/) — ask about specifics in the past, not opinions about the future; talk less; commitments over compliments.
 - [GDPR, Article 5](https://eur-lex.europa.eu/eli/reg/2016/679/oj) — personal data must be adequate, relevant and limited to what is necessary for the purpose (data minimization); one example of a data-protection law.
 - [Mathur et al. (2019) — Dark Patterns at Scale](https://arxiv.org/abs/1907.07032) — about 53,000 product pages on about 11,000 shopping sites: 1,818 dark-pattern instances in 15 types and 7 categories, including urgency and scarcity.

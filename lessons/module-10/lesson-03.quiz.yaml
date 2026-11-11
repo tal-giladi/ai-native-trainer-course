@@ -69,3 +69,17 @@
   explanation: >-
     In a chain every stage must succeed: 0.95 x 0.70 = 0.665. A chain beats one agent only if the plan
     raises the worker's success enough to pay for the chance that the plan itself is wrong.
+- id: q5
+  question: >-
+    A three-stage pipeline (extract, decide, act) succeeds 51% of the time end to end on a labelled set.
+    The client wants it to issue customer refunds automatically. What do you recommend?
+  options:
+    - Ship it, because 51% end to end is normal for a three-stage chain at 80% per stage.
+    - Add a same-model reviewer at the end, because any reviewer raises end-to-end success.
+    - Have it draft refunds for a person to approve, and improve the weakest stage first.
+    - Split the decide stage into two agents, so each one has a smaller and easier task.
+  correct: 2
+  explanation: >-
+    Whether 51% is acceptable depends on what the output may do, and moving money needs far more.
+    Lowering the output's authority to a draft makes it usable now; a reviewer helps only if rescues
+    exceed damage, and an extra stage multiplies in another factor below one.

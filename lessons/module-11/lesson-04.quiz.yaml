@@ -66,3 +66,18 @@
     Approval should follow reversibility and blast radius. Labels, comments and draft PRs are cheap to
     undo and already gated by policy or code review; a job that pushes releases with a deploy key is not,
     and environments release that key only after approval.
+- id: q5
+  question: >-
+    A nightly triage agent labels about 300 issues a week. Labels are trivial to change, but the team
+    suspects that about 5% are subtly wrong and nobody notices. A manager proposes a required approval
+    on every run. What do you set up instead?
+  options:
+    - A weekly review of about 40 randomly chosen labelled issues, recorded in the run ledger.
+    - A required environment reviewer on each run, with prevent-self-review turned on.
+    - Log-only oversight, since labels are reversible and nobody reads the logs anyway.
+    - A rule that the agent may only label issues that a person has already opened.
+  correct: 0
+  explanation: >-
+    The output is reversible, so a per-run gate only buys approval fatigue. A random sample of 40 sees
+    at least one bad label with probability about 0.87 at a 5% error rate, at a fraction of the cost,
+    and log-only would never surface a quiet 5%.

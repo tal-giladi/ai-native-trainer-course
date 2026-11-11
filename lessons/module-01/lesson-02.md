@@ -1,7 +1,7 @@
 ---
 id: "01.2"
 module: 1
-minutes: 15
+minutes: 17
 practice_minutes: 60
 prerequisites: ["01.1"]
 objectives:
@@ -21,7 +21,15 @@ sources:
     url: https://hbr.org/2016/09/know-your-customers-jobs-to-be-done
   - title: "Rob Fitzpatrick — The Mom Test"
     url: https://www.momtestbook.com/
-last_verified: "2026-09-28"
+  - title: "Gartner — Multiagent systems (inquiry growth)"
+    url: https://www.gartner.com/en/articles/multiagent-systems
+  - title: "Gartner press release — 40% of enterprise apps will feature task-specific AI agents by 2026"
+    url: https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025
+  - title: "McKinsey — The state of AI in 2025"
+    url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+  - title: "McKinsey — Building the foundations for agentic AI at scale"
+    url: https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale
+last_verified: "2026-11-11"
 ---
 
 # 01.2 · Engineering pain vs AI hype
@@ -62,6 +70,19 @@ Two other labels are useful, because not every real signal is a pain:
 - **Blocker.** A constraint someone can use to stop the work. An example is the CISO who says no agent touches customer data until she knows what leaves the building. A blocker isn't a pain you solve. It is a condition you design for, early ([Module 9](../module-09/lesson-01.md), [Module 12](../module-12/lesson-04.md)).
 
 **Hype** has recognizable language. It names a technology instead of an event ("we should use MCP everywhere"). It names a feeling instead of a number ("we can't fall behind"). Or it names a solution instead of a problem ("we need training"). The Jobs-to-be-Done framing from Christensen and colleagues is a good corrective: customers do not want the product, they want progress on a job. Nobody wants "AI training". They want a release that ships on Thursday without a schema surprise.
+
+### Reading the market numbers in your own pitch
+
+The same discipline applies to the statistics you put on your slides. Market numbers come in four kinds, and only the last one is evidence that agents deliver value:
+
+| Kind | Example (checked 2026-11-11) | What it shows |
+|---|---|---|
+| **Interest** | Gartner client inquiries about multi-agent systems rose 1,445% from Q1 2024 to Q2 2025 | people are asking, nothing more |
+| **Forecast** | Gartner (August 2025) predicts 40% of enterprise applications will include task-specific agents by 2026, up from under 5% in 2025 | an analyst's bet |
+| **Adoption** | McKinsey's State of AI 2025: 62% of organisations at least experimenting with agents, 23% scaling one somewhere | activity, not results |
+| **Outcome** | McKinsey (April 2026): fewer than 10% have achieved meaningful impact from agents at scale, and 80% name data limitations as a major barrier | what actually happened |
+
+Read together, they tell a client something useful: interest and experiments are everywhere, results are rare, and the gap is mostly about data and operations rather than models. That gap is the work you sell. Quoting a 1,445% figure as proof that agents work is hype with a citation.
 
 ### Who is in the room
 
@@ -208,6 +229,10 @@ RISK   (buyer):            2 reviewers cover 61% of PRs
 
 ## Sources
 
+- [Gartner — Multiagent systems: a new era in AI-driven enterprise automation](https://www.gartner.com/en/articles/multiagent-systems) — client inquiries about multiagent systems up 1,445% from Q1 2024 to Q2 2025.
+- [Gartner press release, 26 August 2025](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) — prediction: 40% of enterprise applications integrated with task-specific AI agents by 2026, up from less than 5%.
+- [McKinsey — The state of AI in 2025 (November 2025)](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) — n=1,993; 62% at least experimenting with agents, 23% scaling an agentic system somewhere.
+- [McKinsey — Building the foundations for agentic AI at scale (2 April 2026)](https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale) — fewer than 10% achieved meaningful impact at scale; 80% identify data limitations as a major barrier to scaling AI.
 - [Stack Overflow Developer Survey 2025 — AI](https://survey.stackoverflow.co/2025/ai) — 84% use or plan to use AI tools; 66% cite solutions that are "almost right, but not quite"; 45% say debugging AI-generated code is more time-consuming.
 - [Google Cloud blog — Announcing the 2024 DORA report](https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report) — AI adoption associated with faster code review and better documentation, but lower delivery throughput and stability.
 - [Becker et al. (2025) — METR randomized trial](https://arxiv.org/abs/2507.09089) — developers estimated a 20% speed-up after the study while measured completion time increased by 19%: self-reports are not measurements.

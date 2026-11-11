@@ -25,6 +25,8 @@ sources:
     url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
   - title: "NIST — AI Risk Management Framework"
     url: https://www.nist.gov/itl/ai-risk-management-framework
+  - title: "Future of Privacy Forum — The AI Act implementation timeline: what changes under the AI Omnibus"
+    url: https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/
 last_verified: "2026-09-28"
 ---
 
@@ -79,7 +81,7 @@ Whether a provider may train on your data is a contract fact, not an architectur
 You will hear these names in a security review. Know what each is *for*:
 
 - **GDPR** ([Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj)) governs personal data. Source code is rarely personal data; tickets, logs, commit metadata and customer records pasted into prompts often are. Transfers of personal data outside the EU/EEA are regulated in Chapter V (adequacy decisions, appropriate safeguards). This is why legal cares about rows 5, 6 and 8 of the inventory.
-- **The EU AI Act** entered into force on 1 August 2024; obligations for general-purpose AI model providers applied from 2 August 2025; most rules applied from 2 August 2026, with the high-risk system deadlines moved to December 2027 and August 2028 by a 2025 amendment package ([European Commission](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)). Model-provider obligations fall mainly on the providers; whether an internal coding-agent deployment falls into any regulated category is a question for legal, not an assumption.
+- **The EU AI Act** entered into force on 1 August 2024; obligations for general-purpose AI model providers applied from 2 August 2025; most rules applied from 2 August 2026. The AI Omnibus, Regulation (EU) 2026/1744 (Official Journal, 24 July 2026), moved the high-risk deadlines to 2 December 2027 for Annex III systems and 2 August 2028 for AI in regulated products (Annex I), and added a prohibition that applies from 2 December 2026 ([European Commission](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai); [FPF timeline](https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/); dates checked 2026-11-11). Model-provider obligations fall mainly on the providers; whether an internal coding-agent deployment falls into any regulated category is a question for legal, not an assumption.
 - **NIST AI RMF 1.0** (2023) organises AI risk work into four functions, Govern, Map, Measure and Manage, with a generative-AI profile published in 2024 ([NIST](https://www.nist.gov/itl/ai-risk-management-framework)). It is voluntary and useful as a checklist for *your* governance: Module 11's governance policy is the Govern function in practice.
 - **ISO/IEC 42001** (AI management systems) and **SOC 2** reports are what procurement asks vendors for; your job is to know which of the vendor's compliance artifacts cover the service you actually use.
 
@@ -167,4 +169,5 @@ The draft is how residency usually fails: the primary route is compliant, so the
 - [Google Cloud Blog — Multi-region endpoints for Claude on Vertex AI](https://cloud.google.com/blog/products/ai-machine-learning/multi-region-endpoints-for-claude-available-on-vertex-ai) — `us` and `eu` multi-region endpoints keep processing in the geography with cross-region availability.
 - [Regulation (EU) 2016/679 (GDPR)](https://eur-lex.europa.eu/eli/reg/2016/679/oj) — official text; Chapter V on transfers of personal data to third countries.
 - [European Commission — AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) — entry into force 1 August 2024; GPAI obligations from 2 August 2025; general application 2 August 2026; revised high-risk deadlines.
+- [Future of Privacy Forum — The AI Act implementation timeline: what changes under the AI Omnibus](https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/) — Regulation (EU) 2026/1744, OJ 24 July 2026; Annex III high-risk 2 December 2027, Annex I 2 August 2028; new prohibition from 2 December 2026.
 - [NIST — AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — AI RMF 1.0 (January 2023), Govern/Map/Measure/Manage; generative AI profile NIST-AI-600-1 (July 2024).

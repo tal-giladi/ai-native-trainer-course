@@ -1,0 +1,27 @@
+# Fact-check: KDnuggets "Data Scientists Are Becoming AI Managers, Not Model Builders" (Nate Rosidi, 2026-07-06)
+
+Checked 2026-11-11 against primary sources. [SNIPPET] = primary page blocked (403), figure read from search snippet or an identical republished copy.
+
+## Use (verified)
+
+- LinkedIn "Skills on the Rise 2026" (LinkedIn News, 2026-02-24, https://news.linkedin.com/2026/Skills-on-the-rise-2026): covers 2024-12-01..2025-11-30; lists Prompt Engineering and Large Language Models among Technical & Strategic AI skills (no ranks given). 2025 edition: AI Literacy #1 in US.
+- Lightcast "Beyond the Buzz" (July 2025, https://lightcast.io/resources/research/beyond-the-buzz-developing-the-ai-skills-employers-actually-need; blog https://lightcast.io/resources/blog/the-generative-ai-job-market-2025-data-insights): in 2024, 51% of postings requesting AI skills were outside the IT and Computer Science career area (61% inside IT in 2019). US postings mentioning AI skills advertise ~28% / ~$18,000 higher salary (advertised pay, not earnings).
+- PwC 2026 Global AI Jobs Barometer (press release 2026-06-15, https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html) [SNIPPET via AAP copy]: AI-skill wage premium 62% (2025 restated 57%); >1bn job ads, 27 countries; jobs requiring AI skills grew 69% vs 9% for all jobs. Do NOT cite 56% as current.
+- Gartner "Multiagent Systems" article (https://www.gartner.com/en/articles/multiagent-systems) [SNIPPET]: client inquiries about multiagent systems +1,445% Q1 2024 -> Q2 2025. Inquiry volume, not adoption.
+- Gartner press release 2025-08-26: "40 percent of enterprise applications will be integrated with task-specific AI agents by 2026, up from less than 5 percent" in 2025. A prediction. https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025
+- McKinsey "Building the foundations for agentic AI at scale" (2026-04-02, https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale): "Human roles are shifting from execution to supervision and orchestration of AI-driven processes"; nearly two-thirds experimented with agents; fewer than 10% achieved meaningful impact at scale; 80% identify data limitations as a major barrier to scaling AI.
+- McKinsey "The state of AI in 2025" (Nov 2025, n=1,993): 62% at least experimenting with agents, 23% scaling somewhere, <=10% scaling in any one function. "The state of AI in 2026" (Aug 2026, n=1,719) [SNIPPET]: 40% of >$1B-revenue companies scaling agents (from 27%), smaller flat at 22%. https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+- MIT SMR + BCG "The Emerging Agentic Enterprise" (2025-11-18, n=2,102 execs, 21 industries, 116 countries; PDF https://web-assets.bcg.com/dc/c5/1bcbfdc0405c85fb14972a57c20a/the-emerging-agentic-enterprise-how-leaders-must-navigate-a-new-age-of-ai.pdf; press https://www.bcg.com/press/18november2025-agentic-ai-blurs-line-tool-teammate): 76% see agentic AI more like a coworker than a tool; 35% use/explore, 44% plan soon; 58% of leaders expect governance changes within 3 years. Frames tensions incl. supervision vs autonomy. The line "excessive supervision can negate the benefits of autonomy" is from MIT Sloan's write-up (Burnham, 2026-01-06, https://mitsloan.mit.edu/ideas-made-to-matter/how-to-navigate-age-agentic-ai), not the report.
+- Compounding: no source needed. 0.8^3 = 0.512, 0.9^3 = 0.729, 0.75^3 = 0.42 (independent steps).
+- IAPP + Credo AI "AI Governance Profession Report 2025" (2025-04-16, n=671, https://iapp.org/resources/article/ai-governance-profession-report/): 77% of orgs working on AI governance (~90% of those using AI); only 1.5% expect no more AI governance staff need in 12 months; primary owner privacy 22%, legal/compliance 22%, IT 17%; 23.5% cite finding qualified AI governance professionals as a challenge. No job-title data.
+- EU AI Act after AI Omnibus (adopted EP 2026-06-16, Council 2026-06-29, OJ 2026-07-24; FPF summary https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus/): prohibitions 2025-02-02; GPAI 2025-08-02; Annex III high-risk 2027-12-02 (was 2026-08-02); Annex I 2028-08-02 (was 2027-08-02); new CSAM/NCII prohibition + transitional Art. 50(2) 2026-12-02; Art. 4 literacy softened. Regulation number 2026/1744 secondary only.
+- NIST AI RMF 1.0 (AI 100-1, 2023-01-26) still current, under revision, no draft; GenAI Profile NIST-AI-600-1 (2024-07-26) current.
+- OWASP Top 10 for LLM Applications: latest is 2025 edition (Nov 2024), LLM01..LLM10. OWASP Top 10 for Agentic Applications 2026 released 2025-12-09 (ASI01 Agent Goal Hijack ... ASI10 Rogue Agents).
+- Frameworks (PyPI, 2026-11-11): LangGraph 1.2.20; CrewAI 1.15.39; AutoGen 0.7.5 (2025-09-30) archived, successor Microsoft Agent Framework (1.0 GA 2026-04-03, now 1.25.0); OpenAI Agents SDK 0.24.0; Claude Agent SDK 0.2.180; Google ADK 2.14.0.
+
+## Do not use
+
+- SecondTalent "prompt engineering roles +135.8% in 2025": no primary source, predates end of 2025.
+- "Monte Carlo 2025: 75-90% per step -> ~50% over 3 steps": no primary source; the arithmetic gives 42-73%.
+- PwC 56% as a current figure.
+- "AI governance lead" title growth: no data.

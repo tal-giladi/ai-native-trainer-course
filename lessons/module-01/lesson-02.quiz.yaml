@@ -67,3 +67,16 @@
   explanation: >-
     A blocker can cancel the work after the buyer says yes. Meeting the CISO early and designing
     for her concern turns a likely week-three cancellation into a condition of the pilot.
+- id: q5
+  question: >-
+    You are writing the first slide of a pitch to a CFO who doubts that agents pay off. Which number
+    actually supports the claim that the hard part is operations and data rather than the models?
+  options:
+    - Gartner client inquiries about multi-agent systems grew 1,445% in about a year.
+    - Gartner predicts 40% of enterprise applications will include task-specific agents by 2026.
+    - McKinsey finds under 10% got meaningful impact at scale, and 80% cite data limits as a barrier.
+    - McKinsey finds 62% of organisations are at least experimenting with AI agents already.
+  correct: 2
+  explanation: >-
+    Inquiries measure interest, a prediction is a forecast and experimenting is activity. Only the
+    outcome figure says what happened, and its named barrier points at data and operations.
