@@ -19,14 +19,14 @@
 ### Q03 · "What stops a ticket or a doc from telling the agent to do something bad?"
 - Category: security
 - Answer: Nothing inside the model reliably does; prompt injection through tickets and docs is OWASP's first risk for LLM applications. What we rely on is outside the model: the agent runs with a deny list of commands, no network except the model, hooks that block writes outside the repository, and a human approves the plan. In my security lab, the injected ticket got the agent to try an exfiltration; the permission layer stopped it.
-- Evidence: OWASP LLM01:2025 (https://genai.owasp.org/llmrisk/llm01-prompt-injection/); security-lab attack A-03 notes (Module 9)
+- Evidence: OWASP LLM01:2026 (https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/); security-lab attack A-03 notes (Module 9)
 - Not known: attacks I have not tried; the residual-risk register lists four.
 - Bridge: "You will see those hooks fire in Live 3."
 
 ### Q04 · "Can it read our secrets or push to production?"
 - Category: security
 - Answer: Only what its permissions allow, so set them before the first run. In the demo it cannot read `.env` or user secrets, cannot push, and cannot run anything not on the allow list; every tool call is logged by a hook. The agent works on a branch and opens a pull request; production stays behind your normal review and pipeline.
-- Evidence: brownfield-demo `.claude/settings.json` (Module 9 permissions, Module 8 hooks); OWASP LLM06:2025 Excessive Agency (https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
+- Evidence: brownfield-demo `.claude/settings.json` (Module 9 permissions, Module 8 hooks); OWASP LLM03:2026 Excessive Agency (https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
 - Not known: how your company's agent is configured today; that is worth checking this week.
 - Bridge: "I'll show the settings file during the break if you want to copy it."
 

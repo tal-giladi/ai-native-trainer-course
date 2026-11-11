@@ -75,8 +75,8 @@
     - Gartner client inquiries about multi-agent systems grew 1,445% in about a year.
     - Gartner predicts 40% of enterprise applications will include task-specific agents by 2026.
     - McKinsey finds under 10% got meaningful impact at scale, and 80% cite data limits as a barrier.
-    - McKinsey finds 62% of organisations are at least experimenting with AI agents already.
+    - McKinsey finds 40% of large organisations now report scaling AI agents, up from 27%.
   correct: 2
   explanation: >-
-    Inquiries measure interest, a prediction is a forecast and experimenting is activity. Only the
+    Inquiries measure interest, a prediction is a forecast and scaling is activity. Only the
     outcome figure says what happened, and its named barrier points at data and operations.

@@ -10,7 +10,7 @@
 
 **Common failure in the exercise.** Students re-pin the poisoned description to make the check pass — defeating the control. Call this out: DRIFT is a re-approval event for a human, not noise to silence. Also, some expect source mapping to catch every path; remind them it guards restore, not `dotnet list/add` metadata queries.
 
-**Expected exercise outcome.** A pinned snapshot flagged as DRIFT after the rug pull; a hallucinated package failing `dotnet restore` under the allowlist; A04 and A05 scored blocked on hardened. They should name LLM03/ASI04 for each.
+**Expected exercise outcome.** A pinned snapshot flagged as DRIFT after the rug pull; a hallucinated package failing `dotnet restore` under the allowlist; A04 and A05 scored blocked on hardened. They should name LLM04/ASI04 for each.
 
 **Extension exercise.** Have them add a *checksum/version pin* concept: not just the description text but a version identifier, and discuss how they would gate a legitimate version bump (review the diff, re-pin deliberately) versus a rug pull.
 

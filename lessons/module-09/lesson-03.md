@@ -11,8 +11,8 @@ objectives:
   - Constrain dependency resolution with a package-source allowlist so a hallucinated or typosquatted name fails fast.
 volatility: implementation
 sources:
-  - title: "OWASP LLM03:2025 Supply Chain"
-    url: https://genai.owasp.org/llmrisk/llm032025-supply-chain/
+  - title: "OWASP LLM04:2026 Supply Chain"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
   - title: "Invariant Labs — MCP Security: Tool Poisoning Attacks"
     url: https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks
   - title: "Spracklen et al. (2025, USENIX Security) — We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs"
@@ -26,7 +26,7 @@ last_verified: "2026-09-28"
 
 ## Why it matters
 
-Module 8 connected MCP servers and taught scoped tokens and least-privilege tools ([08.1](../module-08/lesson-01.md), [08.3](../module-08/lesson-03.md)). This lesson looks at what happens when a *tool itself* is the attacker — either because a third-party server is malicious, or because a trusted one changes under you, or because the agent invents a dependency that does not exist. OWASP groups these as LLM03 Supply Chain and ASI04 Agentic Supply Chain, and they matter because they bypass the one control you were counting on: your review. You approve a server once; its description can change later. You read the agent's code; you do not re-verify every package name it added.
+Module 8 connected MCP servers and taught scoped tokens and least-privilege tools ([08.1](../module-08/lesson-01.md), [08.3](../module-08/lesson-03.md)). This lesson looks at what happens when a *tool itself* is the attacker — either because a third-party server is malicious, or because a trusted one changes under you, or because the agent invents a dependency that does not exist. OWASP groups these as LLM04 Supply Chain and ASI04 Agentic Supply Chain, and they matter because they bypass the one control you were counting on: your review. You approve a server once; its description can change later. You read the agent's code; you do not re-verify every package name it added.
 
 > [!NOTE]
 > The core ideas in this lesson will stay true for years: tool poisoning (hidden instructions in a tool's description), the rug pull (a tool that changes after you approved it), shadowing (one tool's description changing how the agent uses another tool), and package hallucination (the agent inventing a package name that an attacker can then register) as a supply-chain risk.
@@ -47,7 +47,7 @@ The defense theme: a description you approved is only trustworthy if it has not 
 
 ### Package hallucination
 
-Ask a model to add a dependency and it will sometimes name a package that does not exist. Spracklen and colleagues measured this across 16 models and 576,000 generated samples: **at least 5.2% of packages hallucinated for commercial models and 21.7% for open-source ones**, over 205,000 distinct fake names ([Spracklen et al., USENIX Security 2025](https://arxiv.org/abs/2406.10279)). The security problem is *slopsquatting*: an attacker registers a commonly-hallucinated name on the public feed, and every agent that hallucinates it installs the attacker's code. It maps to LLM03: the model becomes a vector into your supply chain.
+Ask a model to add a dependency and it will sometimes name a package that does not exist. Spracklen and colleagues measured this across 16 models and 576,000 generated samples: **at least 5.2% of packages hallucinated for commercial models and 21.7% for open-source ones**, over 205,000 distinct fake names ([Spracklen et al., USENIX Security 2025](https://arxiv.org/abs/2406.10279)). The security problem is *slopsquatting*: an attacker registers a commonly-hallucinated name on the public feed, and every agent that hallucinates it installs the attacker's code. It maps to LLM04: the model becomes a vector into your supply chain.
 
 The defense is not "hope the name is real." It is to constrain *where* packages may come from, so an unknown name fails the build instead of silently resolving.
 
@@ -124,7 +124,7 @@ Two supply-chain lessons in one: your trust decision must be re-verifiable (pin 
 - [ ] You have a pinned snapshot of every third-party MCP server's tool descriptions, and a check that flags drift.
 - [ ] A rug pull (clean → poisoned) is caught by the pin check, not by luck.
 - [ ] A hallucinated or typosquatted package fails `dotnet restore` against your allowlist rather than resolving.
-- [ ] You can name which OWASP id (LLM03 / ASI04) each of these is.
+- [ ] You can name which OWASP id (LLM04 / ASI04) each of these is.
 
 ## Use / don't use
 
@@ -142,7 +142,7 @@ Two supply-chain lessons in one: your trust decision must be re-verifiable (pin 
 
 ## Sources
 
-- [OWASP LLM03:2025 Supply Chain](https://genai.owasp.org/llmrisk/llm032025-supply-chain/) — third-party models, tools and packages as attack vectors.
+- [OWASP LLM04:2026 Supply Chain](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — third-party models, tools and packages as attack vectors.
 - [Invariant Labs — Tool Poisoning Attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) — poisoned descriptions, rug pulls, shadowing; pin versions with checksums.
 - [Spracklen et al. (2025) — Package Hallucinations](https://arxiv.org/abs/2406.10279) — 5.2% (commercial) / 21.7% (open-source) hallucinated packages; 205k distinct fake names.
 - [Microsoft Learn — Package Source Mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) — per-package source allowlists; every ID including transitive must match.

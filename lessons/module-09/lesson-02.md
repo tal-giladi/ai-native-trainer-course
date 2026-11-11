@@ -13,8 +13,8 @@ volatility: concept
 sources:
   - title: "Greshake et al. (2023) — Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection"
     url: https://arxiv.org/abs/2302.12173
-  - title: "OWASP LLM01:2025 Prompt Injection"
-    url: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
+  - title: "OWASP LLM01:2026 Prompt Injection"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
   - title: "NIST — Technical Blog: Strengthening AI Agent Hijacking Evaluations"
     url: https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations
   - title: "Anthropic, Wagner & Gray et al. (2025) — The Attacker Moves Second"
@@ -26,7 +26,7 @@ last_verified: "2026-09-28"
 
 ## Why it matters
 
-Prompt injection is ranked LLM01 — the number-one risk for LLM applications — because it is the mechanism that turns every other capability against you ([OWASP LLM01](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)). For a coding agent the dangerous form is **indirect**: you never type the malicious instruction. It rides in on a ticket, a doc, a code comment, a dependency's README, or a tool result, and the agent — which cannot tell an instruction from data — acts on it.
+Prompt injection is ranked LLM01 — the number-one risk for LLM applications — because it is the mechanism that turns every other capability against you ([OWASP LLM01](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)). For a coding agent the dangerous form is **indirect**: you never type the malicious instruction. It rides in on a ticket, a doc, a code comment, a dependency's README, or a tool result, and the agent — which cannot tell an instruction from data — acts on it.
 
 Greshake and colleagues gave this its name in 2023, showing that attackers can compromise LLM-integrated applications by planting instructions in the *data the system retrieves*, with no access to the user interface at all ([Greshake et al.](https://arxiv.org/abs/2302.12173)). Two years later NIST's evaluators found that when red-teamers tailored injections to an agent's behavior rather than reusing generic ones, task-hijacking success rose from **11% to 81%** ([NIST, 2025](https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations)). This is not a solved problem you can filter away; it is a structural property you must design around.
 
@@ -149,6 +149,6 @@ The takeaway students must leave with: you cannot prompt your way out of prompt 
 ## Sources
 
 - [Greshake et al. (2023) — Indirect Prompt Injection](https://arxiv.org/abs/2302.12173) — attackers compromise LLM apps by planting instructions in retrieved data; the naming paper.
-- [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — direct vs indirect; RAG and fine-tuning do not fully mitigate it.
+- [OWASP LLM01:2026 Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — inputs from users, retrieved content, tool output, images, audio and memory; LLMs make no architectural distinction between instructions and data, so there is no clean equivalent of parameterized queries.
 - [NIST — Strengthening AI Agent Hijacking Evaluations](https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations) — tailored attacks lift hijack success from 11% to 81%.
 - [The Attacker Moves Second (2025)](https://arxiv.org/abs/2510.09023) — adaptive attacks exceed 90% against 12 published defenses that looked near-perfect statically.

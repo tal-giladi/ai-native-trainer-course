@@ -11,8 +11,8 @@ objectives:
   - Explain why an approval gate on high-impact actions bounds the blast radius of a successful injection.
 volatility: implementation
 sources:
-  - title: "OWASP LLM06:2025 Excessive Agency"
-    url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
+  - title: "OWASP LLM03:2026 Excessive Agency"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
   - title: "OWASP Top 10 for Agentic Applications (2026) — ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse"
     url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
   - title: "Pearce et al. (2022, IEEE S&P) — Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions"
@@ -26,7 +26,7 @@ last_verified: "2026-09-28"
 
 ## Why it matters
 
-Injection is how an attacker sends instructions; **excessive agency** is how much damage those instructions can do. OWASP LLM06 defines it as the harm from an agent that can take more consequential actions than the task needs ([OWASP LLM06](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)). Two agents can be equally gullible; the one with `Bash(*)`, write-enabled MCP tools and open egress turns a planted sentence into a breach, while the one scoped to read a schema and edit `src/` turns the same sentence into nothing. This lesson is about shrinking the blast radius before an injection ever lands, and about a second, quieter risk: the code the agent *writes* can be insecure even when no one is attacking it.
+Injection is how an attacker sends instructions; **excessive agency** is how much damage those instructions can do. OWASP LLM03 defines it as the harm from an agent that can take more consequential actions than the task needs ([OWASP LLM03](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)). Two agents can be equally gullible; the one with `Bash(*)`, write-enabled MCP tools and open egress turns a planted sentence into a breach, while the one scoped to read a schema and edit `src/` turns the same sentence into nothing. This lesson is about shrinking the blast radius before an injection ever lands, and about a second, quieter risk: the code the agent *writes* can be insecure even when no one is attacking it.
 
 > [!NOTE]
 > The core ideas in this lesson will stay true for years: the three reasons an agent ends up with too much power (too many tools, too broad permissions, and too little human checking), the ways data can leak out, security holes in code the agent writes, and approval steps as a way to limit how much damage one mistake can do.
@@ -37,7 +37,7 @@ Injection is how an attacker sends instructions; **excessive agency** is how muc
 
 ### Three root causes
 
-OWASP names three ([OWASP LLM06](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)):
+OWASP names three ([OWASP LLM03](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)):
 
 - **Excessive functionality** — the agent can call tools it does not need. An open-ended `Bash(*)` is the worst offender: it is not one capability, it is *every* capability.
 - **Excessive permissions** — a tool's scope is broader than the task. A Jira MCP server with write access when the task only reads; a token that can touch production when the work is local.
@@ -137,7 +137,7 @@ Start from the hardened config but restore one line: change the `allow` list to 
 
 ## Sources
 
-- [OWASP LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) — excessive functionality, permissions, autonomy; minimize tools, require human approval, complete mediation.
+- [OWASP LLM03:2026 Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — excessive functionality, permissions, autonomy; minimize tools, require human approval, complete mediation.
 - [OWASP Agentic (2026) — ASI02/ASI03](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — tool misuse and identity/privilege abuse.
 - [Pearce et al. (2022) — Asleep at the Keyboard?](https://arxiv.org/abs/2108.09293) — ~40% of 1,689 Copilot completions across 89 security scenarios were vulnerable.
 - [Microsoft Learn — CA2100](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2100) — flags SQL built from non-constant strings; use parameters.

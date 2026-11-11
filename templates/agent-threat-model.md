@@ -52,10 +52,10 @@ Map each to OWASP LLM / Agentic ids and name the concrete path.
 | # | Threat | OWASP id | Path in this system | Likelihood | Impact |
 |---|---|---|---|---|---|
 | T1 | Indirect prompt injection | LLM01 / ASI01 | [ticket → agent → tool] | | |
-| T2 | Tool poisoning / rug pull | LLM03 / ASI04 | | | |
-| T3 | Excessive agency | LLM06 / ASI02–03 | | | |
+| T2 | Tool poisoning / rug pull | LLM04 / ASI04 | | | |
+| T3 | Excessive agency | LLM03 / ASI02–03 | | | |
 | T4 | Exfiltration | LLM02 | | | |
-| T5 | Hallucinated package | LLM03 | | | |
+| T5 | Hallucinated package | LLM04 | | | |
 
 ## 6. Mitigations (mapped to threats)
 

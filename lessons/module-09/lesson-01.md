@@ -7,12 +7,12 @@ prerequisites: ["02.3", "03.2", "08.1"]
 objectives:
   - Draw the trust boundaries and identities of an agent system and label every content source as trusted or untrusted.
   - Apply the lethal-trifecta / Rule-of-Two test to decide whether an injection in a given setup could exfiltrate.
-  - Map the threats of a coding-agent setup to OWASP LLM (LLM01, LLM02, LLM06) and Agentic (ASI01–ASI04) ids.
+  - Map the threats of a coding-agent setup to OWASP LLM (LLM01, LLM02, LLM03) and Agentic (ASI01–ASI04) ids.
   - Produce a threat model that names each threat, its path through the system, and the leg of the trifecta a control would cut.
 volatility: concept
 sources:
-  - title: "OWASP Top 10 for LLM Applications (2025)"
-    url: https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/
+  - title: "OWASP Top 10 for LLM Applications 2026 (v1.0, August 2026)"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
   - title: "OWASP Top 10 for Agentic Applications (2026)"
     url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
   - title: "Simon Willison — The lethal trifecta for AI agents"
@@ -35,7 +35,7 @@ This module is **defensive**. You are securing your own setup, not attacking any
 > [!NOTE]
 > The core ideas in this lesson will stay true for years: trust boundaries (the lines where data from outside meets your systems), which identity the agent acts as, the lethal trifecta and the Rule of Two (an agent becomes dangerous when it can read untrusted input, reach sensitive data and send data out all at once, so allow at most two of those), and the OWASP lists of top threats.
 >
-> The tool details will go out of date. As of September 2026 these are the `CanaryCheck trifecta` audit and the specific threat numbers in the OWASP lists (LLM01 to LLM10 and ASI01 to ASI10).
+> The tool details will go out of date. As of November 2026 these are the `CanaryCheck trifecta` audit and the specific threat numbers in the OWASP lists (LLM01 to LLM10 of the 2026 edition and ASI01 to ASI10).
 >
 > All lab work runs only in the local `security-lab`.
 
@@ -92,7 +92,7 @@ With all three, injected text can tell the agent to read a secret and send it ou
 
 ### Mapping to the standard threat lists
 
-Two OWASP catalogs give you shared vocabulary. The **LLM Top 10 (2025)** treats the model as input→output: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Supply Chain, LLM06 Excessive Agency ([OWASP LLM](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/)). The **Agentic Top 10 (2026, ASI01–ASI10)** covers the model *as an actor with tools, memory and delegated authority*: ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse, ASI04 Agentic Supply Chain ([OWASP Agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)). This module's six attacks each map to one or more of these ids.
+Two OWASP catalogs give you shared vocabulary. The **LLM Top 10 (2026 edition, August 2026)** treats the model as a component: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, and LLM08 Hidden Context Exposure, which replaced System Prompt Leakage ([OWASP LLM](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)). The **Agentic Top 10 (2026, ASI01–ASI10)** covers the model *as an actor with tools, memory and delegated authority*: ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse, ASI04 Agentic Supply Chain ([OWASP Agentic](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)). This module's six attacks each map to one or more of these ids.
 
 ## Show me
 
@@ -133,7 +133,7 @@ A common first threat model lists the tickets server and the docs server, cuts e
 
 ## Fix it
 
-**Diagnose.** The forgotten notes server is untrusted on two channels at once: its **results** are untrusted content (like any external data), and its **tool descriptions** are untrusted *and* injected straight into the agent's context at connection time — an attack we cover in 09.3 (tool poisoning, LLM03/ASI04). A threat model that omits it misses a leg.
+**Diagnose.** The forgotten notes server is untrusted on two channels at once: its **results** are untrusted content (like any external data), and its **tool descriptions** are untrusted *and* injected straight into the agent's context at connection time — an attack we cover in 09.3 (tool poisoning, LLM04/ASI04). A threat model that omits it misses a leg.
 
 **Modify.** Extend the trust table: every connected MCP server is an untrusted content source *and* a description source. Re-run the trifecta test with the notes server present — the lab's baseline still shows all three legs, but now you can see the notes server contributes the "untrusted" leg even if you cut the ticket server.
 
@@ -168,7 +168,7 @@ The lesson is that a *tool you have not called yet* is already in your trust bou
 
 ## Sources
 
-- [OWASP Top 10 for LLM Applications (2025)](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/) — LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Supply Chain, LLM06 Excessive Agency.
+- [OWASP Top 10 for LLM Applications 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — v1.0, August 2026: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency (up from LLM06 in 2025), LLM04 Supply Chain, LLM08 Hidden Context Exposure (formerly System Prompt Leakage). Ranking weights a community vote 75% and incident data 25%; once the model acts with tools and memory, OWASP points to the Agentic Top 10.
 - [OWASP Top 10 for Agentic Applications (2026)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) — ASI01–ASI10, the actor-with-authority view; published 2025-12-09.
 - [Simon Willison — The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) — private data + untrusted content + external comms; why 95% guardrails fail.
 - [Meta AI — Agents Rule of Two](https://ai.meta.com/blog/practical-ai-agent-security/) — satisfy at most two of the three properties per session; assume injection gets through.

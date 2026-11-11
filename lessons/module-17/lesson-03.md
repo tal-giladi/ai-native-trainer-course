@@ -11,10 +11,10 @@ objectives:
   - Decide which questions to answer during agent wait-time and which to park for the Q&A block.
 volatility: concept
 sources:
-  - title: "OWASP — LLM01:2025 Prompt Injection"
-    url: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
-  - title: "OWASP — LLM06:2025 Excessive Agency"
-    url: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
+  - title: "OWASP — LLM01:2026 Prompt Injection"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
+  - title: "OWASP — LLM03:2026 Excessive Agency"
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
   - title: "Becker, Rush, Barnes and Rein (2025) — Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (METR)"
     url: https://arxiv.org/abs/2507.09089
   - title: "METR (2026) — We are Changing our Developer Productivity Experiment Design"
@@ -97,8 +97,8 @@ For the questions the room asks about "the studies", have one sentence per sourc
 - **METR 2026 update**: later data points to a speed-up, but METR says its design became unreliable because developers declined to work without AI.
 - **DORA 2025**: in a survey of about 5,000 respondents, AI use was associated with higher throughput and with more instability; DORA calls AI an amplifier.
 - **Stack Overflow 2025**: more developers distrust AI output accuracy (46%) than trust it (33%).
-- **OWASP LLM01:2025**: prompt injection is the first-ranked risk for LLM applications, and OWASP says techniques such as RAG and fine-tuning do not fully mitigate it.
-- **OWASP LLM06:2025**: excessive agency (too many tools, permissions or autonomy) is mitigated by minimizing them and requiring human approval.
+- **OWASP LLM01:2026**: prompt injection is still the first-ranked risk for LLM applications in the 2026 list, and OWASP says there is no clean equivalent of parameterized queries for it, because the model makes no architectural distinction between instructions and data.
+- **OWASP LLM03:2026**: excessive agency (too many tools, permissions or autonomy) is mitigated by minimizing them and requiring human approval.
 
 Notice what these do in an answer: they concede that the room's worry is reasonable, they show that you read the studies that cut against you, and they end on a boundary. None of them tells the room what will happen on its team.
 
@@ -209,8 +209,8 @@ Then read Q04 aloud with a timer. Before looking at the output, mark every sente
 
 ## Sources
 
-- [OWASP — LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) — direct and indirect injection; RAG and fine-tuning do not fully mitigate it.
-- [OWASP — LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) — excessive functionality, permissions and autonomy; minimize and require human approval.
+- [OWASP — LLM01:2026 Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — direct and indirect injection; no clean equivalent of parameterized queries (2026 list, August 2026).
+- [OWASP — LLM03:2026 Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — excessive functionality, permissions and autonomy; minimize and require human approval.
 - [Becker et al. (2025) — METR randomized study of experienced open-source developers](https://arxiv.org/abs/2507.09089) — 19% slower with early-2025 tools; developers believed they were faster.
 - [METR (2026) — We are Changing our Developer Productivity Experiment Design](https://metr.org/blog/2026-02-24-uplift-update/) — later data suggest a speed-up; the design became unreliable.
 - [Google Cloud blog — Announcing the 2025 DORA report](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) — about 5,000 respondents; AI associated with higher throughput and more instability; AI as an amplifier.

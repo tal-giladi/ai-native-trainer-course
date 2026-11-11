@@ -4,6 +4,16 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-11-11 — OWASP LLM Top 10 2026 and newest survey editions
+
+- **Fixed** OWASP LLM ids across 09.1–09.4, 11.3, 17.3, `templates/agent-threat-model.md`, the module 9 attacks,
+  the workshop question bank and the security simulation: the 2026 edition (v1.0, August 2026) replaced the
+  2025 list. Excessive Agency is now LLM03, Supply Chain LLM04, System Prompt Leakage became LLM08 Hidden
+  Context Exposure. LLM01 claim updated to the 2026 text (no clean equivalent of parameterized queries).
+- **Updated** 01.2 adoption and outcome figures to McKinsey's State of AI 2026 (August 2026); quiz q5 option
+  updated. 01.3 adds Lightcast's March 2026 figure (over 56% of AI jobs outside tech). 11.4 adds BCG's
+  Applied AI Index 2026 (42% expect agents with real authority by 2030, 5% have full controls).
+
 ## 2026-11-11 — industry signals and stale law wording
 
 Source: KDnuggets, "Data Scientists Are Becoming AI Managers, Not Model Builders" (2026-07-06), every

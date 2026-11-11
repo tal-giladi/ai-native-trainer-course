@@ -25,6 +25,8 @@ sources:
     url: https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html
   - title: "McKinsey — Building the foundations for agentic AI at scale"
     url: https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale
+  - title: "Lightcast blog — AI for non-tech workers (March 2026)"
+    url: https://lightcast.io/resources/blog/tech-for-non-tech-workers
 last_verified: "2026-11-11"
 ---
 
@@ -55,7 +57,7 @@ A wedge is one sentence with three parts:
 - **Audience**: role, team size, industry or situation, such as "10–60 developers maintaining a 15-year-old system". Size and situation predict pain better than industry does.
 - **Pain**: one from 01.2, ideally one you have seen in data or lived yourself. After interviews (01.4) it should be in *their* words.
 
-The audience does not have to be developers. Lightcast found that in 2024, 51% of US job postings asking for AI skills were outside the IT and computer-science career area, and PwC's 2026 AI Jobs Barometer puts the wage premium for AI skills at 62% for workers in the same job. One group is changing especially fast: data scientists and analysts, whose models, SQL and dashboards are now increasingly produced by agents, and whose job is moving toward evaluating, supervising and governing those agents. McKinsey (April 2026) describes the general shift as human roles moving "from execution to supervision and orchestration". The evals, oversight and governance you learn in Modules 7, 11 and 12 are exactly what such a team needs, so "agent evaluation and oversight for a 6–20 person analytics team on Snowflake and dbt" is a legitimate wedge. Score it against the same five criteria; your advantage is low unless you have done that work yourself.
+The audience does not have to be developers. Lightcast found that in 2024, 51% of job postings asking for AI skills were outside the IT and computer-science career area, and by March 2026 it put the share of AI jobs outside tech at over 56% and rising, and PwC's 2026 AI Jobs Barometer puts the wage premium for AI skills at 62% for workers in the same job. One group is changing especially fast: data scientists and analysts, whose models, SQL and dashboards are now increasingly produced by agents, and whose job is moving toward evaluating, supervising and governing those agents. McKinsey (April 2026) describes the general shift as human roles moving "from execution to supervision and orchestration". The evals, oversight and governance you learn in Modules 7, 11 and 12 are exactly what such a team needs, so "agent evaluation and oversight for a 6–20 person analytics team on Snowflake and dbt" is a legitimate wedge. Score it against the same five criteria; your advantage is low unless you have done that work yourself.
 
 ### Five criteria
 
@@ -204,6 +206,7 @@ Tools (in the stack inventory, not the wedge): whichever agents the team already
 - [Microsoft Lifecycle — Microsoft .NET Framework](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework) — .NET Framework follows the Component Lifecycle Policy; 4.8 and 4.8.1 list no end date.
 - [Microsoft Lifecycle — SQL Server 2016](https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016) — extended support ended 2026-07-15; Extended Security Updates available through July 2029.
 - [Lightcast — Beyond the Buzz (July 2025)](https://lightcast.io/resources/research/beyond-the-buzz-developing-the-ai-skills-employers-actually-need) and [Lightcast blog, 7 August 2025](https://lightcast.io/resources/blog/the-generative-ai-job-market-2025-data-insights) — in 2024, 51% of postings requesting AI skills were outside the IT and computer-science career area.
+- [Lightcast blog — AI for non-tech workers (March 2026)](https://lightcast.io/resources/blog/tech-for-non-tech-workers) — over 56% of all AI jobs are outside tech, and the share is rising; 20% of IT jobs are AI jobs.
 - [PwC — 2026 Global AI Jobs Barometer](https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html) — 62% average wage premium for AI skills in the same job (57% in the 2025 edition, as restated); more than 1 billion job ads, 27 countries and territories.
 - [McKinsey — Building the foundations for agentic AI at scale (2 April 2026)](https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale) — human roles shift from execution to supervision and orchestration of AI-driven processes.
 - [Christensen et al. (2016) — Know Your Customers' Jobs to Be Done](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done) — define the market by the job customers need done, not by product category or demographics.

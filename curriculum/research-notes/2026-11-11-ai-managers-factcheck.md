@@ -25,3 +25,11 @@ Checked 2026-11-11 against primary sources. [SNIPPET] = primary page blocked (40
 - "Monte Carlo 2025: 75-90% per step -> ~50% over 3 steps": no primary source; the arithmetic gives 42-73%.
 - PwC 56% as a current figure.
 - "AI governance lead" title growth: no data.
+
+## Newest-edition re-check (2026-11-11, second pass)
+
+- OWASP LLM Top 10 2026 v1.0 (Aug 2026) supersedes 2025. 2026 order: LLM01 Prompt Injection, LLM02 Sensitive Information Disclosure, LLM03 Excessive Agency, LLM04 Supply Chain, LLM05 Data and Model Poisoning, LLM06 Unbounded Consumption, LLM07 Misinformation, LLM08 Hidden Context Exposure, LLM09 Vector and Embedding Weaknesses, LLM10 Improper Output Handling. Ranking: vote 75%, incident data 25%. Read from the official PDF.
+- McKinsey "The state of AI in 2026: On the road to ROI" (25 Aug 2026, read on mckinsey.com): 40% of >$1B orgs scaling AI agents (27% last year), smaller flat 22%; coding agents ~2 in 10 (31% large); 37% attribute some EBIT impact (flat); 44% say AI scaling across enterprise (38%). Supersedes State of AI 2025 for adoption figures.
+- Lightcast blog (Mar 2026, https://lightcast.io/resources/blog/tech-for-non-tech-workers): over 56% of all AI jobs outside tech, rising. Beyond the Buzz (Jul 2025) still newest for the 28% / ~$18k posting premium.
+- BCG Applied AI Index 2026 (press release 30 Sep 2026, read on bcg.com): 1,330 CxOs; 42% expect to give agents real decision authority by 2030, 5% have full controls today.
+- Unchanged, still newest: IAPP AI Governance Profession Report 2025; MIT SMR/BCG Emerging Agentic Enterprise (Nov 2025; 2026 edition may be due); Gartner Aug 2025 prediction; NIST AI RMF 1.0 (revision announced, no draft); OWASP Agentic Top 10 2026 (Dec 2025); PwC 2026 (62%).

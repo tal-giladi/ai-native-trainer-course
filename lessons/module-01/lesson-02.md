@@ -25,7 +25,7 @@ sources:
     url: https://www.gartner.com/en/articles/multiagent-systems
   - title: "Gartner press release — 40% of enterprise apps will feature task-specific AI agents by 2026"
     url: https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025
-  - title: "McKinsey — The state of AI in 2025"
+  - title: "McKinsey — The state of AI in 2026: On the road to ROI"
     url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
   - title: "McKinsey — Building the foundations for agentic AI at scale"
     url: https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale
@@ -79,10 +79,10 @@ The same discipline applies to the statistics you put on your slides. Market num
 |---|---|---|
 | **Interest** | Gartner client inquiries about multi-agent systems rose 1,445% from Q1 2024 to Q2 2025 | people are asking, nothing more |
 | **Forecast** | Gartner (August 2025) predicts 40% of enterprise applications will include task-specific agents by 2026, up from under 5% in 2025 | an analyst's bet |
-| **Adoption** | McKinsey's State of AI 2025: 62% of organisations at least experimenting with agents, 23% scaling one somewhere | activity, not results |
-| **Outcome** | McKinsey (April 2026): fewer than 10% have achieved meaningful impact from agents at scale, and 80% name data limitations as a major barrier | what actually happened |
+| **Adoption** | McKinsey's State of AI 2026 (August 2026): 40% of large organisations (over $1 billion revenue) report scaling AI agents, up from 27% a year earlier; smaller organisations flat at 22% | activity, not results |
+| **Outcome** | McKinsey (April 2026): fewer than 10% have achieved meaningful impact from agents at scale, and 80% name data limitations as a major barrier. The August 2026 survey: 37% attribute any EBIT impact to AI, the same share as a year earlier | what actually happened |
 
-Read together, they tell a client something useful: interest and experiments are everywhere, results are rare, and the gap is mostly about data and operations rather than models. That gap is the work you sell. Quoting a 1,445% figure as proof that agents work is hype with a citation.
+Read together, they tell a client something useful: interest and scaling are rising, results are not keeping pace, and the gap is mostly about data and operations rather than models. That gap is the work you sell. Quoting a 1,445% figure as proof that agents work is hype with a citation.
 
 ### Who is in the room
 
@@ -231,7 +231,7 @@ RISK   (buyer):            2 reviewers cover 61% of PRs
 
 - [Gartner — Multiagent systems: a new era in AI-driven enterprise automation](https://www.gartner.com/en/articles/multiagent-systems) — client inquiries about multiagent systems up 1,445% from Q1 2024 to Q2 2025.
 - [Gartner press release, 26 August 2025](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) — prediction: 40% of enterprise applications integrated with task-specific AI agents by 2026, up from less than 5%.
-- [McKinsey — The state of AI in 2025 (November 2025)](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) — n=1,993; 62% at least experimenting with agents, 23% scaling an agentic system somewhere.
+- [McKinsey — The state of AI in 2026: On the road to ROI (25 August 2026)](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) — 40% of respondents from organisations with revenue over $1 billion report scaling AI agents (27% a year earlier), smaller organisations flat at 22%; 37% attribute at least some EBIT impact to AI, about the same as last year.
 - [McKinsey — Building the foundations for agentic AI at scale (2 April 2026)](https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale) — fewer than 10% achieved meaningful impact at scale; 80% identify data limitations as a major barrier to scaling AI.
 - [Stack Overflow Developer Survey 2025 — AI](https://survey.stackoverflow.co/2025/ai) — 84% use or plan to use AI tools; 66% cite solutions that are "almost right, but not quite"; 45% say debugging AI-generated code is more time-consuming.
 - [Google Cloud blog — Announcing the 2024 DORA report](https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report) — AI adoption associated with faster code review and better documentation, but lower delivery throughput and stability.

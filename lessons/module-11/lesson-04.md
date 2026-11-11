@@ -28,6 +28,8 @@ sources:
     url: https://mitsloan.mit.edu/ideas-made-to-matter/how-to-navigate-age-agentic-ai
   - title: "McKinsey — Building the foundations for agentic AI at scale"
     url: https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale
+  - title: "BCG — Applied AI Index 2026 (press release, 30 September 2026)"
+    url: https://www.bcg.com/press/30september2026-ai-starting-to-pay-off-companies-generate-value
 last_verified: "2026-11-11"
 ---
 
@@ -71,7 +73,7 @@ The table above is about one question: must a person approve this run before it 
 
 Sampled review catches what per-run approval misses and costs far less. Suppose a failure shows up in 5% of runs. If someone reads 20 random runs each week, the chance they see at least one is $1 - 0.95^{20} pprox 0.64$; with 40 runs it is $1 - 0.95^{40} pprox 0.87$. Pick the sample size from the failure rate you need to notice, write it in the job's policy, and record what the reviewer found in the run ledger.
 
-Calibrating this is a trade-off, not a safety default. The MIT Sloan Management Review and BCG survey of 2,102 executives (November 2025) found leaders expect agents to take on more decision authority. MIT Sloan's write-up of it puts the tension plainly: too much supervision cancels the benefit of autonomy, and too little creates compliance and reputation risk. McKinsey (April 2026) describes the same shift from the other side: human roles move from doing the work to supervising and orchestrating it. Designing these three levels is that supervision work, and it is a skill you can teach.
+Calibrating this is a trade-off, not a safety default. The MIT Sloan Management Review and BCG survey of 2,102 executives (November 2025) found leaders expect agents to take on more decision authority. MIT Sloan's write-up of it puts the tension plainly: too much supervision cancels the benefit of autonomy, and too little creates compliance and reputation risk. McKinsey (April 2026) describes the same shift from the other side: human roles move from doing the work to supervising and orchestrating it. BCG's Applied AI Index 2026 (September 2026, 1,330 senior leaders) shows how far behind most organisations are: 42% expect to give agents real decision-making authority by 2030, but only 5% have the full set of controls in place today, controls that include oversight and rollback gates. Designing these three levels is that supervision work, and it is a skill you can teach.
 
 ### Rollback: what is the "version" of an agent job?
 
@@ -238,4 +240,5 @@ The per-run cap did its job and the incident happened anyway, because incidents 
 - [NIST AI RMF — Core (GOVERN, MANAGE)](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) — MANAGE 2.4: mechanisms and responsibilities to supersede, disengage or deactivate AI systems.
 - [MIT SMR and BCG — The Emerging Agentic Enterprise (18 November 2025)](https://web-assets.bcg.com/dc/c5/1bcbfdc0405c85fb14972a57c20a/the-emerging-agentic-enterprise-how-leaders-must-navigate-a-new-age-of-ai.pdf) — survey of 2,102 executives in 116 countries; tensions of agentic AI, including supervision versus autonomy.
 - [MIT Sloan — How to navigate the age of agentic AI (6 January 2026)](https://mitsloan.mit.edu/ideas-made-to-matter/how-to-navigate-age-agentic-ai) — write-up of the report; excessive supervision can negate the benefits of autonomy.
+- [BCG — Applied AI Index 2026, press release (30 September 2026)](https://www.bcg.com/press/30september2026-ai-starting-to-pay-off-companies-generate-value) — survey of 1,330 CxOs and senior leaders; 42% expect to grant agents genuine autonomy by 2030, 5% have the full set of controls today.
 - [McKinsey — Building the foundations for agentic AI at scale (2 April 2026)](https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/building-the-foundations-for-agentic-ai-at-scale) — human roles shift from execution to supervision and orchestration.
