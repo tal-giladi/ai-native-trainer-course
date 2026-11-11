@@ -118,7 +118,14 @@ Flow is reported separately, as a duration distribution (median and p90 of hours
 
 *Tiny example.* One PR a week waits over two days, and each costs the author 20–60 minutes to reload context: $1 \times 4.3 \times [20, 60]$ min ≈ 1.4–4.3 engineer-hours a month. It's small as effort. It's large as flow if that PR was a customer fix.
 
-*Implementation.* [`labs/module-01/sql/review-wait.sql`](../../labs/module-01/sql/review-wait.sql) computes median and p90 hours to first review, PRs waiting over 48 hours, and reviewer concentration from synced PR data. The same file has a `gh pr list --json … --jq …` one-liner if you have no warehouse. Aggregates only; no titles, no names.
+*Implementation.* You don't need a survey to get the flow number. The data already sits in the team's pull-request history. The lab file [`labs/module-01/sql/review-wait.sql`](../../labs/module-01/sql/review-wait.sql) is a read-only SQL Server query for teams that copy their GitHub or Azure DevOps pull requests into a reporting database. For every PR merged in a date range, it measures how long the PR sat before the first review arrived. If nobody reviewed it, the wait runs until the merge. It then returns four numbers:
+
+- **Median hours to first review.** The typical wait.
+- **p90 hours to first review.** The bad-but-common wait: 1 PR in 10 waits at least this long.
+- **PRs waiting over 48 hours.** How often a PR loses two days or more.
+- **Reviewer concentration.** The top five reviewers and the share of PRs each one reviewed. If two people review most of the PRs, the queue is a knowledge bottleneck, not a laziness problem.
+
+If the team has no reporting database, the comment at the end of the file has a single GitHub CLI command (`gh pr list`). It writes the same raw dates to a tab-separated file that you open in a spreadsheet, and hours to first review is the first review time minus the creation time. Either way, ask for aggregates only. You never need PR titles or people's names to size the pain, and a team lead is far more willing to share numbers that name no one.
 
 *Interpretation.* Always report both numbers and name who cares about each. Effort matters to developers and to cost. Flow matters to the buyer and the customer. The capacity bound catches the most common sizing error, which you will make in *Break it*.
 

@@ -194,6 +194,20 @@
     });
   }
 
+  // Docsify turns every relative link into a #/ route, so links to repo files that are not
+  // markdown pages (lab code, folders, data files) 404. Point them at the real file instead.
+  function fixFileLinks(root) {
+    var base = (current.file || '').replace(/[^/]*$/, '');
+    root.querySelectorAll('a[href^="#/"]').forEach(function (a) {
+      var src = a.getAttribute('href').replace(/^#\//, '').replace(/\?.*$/, '');
+      if (/\.md$/.test(src) || !(/\.[a-z0-9]+$/i.test(src) || /\/$/.test(src))) return;
+      var parts = (base + src).split('/'), outp = [];
+      parts.forEach(function (p) { if (p === '..') outp.pop(); else if (p !== '.') outp.push(p); });
+      a.setAttribute('href', outp.join('/'));
+      a.target = '_blank'; a.rel = 'noopener';
+    });
+  }
+
   window.CourseShellPlugin = function (hook, vm) {
     hook.beforeEach(function (md) {
       current.file = vm.route.file;
@@ -220,6 +234,7 @@
       }
       if (file === 'README.md') resumeBox(section);
       embedSimulations(section);
+      fixFileLinks(section);
       var qurl = quizUrlFor(file);
       if (qurl) {
         fetch(qurl).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {
