@@ -65,7 +65,7 @@ The audience does not have to be developers. Lightcast found that in 2024, 51% o
 |---|---|---|---|
 | **Specific** | 0.20 | a stranger can tell in one read whether they are in or out | everyone who writes code is in |
 | **Your advantage** | 0.25 | you have years in this stack and incidents you personally lived | you read about it |
-| **Reachable** | 0.20 | ≥ 15 people you can actually talk to this month | you know nobody in it |
+| **Reachable** | 0.20 | ≥ 15 people with the pain you can actually talk to this month (inside a company: teams that have the pain) | you know nobody in it |
 | **Pain recurring and sized** | 0.20 | a pain passing the four tests, sized in hours and flow | "they'd probably like AI" |
 | **Stack durable and common** | 0.15 | the stack outlives the next three tool releases | the wedge is one tool's feature set |
 
@@ -79,7 +79,9 @@ This is the course's principle, applied to you: **problem → architecture → r
 
 ### Reachability: a funnel, with one trap
 
-*Intuition.* You need 3–5 interviews now and a free pilot later. Both come from people you can actually reach. A wedge that is perfect on paper but contains nobody who will take your call can't be tested.
+*Who these people are.* They are not experts you ask for advice. They are people **inside your wedge**: people who have the problem you want to solve, on the stack you know. You need them for two things. First, 3–5 interviews (01.4) to check that the pain is real, shared and as big as you think. Second, a pilot later in the course, where you show your solution to them and see if it works for them. If you work as a consultant, they are also your first likely customers.
+
+*Intuition.* A wedge that is perfect on paper but contains nobody with the problem who will take your call can't be tested.
 
 *Equation.* Starting from the $N$ people you can realistically contact, apply the share $s$ that matches the wedge and a reply rate $r$:
 
@@ -92,6 +94,8 @@ $$R = N \cdot s_{\text{wedge}} \cdot r$$
 *Implementation.* A spreadsheet with one row per funnel step and its source (search query, hand count, assumption). Mark every step as counted or assumed.
 
 *Interpretation.* Under 15 reachable people means the wedge is too narrow **to test now**. It may still be a good niche later, once content brings people to you. It is not a verdict on the market.
+
+*Inside an organization.* If you are the AI trainer inside your own company, you don't need a LinkedIn funnel. Your audience is the developers and teams in your company who share the pain. You interview them and run the pilot with them. Don't count contacts: list the teams by name and, for each, whether you have seen the pain there yourself or are guessing. The 15-person bar does not apply. Even a team of three is enough to interview and pilot with. People outside the company matter only if you plan to sell your training outside it later.
 
 ## Show me
 
@@ -169,7 +173,7 @@ Tools (in the stack inventory, not the wedge): whichever agents the team already
 <summary>Solution notes: other ways a wedge fails</summary>
 
 - **Too narrow to test.** Fewer than 15 reachable people. Keep it as a future niche; widen one dimension (industry → situation) for now.
-- **Employer-shaped.** The wedge is exactly your current employer. It is a fine first audience (01.1), but check you can reach at least ten people outside it. Also check your employment contract for side-work and IP clauses before you talk to anyone who could become a paying client; the course returns to this with legal and admin later.
+- **Employer-shaped.** The wedge is exactly your current employer. That is right if you train inside your company. If you plan to sell outside it, check you can reach at least ten people outside it too. Also check your employment contract for side-work and IP clauses before you talk to anyone who could become a paying client; the course returns to this with legal and admin later.
 - **Pain-free.** Stack and audience are right, but the pain is "they'd benefit from AI". Go back to 01.2.
 - **Borrowed.** Someone else's wedge in your words. If your advantage score depends on their incidents, it is theirs.
 </details>
@@ -178,7 +182,7 @@ Tools (in the stack inventory, not the wedge): whichever agents the team already
 
 - [ ] The wedge is one sentence with stack, audience and pain, and has an explicit "out" list.
 - [ ] Three candidates were scored with one line of evidence per score; the choice is written down with what it gives up.
-- [ ] The reachability funnel for the chosen wedge gives ≥ 15 people, with counted vs assumed steps marked.
+- [ ] The reachability funnel for the chosen wedge gives ≥ 15 people with the pain, with counted vs assumed steps marked. Inside a company: the teams with the pain are listed by name instead.
 - [ ] `stack-inventory.md` names the 3–4 platforms you will build against, and every guess is marked `?`.
 - [ ] Someone outside tech can repeat who it is for and who it is not for.
 
