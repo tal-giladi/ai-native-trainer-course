@@ -15,6 +15,7 @@ A headless coding agent in a CI job that reads issue or PR text (untrusted), hol
 - https://github.com/anthropics/claude-code/security/advisories/GHSA-fg94-h982-f3mm — fetched directly 2026-10-11: CVE-2026-54316, CVSS v4 6.0, fixed 2.1.163, bare-hostname huggingface.co pre-approval as covert exfiltration channel (vendor advisory, primary).
 - Gemini CLI GHSA-wpqr-6v78-jr5g / CVE-2026-12537 — the GitHub advisory URL returned 404 to this session and the API is session-restricted; known only via secondary trackers (cybersecuritynews.com, vpncentral.com, feedly) that disagree on CVSS (7.8 vs 10.0).
 - Black Hat talk — secondary only (CSA research note, dailysecurityreview.com); slides not reachable.
+- https://github.com/anthropics/claude-code-action/releases/tag/v1.0.273 (2026-11-12; fetched 2026-11-15) — the Claude Code action now denies code-running commands on PRs whose author lacks write access unless `restrict_untrusted_prs: false`, and restores `GITHUB_ENV`/`GITHUB_PATH`/git config at session end: the vendor moving the untrusted-PR boundary into the tool. Cited in 11.3 by the W46 FIX; relevant to the 2026-11-22 joint review.
 
 ## What would change the decision
 

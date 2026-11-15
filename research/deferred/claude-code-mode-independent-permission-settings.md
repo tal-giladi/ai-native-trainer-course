@@ -14,6 +14,7 @@ Two opt-in `permissions` settings shipped a week apart. `permissions.blockWrites
 
 - https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md (v2.1.314, v2.1.319) — re-fetched 2026-11-08, both bullets present (vendor changelog). Release tags cross-checked by the daily runs.
 - code.claude.com/docs/en/permissions — DNS-unreachable from the 2026-11-08 review session; exact syntax, defaults and the pre-setting behaviour for subagents/teammates not confirmed.
+- https://code.claude.com/docs/en/settings-reference (fetched 2026-11-15 during the W46 review, settings page "Exceptions to managed settings precedence") — `permissions.blockWritesOutsideWorkingDirectories` (v2.1.314+) and `permissions.denyInsteadOfPrompting` (v2.1.319+) are now in first-party docs; full semantics not yet read. Note for the 2026-12-06 review: the documentation condition may now be met.
 
 ## What would change the decision
 

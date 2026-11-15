@@ -79,7 +79,7 @@
 - **Commitment (discovery)** — Something a participant spends now — an introduction, data, a second session — as opposed to a compliment or a promise ([lesson 1.4](lessons/module-01/lesson-04.md))
 - **Community rules** — The terms that make a paid community a bounded product: response time, office hours, exclusions, moderation and what happens if it closes ([lesson 22.2](lessons/module-22/lesson-02.md))
 - **Compact instructions** — Guidance in the root CLAUDE.md, or a focus passed to /compact, that tells the summarizer what must survive ([lesson 4.4](lessons/module-04/lesson-04.md))
-- **Compaction** — Replacing older conversation history with a model-written summary so a session can continue; lossy by design ([lesson 4.4](lessons/module-04/lesson-04.md))
+- **Compaction** — Replacing older conversation history with a model-written summary so a session can continue; lossy by design. Triggered manually (`/compact`), automatically near the window limit (auto-compact) or, in Claude Code, after a long conversation sits idle (idle compaction) ([lesson 4.4](lessons/module-04/lesson-04.md))
 - **Company scaffold** — The fictional organization around a demo repository: handbook, team, glossary, PRDs, tickets in a tracker and at least one stale page ([lesson 15.2](lessons/module-15/lesson-02.md))
 - **Compute-matched baseline** — A single agent allowed the same kinds of work as a multi-agent arm (plan, test, re-check), so a comparison isolates the effect of having several agents ([lesson 10.4](lessons/module-10/lesson-04.md))
 - **Concept card** — The record of one concept: status, date named, plain-words definition, claim, boundary, counter-evidence and dated evidence trail ([lesson 14.2](lessons/module-14/lesson-02.md))

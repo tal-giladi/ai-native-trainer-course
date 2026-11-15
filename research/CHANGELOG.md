@@ -4,6 +4,17 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-W46 (2026-11-15)
+
+- **Added** to [04.4](../lessons/module-04/lesson-04.md) — idle compaction: Claude Code compacts a long idle
+  conversation (200K-token default threshold, about an hour idle) before its prompt cache expires; how to
+  turn it off, and why the "durable constraints in files" rule covers it. Glossary "Compaction" extended.
+- **Fixed** [11.3](../lessons/module-11/lesson-03.md) and [11.2](../lessons/module-11/lesson-02.md) — since
+  claude-code-action v1.0.273 (2026-11-12) the action starts in auto mode, so `--allowedTools` in
+  `claude_args` is a strict list only with `--permission-mode default`; 11.3 also notes `restrict_untrusted_prs`.
+- **Fixed** [12.5](../lessons/module-12/lesson-05.md) CI hint and [02.1](../lessons/module-02/lesson-01.md)
+  setup line — .NET 8 reached end of support on 2026-11-10; install the .NET 10 SDK.
+
 ## 2026-11-11 — OWASP LLM Top 10 2026 and newest survey editions
 
 - **Fixed** OWASP LLM ids across 09.1–09.4, 11.3, 17.3, `templates/agent-threat-model.md`, the module 9 attacks,

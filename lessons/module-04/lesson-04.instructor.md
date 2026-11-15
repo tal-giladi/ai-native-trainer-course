@@ -2,7 +2,7 @@
 
 **Teaching objective.** Students choose between compression, prioritization, summarization, compaction and reset; verify what survives compaction with a survival test; and keep task constraints in durable, re-injected files (handoff note, plan, compact instructions, `SessionStart` hook).
 
-**Likely confusion.** Compaction vs `/clear`. Compaction keeps a model-written summary and continues; `/clear` keeps nothing but files. Students think compaction is always the safer choice because "nothing is lost" — it is lossy by design.
+**Likely confusion.** Compaction vs `/clear`. Compaction keeps a model-written summary and continues; `/clear` keeps nothing but files. Students think compaction is always the safer choice because "nothing is lost" — it is lossy by design. A related surprise: students who leave a long session over lunch may come back to `Compacted while idle, before the prompt cache expired` and assume something broke. It is idle compaction (on by default since October 2026, 200K-token threshold, about an hour idle); use it as a live example that compaction can happen without anyone typing `/compact`, which is why durable constraints belong in files.
 
 **Common misconception.** "If I put it in CLAUDE.md it survives, so I'll put task constraints there." Root rules survive, but a task fact in the root misleads every other task and turns into stale context the day the task ends. Task facts belong to task artifacts.
 

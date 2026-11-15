@@ -15,6 +15,8 @@ sources:
     url: https://code.claude.com/docs/en/context-window
   - title: "Claude Code docs — How Claude remembers your project (instructions lost after /compact)"
     url: https://code.claude.com/docs/en/memory
+  - title: "Claude Code docs — Settings reference (idleCompaction)"
+    url: https://code.claude.com/docs/en/settings-reference#idlecompaction
   - title: "Claude Code docs — Manage costs effectively (/compact, /clear, compact instructions)"
     url: https://code.claude.com/docs/en/costs
   - title: "Claude Code docs — Automate actions with hooks (re-inject context after compaction)"
@@ -48,7 +50,7 @@ Each of those is **lossy**. A summary keeps what the summarizer thinks matters. 
 | **Compression** | Makes new context smaller before it enters: quiet test output, filtered logs, terse tool results, a sub-agent that returns a summary | commands, hooks, sub-agents | detail you filtered out |
 | **Prioritization** | Decides what gets the space: small always-loaded core, facts before procedures, recent over old | the layer design (04.2) | nothing, if done before the session |
 | **Summarization** | Someone writes a short account of the state: you, the agent, or a sub-agent | a handoff note, a plan file | whatever the writer left out |
-| **Compaction** | The harness replaces older history with a model-written summary and keeps going | `/compact`, auto-compact; server-side compaction in the API (beta) | conversation-only details |
+| **Compaction** | The harness replaces older history with a model-written summary and keeps going | `/compact`, auto-compact, idle compaction; server-side compaction in the API (beta) | conversation-only details |
 | **Reset** | Start with an empty history | `/clear`, a new session | everything not in a file |
 
 Anthropic's engineering guidance describes good compaction as keeping architectural decisions, unresolved bugs and implementation details while discarding redundant tool outputs — and recommends tuning a summarizer for recall first, then precision. It also describes **structured note-taking**: the agent maintains a notes file outside the window and reads it back. And sub-agents act as compression: one may explore with tens of thousands of tokens and return a distilled summary, often 1,000–2,000 tokens.
@@ -87,6 +89,8 @@ flowchart TD
 ```
 
 Two costs to weigh. **Money:** compaction reads the whole conversation it summarizes, so compacting a large context is itself a large request; `/clear` costs nothing. **Fidelity:** a compaction you steer ("focus on the auth bug") keeps what you choose instead of what the automatic pass guesses; an unsteered one is a guess.
+
+One automatic pass runs while you are away. Since October 2026, Claude Code compacts an interactive conversation that has reached 200,000 tokens (the default threshold) and then sat idle for about an hour, just before its prompt cache expires; the session shows `Compacted while idle, before the prompt cache expired`. Your next message is cheaper because it sends a summary instead of the whole history, but it is the same unsteered summary: a constraint you typed only in chat before lunch may be gone when you come back. It is on by default; `"idleCompaction": false` in a settings file, or the **Idle compaction** row in `/config`, turns it off. The rule above protects you either way; the setting only decides when the summary happens.
 
 ### Compact instructions and handoff notes
 
@@ -207,6 +211,7 @@ The reference files are `labs/module-04/solution/CLAUDE.md` (Compact instruction
 
 - [Claude Code docs — Explore the context window](https://code.claude.com/docs/en/context-window) — what survives compaction, by mechanism; up to five files re-read; compact with a focus; `/clear` between tasks (as of 2026-09).
 - [Claude Code docs — How Claude remembers your project](https://code.claude.com/docs/en/memory) — project-root CLAUDE.md is re-read from disk after `/compact`; conversation-only instructions can disappear.
+- [Claude Code docs — Settings reference: `idleCompaction`](https://code.claude.com/docs/en/settings-reference#idlecompaction) — idle compaction is on by default for interactive sessions at or above a 200,000-token threshold after about an hour idle, before the prompt cache expires; `"idleCompaction": false` or the `/config` row turns it off; `CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS` changes the threshold (as of 2026-11).
 - [Claude Code docs — Manage costs effectively](https://code.claude.com/docs/en/costs) — `/compact <focus>`, Compact instructions in CLAUDE.md, compaction is itself a large request, `/clear` costs nothing.
 - [Claude Code docs — Automate actions with hooks](https://code.claude.com/docs/en/hooks-guide) — `SessionStart` hook with `compact` matcher re-injects context after compaction.
 - [Claude API docs — Compaction overview](https://platform.claude.com/docs/en/build-with-claude/compaction) — server-side compaction on demand or at a token threshold (beta), custom summarization prompts, context editing as an alternative.

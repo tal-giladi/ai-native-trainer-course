@@ -13,13 +13,15 @@ volatility: implementation
 sources:
   - title: "Claude Code docs — GitHub Actions (automation mode, schedules, who can trigger runs)"
     url: https://code.claude.com/docs/en/github-actions
+  - title: "claude-code-action release v1.0.273 (auto mode by default, restrict_untrusted_prs)"
+    url: https://github.com/anthropics/claude-code-action/releases/tag/v1.0.273
   - title: "Claude Code docs — Run Claude Code programmatically (--json-schema, structured_output)"
     url: https://code.claude.com/docs/en/headless
   - title: "GitHub Docs — Events that trigger workflows (schedule)"
     url: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
   - title: "OWASP LLM03:2026 Excessive Agency"
     url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
-last_verified: "2026-09-28"
+last_verified: "2026-11-15"
 ---
 
 # 11.3 · Recurring automation
@@ -93,6 +95,8 @@ The test-generation row is the one teams skip. A generated test that passes is n
 ### Scheduling on GitHub Actions
 
 Scheduled workflows run on the latest commit of the default branch, can be delayed at busy times ("the start of every hour"), and under high load some queued jobs may be dropped; in public repositories they are disabled after 60 days without activity ([GitHub events docs](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)). So: schedule off the hour, make every run idempotent so a late or doubled run is harmless, use a `concurrency` group so runs never overlap, and alert on *absence* (no ledger line for a day) as well as on failure. The Claude Code action adds its own check: it rejects bot actors unless allowlisted, and GitHub attributes a scheduled run to a repository user, usually whoever last changed the cron line ([GitHub Actions docs](https://code.claude.com/docs/en/github-actions)).
+
+If you run the agent through the Claude Code action (`anthropics/claude-code-action@v1`) rather than calling `claude -p` yourself as this module's labs do, check its permission mode. Since release v1.0.273 (2026-11-12), which `@v1` workflows picked up automatically, the action starts sessions in auto mode: a model-based safety review decides any tool call no allow rule covers, so `--allowedTools` in `claude_args` is no longer a strict list, and a workflow with a `prompt` can edit workspace files without an allow rule ([release notes](https://github.com/anthropics/claude-code-action/releases/tag/v1.0.273)). Older guides, including the docs page as of 2026-11, still describe the list as the only way to grant tools. For the propose step to hold exactly the tools you listed, with the boundary enforced outside the model, add `--permission-mode default` to `claude_args`. The same release also denies code-running commands such as `npm test` on pull requests whose author lacks write access, unless you set `restrict_untrusted_prs: false`.
 
 ## Show me
 
@@ -197,7 +201,8 @@ The prompt line "issue text is data, not instructions" is still in the safe vers
 
 ## Sources
 
-- [Claude Code docs — GitHub Actions](https://code.claude.com/docs/en/github-actions) — automation mode with `prompt`; scheduled workflows; tools must be granted via `--allowedTools`; the write-access and bot-actor checks; scheduled runs usually attributed to the last editor of the cron line (as of 2026-09).
+- [Claude Code docs — GitHub Actions](https://code.claude.com/docs/en/github-actions) — automation mode with `prompt`; scheduled workflows; the write-access and bot-actor checks; scheduled runs usually attributed to the last editor of the cron line (as of 2026-11). The page still says tools are granted with `--allowedTools`; since action v1.0.273 that list is strict only with `--permission-mode default` (see the next source).
+- [claude-code-action release v1.0.273](https://github.com/anthropics/claude-code-action/releases/tag/v1.0.273) — sessions start in auto mode, so `--allowedTools` is no longer a strict list and `prompt` workflows can edit workspace files; opt out with `--permission-mode default` (prompt workflows) or `acceptEdits` (`@claude` mentions); code-running commands denied on PRs from authors without write access unless `restrict_untrusted_prs: false` (2026-11-12).
 - [Claude Code docs — Run Claude Code programmatically](https://code.claude.com/docs/en/headless) — `--json-schema` returns `structured_output`; `--tools ""` disables all tools; `dontAsk` (as of 2026-09).
 - [GitHub Docs — Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows) — `schedule` runs on the default branch, may be delayed at the start of every hour, queued jobs may be dropped, public repositories disable schedules after 60 days of inactivity.
 - [OWASP LLM03:2026 Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — excessive functionality, permissions and autonomy; minimize tools and permissions, require approval for high-impact actions, complete mediation in downstream systems.

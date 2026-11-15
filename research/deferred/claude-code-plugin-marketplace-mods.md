@@ -15,6 +15,7 @@ Claude Code v2.1.287–v2.1.302 (Oct 2026) added marketplace plugin installs and
 - https://github.com/anthropics/claude-code/releases and https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md — vendor release notes only (vendor claim).
 - https://github.com/anthropics/claude-code/security/advisories/GHSA-pq7j-f95f-qfcv — first-party advisory on plugin-install trust (SHA pin not verified after checkout, CVE-2026-86063, fixed 2.1.179); recorded as its own topic `verify-pins-after-fetch`, to be decided with this one.
 - No independent practitioner or security write-up; no third-party marketplace or example mod found. The docs site (code.claude.com) was DNS-unreachable from every run, including the 2026-10-18 review.
+- https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md (v2.1.321, 2026-11-09; via daily/2026-11-10.md) — mods no longer turn on without asking in auto and bypass modes; `.claude/skills` inside `~/.claude/plugins` no longer load; managed `extraKnownMarketplaces` blocks marketplace names declared elsewhere. Vendor changelog; still no first-party page defining what a mod can access.
 
 ## What would change the decision
 
@@ -24,3 +25,4 @@ First-party docs that define what a mod can access and how marketplaces are trus
 
 - 2026-10-18 — WAIT — release notes only, docs unreachable, no independent coverage or third-party marketplace yet — weekly/2026-W42.md — candidates C-20261012-01
 - 2026-11-01 — WAIT — new first-party evidence (GHSA-pq7j-f95f-qfcv) on plugin-install trust attached; still no docs or independent coverage; review date unchanged — weekly/2026-W44.md — candidates C-20261029-01
+- 2026-11-15 — WAIT — reappeared in daily/2026-11-10.md with v2.1.321 consent/marketplace changes (changelog only); condition unchanged, keep the 2026-11-29 review — weekly/2026-W46.md — candidates none new

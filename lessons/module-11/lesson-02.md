@@ -19,7 +19,7 @@ sources:
     url: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ICSE202013-codereview.pdf
   - title: "Claude Code docs — GitHub Actions (review workflow, inline comments, automation mode)"
     url: https://code.claude.com/docs/en/github-actions
-last_verified: "2026-09-28"
+last_verified: "2026-11-15"
 ---
 
 # 11.2 · CI review: signal vs noise
@@ -204,4 +204,4 @@ Precision and recall trade through volume. For a CI reviewer the attention budge
 - [Software Engineering at Google, ch. 20 — Static Analysis](https://abseil.io/resources/swe-book/html/ch20.html) — "effective false positive" = no positive action taken; checks must stay under 10% effective false positives; the "Not useful" feedback loop.
 - [Sadowski et al. — Tricorder (ICSE 2015)](https://research.google/pubs/tricorder-building-a-program-analysis-ecosystem/) — analysis results integrated into code review, kept only while developers find them useful.
 - [Bacchelli and Bird — Expectations, Outcomes, and Challenges of Modern Code Review](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ICSE202013-codereview.pdf) — finding defects is the main motivation for review, but reviews are less about defects than expected; human review comments are an incomplete defect oracle.
-- [Claude Code docs — GitHub Actions](https://code.claude.com/docs/en/github-actions) — review workflow with inline comments, automation mode with `prompt`, `claude_args` for `--max-turns` and `--allowedTools`, same-repository PRs only because fork PRs get no secrets (as of 2026-09).
+- [Claude Code docs — GitHub Actions](https://code.claude.com/docs/en/github-actions) — review workflow with inline comments, automation mode with `prompt`, `claude_args` for `--max-turns` and `--allowedTools`, same-repository PRs only because fork PRs get no secrets (as of 2026-11). Since [action v1.0.273](https://github.com/anthropics/claude-code-action/releases/tag/v1.0.273) (2026-11-12) sessions start in auto mode, so `--allowedTools` is a strict list only if `claude_args` also sets `--permission-mode default` (or `acceptEdits` for `@claude` mentions); see [11.3](lesson-03.md).

@@ -19,7 +19,7 @@ sources:
     url: https://c4model.com/
   - title: "Claude Code docs — Enterprise deployment overview"
     url: https://code.claude.com/docs/en/third-party-integrations
-last_verified: "2026-09-28"
+last_verified: "2026-11-15"
 ---
 
 # 12.5 · ADRs and the reference architecture
@@ -162,7 +162,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
-        with: { dotnet-version: "8.0.x" }
+        with: { dotnet-version: "10.0.x" }
       - run: dotnet build tools/ArchCheck -c Release
       - run: |
           A="dotnet tools/ArchCheck/bin/Release/net8.0/ArchCheck.dll"
@@ -171,7 +171,7 @@ jobs:
           $A review security-review-questionnaire.json security-review.md
 ```
 
-Pin the actions to commit SHAs in a real repository, as in Module 11.
+Pin the actions to commit SHAs in a real repository, as in Module 11. The job installs the .NET 10 SDK (the current LTS): .NET 8 reached end of support on 2026-11-10, so earlier copies of this hint that install `8.0.x` should be updated. `ArchCheck` still targets `net8.0` with `RollForward=Major`, so it builds and runs on .NET 10 unchanged and the output path stays `bin/Release/net8.0/`.
 </details>
 
 ## Break it

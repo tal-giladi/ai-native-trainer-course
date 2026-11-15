@@ -27,7 +27,7 @@ sources:
     url: https://platform.claude.com/docs/en/build-with-claude/token-counting
   - title: "Models overview (Claude API docs)"
     url: https://platform.claude.com/docs/en/models/overview
-last_verified: "2026-09-28"
+last_verified: "2026-11-15"
 ---
 
 # 02.1 · From text to next token
@@ -128,7 +128,7 @@ CREATE| OR| ALTER| PROCED|URE| dbo|.us|p|_Get|Orders|By|Customer|   | @|Tenant|I
 
 ## Try it
 
-All labs are in [labs/module-02](../../labs/module-02/README.md). You need the .NET 8+ SDK; the needle test also needs an API key for one provider (or a local Ollama).
+All labs are in [labs/module-02](../../labs/module-02/README.md). You need the .NET 8 SDK or later; install .NET 10, the current LTS, since .NET 8 reached end of support on 2026-11-10 (the labs roll forward to a newer runtime); the needle test also needs an API key for one provider (or a local Ollama).
 
 1. Count tokens on the samples and look at the boundaries:
 
