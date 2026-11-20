@@ -27,3 +27,25 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** FIX, not ADD. In `agent-review.yml`, read the prompt, `AGENTS.md` and settings from the base ref (e.g. `git show "origin/$BASE_REF:AGENTS.md" > /tmp/agents-base.md` and pass that file), and leave the PR's copy in the diff for review. One sentence in 11.1 next to "you know which version": on a PR run, load the AI layer from the base branch, as claude-code-action does since v1.0.277. Optionally note the change next to the existing v1.0.273 annotation in 11.3.
 - **Confidence:** high for the release content (primary, quoted); medium that the lab change is worth making now (same-repo PRs only, so the attacker already has write access).
 - **Recommendation:** review for FIX in 11.1 and `labs/module-11/workflows/agent-review.yml`; consider together with the CI-trust deferred topics on 2026-11-22. (2026-11-18: two releases in two days moving instruction/config files to a trusted branch strengthens the case; if 11.3's v1.0.273 note is touched, mention that `restrict_untrusted_prs` now also governs which branch the config comes from.)
+
+### C-20261120-01 · LLM-judge error shifts with the agent version: calibration measured on an old agent may not transfer to its upgrade
+
+- **Class:** B
+- **Kind:** new-topic
+- **Date discovered:** 2026-11-20
+- **Date published:** 2026-09-28
+- **Source:** https://arxiv.org/abs/2609.34198 (primary, abstract page fetched this session)
+- **Organization/researchers:** Jiapeng Li (single author; affiliation not checked)
+- **Category:** evaluation
+- **What changed:** Preprint "Frozen Judges, Moving Agents: Version-Dependent LLM-Judge Error and the Limits of Judge-Assisted Agent Evaluation" (v1 28 Sep 2026, v2 29 Sep 2026 adding an OpenHands validation). Not peer reviewed. Older than the 48 h window; found today and not previously in the registry.
+- **Technical summary:** Per the abstract: across 35 coding-agent submissions on 250 SWE-bench Verified issues, two tau-bench customer-service agents (155 tasks) and 1,106 expert-labelled AgentRewardBench trajectories, every judge tested rejected task-conditioned error invariance, i.e. a judge's error rates differ between agent versions even on the same tasks. On SWE-bench, eight judge-only intervals declared upgrades that execution-based intervals could not establish, although judge and execution rankings correlated at 0.71–0.79. The rate at which judges accepted failed patches rose with agent capability (observational; the author's follow-up reports mean Spearman +0.944). Carrying calibration measured on an old version over to the new one raised SWE-bench comparison error from 3.8 to 19.5 points. A paired audit of current outputs narrowed intervals by only 5% at 80 labelled tasks. The author recommends paired audits of current outputs over judge-only release decisions or transported calibration; independent human patch review is still pending.
+- **Why it might matter:** Lesson 07.3 teaches correcting a judged pass rate with TPR/FPR measured on a calibration set and says the correction holds only if TPR and FPR are the same on both sets, so "recalibrate when the task or the judge changes". If this result holds, the *agent* changing (the very thing an upgrade comparison measures) is also a reason to recalibrate, and a judge's false-pass rate may grow as the agent gets better, which biases upgrade decisions toward "the new version is better".
+- **Evidence of adoption:** none (new preprint)
+- **Major organizations using it:** n/a
+- **Open-source implementation:** none checked
+- **Paper:** https://arxiv.org/abs/2609.34198
+- **Code:** none checked
+- **Relationship to existing course material:** lesson 07.3 (`lessons/module-07/lesson-03.md` lines ~90–102: Rogan–Gladen correction, Lee et al. ICML 2026, "recalibrate when the task or the judge changes"); 07.5 (eval comparisons); 02.5 (model comparison). Registry: no prior entry (`lookup "Frozen Judges"`).
+- **Potential course lesson:** If confirmed by independent work: one sentence in 07.3 extending "recalibrate when the task or the judge changes" to "or the agent version you are comparing", plus a note that judge-only upgrade decisions should be checked with execution-based grading or a fresh human-labelled sample of the new version's outputs.
+- **Confidence:** low–medium (single-author, unreviewed preprint; mechanism is plausible and consistent with the lesson's own invariance assumption)
+- **Recommendation:** monitor; revisit if peer-reviewed or replicated. Cheap to adopt as a caveat if the weekly review touches 07.3.
