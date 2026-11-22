@@ -1,9 +1,9 @@
 # Agent-to-agent trust boundary failure in CI (Google adk-python)
 
 - **Topic ID:** agent-to-agent-ci-trust-boundary
-- **Status:** WAIT
-- **Next review:** 2026-11-22
-- **Course change:** none
+- **Status:** ADD
+- **Next review:** n/a
+- **Course change:** lessons/module-10/lesson-02.md (one case-study sentence after the "message from another agent is data" corollary, one source; instructor-notes follow-up question; no new lesson, quiz unchanged)
 - **Candidates:** C-20261106-01
 
 ## Summary
@@ -14,6 +14,7 @@ Pillar Security showed that a public, low-privilege triage bot in `google/adk-py
 
 - https://www.pillar.security/blog/ill-just-call-you-agent-to-agent-privilege-boundary-failures-in-ci-cd-on-googles-adk-repository — primary research write-up (2026-08-03), read by the daily run.
 - Independent coverage found 2026-11-08: SecurityWeek (https://www.securityweek.com/gemini-agent-to-agent-attack-exposed-secrets-enabled-pull-request-tampering/), Cloud Security Alliance research note (https://labs.cloudsecurityalliance.org/research/csa-research-note-google-adk-trustissues-agent-injection-202/). No CVE; Google rated it below its reward bar (a maintainer merge was still needed).
+- 2026-11-22: Pillar write-up fetched directly by the weekly review; mechanism (PAT-backed `adk-bot` with Collaborator rank passing `gemini-dispatch.yml`'s member/collaborator gate; invoked agent held `issues: write`/`pull-requests: write`) and timeline (workflows removed by 2026-07-02, fix commit 66730e9 on 2026-07-21) confirmed.
 
 ## What would change the decision
 
@@ -22,3 +23,4 @@ Mostly covered already: 10.2 says a message from another agent is data, not an i
 ## History
 
 - 2026-11-08 — WAIT — well-documented real case of a pattern 10.2 already states; decide as part of the CI/case-study pool review on 2026-11-22 rather than add piecemeal — weekly/2026-W45.md — candidates C-20261106-01
+- 2026-11-22 — ADD — primary write-up re-read and confirmed, two independent secondary sources; strongest real case for a rule 10.2 already states, added as one sentence in 10.2, not a lesson — weekly/2026-W47.md — candidates C-20261106-01

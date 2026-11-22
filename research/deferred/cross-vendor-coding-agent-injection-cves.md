@@ -2,7 +2,7 @@
 
 - **Topic ID:** cross-vendor-coding-agent-injection-cves
 - **Status:** WAIT
-- **Next review:** 2026-11-22
+- **Next review:** 2027-01-03
 - **Course change:** none
 - **Candidates:** C-20261023-01, C-20261025-01
 
@@ -15,6 +15,7 @@ October 2026 advisories show patterns module 09 already teaches appearing in non
 - https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/96xxx/CVE-2026-96893.json — CVE record (daily 2026-10-23); GitLab's own advisory unreachable from research sessions.
 - https://msrc.microsoft.com/csaf/advisories/2026/msrc_cve-2026-103572.json — MSRC CSAF record (daily 2026-10-25): CWE-94, CVSS 8.8, fixed VS 17.14.42 / 18.10.4.
 - https://securityonline.info/cve-2026-103572-visual-studio-copilot-rce-disclosed/, https://cybersecuritynews.com/github-copilot-rce-vulnerability, https://toolnavs.com/article/2557-copilot-flaw-cve-2026-103572-one-trailing-dot-bypasses-validation-visual-studio — secondary coverage (trailing-dot path bypass in `Microsoft.VisualStudio.Copilot.Core.dll`, researcher Johann Rehberger); not confirmed against primary text.
+- 2026-11-22: MSRC update-guide page for CVE-2026-103572 renders no content to the weekly review (script-only page); daily runs 2026-11-19 to 2026-11-22 found only already-known items (CSA note on CVE-2026-103572, Black Hat Aug 2026). Still no primary technical write-up.
 
 ## What would change the decision
 
@@ -23,3 +24,4 @@ A primary technical write-up (vendor or researcher) confirming each mechanism. T
 ## History
 
 - 2026-10-25 — WAIT — real, patched cases of already-taught patterns; mechanisms rest on secondary coverage (VS Copilot) or an unreachable vendor page (GitLab Duo); revisit for a one-sentence 09.4 example — weekly/2026-W43.md — candidates C-20261023-01, C-20261025-01
+- 2026-11-22 — WAIT — no primary technical write-up for either mechanism; dailies only re-found known items. Same condition as W43 — weekly/2026-W47.md — candidates C-20261023-01, C-20261025-01

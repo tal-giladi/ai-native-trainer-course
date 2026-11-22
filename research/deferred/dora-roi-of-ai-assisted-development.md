@@ -2,7 +2,7 @@
 
 - **Topic ID:** dora-roi-of-ai-assisted-development
 - **Status:** WAIT
-- **Next review:** 2026-11-22
+- **Next review:** 2027-01-17
 - **Course change:** none
 - **Candidates:** C-20261009-01
 
@@ -14,6 +14,7 @@ A standalone DORA (Google Cloud) report and calculator framing AI-assisted devel
 
 - https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development — primary; not fetched (blocked in daily runs). Publish date, method and figures unknown.
 - https://dora.dev/ai/roi — not fetched.
+- 2026-11-22: dora.dev and cloud.google.com do not resolve from the weekly-review session (network allowlist), so the report is still unread.
 
 ## What would change the decision
 
@@ -22,3 +23,4 @@ Reading the report directly: publish date, data source and method (survey vs mod
 ## History
 
 - 2026-10-11 — WAIT — nothing in the record is primary-verified; no date, method or number known — weekly/2026-W41.md — candidates C-20261009-01
+- 2026-11-22 — WAIT — still unread (hosts blocked in research sessions); listed under Needs Tal. If still unreadable at the next review, REJECT for lack of a verifiable method — weekly/2026-W47.md — candidates C-20261009-01

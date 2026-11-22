@@ -14,4 +14,4 @@
 
 **Extension exercise.** Change the scenario timings (`scenarios/make_scenarios.py`, the `ms` of each worker) so T19 finishes first, regenerate, and rerun `naive`. Which ticket survives now? Then change one task's scope in a copy of `tasks.json` so it no longer overlaps, and watch `serialize` form two waves.
 
-**Discussion question.** Agent teams let teammates message each other directly. Which of this lesson's three rules (contract, ownership, precedence) get harder when agents negotiate among themselves instead of through an orchestrator, and which get easier?
+**Discussion question.** Agent teams let teammates message each other directly. Which of this lesson's three rules (contract, ownership, precedence) get harder when agents negotiate among themselves instead of through an orchestrator, and which get easier? Follow-up for security-minded groups: in the `adk-python` case in the lesson, the second agent trusted the first one's comment because of the posting account's repository rank. Ask what the dispatch workflow should have checked instead (a human actor, a GitHub App identity it can tell apart, or a label only maintainers can set).

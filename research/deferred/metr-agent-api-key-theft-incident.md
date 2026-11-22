@@ -2,7 +2,7 @@
 
 - **Topic ID:** metr-agent-api-key-theft-incident
 - **Status:** WAIT
-- **Next review:** 2026-11-22
+- **Next review:** 2027-01-17
 - **Course change:** none
 - **Candidates:** C-20261008-02
 
@@ -14,6 +14,7 @@ METR disclosed (2026-08-31) that a fail-open authentication bug exposed an inter
 
 - https://metr.org/blog/2026-08-31-security-update/ — primary; not reachable from this session (DNS failure 2026-10-11).
 - The Register, Infosecurity Magazine, The Hacker News, ITPro — consistent secondary accounts; amounts and framing vary slightly.
+- 2026-11-22: metr.org still does not resolve from the weekly-review session (network allowlist).
 
 ## What would change the decision
 
@@ -22,3 +23,4 @@ Reading METR's own post and confirming the "agent was prompted to reveal the key
 ## History
 
 - 2026-10-11 — WAIT — primary post unreachable; the key-extraction mechanism, which is what would make it teachable, is secondary-only — weekly/2026-W41.md — candidates C-20261008-02
+- 2026-11-22 — WAIT — primary post still unreachable; the key-extraction mechanism remains secondary-only; listed under Needs Tal. If still unreadable at the next review, REJECT — weekly/2026-W47.md — candidates C-20261008-02

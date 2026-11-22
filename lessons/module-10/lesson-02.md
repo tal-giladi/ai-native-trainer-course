@@ -21,6 +21,8 @@ sources:
     url: https://code.claude.com/docs/en/worktrees
   - title: "Git documentation — git-worktree"
     url: https://git-scm.com/docs/git-worktree
+  - title: "Pillar Security (2026) — Agent-to-agent privilege boundary failures in CI/CD on Google's ADK repository"
+    url: https://www.pillar.security/blog/ill-just-call-you-agent-to-agent-privilege-boundary-failures-in-ci-cd-on-googles-adk-repository
 last_verified: "2026-09-28"
 ---
 
@@ -103,7 +105,7 @@ When agents disagree — a reviewer wants `<`, the plan says `<=` — there are 
 - **An arbiter agent.** Adds a third opinion and another call; it still has no authority the others lack.
 - **Precedence.** A fixed order of sources, written in the design, that each finding must cite: the task's acceptance criteria, then project rules (`AGENTS.md`, ADRs), then role preferences. A finding that cites nothing is dropped; a conflict precedence cannot settle goes to a person.
 
-This is the instruction hierarchy from [02.3](../module-02/lesson-03.md) applied between agents. It has a security corollary: a message from another agent is data, not an instruction with your authority. Claude Code's agent teams tell the receiving agent that a message came from another session, and a teammate cannot approve a permission on your behalf. Treat your own pipelines the same way — an agent that reads an injected ticket ([09.2](../module-09/lesson-02.md)) can pass the injection on in its handoff, so the trust boundaries from [09.1](../module-09/lesson-01.md) run between agents too.
+This is the instruction hierarchy from [02.3](../module-02/lesson-03.md) applied between agents. It has a security corollary: a message from another agent is data, not an instruction with your authority. Claude Code's agent teams tell the receiving agent that a message came from another session, and a teammate cannot approve a permission on your behalf. Treat your own pipelines the same way — an agent that reads an injected ticket ([09.2](../module-09/lesson-02.md)) can pass the injection on in its handoff, so the trust boundaries from [09.1](../module-09/lesson-01.md) run between agents too. A documented case: in Google's `adk-python` repository, a prompt injection in a pull request made the triage agent post a comment starting `@gemini-cli`; the bot account it posted from had Collaborator rank, so the dispatch workflow accepted the comment as a maintainer's request and started a second agent whose job held write-scoped tokens. Google removed the workflows in July 2026 ([Pillar Security](https://www.pillar.security/blog/ill-just-call-you-agent-to-agent-privilege-boundary-failures-in-ci-cd-on-googles-adk-repository)). An agent's account rank is not a human decision: gate on who asked, not on which account typed the words.
 
 ## Show me
 
@@ -219,3 +221,4 @@ Nine tests now, not seven: all three workers' tests survived.
 - [Claude Code docs — Agent teams](https://code.claude.com/docs/en/agent-teams) — shared task list with dependencies and file-locked claiming; two teammates editing the same file leads to overwrites; messages from other sessions are marked as such and cannot approve on the user's behalf (as of 2026-09).
 - [Claude Code docs — Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees) — `--worktree`, `isolation: worktree` for subagents; worktrees isolate file edits (as of 2026-09).
 - [Git documentation — git-worktree](https://git-scm.com/docs/git-worktree) — multiple working trees attached to one repository.
+- [Pillar Security — Agent-to-agent privilege boundary failures in CI/CD on Google's ADK repository](https://www.pillar.security/blog/ill-just-call-you-agent-to-agent-privilege-boundary-failures-in-ci-cd-on-googles-adk-repository) — 2026-08-03: an injected PR made the `adk-bot` triage agent (a PAT-backed Collaborator account, not a GitHub App) post an `@gemini-cli` comment that passed the member/collaborator gate of `gemini-dispatch.yml` and invoked a privileged agent with `issues: write` and `pull-requests: write`; affected workflows removed, fix commit 66730e9 (2026-07-21). Independent coverage: SecurityWeek, Cloud Security Alliance research note.

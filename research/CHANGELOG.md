@@ -4,6 +4,16 @@ How the course evolves. Changes happen at most once a week, only when a developm
 in [the weekly review protocol](PROTOCOL-weekly.md), or when a fact in an existing lesson went stale.
 Paths and quiz ids never change. "No curriculum changes this week" is a normal entry.
 
+## 2026-W47 (2026-11-22)
+
+- **Fixed** [11.1](../lessons/module-11/lesson-01.md) — on a pull-request run, load the agent's `AGENTS.md`,
+  settings and prompt files from the base branch, not the PR head, or a PR can rewrite its own reviewer's
+  rules; claude-code-action made this its default in v1.0.277 (`AGENTS.md`) and v1.0.285 (files named by its
+  inputs, for authors without write access).
+- **Added** to [10.2](../lessons/module-10/lesson-02.md) — a real case for "a message from another agent is
+  data": in Google's `adk-python`, an injected triage bot's comment passed as a maintainer request because of
+  the bot account's Collaborator rank and started a privileged agent.
+
 ## 2026-W46 (2026-11-15)
 
 - **Added** to [04.4](../lessons/module-04/lesson-04.md) — idle compaction: Claude Code compacts a long idle

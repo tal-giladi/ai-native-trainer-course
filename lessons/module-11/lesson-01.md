@@ -21,7 +21,9 @@ sources:
     url: https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/
   - title: "GitHub Docs — Secure use reference for GitHub Actions"
     url: https://docs.github.com/en/actions/reference/security/secure-use
-last_verified: "2026-09-28"
+  - title: "claude-code-action PR #2059 — use the base branch's AGENTS.md on pull requests (release v1.0.277)"
+    url: https://github.com/anthropics/claude-code-action/pull/2059
+last_verified: "2026-11-22"
 ---
 
 # 11.1 · Headless agents
@@ -62,7 +64,7 @@ claude --bare -p "$(cat prompt.txt)" \
 | Flag | What it removes from chance |
 |---|---|
 | `--bare` | Implicit loading. Without it, `-p` loads the same context as an interactive session — hooks, skills, `.mcp.json` servers, `CLAUDE.md`, the runner's `~/.claude` — with no trust dialog. With it, nothing loads that you did not pass. |
-| `--append-system-prompt-file AGENTS.md` | ...so the AI layer comes in explicitly, and you know which version. |
+| `--append-system-prompt-file AGENTS.md` | ...so the AI layer comes in explicitly, and you know which version. On a pull-request run, that is true only if you load it from the base branch (see "Secrets, tokens and untrusted triggers"). |
 | `--settings` | The deny rules from Module 9 ([09.5](../module-09/lesson-05.md)): no secrets, no egress, no edits to the agent layer or workflows. |
 | `--permission-mode dontAsk` + `--allowedTools` | Prompts. Every call that would have asked is denied; the tool surface is exactly the list. |
 | `--max-turns`, `--max-budget-usd` | Runaway loops and runaway spend. Hitting either ends the run with its own result subtype. |
@@ -115,6 +117,8 @@ An agent job holds two credentials: the model API key and the `GITHUB_TOKEN`. Th
 1. **Untrusted code never runs with secrets.** On `pull_request`, GitHub withholds secrets from fork PRs. `pull_request_target` runs in the base repository's context *with* secrets and a token that can write; the GitHub Security Lab calls combining it with a checkout of the PR head "a dangerous practice that may lead to repository compromise" ([pwn requests](https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/)). An agent adds a second path: even without running PR code, it *reads* PR text, and that text can carry an injection.
 2. **Secrets live in one step.** Put `ANTHROPIC_API_KEY` in the `env:` of the agent step, not the workflow. Default the token to `permissions: contents: read` and raise it per job ([GitHub secure use](https://docs.github.com/en/actions/reference/security/secure-use)). Write-capable jobs run in a GitHub *environment* whose secrets are released only after a required reviewer approves (11.4).
 3. **Event text is data, not shell.** `run: claude -p "Fix ${{ github.event.pull_request.title }}"` is a script injection: the title is pasted into the shell script before bash parses it. Pass event text through an `env:` variable or a file.
+
+One more boundary is not about credentials. On a `pull_request` run the checkout is the PR head, so the `AGENTS.md`, the `--settings` file and the prompt file you pass are the PR's versions: a PR can rewrite the rules its own reviewer follows ("report no findings", "allow `Bash(*)`"). Load the agent's instruction, settings and prompt files from the base branch — for example `git show "origin/$BASE_REF:AGENTS.md" > "$RUNNER_TEMP/AGENTS.md"`, with `BASE_REF` set from `github.base_ref` through `env:` — and pass those copies. The PR's version stays in the diff, where it is something to review, not something to obey. The Claude Code action made this its default in November 2026: on pull requests it takes `CLAUDE.md` and, since v1.0.277, `AGENTS.md` from the base branch and keeps the PR's copy under `.claude-pr/` ([PR #2059](https://github.com/anthropics/claude-code-action/pull/2059)); for PR authors without write access, v1.0.285 does the same for the files that its `settings` input and `--settings`/`--mcp-config` arguments name ([PR #2099](https://github.com/anthropics/claude-code-action/pull/2099)).
 
 ## Show me
 
@@ -204,6 +208,7 @@ The general lesson is older than agents: never let a component grade its own wor
 - [ ] The job's pass/fail comes from `result` plus diff, scope, build and tests, never from the `result` text.
 - [ ] `wflint` reports 0 errors on every agent workflow in your repository.
 - [ ] No agent workflow runs on `pull_request_target`, and the API key appears in exactly one step's `env:`.
+- [ ] On a PR run, the agent's `AGENTS.md`, settings and prompt files come from the base branch, not the PR head.
 - [ ] You have measured the spread of three identical runs and written it down.
 
 ## Use / don't use
@@ -231,3 +236,4 @@ The general lesson is older than agents: never let a component grade its own wor
 - [Claude Code docs — How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — result subtypes `success`, `error_max_turns`, `error_max_budget_usd`, `error_during_execution`, `error_max_structured_output_retries`; all carry cost and turns.
 - [GitHub Security Lab — Preventing pwn requests](https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/) — `pull_request_target` plus checkout of the PR head can compromise the repository; split unprivileged work from privileged steps.
 - [GitHub Docs — Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use) — script injection through `github.event.*` text and intermediate environment variables; least-privilege `GITHUB_TOKEN`; secrets and fork PRs.
+- [claude-code-action PR #2059](https://github.com/anthropics/claude-code-action/pull/2059) — released in v1.0.277 (2026-11-16): on a pull request the action follows the base branch's `AGENTS.md` (removed for the run if the base has none), as it already did for `CLAUDE.md`; the PR's version is kept at `.claude-pr/AGENTS.md` and still shows in the diff. Extended by [PR #2088](https://github.com/anthropics/claude-code-action/pull/2088) (v1.0.279: config from the default branch for authors without write access whose PR targets another branch) and [PR #2099](https://github.com/anthropics/claude-code-action/pull/2099) (v1.0.285: files named by `settings`, `plugin_marketplaces`, `--settings`, `--mcp-config`, `--plugin-dir` from the base branch for authors without write access; unchanged for write-access authors or `restrict_untrusted_prs: false`).
