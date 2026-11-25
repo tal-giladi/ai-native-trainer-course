@@ -47,3 +47,24 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** Optional FIX-style addition, one clause in 11.1 after the #2099 sentence and in its references: "since v1.0.288 (2026-11-23) the action skips fork PRs unless `allow_fork_prs: \"true\"`; a comment trigger then needs `pull-requests: read` on a custom token, and a skipped run sets no outputs". Keep path, ids and quiz ids unchanged; no quiz answer changes.
 - **Confidence:** high (that the change shipped); medium (that it is worth a sentence)
 - **Recommendation:** monitor / consider a one-clause addition to 11.1 if the weekly review touches module 11; not urgent because the course's own rule already excludes fork PRs.
+### C-20261125-01 · OpenAI stopped reporting SWE-bench Verified (Feb 2026): flawed tests and training contamination; lesson 07.2 presents Verified as the cleaned-up fix
+
+- **Class:** B
+- **Kind:** correction
+- **Date discovered:** 2026-11-25
+- **Date published:** 2026-02-23
+- **Source:** https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/ (primary, fetched this session)
+- **Organization/researchers:** OpenAI (creator of SWE-bench Verified)
+- **Category:** evaluation
+- **What changed:** OpenAI's research post "Why SWE-bench Verified no longer measures frontier coding capabilities" (23 Feb 2026) says it has stopped reporting SWE-bench Verified scores, asks other developers to do the same, and recommends SWE-bench Pro (stated to be imperfect but less contaminated) until new uncontaminated evaluations exist. Older than the 48 h window; found today via search and not in the registry (`lookup "no longer evaluate"`, `lookup "SWE-bench Verified"`: only lesson and unrelated matches).
+- **Technical summary:** Per the post: in an audit of a 27.6% subset of problems that models often failed, at least 59.4% had flawed test cases; of 138 problems in one audit, 35.5% had overly strict tests enforcing implementation details and 18.8% tested behaviour the problem never specified. Every frontier model tested could reproduce the gold patch or verbatim problem details for some tasks, and models that had seen problems were more likely to pass underspecified tests. State of the art rose only from 74.9% to 80.9% in six months, which OpenAI attributes increasingly to training exposure. (Benchmark creator's own audit; not independently replicated here.)
+- **Why it might matter:** Lesson 07.2 opens with OpenAI's 2024 human review of SWE-bench and says "the 500-task 'Verified' subset was born", then cites Liang et al. on memorization. A reader can come away thinking Verified is the trustworthy, cleaned-up version. Its own creator has since found that the cleaned subset still had flawed tests and contamination and retired it. No sentence is false, but the story is one step short, and the new step makes the lesson's point (write your own private tasks, check that tests accept valid solutions) stronger. 02.5's "never pick a model on a public leaderboard alone" is reinforced, not changed.
+- **Evidence of adoption:** benchmark creator's policy change; vendors' model cards still quoting Verified would be the counter-signal (not checked)
+- **Major organizations using it:** OpenAI (stopped reporting Verified; reports SWE-bench Pro)
+- **Open-source implementation:** n/a
+- **Paper:** none (research post); related arXiv 2506.12286 (already cited in 07.2), https://arxiv.org/abs/2509.16941 (SWE-Bench Pro, found via search, not fetched)
+- **Code:** n/a
+- **Relationship to existing course material:** lesson 07.2 (`lessons/module-07/lesson-02.md` line 31 opening story; line 101–103 "Contamination and leakage"; references line 230–231, `last_verified: 2026-09-28`); lesson 02.5 (`lessons/module-02/lesson-05.md` line 96 SWE-bench and contamination). No registry topic.
+- **Potential course lesson:** FIX-style, one sentence after line 31 of 07.2: "Even that was not the end: in February 2026 OpenAI stopped reporting Verified scores after finding flawed tests in at least 59.4% of an audited subset of hard problems and evidence that every frontier model had seen some tasks" plus the reference. Keep path, ids and quiz ids; no quiz answer changes.
+- **Confidence:** high (that the post says this); medium (that the weekly review will want the sentence)
+- **Recommendation:** consider a one-sentence addition to 07.2 when the weekly review next touches module 7 (it can be bundled with staged `C-20261123-01`, also 07.x).
