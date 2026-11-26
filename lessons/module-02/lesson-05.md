@@ -195,9 +195,13 @@ A decision that flips between N=1 and N=5 was never a decision; it was a sample 
 
 **Use** the taxonomy in post-mortems, code review of agent PRs and workshop Q&A — it turns blame into a fix list. **Use** the matrix whenever a team standardises on a model, adds a task type, or a provider changes price or version.
 
-**Don't** pick models from leaderboards, launch posts or a single impressive demo. **Don't** weight a hard constraint ("privacy: 20%") — a model that cannot legally see the code scores zero, not 80. **Don't** classify a failure without evidence from the trace.
+**Don't** pick models from leaderboards, launch posts or a single impressive demo. **Don't** turn a deal-breaker into points on a scorecard ("privacy: 20%"). Think of hiring someone who has no work permit: you don't take off 20 points for the permit and hire them anyway because they aced the interview. You just can't hire them. A model that isn't allowed to see your code is the same: it isn't "a little worse", it's off the list. **Don't** classify a failure without evidence from the trace.
 
-**Limitations:** substring graders (the starter tasks use them) are crude — Module 7 replaces them with proper graders. Five runs detect large differences only. Classifications need judgement, and two people will sometimes disagree on primary cause; the evidence line is what makes a disagreement productive.
+**Limitations.** This lab has three weak spots.
+
+- **The checks are rough.** The starter tasks decide pass or fail just by looking for a certain word or phrase in the answer. A wrong answer can contain the word and pass, and a right answer worded differently can fail. Module 7 brings better checks.
+- **Five runs only catch big gaps.** Running each task 5 times tells you something only when two models are far apart, like 1 pass out of 5 against 5 out of 5. If they're close, like 3 against 4, it may just be luck.
+- **Naming the cause is a judgement call.** Two people can honestly pick different causes for the same failure. That's why every classification comes with the line of evidence behind it: then the two people argue about something concrete they can both check, not just their opinions.
 
 ## Reflect
 
