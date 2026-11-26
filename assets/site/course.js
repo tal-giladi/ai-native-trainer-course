@@ -26,7 +26,7 @@
   }
 
   function headerHtml(fm) {
-    var obj = (fm.objectives || []).map(function (o) { return '<li>' + esc(o) + '</li>'; }).join('');
+    var obj = (fm.objectives || []).map(function (o) { return '<li>' + mathText(o) + '</li>'; }).join('');
     var pre = (fm.prerequisites || []).map(function (id) {
       var p = String(id).split('.');
       return '<a href="#/lessons/module-' + p[0] + '/lesson-' + ('0' + p[1]).slice(-2) + '">' + esc(id) + '</a>';
@@ -51,19 +51,40 @@
 
   // Shield math from the markdown parser.
   var stash = [];
-  var TOKEN = /(```[\s\S]*?```|~~~[\s\S]*?~~~)|(`[^`\n]*`)|(\$\$[\s\S]+?\$\$)|(\$(?!\s)[^$\n]+?(?<![\s\\])\$)/g;
+  // Same rules as the academy renderer (tals-academy src/lib/render/math.ts): no space after the
+  // opening `$`; the closing `$` is not escaped, not followed by a digit and, after a space, not
+  // followed by a word char, so "$0.12 ... $0.40" prices stay text. `\$` is a literal dollar.
+  var NO_BLANK = String.raw`(?:(?!\n[ \t]*\n)[\s\S])`;
+  var MATH_SRC = String.raw`(?<!\\)(\$\$(` + NO_BLANK + String.raw`+?)\$\$)` +
+    String.raw`|(?<![\\$])\$(?![\s$])((?:[^$\n]|\n(?![ \t]*\n))+?)(?:(?<![\s\\])\$(?!\d)|(?<=\s)\$(?![\w\\{(]))`;
+  var TOKEN = new RegExp(String.raw`(\x60{3}[\s\S]*?\x60{3}|~~~[\s\S]*?~~~)|(\x60\x60[^\n]*?\x60\x60|\x60[^\x60\n]*\x60)|` + MATH_SRC, 'g');
+  function tex(src, display) {
+    if (!window.katex) return esc(display ? '$$' + src + '$$' : '$' + src + '$');
+    try { return window.katex.renderToString(src.trim(), { displayMode: display, throwOnError: false }); }
+    catch (e) { return esc(src); }
+  }
+  var stash = [];
   function shieldMath(md) {
     stash = [];
-    return md.replace(TOKEN, function (m, fence, code) {
+    return md.replace(TOKEN, function (m, fence, code, dfull, dsrc, isrc) {
       if (fence || code) return m;
-      stash.push(m);
+      stash.push(dfull ? [dsrc, true] : [isrc, false]);
       return 'KATEXSTASH' + (stash.length - 1) + 'END';
     });
   }
   function unshieldMath(html) {
-    return html.replace(/KATEXSTASH(\d+)END/g, function (_, i) {
-      return stash[+i].replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    });
+    return html.replace(/KATEXSTASH(\d+)END/g, function (_, i) { return tex(stash[+i][0], stash[+i][1]); });
+  }
+  // Plain text with math (quiz fields): escape the text, render the math, `\$` becomes `$`.
+  function mathText(s) {
+    var re = new RegExp(MATH_SRC, 'g'), out = '', last = 0, m;
+    s = String(s);
+    while ((m = re.exec(s))) {
+      out += esc(s.slice(last, m.index).replace(/\\\$/g, '$'));
+      out += m[1] ? tex(m[2], true) : tex(m[3], false);
+      last = re.lastIndex;
+    }
+    return out + esc(s.slice(last).replace(/\\\$/g, '$'));
   }
 
   function quizUrlFor(file) {
@@ -82,9 +103,9 @@
       var div = document.createElement('div');
       div.className = 'quiz-q';
       var name = quizId + '-' + q.id;
-      div.innerHTML = '<p class="quiz-stem"><strong>' + (qi + 1) + '.</strong> ' + esc(q.question) + '</p>' +
+      div.innerHTML = '<p class="quiz-stem"><strong>' + (qi + 1) + '.</strong> ' + mathText(q.question) + '</p>' +
         q.options.map(function (o, oi) {
-          return '<label class="quiz-opt"><input type="radio" name="' + esc(name) + '" value="' + oi + '"> ' + esc(o) + '</label>';
+          return '<label class="quiz-opt"><input type="radio" name="' + esc(name) + '" value="' + oi + '"> ' + mathText(o) + '</label>';
         }).join('') + '<div class="quiz-expl" hidden></div>';
       wrap.appendChild(div);
     });
@@ -104,14 +125,13 @@
         div.classList.add(ok ? 'ok' : 'bad');
         var ex = div.querySelector('.quiz-expl');
         ex.hidden = false;
-        ex.innerHTML = (ok ? '✅ Correct. ' : '❌ Correct answer: <em>' + esc(q.options[q.correct]) + '</em>. ') + esc(q.explanation);
+        ex.innerHTML = (ok ? '✅ Correct. ' : '❌ Correct answer: <em>' + mathText(q.options[q.correct]) + '</em>. ') + mathText(q.explanation);
       });
       var pct = Math.round(100 * right / questions.length);
       result.textContent = right + ' / ' + questions.length + ' (' + pct + '%) — ' + (pct >= 70 ? 'passed' : 'below the 70% pass mark; review and retry');
       var s = load();
       s.quiz[quizId] = Math.max(s.quiz[quizId] || 0, pct);
       save(s);
-      if (window.renderMathInElement) window.renderMathInElement(wrap, { delimiters: [{ left: '$', right: '$', display: false }], throwOnError: false });
     });
     wrap.appendChild(btn);
     wrap.appendChild(result);
@@ -122,7 +142,6 @@
       wrap.appendChild(prev);
     }
     container.appendChild(wrap);
-    if (window.renderMathInElement) window.renderMathInElement(wrap, { delimiters: [{ left: '$', right: '$', display: false }], throwOnError: false });
   }
 
   function progressBar(container, file) {
@@ -253,13 +272,6 @@
           if (Array.isArray(qs) && qs.length) renderQuiz(section, qs, file);
           progressBar(section, file);
         }).catch(function () { progressBar(section, file); });
-      }
-      if (window.renderMathInElement) {
-        window.renderMathInElement(section, {
-          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
-          ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-          throwOnError: false
-        });
       }
       if (window.mermaid) { try { window.mermaid.run({ querySelector: '.markdown-section .mermaid' }); } catch (e) {} }
       decorateSidebar();

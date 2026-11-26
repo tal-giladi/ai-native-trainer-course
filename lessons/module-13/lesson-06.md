@@ -63,7 +63,7 @@ Three rules keep the run honest:
 | 2. Effect in this study | "In a randomized comparison of 96 tickets, the agent reduced cycle time by 16% (95% CI 5% to 25%)" | the design + the interval |
 | 3. Effect for this team's work | "For this team's kind of tickets, expect roughly 5–25% shorter cycle time" | rung 2 + no major threat unaddressed |
 | 4. Effect elsewhere | "Other .NET teams can expect…" | replication in other teams — not this study |
-| 5. Money | "Saves $X per month" | rung 3 + cost data + quality costs, **as a range** |
+| 5. Money | "Saves \$X per month" | rung 3 + cost data + quality costs, **as a range** |
 
 Unsupported at any rung: "AI makes developers X% faster" (no population, no interval), "no downsides" (absence of evidence for a guardrail), and any point-estimate ROI.
 
@@ -77,7 +77,7 @@ $$\text{net saving} = N \cdot m\,(1 - \rho) \cdot r \;-\; S \;-\; N \cdot \Delta
 
 evaluated at both ends of each interval.
 
-*Tiny example.* Contoso worked example: $m = 13.8$ h, ratio 0.75–0.95, $N = 40$, $r = \$95$. Hours saved: 0.7–3.5 h per ticket → $2,600–$13,100 per month. Escaped defects +0 to +25 points; at 6 hours per escaped defect, that is 0 to 60 hours → $0–$5,700 per month. Before agent spend, the net ranges from about **−$3,100 to +$13,100** per month.
+*Tiny example.* Contoso worked example: $m = 13.8$ h, ratio 0.75–0.95, $N = 40$, $r = \text{\textdollar}95$. Hours saved: 0.7–3.5 h per ticket → $2,600–$13,100 per month. Escaped defects +0 to +25 points; at 6 hours per escaped defect, that is 0 to 60 hours → $0–$5,700 per month. Before agent spend, the net ranges from about **−$3,100 to +$13,100** per month.
 
 *Interpretation.* The honest money statement for this experiment includes the possibility of losing money. That is not a failure of the report; it is the reason the next experiment should target defects. Module 20 builds offers on ranges like this one.
 

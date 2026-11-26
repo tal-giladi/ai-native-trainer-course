@@ -77,7 +77,7 @@ Rules for a fair comparison: same task set, same agent version and model, same n
 
 $$c_\text{pass} = \frac{\sum \text{run costs}}{\text{passes}}$$
 
-**Tiny example (illustrative numbers, not a measurement).** Before: 30 runs at a mean \$0.060, 15 passes → $c_\text{pass} = 1.80 / 15 = \$0.120$. After: 30 runs at \$0.050, 24 passes → $1.50 / 24 = \$0.0625$. The per-run saving is 17%; the saving per *useful* answer is 48%, because the pass rate rose. Interpretation: a layer that is cheaper per run but fails more can be *more* expensive per useful answer — always report both.
+**Tiny example (illustrative numbers, not a measurement).** Before: 30 runs at a mean \$0.060, 15 passes → $c_\text{pass} = 1.80 / 15 = \text{\textdollar}0.120$. After: 30 runs at \$0.050, 24 passes → $1.50 / 24 = \text{\textdollar}0.0625$. The per-run saving is 17%; the saving per *useful* answer is 48%, because the pass rate rose. Interpretation: a layer that is cheaper per run but fails more can be *more* expensive per useful answer — always report both.
 
 **What 30 runs can and cannot show.** 27/30 vs 28/30 is noise. 15/30 vs 24/30 is a difference worth believing provisionally, and a single task going from 3/3 to 0/3 is a strong hint about one fact. Module 7 puts confidence intervals on these; until then, do not claim more than "held" or "clearly improved".
 

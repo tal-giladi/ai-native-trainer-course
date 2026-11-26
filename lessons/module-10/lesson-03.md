@@ -55,7 +55,7 @@ For a review loop capped at $R$ rounds, where each round is approved with probab
 
 $$\mathbb{E}[\text{rounds}] = \sum_{k=0}^{R-1}(1-a)^k = \frac{1-(1-a)^R}{a}$$
 
-*Tiny example.* $a = 0.6$, $R = 3$: $1 + 0.4 + 0.16 = 1.56$ rounds. Uncapped it would be $1/a = 1.67$. At $a = 0$ — a reviewer that never approves — it is $R$ with a cap and unbounded without one. With the T18 scenario's prices, round 1 costs $0.05 + 0.12 + 0.04 = \$0.21$ and each further round (replan, rework, review) $\$0.15$; a $1.00 budget allows $1 + \lfloor (1.00-0.21)/0.15 \rfloor = 6$ rounds before it stops.
+*Tiny example.* $a = 0.6$, $R = 3$: $1 + 0.4 + 0.16 = 1.56$ rounds. Uncapped it would be $1/a = 1.67$. At $a = 0$ — a reviewer that never approves — it is $R$ with a cap and unbounded without one. With the T18 scenario's prices, round 1 costs $0.05 + 0.12 + 0.04 = \text{\textdollar}0.21$ and each further round (replan, rework, review) $\text{\textdollar}0.15$; a $1.00 budget allows $1 + \lfloor (1.00-0.21)/0.15 \rfloor = 6$ rounds before it stops.
 
 *Implementation.* `AgentTeam trace <runs>` prints each role's share of cost and the rounds distribution from real runs; `AgentTeam estimate` combines per-call costs with the loop probabilities.
 

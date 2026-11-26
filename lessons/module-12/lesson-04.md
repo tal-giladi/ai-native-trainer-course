@@ -93,7 +93,7 @@ You will hear these names in a security review. Know what each is *for*:
 
 $$\Delta = \rho \, s \, S$$
 
-*Tiny example.* Fabrikam's primary route costs about \$74,400 a month on an EU geographic profile at standard price; a global profile on the same platform is about 10% cheaper, so the EU constraint costs roughly $0.10 \times 1.0 \times 74{,}400 \approx \$7{,}400$ a month on that route, plus the 10% multi-region premium on the fallback's small share. The larger cost is not money: the vendor's own API (newest models, most features) is eliminated outright, and newly released models reach EU endpoints later.
+*Tiny example.* Fabrikam's primary route costs about \$74,400 a month on an EU geographic profile at standard price; a global profile on the same platform is about 10% cheaper, so the EU constraint costs roughly $0.10 \times 1.0 \times 74{,}400 \approx \text{\textdollar}7{,}400$ a month on that route, plus the 10% multi-region premium on the fallback's small share. The larger cost is not money: the vendor's own API (newest models, most features) is eliminated outright, and newly released models reach EU endpoints later.
 
 *Interpretation.* Put both numbers in the ADR: the price and the capability lag. Legal decides whether the constraint is worth it; engineering makes sure they decide with the real figures.
 

@@ -91,7 +91,7 @@ At turn 30 of a debugging session with $H = 120{,}000$, the same equation gives 
 
 $$\text{cost}_R \approx p \cdot \big(1.25\,R + 0.1\,R\,(n-1)\big) \quad\text{vs}\quad p \cdot n \cdot R \text{ uncached}$$
 
-**Tiny example.** $R = 7{,}028$, $n = 10$ requests per session, 1,440 sessions a month (the team from [03.1](../module-03/lesson-01.md)), example price $p = \$3$ per million input tokens:
+**Tiny example.** $R = 7{,}028$, $n = 10$ requests per session, 1,440 sessions a month (the team from [03.1](../module-03/lesson-01.md)), example price $p = \text{\textdollar}3$ per million input tokens:
 
 - uncached: $7{,}028 \times 10 \times 1{,}440 = 101.2$M tokens → **\$303.61/month**
 - warm cache: $1{,}440 \times (8{,}785 + 6{,}325) \approx 21.8$M token-equivalents → **\$65.28/month**

@@ -95,7 +95,7 @@ The procedure is the one from [02.5](../module-02/lesson-05.md), extended with a
 
 $$c_{\text{eff}} = c + \frac{F}{N}, \qquad \text{cost per success} = \frac{c_{\text{eff}}}{p} + \left(\frac{1}{p} - 1\right) h$$
 
-*Tiny example.* Fabrikam plans $N = 120{,}000$ attempts a month, $h = \$15$. A larger open-weights model on its own GPUs: $c = \$0.04$, $F = \$96{,}000$, $p = 0.62$. Then $c_{\text{eff}} = 0.04 + 0.80 = \$0.84$, and cost per success $= 0.84 / 0.62 + (1/0.62 - 1) \times 15 \approx 1.35 + 9.19 = \$10.55$. A cloud-hosted frontier model at $c = \$0.62$, $F = 0$, $p = 0.74$: $0.84 + 5.27 = \$6.11$.
+*Tiny example.* Fabrikam plans $N = 120{,}000$ attempts a month, $h = \text{\textdollar}15$. A larger open-weights model on its own GPUs: $c = \text{\textdollar}0.04$, $F = \text{\textdollar}96{,}000$, $p = 0.62$. Then $c_{\text{eff}} = 0.04 + 0.80 = \text{\textdollar}0.84$, and cost per success $= 0.84 / 0.62 + (1/0.62 - 1) \times 15 \approx 1.35 + 9.19 = \text{\textdollar}10.55$. A cloud-hosted frontier model at $c = \text{\textdollar}0.62$, $F = 0$, $p = 0.74$: $0.84 + 5.27 = \text{\textdollar}6.11$.
 
 *Implementation.* `ArchCheck hosting` in the lab does both steps from a JSON file of options.
 
@@ -160,7 +160,7 @@ The cheapest row is `self-hosted-mid-open-weights` at $0.42 per attempt, fixed c
 
 ## Fix it
 
-**Diagnose.** The price ranking skipped both steps. It never applied the pass-rate floor (the mid-size model passes 46% of Fabrikam's tasks, and even the top of its interval only reaches the floor), and it priced attempts, not successes. At 46% the review term alone is $(1/0.46 - 1) \times 15 = \$17.61$ per success, nearly three times the whole cost of the chosen option. "No lock-in" is real but belongs in the consequences of the decision, not in place of the constraint check.
+**Diagnose.** The price ranking skipped both steps. It never applied the pass-rate floor (the mid-size model passes 46% of Fabrikam's tasks, and even the top of its interval only reaches the floor), and it priced attempts, not successes. At 46% the review term alone is $(1/0.46 - 1) \times 15 = \text{\textdollar}17.61$ per success, nearly three times the whole cost of the chosen option. "No lock-in" is real but belongs in the consequences of the decision, not in place of the constraint check.
 
 **Modify.** Re-run without `--by price`. Record in your notes which constraint removed each option and the cost per success of each survivor. If the self-hosted route matters for other reasons (a sovereign-cloud requirement, air-gapped sites), write it as a separate hard constraint and see which options survive *that*.
 

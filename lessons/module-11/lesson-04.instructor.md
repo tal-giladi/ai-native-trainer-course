@@ -2,7 +2,7 @@
 
 **Teaching objective.** Students run agent jobs as a service: approval chosen by reversibility, rollback defined for every versioned part, a kill switch and shadow runs, a per-run ledger with cost per useful outcome, spend bounded at run, job and day level, and retries by failure class.
 
-**Likely confusion.** "Useful outcome" vs "successful run". A run can end with `success` and produce nothing anyone uses (a review with zero comments, a changelog PR that is closed). $/useful is the business number; $/run is the infrastructure number.
+**Likely confusion.** "Useful outcome" vs "successful run". A run can end with `success` and produce nothing anyone uses (a review with zero comments, a changelog PR that is closed). \$/useful is the business number; \$/run is the infrastructure number.
 
 **Common misconception.** "`--max-budget-usd` means we cannot overspend." Walk through the $137 day: no run broke the per-run cap. Most cost incidents are counts of runs, not size of a run.
 

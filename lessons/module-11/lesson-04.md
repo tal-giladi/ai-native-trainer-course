@@ -71,7 +71,7 @@ The table above is about one question: must a person approve this run before it 
 | **Sampled review** | on a schedule, at a random sample of finished runs | reversible actions whose quality drifts slowly: summaries, triage, draft PRs that get merged with a light review |
 | **Gate** | before the action runs, every time | irreversible or environment-wide actions |
 
-Sampled review catches what per-run approval misses and costs far less. Suppose a failure shows up in 5% of runs. If someone reads 20 random runs each week, the chance they see at least one is $1 - 0.95^{20} pprox 0.64$; with 40 runs it is $1 - 0.95^{40} pprox 0.87$. Pick the sample size from the failure rate you need to notice, write it in the job's policy, and record what the reviewer found in the run ledger.
+Sampled review catches what per-run approval misses and costs far less. Suppose a failure shows up in 5% of runs. If someone reads 20 random runs each week, the chance they see at least one is $1 - 0.95^{20} \approx 0.64$; with 40 runs it is $1 - 0.95^{40} \approx 0.87$. Pick the sample size from the failure rate you need to notice, write it in the job's policy, and record what the reviewer found in the run ledger.
 
 Calibrating this is a trade-off, not a safety default. The MIT Sloan Management Review and BCG survey of 2,102 executives (November 2025) found leaders expect agents to take on more decision authority. MIT Sloan's write-up of it puts the tension plainly: too much supervision cancels the benefit of autonomy, and too little creates compliance and reputation risk. McKinsey (April 2026) describes the same shift from the other side: human roles move from doing the work to supervising and orchestrating it. BCG's Applied AI Index 2026 (September 2026, 1,330 senior leaders) shows how far behind most organisations are: 42% expect to give agents real decision-making authority by 2030, but only 5% have the full set of controls in place today, controls that include oversight and rollback gates. Designing these three levels is that supervision work, and it is a skill you can teach.
 
@@ -159,7 +159,7 @@ A normal Contoso day costs about $2. Before the change, dep-fix cost $9.48 over 
 
 Budget: 60 minutes.
 
-1. **Read the ledger.** Run `ledger` on `ops/runs.jsonl`. For each job, compare $/useful with your 11.3 estimate of minutes saved per accepted output. Which job would you cut first?
+1. **Read the ledger.** Run `ledger` on `ops/runs.jsonl`. For each job, compare \$/useful with your 11.3 estimate of minutes saved per accepted output. Which job would you cut first?
 2. **Ledger lines everywhere.** Copy the "Ledger line" step and artifact upload from `agent-fix.yml` into every agent workflow you wired in 11.1–11.3.
 3. **Kill switch drill.** Set `AGENTS_ENABLED=false`, dispatch two agent workflows, confirm both skip. Set it back. Write the drill date on each automation card.
 4. **Breaker.** Copy `workflows/budget-guard.yml`, set `AGENT_DAILY_CEILING_USD` to something you would notice (e.g. three times your normal day), and dispatch it once. Confirm it reads today's ledger lines.
@@ -221,7 +221,7 @@ The per-run cap did its job and the incident happened anyway, because incidents 
 
 **Limitations.**
 
-- Ledger outcomes like `merged` arrive days later; a weekly job must update them or $/useful will look worse than it is.
+- Ledger outcomes like `merged` arrive days later; a weekly job must update them or \$/useful will look worse than it is.
 - `total_cost_usd` is a client-side estimate and can differ from the bill; reconcile monthly with the provider's usage data.
 - The breaker reacts within the hour it is scheduled on; a truly fast loop needs the provider-side spend limit as well.
 

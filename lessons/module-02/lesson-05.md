@@ -120,7 +120,7 @@ $$\text{cost per success} = \frac{c}{p} + \left(\frac{1}{p} - 1\right) h$$
 
 $1/p$ is the expected number of attempts; $1/p - 1$ the expected number of failures.
 
-**Tiny example.** Review of a failed attempt takes 10 minutes at $90/hour, so $h = \$15$.
+**Tiny example.** Review of a failed attempt takes 10 minutes at $90/hour, so $h = \text{\textdollar}15$.
 
 | | $c$ | $p$ | Tokens: $c/p$ | Failures: $(1/p-1)h$ | Total |
 |---|---:|---:|---:|---:|---:|

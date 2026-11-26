@@ -24,18 +24,18 @@ A model that fails any row is out, whatever it scores below.
 
 ## 3. Measured results (survivors only)
 
-| Model (id, provider) | Task | Pass k/N | p50 latency (s) | p95 latency (s) | $/attempt | $/success (tokens only) | $/success incl. failure cost |
+| Model (id, provider) | Task | Pass k/N | p50 latency (s) | p95 latency (s) | \$/attempt | \$/success (tokens only) | \$/success incl. failure cost |
 |---|---|---|---|---|---|---|---|
 | | | | | | | | |
 
-$/success incl. failure cost $= \dfrac{\text{\$/attempt}}{p} + \left(\dfrac{1}{p} - 1\right) \times \text{cost of one failure}$, assuming failures are detected and retried.
+\$/success incl. failure cost $= \dfrac{\text{\textdollar/attempt}}{p} + \left(\dfrac{1}{p} - 1\right) \times \text{cost of one failure}$, assuming failures are detected and retried.
 
 ## 4. Weighted criteria (optional, survivors only)
 
 | Criterion | Weight | Model A | Model B | Model C |
 |---|---|---|---|---|
 | Pass rate on our tasks | | | | |
-| $/success incl. failure cost | | | | |
+| \$/success incl. failure cost | | | | |
 | Latency for interactive use | | | | |
 | Behaviour on our language mix (e.g. Hebrew tickets) | | | | |
 | Tool-use reliability (malformed calls per 100) | | | | |
