@@ -25,3 +25,9 @@ Fact-check: `curriculum/research-notes/2026-11-11-minimal-ai-engineer-toolkit-fa
 - llm-evals-course 11.4: Promptfoo/OpenAI announcement and pinned versions.
 - Open: ai-engineer is still in the old format — the Academy dry run reports 402 problems (no front-matter, no .quiz.yaml, markdown answer keys), same as before these edits; it needs a format conversion before import. Module 3 quiz now has 11 questions (guideline 8-10). `output/ai-engineer-course-complete.md` is stale.
 - Open: langchain-mcp-adapters 0.3.2 still requires mcp<2 (old protocol); 7.4 tells learners to keep server and agent in separate environments.
+
+## Dollar amounts render as math (found 2026-11-26)
+Two `$` amounts in one paragraph or quiz field are read as KaTeX math ("$0.12 ... $0.40" became "0.12perattempt..."). Fixed in 02.5 quiz q2. Same pattern still in quizzes: module-11/lesson-04, module-12/lesson-01, module-13/lesson-01, module-13/lesson-06, assessments module-11 and module-12; and lesson text in 11.4, 12.1, 13.1, 13.6 needs checking.
+
+## 02.5 quiz q1 wording
+Option D ("instruction failure") assumes a rule existed; the question never says whether one did. Consider stating "no instruction mentioned the schema" in the stem.
