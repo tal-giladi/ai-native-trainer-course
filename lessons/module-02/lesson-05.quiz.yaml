@@ -17,17 +17,17 @@
     and it escaped because no check against the schema was run. Nothing in the trace suggests an old schema or a rule.
 - id: q2
   question: >-
-    Model A costs $0.12 per attempt and passes 60% of the time; model B costs $0.40 and passes 90%.
-    Reviewing a failed attempt costs $15 of engineer time. Which is cheaper per finished task?
+    Model A costs 12 cents per attempt and passes 60% of the time; model B costs 40 cents and passes 90%.
+    Reviewing a failed attempt costs 15 dollars of engineer time. Which is cheaper per finished task?
   options:
     - >-
-      Model A, at about $0.20 per success, because it costs less than a third as much per attempt.
+      Model A, at about 20 cents per success, because it costs less than a third as much per attempt.
     - >-
       They are about equal, because A's lower price almost exactly offsets its lower pass rate.
     - >-
-      Model B, at about $2.11 versus $10.20, because failure review costs dominate token costs.
+      Model B, at about 2.11 versus 10.20 dollars, because failure review costs dominate token costs.
     - >-
-      Model B, at about $0.44 versus $0.20, because tokens are the only cost that scales with volume.
+      Model B, at about 44 versus 20 cents, because tokens are the only cost that scales with volume.
   correct: 2
   explanation: >-
     Cost per success = c/p + (1/p - 1)h. For A: 0.20 + 0.667 x 15 = 10.20. For B: 0.44 + 0.111 x 15 = 2.11.
