@@ -87,9 +87,24 @@ A claim with no source anywhere in context, after you have ruled out 5, is a tru
 
 ### Selecting a model: constraints, then measurements
 
-**Step 1 — hard constraints eliminate; they are never weighted.** Data-handling and retention terms, residency and hosting (Module 12), required API features (tool use, strict schemas, batch), the context you actually need, and — for open weights — the licence. A model that fails one is out, however well it scores.
+**Step 1 — cross out the models you are not allowed to use.** Before you compare anything, ask yes-or-no questions that a model either passes or fails. These are deal-breakers, not points on a scorecard: a model that fails even one is off the list, no matter how smart it is. There is no "it's brilliant, so we'll live with it."
 
-**Step 2 — measure the survivors on your tasks.** Pass rate over N runs (02.2), latency (median and slow tail), tokens and cost per attempt, effective context on your inputs (02.1), behaviour on your language mix, and tool-use reliability (malformed calls per 100, from 02.4).
+- **What happens to your data?** Does the provider keep your prompts, for how long, and can they train on them? If your contract or your security team says "no storing customer data," a model whose terms allow it is out.
+- **Where does it run?** Some companies must keep data inside a certain country, or on their own servers (Module 12 covers this). A model only offered from a data centre abroad fails that test.
+- **Can it do what your code needs?** If your agent calls tools, needs answers in an exact JSON shape every time, or sends large jobs in cheap overnight batches, the model's API has to support that. If it doesn't, it doesn't matter how well it writes.
+- **Can it hold enough text?** If a typical task means reading 150 pages of code and tickets, a model that only fits 50 pages is out. Count what you really send, not the biggest number you can imagine.
+- **For a model you download and run yourself (an "open-weights" model): does its licence allow your use?** Some forbid commercial use or cap the number of users.
+
+Only the models that survive every question move to step 2.
+
+**Step 2 — test the survivors on your own work.** Take 10–20 real tasks from your team, run each remaining model on them, and write down what happens. Don't trust a single try: the same model can pass a task once and fail it the next time, so run each task several times (02.2 shows how). For each model, measure:
+
+- **How often it gets the job done.** Out of all the runs, how many produced a result you would actually accept?
+- **How long it takes.** Look at the typical wait, and also at the slowest runs. A model that usually answers in 5 seconds but sometimes takes 2 minutes will feel broken to the person waiting.
+- **What one attempt costs.** Count the tokens it reads and writes per task and turn that into money.
+- **How much text it really handles.** A model may accept 200 pages but start missing things after 60. Test with inputs the size of yours (02.1 shows the effect).
+- **How it copes with your languages.** If your tickets are in Hebrew and your code comments in English, test exactly that mix.
+- **How reliably it uses tools.** Out of 100 tool calls, how many were broken (wrong name, missing field, invalid JSON)? 02.4 shows how to count them.
 
 **Step 3 — weight only what is left**, and write down what would change the decision.
 
