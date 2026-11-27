@@ -89,10 +89,23 @@ The same loop your team runs for production code, applied to the files that stee
 
 ### How CODEOWNERS enforces review
 
-GitHub reads a `CODEOWNERS` file from `.github/`, the repository root or `docs/` (first one found). Each line maps a path pattern to owners. Two mechanics matter:
+`CODEOWNERS` is a plain text file that tells GitHub who is responsible for which files. Each line has a file or folder pattern on the left and one or more people or teams on the right:
 
-1. **The last matching pattern wins.** A catch-all `*` line must come *first*; specific AI-layer lines come after it.
-2. Ownership only **blocks merges** when branch protection (or a ruleset) has "Require review from Code Owners" enabled. Without it, owners are merely *requested*.
+```text
+*            @contoso/billing-devs
+/CLAUDE.md   @contoso/billing-leads
+```
+
+Read it as: "everything belongs to the billing devs, except `CLAUDE.md`, which belongs to the billing leads." GitHub looks for the file in `.github/`, then the repository root, then `docs/`, and uses the first one it finds.
+
+When someone opens a pull request, GitHub checks which files it changes, looks each one up in `CODEOWNERS`, and automatically adds those owners as reviewers. You don't have to remember who should look at a rules change; GitHub asks them for you.
+
+Two details decide whether this actually protects the AI layer:
+
+1. **When several lines match a file, the last one wins.** The `*` line matches every file, including `CLAUDE.md`. In the example above, `/CLAUDE.md` comes after `*`, so for that file the leads win. Swap the two lines and `*` becomes the last match for `CLAUDE.md` too, so the devs own it and the leads are never asked. The rule of thumb: put the catch-all `*` line **first** and the specific AI-layer lines **after** it.
+2. **On its own, `CODEOWNERS` only asks; it does not block.** Owners are added as reviewers, but anyone with merge rights can still merge without their approval. To make their approval required, turn on **Require review from Code Owners** in the branch protection rule (or ruleset) for `main`. From then on, a pull request that touches `CLAUDE.md` cannot be merged until one of its owners approves it.
+
+You need both: `CODEOWNERS` says *who* must review, and branch protection makes that review *mandatory*.
 
 ## Show me
 
