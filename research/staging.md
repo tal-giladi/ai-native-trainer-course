@@ -68,3 +68,24 @@ candidates here (full records); the weekly review evaluates them, archives this 
 - **Potential course lesson:** FIX-style, one sentence after line 31 of 07.2: "Even that was not the end: in February 2026 OpenAI stopped reporting Verified scores after finding flawed tests in at least 59.4% of an audited subset of hard problems and evidence that every frontier model had seen some tasks" plus the reference. Keep path, ids and quiz ids; no quiz answer changes.
 - **Confidence:** high (that the post says this); medium (that the weekly review will want the sentence)
 - **Recommendation:** consider a one-sentence addition to 07.2 when the weekly review next touches module 7 (it can be bundled with staged `C-20261123-01`, also 07.x).
+### C-20261128-01 · Microsoft field study of Claude Code and Copilot CLI rollout: adopters merged ~24% more PRs (synthetic control), adoption spread through peer networks
+
+- **Class:** B
+- **Kind:** new-topic
+- **Date discovered:** 2026-11-28
+- **Date published:** 2026-07-01
+- **Source:** https://arxiv.org/abs/2607.01418 (primary, abstract and HTML full text fetched this session)
+- **Organization/researchers:** Emerson Murphy-Hill, Jenna Butler, Alexandra Savelieva (Microsoft employees, per the paper's own limitations section)
+- **Category:** productivity-evidence
+- **What changed:** Preprint "Adoption and Impact of Command-Line AI Coding Agents: A Study of Microsoft's Early 2026 Rollout of Claude Code and GitHub Copilot CLI" (v1 1 Jul 2026, only version; not peer reviewed). Older than the 48 h window; found today via search and not in the registry or course (`lookup "2607.01418"`, `lookup "Murphy-Hill"`: no matches).
+- **Technical summary:** Per the paper, it is an observational study of tens of thousands of Microsoft engineers (exact N not reported). It finds that first use spread mainly through social networks, and that continued use tracked engineers' coding activity more than demographics. The impact estimate uses a synthetic-control design (CausalImpact, Bayesian structural time series). Adopters are engineers with any agent activity in the rollout week (Jan 5–11, 2026). The control is 10 random groups of never-adopters, and both cohorts needed at least 2 merged PRs before the rollout. The result is +24.0% merged PRs per engineer per day over a 115-day post-period (95% CI +14.5% to +33.7%). A placebo test at 2025-10-06 gave -1.1% [-10.6%, +8.6%]. No quality or revert measures were checked. Stated limitations: adopters self-selected; the design does not absorb adopter-specific shocks; only Azure DevOps PRs were counted; merged PRs reward small, frequent PRs; it covers one company; the authors work at the company that sells Copilot; and the "no decay" claim rests on overlapping monthly intervals.
+- **Why it might matter:** Lesson 13.2 says "few published studies cover agentic tools on enterprise brownfield code". Its evidence table stops at completion-era field RCTs (Cui et al. +26.08% completed PRs) and the Cursor difference-in-differences study (He et al.). This is the first large in-company study of CLI agents in the course's target setting. It is also a good worked example for 13.4 (threats to validity: self-selection, PR-count proxy, missing quality outcomes, author affiliation). The finding that adoption spreads through peers fits 19.2 (champions, homophily) as supporting evidence.
+- **Evidence of adoption:** n/a (study, not a practice); Microsoft's internal rollout of both tools is described by the authors
+- **Major organizations using it:** Microsoft (study setting)
+- **Open-source implementation:** none
+- **Paper:** https://arxiv.org/abs/2607.01418
+- **Code:** none
+- **Relationship to existing course material:** lesson 13.2 (`lessons/module-13/lesson-02.md` line 63 evidence ladder, line 76 Cui et al. row, line 190 "few published studies cover agentic tools…", references lines 201–214); 13.4 threats to validity; 19.1/19.2 social influence and champion networks. Contrast: He et al. 2511.04427 (persistent quality cost), which this study does not measure.
+- **Potential course lesson:** If the weekly review agrees: one evidence-table row and reference in 13.2, labelled observational with self-selection and no quality outcome, and a softened line 190 ("one large observational study at Microsoft…"). It could also serve as an optional 13.4 critique exercise. Keep paths, ids and quiz ids unchanged.
+- **Confidence:** medium (that the paper says this); low–medium (on causal size: observational, self-selected, vendor-affiliated, unreviewed)
+- **Recommendation:** monitor; consider a labelled row in 13.2 at the next module-13 touch, ideally after peer review or a quality-outcome follow-up.
